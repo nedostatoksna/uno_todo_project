@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/uno_todo_project/static/css/main.073c9b0a.css",
+    "main.js": "/uno_todo_project/static/js/main.334fdb5b.js",
+    "static/js/787.28cb0dcd.chunk.js": "/uno_todo_project/static/js/787.28cb0dcd.chunk.js",
+    "static/media/logo.svg": "/uno_todo_project/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/uno_todo_project/index.html",
+    "main.073c9b0a.css.map": "/uno_todo_project/static/css/main.073c9b0a.css.map",
+    "main.334fdb5b.js.map": "/uno_todo_project/static/js/main.334fdb5b.js.map",
+    "787.28cb0dcd.chunk.js.map": "/uno_todo_project/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.334fdb5b.js"
+  ]
+}
