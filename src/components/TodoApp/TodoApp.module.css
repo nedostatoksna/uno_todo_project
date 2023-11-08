@@ -1,0 +1,6 @@
+.app_wrapper {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    width: 1512px;
+}

@@ -1,0 +1,98 @@
+.wrapper {
+    background: #B0A2F2;
+    padding: 20px;
+    width: 1232px;
+}
+.title {
+    font-family: "Roboto";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 127.273% */
+    background: transparent;
+    border: none;
+    color: #fff;
+}
+.header_box {
+    width: 1192px;
+    font-family: "Roboto";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 127.273% */
+    color: #fff;
+    padding: 12px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.edit {
+    background: url("../../images/editIcon.svg");
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    border: none;
+
+}
+.delete {
+    background: url("../../images/deleteIcon.svg");
+    padding: 8px;
+    width: 40px;
+    height: 40px;
+    border: none;
+}
+.tabs_wrapper {
+    width: 360px;
+
+}
+.active_tab {
+    width: 180px;
+    height: 48px;
+    color: #5946D2;
+    background: transparent;
+    border: none;
+    border-bottom: solid 2px #5946D2;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+}
+.tab {
+    color: rgba(28, 27, 31, 0.38);
+    width: 180px;
+    height: 48px;
+    background: transparent;
+    border: none;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+}
+.divider {
+    height: 1px;
+    width: 360px;
+    border: 0.5px solid #FFFFFF;
+    opacity: 20%;
+}
+.todos_wrapper {
+    padding-top: 10px;
+}
+.add_todo_btn {
+    width: 1192px;
+    padding: 10px 24px 10px 42px;
+    background: url(../../images/whitePlusIcon.svg) no-repeat center left 16px, rgba(28, 27, 31, 0.16);
+    color: #FFFFFF;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+    letter-spacing: 0.1px;
+    border: none;
+    text-align: start;
+    border-radius: 20px;
+}

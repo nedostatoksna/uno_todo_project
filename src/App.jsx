@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import { AppContext } from './context/context';
+import StartPage from './components/StartPage';
+import TodoApp from './components/TodoApp';
+import { useSelector } from 'react-redux';
 
 function App() {
+
+  const [isVisible, setIsVisible] = useState(true);
+  const context = useSelector(state => state.userPanelUI);
+
+  const contextObj = {
+    palette: context.palette,
+    lang: context.lang,
+    mode: context.mode
+  };
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <AppContext.Provider value={contextObj}>
+      {
+        isVisible
+          ? <StartPage setIsVisible={setIsVisible} /> :  <TodoApp /> 
+      }
+    </AppContext.Provider>
+    </>
   );
 }
 

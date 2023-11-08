@@ -1,0 +1,8 @@
+const TOGGLE_MODAL = "TOGGLE_MODAL";
+const IS_LOGGING_OUT = "LOG_OUT";
+const SAVE_SETTINGS = "SAVE_SETTINGS";
+
+export { 
+    TOGGLE_MODAL, 
+    IS_LOGGING_OUT, 
+    SAVE_SETTINGS };

@@ -1,0 +1,136 @@
+import dataInitialState from "../states/dataInitialState";
+import { 
+    CREATE_LIST, 
+    RENAME_LIST, 
+    DELETE_LIST, 
+    ADD_TODO_TO_LIST } from "../actions/dataListActions";
+import { 
+    CHANGE_COMPLETED, 
+    CHANGE_IMPORTANT, 
+    CHANGE_TITLE, 
+    CHANGE_NOTE, 
+    CHOOSE_DEADLINE, 
+    DELETE_DEADLINE, 
+    DELETE_TODO } from "../actions/dataTodoActions";
+
+const dataListReducer = (state = dataInitialState, {type, payload}) => {
+    switch (type) {
+        case CREATE_LIST: return [
+            ...state, 
+            { 
+                title: payload.listTitle,
+                id: crypto.randomUUID,
+                todos: [] 
+            }
+        ]
+        case RENAME_LIST: return state.map(list => {
+            if (list.id === payload.listId) return {
+                ...list, title: payload.listTitle
+            }
+            return list
+        })
+        case DELETE_LIST: return state.filter(list => list.id !== payload.listId)
+        case ADD_TODO_TO_LIST: return state.map(list => {
+            if (list.id === payload.listId) return {
+                ...list, todos: [
+                    ...list.todos, 
+                    {
+                        id: crypto.randomUUID,
+                        title: payload.todoTitle,
+                        isCompleted: false,
+                        isImportant: false,
+                        createDate: new Date(),
+                        deadlineDate: null,
+                        note: null
+                    }
+                ]
+            }
+            return list
+        })
+        case CHANGE_COMPLETED: return state.map(list => {
+            if (list.id === payload.listId) return {
+                ...list,
+                    todos: list.todos.map(todo => {
+                        if (todo.id === payload.todoId) return {
+                            ...todo, isCompleted: payload.todoCompleted
+                        }
+                        return todo
+                    })
+            }
+            return list
+        })
+        case CHANGE_IMPORTANT: return state.map(list => {
+            if (list.id === payload.listId) return {
+                ...list,
+                    todos: list.todos.map(todo => {
+                        if (todo.id === payload.todoId) return {
+                            ...todo, isImportant: payload.todoImportant
+                        }
+                        return todo
+                    })
+            }
+            return list
+        })
+        case CHANGE_TITLE: return state.map(list => {
+            if (list.id === payload.listId) return {
+                ...list,
+                    todos: list.todos.map(todo => {
+                        if (todo.id === payload.todoId) return {
+                            ...todo, title: payload.todoTitle
+                        }
+                        return todo
+                    })
+            }
+            return list
+        })
+        case CHANGE_NOTE: return state.map(list => {
+            if (list.id === payload.listId) return {
+                ...list,
+                    todos: list.todos.map(todo => {
+                        if (todo.id === payload.todoId) return {
+                            ...todo, note: payload.todoNote
+                        }
+                        return todo
+                    })
+            }
+            return list
+        })
+        case CHOOSE_DEADLINE: return state.map(list => {
+            if (list.id === payload.listId) return {
+                ...list,
+                    todos: list.todos.map(todo => {
+                        if (todo.id === payload.todoId) return {
+                            ...todo, deadlineDate: payload.todoDeadlineDate
+                        }
+                        return todo
+                    })
+            }
+            return list
+        })
+        case DELETE_DEADLINE: return state.map(list => {
+            if (list.id === payload.listId) return {
+                ...list,
+                    todos: list.todos.map(todo => {
+                        if (todo.id === payload.todoId) return {
+                            ...todo, deadlineDate: null
+                        }
+                        return todo
+                    })
+            }
+            return list
+        })
+        case DELETE_TODO: return state.map(list => {
+            if (list.id === payload.listId) return {
+                ...list,
+                    todos: list.todos.filter(todo => 
+                        todo.id !== payload.todoId 
+                    )
+            }
+            return list
+        })
+
+        default: return state;
+    }
+};
+
+export default dataListReducer;
