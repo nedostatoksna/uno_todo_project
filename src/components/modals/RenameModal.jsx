@@ -1,10 +1,19 @@
-import React, { useState } from "react";
-import style from "./Modals.module.css";
+import React, { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleRenamingList } from "../../store/actionCreators/todoListActionCreators";
 import { renameList } from "../../store/actionCreators/dataListActionCreators.js.js";
+import CancelButton from "../../ui/CancelButton";
+import PrimaryButton from "../../ui/PrimaryButton";
+import ButtonsWrapper from "../../ui/ButtonsWrapper";
+import ModalInput from "../../ui/ModalInput";
+import ModalHeader from "../../ui/ModalHeader";
+import Modal from "../../ui/Modal";
+import ModalContent from "../../ui/ModalContent";
+import { AppContext } from "../../context/context";
 
 const RenameModal = ({ listId }) => {
+
+    const context = useContext(AppContext);
 
     const [value, setValue] = useState("");
     const dispatch = useDispatch();
@@ -14,17 +23,16 @@ const RenameModal = ({ listId }) => {
     };
 
     return (
-        <div className={style.rename_modal}>
-            <div className={style.rename_modal_content}>
-                <h1 className={style.header}>Rename list</h1>
-                <input value={value} onChange={(e) => setValue(e.target.value)} className={style.rename_input} placeholder="Rename list" />
-                <div className={style.rename_btns_box}>
-                    <button className={style.cancel} onClick={() => {dispatch(toggleRenamingList())}}>Cancel</button>
-                    <button className={style.rename} onClick={() => preSaveNewName(listId, value)}>Rename</button>
-                </div>
-            </div>
-        
-        </div>
+        <Modal>
+            <ModalContent $mode={context.mode}>
+                <ModalHeader $mode={context.mode}>Rename list</ModalHeader>
+                <ModalInput $mode={context.mode} value={value} onChange={(e) => setValue(e.target.value)} placeholder="Rename list" />
+                <ButtonsWrapper>
+                    <CancelButton onClick={() => {dispatch(toggleRenamingList())}} />
+                    <PrimaryButton onClick={() => preSaveNewName(listId, value)} $text={"Rename"} $mode={context.mode} />
+                </ButtonsWrapper>
+            </ModalContent>
+        </Modal>
     )
 };
 

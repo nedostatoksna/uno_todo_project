@@ -1,4 +1,4 @@
-.wrapper {
+/* .wrapper {
     margin: auto;
     display: flex;
     flex-direction: row;
@@ -10,7 +10,7 @@
 .illustration_wrapper {
     padding: 60px;
     background:  rgba(89, 70, 210, 0.08);
-}
+} */
 .logo {
     margin-bottom: 100px;
 }
@@ -32,19 +32,4 @@
     font-style: normal;
     font-weight: 600;
     line-height: 24px; /* 150% */
-}
-.start_btn {
-    background: #5946D2;
-    color: #FFFFFF;
-    border-radius: 20px;
-    border: none;
-    width: 330px;
-    padding: 10px 24px;
-    text-align: center;
-    font-family: "Roboto";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 20px; /* 142.857% */
-    letter-spacing: 0.1px;
 }

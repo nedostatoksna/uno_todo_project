@@ -4,6 +4,7 @@ import { AppContext } from './context/context';
 import StartPage from './components/StartPage';
 import TodoApp from './components/TodoApp';
 import { useSelector } from 'react-redux';
+import GlobalStyle from './globalStyles';
 
 function App() {
 
@@ -18,11 +19,13 @@ function App() {
   
   return (
     <>
+    <GlobalStyle />
     <AppContext.Provider value={contextObj}>
       {
         isVisible
           ? <StartPage setIsVisible={setIsVisible} /> :  <TodoApp /> 
       }
+      <StartPage />
     </AppContext.Provider>
     </>
   );

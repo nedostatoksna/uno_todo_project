@@ -96,7 +96,7 @@
     height: 1px;
 }
 .about {
-    padding: 10px 20px 0px 20px;
+    padding-top: 10px
 }
 .about_text {
     font-family: "Roboto";
@@ -122,44 +122,4 @@
     margin-left: 12px;
 
 }
-.save_box {
-    padding: 20px 24px 24px 24px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-}
-.save {
-    background-color: #5946D2;
-    color: #FFFFFF;
-    font-family: "Roboto";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 20px; /* 142.857% */
-    letter-spacing: 0.1px;
-    border: none;
-    width: 79px;
-    height: 40px;
-    padding: 10px 24px;
-    border-radius: 20px;
-}
-.cancel {
-    margin: 0px 10px;
-    color: #5946D2;
-    background-color: #FFFFFF;
-    font-family: "Roboto";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 20px; /* 142.857% */
-    letter-spacing: 0.1px;
-    border: none;
-    width: 68px;
-    height: 40px;
-    padding: 10px 12px;
-    border-radius: 20px;
-}
-.cancel:hover {
-    background: #E5DEFF;
-    color: #5946D2;
-}
+

@@ -19,7 +19,7 @@ const dataListReducer = (state = dataInitialState, {type, payload}) => {
             ...state, 
             { 
                 title: payload.listTitle,
-                id: crypto.randomUUID,
+                id: crypto.randomUUID(),
                 todos: [] 
             }
         ]
@@ -35,7 +35,7 @@ const dataListReducer = (state = dataInitialState, {type, payload}) => {
                 ...list, todos: [
                     ...list.todos, 
                     {
-                        id: crypto.randomUUID,
+                        id: crypto.randomUUID(),
                         title: payload.todoTitle,
                         isCompleted: false,
                         isImportant: false,

@@ -1,10 +1,21 @@
-import React, { useState } from "react";
-import style from "./Modals.module.css";
+import React, { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleCreatingTodo } from "../../store/actionCreators/todoListActionCreators";
 import { addTodoToList } from "../../store/actionCreators/dataListActionCreators.js.js";
 
+import CancelButton from "../../ui/CancelButton";
+import SavePlusButton from "../../ui/SavePlusButton";
+import ButtonsWrapper from "../../ui/ButtonsWrapper";
+import ModalInput from "../../ui/ModalInput";
+import ModalHeader from "../../ui/ModalHeader";
+import Modal from "../../ui/Modal";
+import ModalContent from "../../ui/ModalContent";
+import { AppContext } from "../../context/context";
+
 const AddTodoModal = () => {
+
+    const context = useContext(AppContext);
+    console.log(context.mode);
 
     const [value, setValue] = useState("");
     const dispatch = useDispatch();
@@ -14,16 +25,16 @@ const AddTodoModal = () => {
     };
 
     return (
-        <div className={style.rename_modal}>
-            <div className={style.rename_modal_content}>
-                <h1 className={style.header}>Add a task</h1>
-                <input value={value} onChange={(e) => setValue(e.target.value)} className={style.rename_input} placeholder="Add a task" />
-                <div className={style.rename_btns_box}>
-                    <button className={style.cancel} onClick={() => {dispatch(toggleCreatingTodo())}}>Cancel</button>
-                    <button className={style.add} onClick={() => preAddNewTodo(value)}>Add</button>
-                </div>
-            </div>
-        </div>
+            <Modal>
+                <ModalContent $mode={context.mode}>
+                    <ModalHeader $mode={context.mode}>Add a task</ModalHeader>
+                    <ModalInput $mode={context.mode} value={value} onChange={(e) => setValue(e.target.value)} placeholder="Add a task"/>
+                    <ButtonsWrapper>
+                        <CancelButton onClick={() => {dispatch(toggleCreatingTodo())}} $mode={context.mode} />
+                        <SavePlusButton  onClick={() => preAddNewTodo(value)} $text={"Add"} />
+                    </ButtonsWrapper>
+                </ModalContent>
+            </Modal>
     )
 };
 

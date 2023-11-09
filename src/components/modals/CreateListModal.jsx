@@ -1,10 +1,19 @@
-import React, { useState } from "react";
-import style from "./Modals.module.css";
+import React, { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleCreatingList } from "../../store/actionCreators/todoListActionCreators";
 import { createList } from "../../store/actionCreators/dataListActionCreators.js.js";
+import CancelButton from "../../ui/CancelButton";
+import SavePlusButton from "../../ui/SavePlusButton";
+import ButtonsWrapper from "../../ui/ButtonsWrapper";
+import ModalInput from "../../ui/ModalInput";
+import ModalHeader from "../../ui/ModalHeader";
+import Modal from "../../ui/Modal";
+import ModalContent from "../../ui/ModalContent";
+import { AppContext } from "../../context/context";
 
 const CreateListModal = () => {
+
+    const context = useContext(AppContext);
 
     const [value, setValue] = useState("");
     const dispatch = useDispatch();
@@ -14,16 +23,16 @@ const CreateListModal = () => {
     };
 
     return (
-        <div className={style.rename_modal}>
-            <div className={style.rename_modal_content}>
-                <h1 className={style.header}>New list</h1>
-                <input value={value} onChange={(e) => setValue(e.target.value)} className={style.rename_input} placeholder="Enter list title" />
-                <div className={style.rename_btns_box}>
-                    <button className={style.cancel} onClick={() => {dispatch(toggleCreatingList())}}>Cancel</button>
-                    <button className={style.create} onClick={() => preCreateNewName(value)}>Create</button>
-                </div>
-            </div>
-        </div>
+            <Modal>
+                <ModalContent $mode={context.mode}>
+                    <ModalHeader $mode={context.mode}>New list</ModalHeader>
+                    <ModalInput $mode={context.mode} value={value} onChange={(e) => setValue(e.target.value)} placeholder="Enter list title" />
+                    <ButtonsWrapper>
+                        <CancelButton onClick={() => {dispatch(toggleCreatingList())}} $mode={context.mode} />
+                        <SavePlusButton onClick={() => preCreateNewName(value)} $text={"Create"} />
+                    </ButtonsWrapper>
+                </ModalContent>
+            </Modal>
     )
 };
 
