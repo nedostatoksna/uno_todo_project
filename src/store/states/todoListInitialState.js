@@ -6,7 +6,8 @@ const todoListInitialState = {
     isShowingCompleted: false,
     isShowingImportant: false,
     activeListId: "1",
-    searchQuery: ""
+    searchQuery: "",
+    isSearching: false
 };
 
 export default todoListInitialState;

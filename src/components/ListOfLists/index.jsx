@@ -2,6 +2,7 @@ import React from "react";
 import style from "./ListOfLists.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { switchActiveTodoId } from "../../store/actionCreators/todoListActionCreators";
+import Wrapper from "../../ui/divs/Wrapper";
 
 
 const ListOfLists = () => {
@@ -11,7 +12,7 @@ const ListOfLists = () => {
     const dispatch = useDispatch();
 
     return (
-        <div className={style.lists_wrapper}>
+        <Wrapper $margin={"auto auto 5px auto"} $width={"240px"} $height={"608px"}>
             {
                 (lists.length > 0)
                     ?
@@ -19,8 +20,7 @@ const ListOfLists = () => {
                         <button className={list.id === activeList ? style.active_list : style.list} key={list.id} onClick={() => {dispatch(switchActiveTodoId(list.id))}}>{list.title}</button>
                     )) : undefined
             }
-        
-        </div>
+        </Wrapper>
     )
 };
 

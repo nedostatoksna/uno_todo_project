@@ -13,7 +13,7 @@ export default ModalInput;
 
 const StyledModalInput = styled.input` 
     color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.38)" : "rgba(230, 225, 229, 0.38)"};
-    background: ${props => props.$mode === "Light" ? "#fff" : "#49454F"};
+    background: ${props => props.$mode === "Light" ? "#FAF9FB" : "#49454F"};
     font-family: "Roboto";
     font-size: 16px;
     font-style: normal;

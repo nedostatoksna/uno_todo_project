@@ -25,7 +25,6 @@ function App() {
         isVisible
           ? <StartPage setIsVisible={setIsVisible} /> :  <TodoApp /> 
       }
-      <StartPage />
     </AppContext.Provider>
     </>
   );

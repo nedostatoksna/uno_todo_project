@@ -1,24 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import style from "./TaskListInterface.module.css";
 import { useSelector } from "react-redux";
 
 import List from "./List";
+import Wrapper from "../../ui/divs/Wrapper";
+import { AppContext } from "../../context/context";
 
 const TaskListInterface = () => {
 
     const lists = useSelector(state => state.dataLists);
     const activeList = useSelector(state => state.todoListUI.activeListId);
+    const context = useContext(AppContext);
 
     return (
-        <div className={style.wrapper}>
+        <Wrapper $background={context.mode === "Light" ? "#B0A2F2" : "#544794"} $padding={"20px"} $width={"1232px"}>
             {
                 lists.map(list => (
                     list.id === activeList ? <List key={list.id} list={list}/> : undefined
                 ))
             }
-
-        </div>
-
+        </Wrapper>
     )
 };
 

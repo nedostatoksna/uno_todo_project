@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { changeIsLoggingOut } from "../../store/actionCreators/userPanelActionCreators";
-import CancelButton from "../../ui/CancelButton";
-import PrimaryButton from "../../ui/PrimaryButton";
-import ButtonsWrapper from "../../ui/ButtonsWrapper";
-import ModalHeader from "../../ui/ModalHeader";
-import Modal from "../../ui/Modal";
-import ModalContent from "../../ui/ModalContent";
+import CancelButton from "../../ui/buttons/CancelButton";
+import PrimaryButton from "../../ui/buttons/PrimaryButton";
+import ButtonsWrapper from "../../ui/divs/ButtonsWrapper";
+import ModalHeader from "../../ui/headers/ModalHeader";
+import Modal from "../../ui/divs/Modal";
+import ModalContent from "../../ui/divs/ModalContent";
 import SubText from "../../ui/SubText";
 import { AppContext } from "../../context/context";
 
@@ -22,7 +22,7 @@ const SignOutModal = () => {
                 <SubText $mode={context.mode}>Are you sure you would like to sign out?</SubText>
                 <ButtonsWrapper>
                     <CancelButton onClick={() => {dispatch(changeIsLoggingOut())}} $mode={context.mode} />
-                    <PrimaryButton onClick={() => {dispatch(changeIsLoggingOut())}} $text={"Sigh Out"} $btnColor={"#F85977"} />
+                    <PrimaryButton onClick={() => {dispatch(changeIsLoggingOut())}} $btnColor={"#F85977"}>Sigh Out</PrimaryButton>
                 </ButtonsWrapper>
             </ModalContent>
         </Modal>

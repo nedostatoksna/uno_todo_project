@@ -7,6 +7,7 @@ import {
     TOOGLE_DELETING_LIST,
     TOOGLE_CREATING_LIST,
     TOOGLE_CREATING_TODO,
+    TOOGLE_IS_SEARCHING,
     SEARCH } from "../actions/todoListActions";
 
 const todoListReducer = (state = todoListInitialState, {type, payload}) => {
@@ -34,6 +35,9 @@ const todoListReducer = (state = todoListInitialState, {type, payload}) => {
         }
         case SEARCH: return {
             ...state, searchQuery: payload.searchString
+        }
+        case TOOGLE_IS_SEARCHING: return {
+            ...state, isSearching: !payload.isSearching
         }
         default: return state;
     }

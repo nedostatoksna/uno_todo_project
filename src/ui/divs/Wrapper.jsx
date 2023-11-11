@@ -15,7 +15,9 @@ const StyledWrapper = styled.div`
     margin: ${props => props.$margin || "0px"};
     display: ${props => props.$display || undefined};
     flex-direction: ${props => props.$flexDir || undefined};
+    align-items: ${props => props.$alignItems || undefined};
     width: ${props => props.$width || undefined};
+    height: ${props => props.$height || undefined};
     padding: ${props => props.$padding};
     background-color: ${props => props.$background};
 `;

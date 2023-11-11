@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import plusIcon from "../images/whitePlusIcon.svg";
+import plusIcon from "../../images/whitePlusIcon.svg";
 
 const SavePlusButton = ( props ) => { // text, onClick
 
@@ -15,7 +15,7 @@ export default SavePlusButton;
 const StyledButton = styled.button` 
     margin: 0px;
     color: #FFFFFF;
-    background-color: #5946D2;
+    background-color: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
     background-image: url(${plusIcon});
     background-repeat: no-repeat;
     background-position: center left 16px;
