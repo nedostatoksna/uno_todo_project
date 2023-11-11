@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { toggleCreatingTodo } from "../../store/actionCreators/todoListActionCreators";
 import { addTodoToList } from "../../store/actionCreators/dataListActionCreators.js.js";
 import CancelButton from "../../ui/buttons/CancelButton";
-import SavePlusButton from "../../ui/buttons/SavePlusButton";
+import ModalPlusButton from "../../ui/buttons/ModalPlusButton";
 import ButtonsWrapper from "../../ui/divs/ButtonsWrapper";
 import ModalInput from "../../ui/ModalInput";
 import ModalHeader from "../../ui/headers/ModalHeader";
@@ -30,7 +30,7 @@ const AddTodoModal = () => {
                 <ModalInput $mode={context.mode} value={value} onChange={(e) => setValue(e.target.value)} placeholder="Add a task"/>
                 <ButtonsWrapper>
                     <CancelButton onClick={() => {dispatch(toggleCreatingTodo())}} $mode={context.mode} />
-                    <SavePlusButton  onClick={() => preAddNewTodo(value)} $text={"Add"} $mode={context.mode} />
+                    <ModalPlusButton  onClick={() => preAddNewTodo(value)} $text={"Add"} $mode={context.mode} />
                 </ButtonsWrapper>
             </ModalContent>
         </Modal>

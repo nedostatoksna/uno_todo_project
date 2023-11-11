@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { save, toggleUserPanel } from "../../store/actionCreators/userPanelActionCreators";
 import CancelButton from "../../ui/buttons/CancelButton";
-import PrimaryButton from "../../ui/buttons/PrimaryButton";
+import PrimaryButton from "../../ui/buttons/Button";
 import ButtonsWrapper from "../../ui/divs/ButtonsWrapper";
 import { AppContext } from "../../context/context";
 

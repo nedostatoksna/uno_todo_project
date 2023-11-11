@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { changeIsLoggingOut } from "../../store/actionCreators/userPanelActionCreators";
 import CancelButton from "../../ui/buttons/CancelButton";
-import PrimaryButton from "../../ui/buttons/PrimaryButton";
+import PrimaryButton from "../../ui/buttons/Button";
 import ButtonsWrapper from "../../ui/divs/ButtonsWrapper";
 import ModalHeader from "../../ui/headers/ModalHeader";
 import Modal from "../../ui/divs/Modal";

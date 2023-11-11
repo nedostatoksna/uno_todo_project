@@ -1,25 +1,22 @@
 import React from "react";
 import styled from "styled-components";
+import plusIcon from "../../images/whitePlusIcon.svg";
 
-const PrimaryButton = ( props ) => { // text, onClick, btnColor
-
-    // const darkPink = "#D9415E";
-    // const darkPurple = "#9373FF";
-    // const lightPink = "#F85977";
-    // const lightPurple = "#5946D2";
+const ModalPlusButton = ( props ) => { // text, onClick
 
     return (
         <>
-            <StyledPrimaryButton {...props}>{props.children}</StyledPrimaryButton>
+            <StyledButton {...props}>{props.$text}</StyledButton>
         </>
     )
 };
-export default PrimaryButton;
+export default ModalPlusButton;
 
-const StyledPrimaryButton = styled.button` 
+const StyledButton = styled.button` 
     margin: 0px;
-    color: #fff;
+    color: #FFFFFF;
     background-color: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
+    background-image: url(${plusIcon});
     background-repeat: no-repeat;
     background-position: center left 16px;
     font-family: "Roboto";
@@ -30,7 +27,6 @@ const StyledPrimaryButton = styled.button`
     letter-spacing: 0.1px;
     border: none;
     height: 40px;
-    padding: 10px 24px;
+    padding: 10px 24px 10px 42px;
     border-radius: 20px;
-    min-width: ${props => props.$width || "79px"};
 `;

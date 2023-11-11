@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { toggleRenamingList } from "../../store/actionCreators/todoListActionCreators";
 import { renameList } from "../../store/actionCreators/dataListActionCreators.js.js";
 import CancelButton from "../../ui/buttons/CancelButton";
-import PrimaryButton from "../../ui/buttons/PrimaryButton";
+import PrimaryButton from "../../ui/buttons/Button";
 import ButtonsWrapper from "../../ui/divs/ButtonsWrapper";
 import ModalInput from "../../ui/ModalInput";
 import ModalHeader from "../../ui/headers/ModalHeader";
