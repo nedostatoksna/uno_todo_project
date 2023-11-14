@@ -9,7 +9,7 @@ const Tabs = () => {
     const dispatch = useDispatch();
 
     return (
-        <div>
+        <>
             <button 
                 onClick={() => {dispatch(switchVisibleCompleted())}}
                 className={!completedTabActive ? style.active_tab : style.tab}
@@ -19,7 +19,7 @@ const Tabs = () => {
                 className={completedTabActive ? style.active_tab : style.tab}
             >Completed</button>
             <hr className={style.divider} />
-        </div>
+        </>
     )
 };
 

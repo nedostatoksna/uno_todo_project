@@ -13,7 +13,7 @@ const TaskListInterface = () => {
     const context = useContext(AppContext);
 
     return (
-        <Wrapper $purple $padding={"20px"} $width={"1232px"}>
+        <Wrapper $purple $padding={"32px 20px 20px 20px"} $mode={context.mode}>
             {
                 lists.map(list => (
                     list.id === activeList ? <List key={list.id} list={list}/> : undefined

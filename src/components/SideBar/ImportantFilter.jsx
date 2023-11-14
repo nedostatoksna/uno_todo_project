@@ -9,7 +9,7 @@ const ImportantFilter = () => {
     const dispatch = useDispatch();
 
     return (
-        <Wrapper $margin={"auto auto 5px auto"} width={"240px"}>
+        <Wrapper $list>
             <button className={style.important} onClick={() => {dispatch(switchVisibleImportant())}}>Important</button>
             <button className={style.tasks} onClick={() => {dispatch(switchVisibleImportant())}}>Tasks</button>
         </Wrapper>

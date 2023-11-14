@@ -10,12 +10,7 @@ const NewListBtn = () => {
 
     return (
         <>
-            <PlusButton
-                onClick={() => {dispatch(toggleCreatingList())}}
-                $mode={context.mode}
-                width="18px"
-                height="18px"
-            >
+            <PlusButton onClick={() => {dispatch(toggleCreatingList())}} $primary $mode={context.mode} $width={"240px"}>
                 New List
             </PlusButton>
         </>

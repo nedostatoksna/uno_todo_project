@@ -14,9 +14,8 @@ export default Wrapper;
 const StyledWrapper = styled.div` 
     margin: auto;
     width: ${props => props.$width || "1232px"};
-    height: 100%;
-    padding: ${props => props.$padding};
-
+    padding: ${props => props.$padding || undefined};
+   
     ${props => props.$primary && css `
         background-color: ${props => props.$mode === "Light" ? "#fff" : "#201F24"};
     `}
@@ -27,10 +26,46 @@ const StyledWrapper = styled.div`
         background-color: ${props => props.$mode === "Light" ? "#F85977" : "#D9415E"};
     `}
     ${props => props.$transparent && css `
-        background-color: ${props => props.$mode === "Light" ? "rgba(89, 70, 210, 0.08)" : "rgba(200, 191, 255, 0.08)"};
+        background-color: ${props => props.$mode === "Light" ? "rgba(89, 70, 210, 0.08)" : "rgba(200, 191, 255, 0.08)"}; 
     `}
     ${props => props.$grey && css `
         background-color: ${props => props.$mode === "Light" ? "#F4F4F4" : "#252429"};
+    `}
+
+    ${props => props.$buttons && css `
+        padding: 20px 4px 0px 4px;
+        width: 452px;
+    `}
+    ${props => props.$sideBar && css `
+        padding: 40px 20px 20px 20px;
+        width: 280px;
+    `}
+    ${props => props.$search && css `
+        background-color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.08)" : "rgba(230, 225, 229, 0.08)"};
+        height: 60px;
+        width: 240px;
+        margin-top: 20px;
+    `}
+    ${props => props.$list && css `
+        width: 240px;
+        margin: auto auto 5px auto;
+    `}
+    ${props => props.$listOfLists && css `
+        height: 608px;
+    `}
+    ${props => props.$listOfTodos && css `
+        height: 780px;
+        padding-top: 10px;
+        width: 912px;
+        margin: 0px;
+    `}
+    ${props => props.$todoList && css `
+        margin: 0px;
+        width: 1192px;
+    `}
+    ${props => props.$header && css `
+        padding: 12px 0px;
+        width: 1192px;
     `}
 `;
 
