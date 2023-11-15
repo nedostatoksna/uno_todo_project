@@ -31,10 +31,6 @@ const TodoApp = () => {
 
     return (
         <>
-            {/* { isCreatingList && <CreateListModal /> }
-            { isCreatingTodo && <AddTodoModal /> }
-            { isRenaming && <RenameModal listId={activeList} /> } */}
-
             { 
                 isCreatingList || isRenaming || isCreatingTodo ? <SaveModal actionType={setActionType()} listId={activeList} /> : undefined
             }

@@ -1,11 +1,8 @@
 import React, { useCallback, useContext, useEffect, useRef } from "react";
 import { useDispatch, useSelector} from "react-redux";
 import { setSearchQuery, toggleIsSearching } from "../../store/actionCreators/todoListActionCreators";
-import searchIcon from "../../images/searchIcon.svg";
-import searchIconDarkTheme from "../../images/searchIconDark.svg";
 import { AppContext } from "../../context/context";
 import Divider from "../../ui/Divider";
-import Label from "../../ui/Label";
 import styled from "styled-components";
 import Button from "../../ui/Button";
 
@@ -37,14 +34,16 @@ const SearchBar = () => {
         <>
             <SearchBarWrapper $mode={context.mode}>
                     <Button 
+                        $icon
                         $type={"search"}
-                        src={context.mode === "Light" ? searchIcon : searchIconDarkTheme} 
                         alt="magnifying glass icon" 
                         $margin={"17px 8px 17px 16px"} 
+                        $width={"24px"}
+                        $height={"24px"}
                         $mode={context.mode}
                     ></Button>
                         <StyledSearchInputWrapper>
-                            { isSearching ? <Label $mode={context.mode}>Search</Label> : undefined}
+                            { isSearching ? <StyledLabel $mode={context.mode}>Search</StyledLabel> : undefined}
                                 <StyledSearchInput 
                                     ref={searchInputFocus} 
                                     $mode={context.mode} 
@@ -57,9 +56,12 @@ const SearchBar = () => {
                     { 
                         isSearching 
                             ?  <Button
+                                    $icon
                                     $type={"cross"}
-                                    $margin={"17px 16px 17px 8px" }
-                                    alt={"cross"} 
+                                    $margin={"17px 16px 17px 8px"}
+                                    alt="cross"
+                                    $width={"24px"}
+                                    $height={"24px"}
                                     onClick={() => cancelSearch()}
                                     $mode={context.mode}
                                 ></Button> : undefined
@@ -99,4 +101,13 @@ const StyledSearchInput = styled.input`
     width: ${props => props.$isSearching === true ? "144px" : "176px"};
     height: 24px;
     border: none;
+`;
+const StyledLabel = styled.label` 
+    font-family: "Roboto";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px; 
+    letter-spacing: 0.4px;
+    color: ${props => props.$mode === 'Light' ? '#5946D2' : '#9373FF'};
 `;

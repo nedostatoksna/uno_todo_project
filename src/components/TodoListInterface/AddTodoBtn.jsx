@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { toggleCreatingTodo } from "../../store/actionCreators/todoListActionCreators";
-import Button from "../../ui/buttons/Button";
+import Button from "../../ui/Button";
 
 const AddTodoBtn = () => {
 

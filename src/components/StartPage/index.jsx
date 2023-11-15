@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import startPageIllustration from "../../images/startPageIlustration.svg";
-import Button from "../../ui/buttons/Button";
+import Button from "../../ui/Button";
 import { AppContext } from "../../context/context";
 import logoLightMode from "../../images/logoUnoMD.svg";
 import logoDarkMode from "../../images/logoUnoWhite.svg";

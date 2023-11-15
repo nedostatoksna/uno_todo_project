@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { toggleCreatingList } from "../../store/actionCreators/todoListActionCreators";
 import { AppContext } from "../../context/context";
-import Button from "../../ui/buttons/Button";
+import Button from "../../ui/Button";
 
 const NewListBtn = () => {
     const dispatch = useDispatch();

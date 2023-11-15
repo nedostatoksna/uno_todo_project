@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
 import { save, toggleUserPanel } from "../../store/actionCreators/userPanelActionCreators";
 import { AppContext } from "../../context/context";
-import Button from "../../ui/buttons/Button";
-import Wrapper from "../../styled/divs/Wrapper";
-import Flex from "../../styled/divs/Flex";
+import Button from "../../ui/Button";
 import styled from "styled-components";
 
 const SaveCancelBtns = ({dispatch, dynamicContext}) => {

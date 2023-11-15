@@ -10,6 +10,7 @@ import searchIconDarkTheme from "../images/searchIconDark.svg";
 import editIconWhite from "../images/editIcon.svg";
 import deleteIconWhite from "../images/deleteIcon.svg";
 
+
 const Button = ( props ) => { 
     return (
         <>
@@ -87,10 +88,10 @@ const StyledButton = styled.button`
             : undefined
         };
         background-position: center;
-        padding: ${props => props.$padding || undefined};
-        margin: ${props => props.$margin || undefined};
-        width: 40px;
-        height: 40px;
+        padding: ${props => props.$padding || "0px"};
+        margin: ${props => props.$margin || "0px"};
+        width: ${props => props.$width || "40px"};;
+        height: ${props => props.$height || "40px"};
         border-radius: 0px;
         background-color: transparent;
     `}
