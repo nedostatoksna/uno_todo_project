@@ -2,7 +2,7 @@ import React from "react";
 import style from "./SideBar.module.css";
 import { useDispatch } from "react-redux";
 import { switchVisibleImportant } from "../../store/actionCreators/todoListActionCreators";
-import Wrapper from "../../ui/divs/Wrapper";
+import styled from "styled-components";
 
 const ImportantFilter = () => {
 
@@ -17,3 +17,7 @@ const ImportantFilter = () => {
 };
 
 export default ImportantFilter;
+
+const Wrapper = styled.div`
+    margin: auto auto 5px auto;
+`;

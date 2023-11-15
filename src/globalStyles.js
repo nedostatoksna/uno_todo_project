@@ -11,7 +11,17 @@ const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: "Roboto";
     src: local("Roboto-Regular"),
-     url("./fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+    url("./fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+  }
+
+  input:focus {
+    outline: none;
+  }
+  button {
+    border: none;
+  }
+  button:focus {
+    outline: none;
   }
 `;
 

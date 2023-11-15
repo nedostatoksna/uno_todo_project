@@ -8,7 +8,7 @@ import {
     TOOGLE_CREATING_LIST,
     TOOGLE_CREATING_TODO,
     TOOGLE_IS_SEARCHING,
-    SEARCH } from "../actions/todoListActions";
+    SET_SEARCH_QUERY } from "../actions/todoListActions";
 
 const todoListReducer = (state = todoListInitialState, {type, payload}) => {
     switch (type) {
@@ -33,8 +33,8 @@ const todoListReducer = (state = todoListInitialState, {type, payload}) => {
         case SWITCH_VISIBLE_IMPORTANT: return {
             ...state, isShowingImportant: !state.isShowingImportant
         }
-        case SEARCH: return {
-            ...state, searchQuery: payload.searchString
+        case SET_SEARCH_QUERY: return {
+            ...state, searchQuery: payload.searchString 
         }
         case TOOGLE_IS_SEARCHING: return {
             ...state, isSearching: !state.isSearching

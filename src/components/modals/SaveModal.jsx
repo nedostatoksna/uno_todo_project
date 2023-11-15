@@ -11,7 +11,7 @@ import ModalHeader from "../../styled/headers/ModalHeader";
 import styled from "styled-components";
 
 
-const AddTodoModal = () => {
+const SaveModal = () => {
 
     const context = useContext(AppContext);
     const activeListId = useSelector(state => state.todoListUI.activeListId);
@@ -37,7 +37,7 @@ const AddTodoModal = () => {
     )
 };
 
-export default AddTodoModal;
+export default SaveModal;
 
 const ButtonGroupWrapper = styled.div`
     padding: 20px 4px 0px 4px;

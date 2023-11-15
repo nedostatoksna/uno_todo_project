@@ -1,63 +1,89 @@
-import React, { useContext, useState } from "react";
+import React, { useCallback, useContext, useEffect, useRef } from "react";
 import { useDispatch, useSelector} from "react-redux";
-import { search, toggleIsSearching } from "../../store/actionCreators/todoListActionCreators";
-import IconButton from "../../ui/buttons/IconButton";
+import { setSearchQuery, toggleIsSearching } from "../../store/actionCreators/todoListActionCreators";
 import searchIcon from "../../images/searchIcon.svg";
-import whiteCrossIcon from "../../images/whiteCrossIcon.svg";
-import blackCrossIcon from "../../images/blackCrossIcon.svg";
 import searchIconDarkTheme from "../../images/searchIconDark.svg";
 import { AppContext } from "../../context/context";
 import Divider from "../../ui/Divider";
 import Label from "../../ui/Label";
-import Flex from "../../ui/divs/Flex";
-import Wrapper from "../../ui/divs/Wrapper";
 import styled from "styled-components";
+import Button from "../../ui/Button";
 
 const SearchBar = () => {
+
+    const searchInputFocus = useRef(null);
+
     const dispatch = useDispatch();
-    const [value, setValue] = useState("");
     const context = useContext(AppContext);
     const isSearching = useSelector(state => state.todoListUI.isSearching);
-    console.log(isSearching);
+    const searchQuery = useSelector(state => state.todoListUI.searchQuery);
 
-    const preSearch = (searchString) => {
-        setValue(searchString);
-        dispatch(search(value));
+    const cashedPreSearch = useCallback((e) => {
+        dispatch(toggleIsSearching());
+    }, [dispatch]);
+
+    const cancelSearch = () => {
+        dispatch(toggleIsSearching());
+        dispatch(setSearchQuery(""))
     };
+
+    useEffect(() => {
+        const input = searchInputFocus.current;
+        input.addEventListener("focus", cashedPreSearch);
+        return () => input.removeEventListener("focus", cashedPreSearch);
+    }, [cashedPreSearch]);
 
     return (
         <>
-            <Wrapper $search $mode={context.mode}>
-                <Flex $flexDir={"row"}>
-                    <IconButton 
+            <SearchBarWrapper $mode={context.mode}>
+                    <Button 
+                        $type={"search"}
                         src={context.mode === "Light" ? searchIcon : searchIconDarkTheme} 
                         alt="magnifying glass icon" 
                         $margin={"17px 8px 17px 16px"} 
-                        onClick={() => {dispatch(toggleIsSearching())}}
-                    />
-                        <Flex $alignItems={"flex-start"}>
+                        $mode={context.mode}
+                    ></Button>
+                        <StyledSearchInputWrapper>
                             { isSearching ? <Label $mode={context.mode}>Search</Label> : undefined}
-                            <StyledSearchInput $mode={context.mode} $isSearching={isSearching} placeholder="Search" value={value} onChange={(e) => preSearch(e.target.value)} />
-                        </Flex>
+                                <StyledSearchInput 
+                                    ref={searchInputFocus} 
+                                    $mode={context.mode} 
+                                    $isSearching={isSearching} 
+                                    placeholder="Search" 
+                                    value={searchQuery}
+                                    onChange={(e) => {dispatch(setSearchQuery(e.target.value))}}
+                                />
+                        </StyledSearchInputWrapper>
                     { 
                         isSearching 
-                            ?  <IconButton 
-                                    src={context.mode === "Light" ? blackCrossIcon : whiteCrossIcon}
-                                    alt={"cross"}
-                                    $margin={"17px 16px 17px 8px"} 
-                                    onClick={() => {dispatch(toggleIsSearching())}}
-                                /> : undefined
+                            ?  <Button
+                                    $type={"cross"}
+                                    $margin={"17px 16px 17px 8px" }
+                                    alt={"cross"} 
+                                    onClick={() => cancelSearch()}
+                                    $mode={context.mode}
+                                ></Button> : undefined
                     }
-
-                </Flex>
-            </Wrapper>
+            </SearchBarWrapper>
             <Divider $mode={context.mode} />
-        </>
+        </> 
     )
 };
 
 export default SearchBar;
 
+const SearchBarWrapper = styled.div`
+    background-color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.08)" : "rgba(230, 225, 229, 0.08)"};
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
+const StyledSearchInputWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+`;
 const StyledSearchInput = styled.input` 
     color: ${props => props.$mode === "Light" && props.$isSearching === false ?  "rgba(28, 27, 31, 0.38)"
     : props => props.$mode === "Light" && props.$isSearching === true ? "#1C1B1F"
@@ -73,7 +99,4 @@ const StyledSearchInput = styled.input`
     width: ${props => props.$isSearching === true ? "144px" : "176px"};
     height: 24px;
     border: none;
-    &:focus {
-        outline: none;
-    }
 `;

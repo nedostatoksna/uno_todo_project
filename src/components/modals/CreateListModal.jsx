@@ -3,14 +3,12 @@ import { useDispatch } from "react-redux";
 import { toggleCreatingList } from "../../store/actionCreators/todoListActionCreators";
 import { createList } from "../../store/actionCreators/dataListActionCreators.js.js";
 import ModalInput from "../../ui/ModalInput";
-import ModalHeader from "../../ui/headers/ModalHeader";
-import Modal from "../../ui/divs/Modal";
-import ModalContent from "../../ui/divs/ModalContent";
 import { AppContext } from "../../context/context";
-import PlusButton from "../../ui/buttons/PlusButton";
-import Button from "../../ui/buttons/Button";
-import Wrapper from "../../ui/divs/Wrapper";
-import Flex from "../../ui/divs/Flex";
+import Modal from "../../styled/divs/Modal";
+import ModalContent from "../../styled/divs/ModalContent";
+import ModalHeader from "../../styled/headers/ModalHeader";
+import styled from "styled-components";
+import Button from "../../ui/Button";
 
 const CreateListModal = () => {
 
@@ -28,15 +26,21 @@ const CreateListModal = () => {
             <ModalContent $mode={context.mode}>
                 <ModalHeader $mode={context.mode}>New list</ModalHeader>
                 <ModalInput $mode={context.mode} value={value} onChange={(e) => setValue(e.target.value)} placeholder="Enter list title" />
-                <Wrapper $buttons>
-                    <Flex $buttons>
-                        <Button $cancel onClick={() => {dispatch(toggleCreatingList())}} $mode={context.mode}>Cancel</Button>
-                        <PlusButton onClick={() => preCreateNewName(value)} $modal $mode={context.mode}>Create</PlusButton>
-                    </Flex>
-                </Wrapper>
+                <ButtonGroupWrapper>
+                        <Button $white onClick={() => {dispatch(toggleCreatingList())}} $mode={context.mode}>Cancel</Button>
+                        <Button $plusBtnPurple onClick={() => preCreateNewName(value)} $mode={context.mode}>Create</Button>
+                </ButtonGroupWrapper>
             </ModalContent>
         </Modal>
     )
 };
 
 export default CreateListModal;
+
+const ButtonGroupWrapper = styled.div`
+    padding: 20px 4px 0px 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+`;

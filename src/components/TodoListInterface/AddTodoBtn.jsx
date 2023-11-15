@@ -1,7 +1,7 @@
 import React from "react";
-import style from "./TaskListInterface.module.css";
 import { useDispatch } from "react-redux";
 import { toggleCreatingTodo } from "../../store/actionCreators/todoListActionCreators";
+import Button from "../../ui/buttons/Button";
 
 const AddTodoBtn = () => {
 
@@ -9,7 +9,7 @@ const AddTodoBtn = () => {
 
     return (
         <>
-            <button className={style.add_todo_btn} onClick={() => {dispatch(toggleCreatingTodo())}}>Add a task</button>
+            <Button $plusBtnTransparent onClick={() => {dispatch(toggleCreatingTodo())}}>Add a task</Button>
         </>
     )
 };

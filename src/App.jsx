@@ -14,7 +14,10 @@ function App() {
   const contextObj = {
     palette: context.palette,
     lang: context.lang,
-    mode: context.mode
+    mode: context.mode,
+    userName: context.userName,
+    userInitials: context.userInitials,
+    userEmail: context.userEmail
   };
   
   return (

@@ -2,13 +2,12 @@ import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { changeIsLoggingOut } from "../../store/actionCreators/userPanelActionCreators";
 import Button from "../../ui/buttons/Button";
-import ModalHeader from "../../ui/headers/ModalHeader";
-import Modal from "../../ui/divs/Modal";
-import ModalContent from "../../ui/divs/ModalContent";
 import SubText from "../../ui/SubText";
 import { AppContext } from "../../context/context";
-import Flex from "../../ui/divs/Flex";
-import Wrapper from "../../ui/divs/Wrapper";
+import Modal from "../../styled/divs/Modal";
+import ModalContent from "../../styled/divs/ModalContent";
+import ModalHeader from "../../styled/headers/ModalHeader";
+import styled from "styled-components";
 
 const SignOutModal = () => {
 
@@ -20,15 +19,21 @@ const SignOutModal = () => {
             <ModalContent $width={"310px"} $mode={context.mode}>
                 <ModalHeader $mode={context.mode}>Sign Out</ModalHeader>
                 <SubText $mode={context.mode}>Are you sure you would like to sign out?</SubText>
-                <Wrapper $buttons>
-                    <Flex $buttons>
-                        <Button $cancel onClick={() => {dispatch(changeIsLoggingOut())}} $mode={context.mode}>Cancel</Button>
+                <ButtonGroupWrapper>
+                        <Button $white onClick={() => {dispatch(changeIsLoggingOut())}} $mode={context.mode}>Cancel</Button>
                         <Button $coral $mode={context.mode} onClick={() => {dispatch(changeIsLoggingOut())}}>Sigh Out</Button>
-                    </Flex>
-                </Wrapper>
+                </ButtonGroupWrapper>
             </ModalContent>
         </Modal>
     )
 };
 
 export default SignOutModal;
+
+const ButtonGroupWrapper = styled.div`
+    padding: 20px 4px 0px 4px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+`;
