@@ -3,6 +3,7 @@ import Tabs from "./Tabs";
 import AddTodoBtn from "./AddTodoBtn";
 import styled from "styled-components";
 import ListEditPanel from "./ListEditPanel";
+import TodoList from "./TodoList";
 
 const TodoListPanel = ({ list }) => {
 
@@ -12,6 +13,7 @@ const TodoListPanel = ({ list }) => {
                 <ListWrapper>
                     <ListEditPanel list={list} />
                     <Tabs />
+                    <TodoList list={list} />  
                 </ListWrapper>
 
                 <AddTodoBtn />

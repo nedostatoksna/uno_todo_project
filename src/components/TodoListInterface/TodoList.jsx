@@ -2,7 +2,7 @@ import React from "react";
 import Todo from "./Todo";
 import styled from "styled-components";
 
-const List = ({ list }) => {
+const TodoList = ({ list }) => {
 
     return (
         <>
@@ -17,11 +17,10 @@ const List = ({ list }) => {
     )
 };
 
-export default List;
+export default TodoList;
 
 const TodoListWrapper = styled.ul`
     display: flex;
     flex-direction: column;
     padding-top: 10px;
-    height: 100%;
 `;
