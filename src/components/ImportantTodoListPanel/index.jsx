@@ -2,25 +2,29 @@ import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { AppContext } from "../../context/context";
 import styled from "styled-components";
+import ImportantTodoList from "./ImportantTodoList";
+import Notice from "./Notice";
 
 const TaskListInterface = () => {
 
-    const lists = useSelector(state => state.dataLists);
     const activeListId = useSelector(state => state.todoListUI.activeListId);
     const context = useContext(AppContext);
+    const lists = useSelector(state => state.dataLists);
+    const arr = [];
+    const makeImportantArray = () => {
+        lists.map(list => 
+            (list.id === activeListId)
+                ? list.todos.map(todo => (
+                    todo.isImportant ? arr.push(todo) : undefined
+                )) : undefined )
+    };
 
     return (
         <ImportantTodoListWrapper $mode={context.mode}>
             <StyledHeader>Important</StyledHeader>
             {
-                    lists.map(list => 
-                        (list.id === activeListId)
-                            ? list.todos.map(todo => (
-                                todo.isImportant
-                                ? <li key={todo.id}>{todo.title}</li> : undefined
-                            )) : undefined )
+                arr.length > 0 ? <ImportantTodoList listsArr={makeImportantArray()}/> : <Notice />
             }
-
         </ImportantTodoListWrapper>
     )
 };

@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { switchVisibleImportant } from "../../store/actionCreators/todoListActionCreators";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import ListButton from "../../ui/ListButton";
+import { AppContext } from "../../context/context";
 
 const ImportantFilter = () => {
 
     const dispatch = useDispatch();
+    const context = useContext(AppContext);
 
     return (
         <Wrapper $list>
-            <ListButton $starIcon onClick={() => {dispatch(switchVisibleImportant())}}>Important</ListButton>
-            <ListButton $houseIcon onClick={() => {dispatch(switchVisibleImportant())}}>Tasks</ListButton>
+            <ListButton $starIcon $mode={context.mode} onClick={() => {dispatch(switchVisibleImportant())}}>Important</ListButton>
+            <ListButton $houseIcon $mode={context.mode} onClick={() => {dispatch(switchVisibleImportant())}}>Tasks</ListButton>
         </Wrapper>
     )
 };

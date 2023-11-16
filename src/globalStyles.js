@@ -23,6 +23,9 @@ const GlobalStyle = createGlobalStyle`
   button:focus {
     outline: none;
   }
+  li {
+    list-style-type: none;
+  }
 `;
 
 export default GlobalStyle;

@@ -23,7 +23,9 @@ const ListOfLists = () => {
                             $active={list.id === activeList}
                             $listIcon
                             key={list.id} 
+                            $mode={context.mode}
                             onClick={() => {dispatch(switchActiveTodoId(list.id))}}
+                            $margin={"5px 0px 0px 0px"}
                         >
                             {list.title}
                         </ListButton>

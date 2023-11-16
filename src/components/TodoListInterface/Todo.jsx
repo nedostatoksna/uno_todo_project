@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Checkbox from "../../ui/StyledCheckbox";
 
 const Todo = ({ todo }) => {
 
@@ -10,6 +11,7 @@ const Todo = ({ todo }) => {
     return (
         <li>
         {todo.title}
+        <Checkbox />
         </li>
     )
 };

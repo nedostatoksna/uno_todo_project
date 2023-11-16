@@ -14,7 +14,7 @@ export default Divider;
 const StyledDivider = styled.hr` 
     border: 1px solid;
     border-color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.38)" : "rgba(230, 225, 229, 0.38)"};
-    height: 2px;
+    height: ${props => props.$height || "2px"};
     margin: ${props => props.$margin || "0px 0px 20px 0px"};
 
     ${props => props.$white && css `
