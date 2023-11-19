@@ -14,7 +14,7 @@ export default ContentBox;
 const StyledContentBox = styled.div` 
     border-radius: 28px;
     width: ${props => props.$width || "500px" };
-    padding: 24px;
+    padding: ${props => props.$padding || "24px"};
     display: flex;
     flex-direction: column;
     

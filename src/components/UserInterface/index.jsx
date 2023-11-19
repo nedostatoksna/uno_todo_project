@@ -1,6 +1,4 @@
 import React, { useContext } from "react";
-import style from "./UserInterface.module.css";
-import crossIcon from "../../images/crossIcon.svg";
 import { useDispatch } from "react-redux";
 import UserSettings from "../UserSettings";
 import UserCard from "./UserCard";
@@ -9,6 +7,8 @@ import ContentBox from "../../styled/ContentBox";
 import { AppContext } from "../../context/context";
 import Header from "../../styled/Header";
 import Divider from "../../ui/Divider";
+import styled from "styled-components";
+import Button from "../../ui/Button";
 
 const UserInterface = ({ toggleUserPanel }) => {
 
@@ -18,15 +18,19 @@ const UserInterface = ({ toggleUserPanel }) => {
     return (
         <>
         <Background $darkTransparent>
-            <ContentBox $mode={context.mode} $primary>
-                <div className={style.header_box}>
-                    <img src={crossIcon} alt="close icon" width="40px" height="40px" className={style.close_icon} onClick={() => {dispatch(toggleUserPanel())}}/>
-                    <Header $mode={context.mode}>Settings</Header>
-                </div>
+            <ContentBox $mode={context.mode} $primary $padding={"20px"}>
+                <StyledContainer>
+                    <Button 
+                        $icon 
+                        $type={"cross"} 
+                        $mode={context.mode}
+                        alt="close icon" 
+                        onClick={() => {dispatch(toggleUserPanel())}}></Button>
+                    <Header $mode={context.mode} $margin={"0px 0px 0px 24px"}>Settings</Header>
+                </StyledContainer>
                 <UserCard />
                 <Divider $mode={context.mode} $height={"1px"} />
                 <UserSettings />
-
             </ContentBox>
         </Background>     
         </>  
@@ -34,3 +38,10 @@ const UserInterface = ({ toggleUserPanel }) => {
 };
 
 export default UserInterface; 
+
+const StyledContainer = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4px 4px 0px 4px;
+`;

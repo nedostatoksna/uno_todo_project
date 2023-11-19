@@ -1,14 +1,17 @@
-import React from "react";
-import style from "./UserSettings.module.css";
-import SettingButton from "../../ui/SettingsButton";
+import React, { useContext } from "react";
+import SettingButton from "./SettingButton";
+import styled from "styled-components";
+import { AppContext } from "../../context/context";
 
 const SettingsBar = ({ setting, name, dynamicContext, setDynamicContext }) => {
 
+    const context = useContext(AppContext);
+
     return (
         <>
-            <div className={style.radio_group_box}>
-                <h4 className={style.settings_subheader}>{setting.header}</h4>
-                <div className={style.radio_btns_wrapper}>
+            <RadioGroupContainer>
+                <RadioGroupHeader $mode={context.mode}>{setting.header}</RadioGroupHeader>
+                <RadioButtonsWrapper>
                     {
                         setting.options.map(option => (
                             <SettingButton
@@ -20,11 +23,39 @@ const SettingsBar = ({ setting, name, dynamicContext, setDynamicContext }) => {
                             />
                         ))
                     }
-                </div>
-                { setting.header === "Language" ? <p className={style.notice}>Change will be applied at next app restart</p> : undefined }
-            </div>
+                </RadioButtonsWrapper>
+                { setting.header === "Language" ? <StyledNotice $mode={context.mode}>Change will be applied at next app restart</StyledNotice> : undefined }
+            </RadioGroupContainer>
         </>
     )
 };
 
 export default SettingsBar;
+
+const RadioGroupContainer = styled.div`
+    margin-bottom: 20px;
+`;
+const RadioGroupHeader = styled.h4`
+    font-family: "Roboto";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    margin-bottom: 5px;
+    color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 1)" : "rgba(230, 225, 229, 0.38)"};
+`;
+const RadioButtonsWrapper = styled.h4`
+    display: flex;
+    flex-direction: row;
+`;
+const StyledNotice = styled.h4`
+    font-family: "Roboto";
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px;
+    letter-spacing: 0.4px;
+    color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.38)" : "rgba(230, 225, 229, 0.38)"};
+    margin-top: 5px;
+`;

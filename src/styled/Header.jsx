@@ -12,7 +12,7 @@ const Header = ( props ) => {
 export default Header;
 
 const StyledHeader = styled.h1` 
-    margin-bottom: 16px;
+    margin: ${props => props.$margin || "0px 0px 16px 0px"};
     font-size: 22px;
     line-height: ${props => props.$lineHeight || "28px"}; 
     margin: ${props => props.$margin || "0px"};

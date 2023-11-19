@@ -1,14 +1,43 @@
-import React from "react";
-import style from "./UserInterface.module.css";
+import React, { useContext } from "react";
+import styled from "styled-components";
+import { AppContext } from "../../context/context";
 
 const About = () => {
 
+    const context = useContext(AppContext);
+
     return (
-        <div className={style.about}>
-            <p className={style.about_text}>About</p>
-            <p className={style.version}>Version<span className={style.version_number}>1.0</span></p>
-        </div>
+        <StyledContainer>
+            <StyledText $mode={context.mode}>About</StyledText>
+            <StyledDarkText $mode={context.mode}>Version<StyledNumber $mode={context.mode}>1.0</StyledNumber></StyledDarkText>
+        </StyledContainer>
     )
 };
 
 export default About;
+
+const StyledContainer = styled.div`
+    padding-top: 10px;
+`;
+const StyledText = styled.p`
+    font-family: "Roboto";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    color: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
+    margin: 2px 0px 12px 0px;
+`;
+const StyledDarkText = styled.p`
+    font-family: "Roboto";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    color: ${props => props.$mode === "Light" ? "#1C1B1F" : "#E6E1E5"};
+`;
+const StyledNumber = styled.span`
+    color: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
+    margin: 0px 0px 0px 12px;
+`;

@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
-import style from "./UserInterface.module.css";
 import { changeIsSigningOut } from "../../store/actionCreators/userPanelActionCreators";
 import { useDispatch } from "react-redux";
 import Button from "../../ui/Button";
 import { AppContext } from "../../context/context";
-import Header from "../../styled/Header";
+import styled from "styled-components";
 
 const UserCard = () => {
 
@@ -12,15 +11,61 @@ const UserCard = () => {
     const context = useContext(AppContext);
 
     return (
-        <div className={style.user_box}>
-            <div className={style.user_picture}>AB</div>
-            <div className={style.text_box}>
-                <Header $mode={context.mode}>Antonio Bonilla</Header>
-                <h2 className={style.user_email}>antonio.bonilla@horus.com.uy</h2>
-            </div>
+        <StyledContainer>
+            <UserPicture $mode={context.mode}>{context.userInitials}</UserPicture>
+            <UserTextBox>
+                <UserName $mode={context.mode}>{context.userName}</UserName>
+                <UserEmail $mode={context.mode}>{context.userEmail}</UserEmail>
+            </UserTextBox>
             <Button $coralWhite $mode={context.mode} onClick={() => {dispatch(changeIsSigningOut())}}>Sign Out</Button>
-        </div>
+        </StyledContainer>
     )
 };
 
 export default UserCard;
+
+const StyledContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+`;
+const UserPicture = styled.div`
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
+    color: ${props => props.$mode === "Light" ? "#fff" : "#201F24"};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px;
+    margin-bottom: 12px;
+`;
+const UserTextBox = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    margin-bottom: 12px;
+`;
+const UserName = styled.h1`
+    font-family: "Roboto";
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; 
+    color: ${props => props.$mode === "Light" ? "#1C1B1F" : "#fff"};
+`;
+const UserEmail = styled.h2`
+    font-family: "Roboto";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; 
+    letter-spacing: 0.25px;
+    color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.60)" : "rgba(230, 225, 229, 0.60)"};
+`;

@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import style from "./UserSettings.module.css";
 import { settings } from "../../context/settings";
 import SettingsBar from "./SettingsBar";
 import SaveCancelBtns from "./SaveCancelBtns";
@@ -7,17 +6,16 @@ import About from "../UserInterface/About";
 import { useDispatch } from "react-redux";
 import { AppContext } from "../../context/context";
 import Divider from "../../ui/Divider";
+import styled from "styled-components";
 
 const UserSettings = () => {
     const dispatch = useDispatch();
     const context = useContext(AppContext);
-
     const [dynamicContext, setDynamicContext] = useState(context);
-    console.log(dynamicContext);
 
     return (
-        <div className={style.settings_box}>
-            <h3 className={style.settings_header}>General</h3>
+        <StyledContainer>
+            <StyledHeader $mode={context.mode}>General</StyledHeader>
             {
                 settings.map(setting => (
                 <SettingsBar 
@@ -32,8 +30,24 @@ const UserSettings = () => {
             <Divider $mode={context.mode} $height={"1px"} />
             <About />
             <SaveCancelBtns dispatch={dispatch} dynamicContext={dynamicContext} />
-        </div> 
+        </StyledContainer> 
     )
 };
 
 export default UserSettings;
+
+const StyledContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+`;
+const StyledHeader = styled.h3`
+    font-family: "Roboto";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; 
+    letter-spacing: 0.1px;
+    color: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
+    margin-bottom: 12px;
+`;

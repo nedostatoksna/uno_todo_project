@@ -32,7 +32,7 @@ const StyledButton = styled.button`
     height: 40px;
     border-radius: 20px;
     width: ${props => props.$width || undefined};
-    background-repeat: no-repeat;   
+    background-repeat: no-repeat;  
 
     ${props => props.$primary && css `
         background-color: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
