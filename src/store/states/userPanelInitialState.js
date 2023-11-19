@@ -1,6 +1,6 @@
 const userPanelInitialState = {
     isShowingUserPanel: false,
-    isLogouting: false,
+    isSigningOut: false,
     palette: "Purple",
     lang: "English",
 	mode: "Light",

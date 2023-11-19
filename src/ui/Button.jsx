@@ -42,6 +42,13 @@ const StyledButton = styled.button`
         background-color: ${props => props.$mode === "Light" ? "#F85977" : "#D9415E"};
         padding: 10px 24px;
     `}
+    ${props => props.$coralWhite && css `
+        color: ${props => props.$mode === "Light" ? "#F85977" : "#D9415E"};
+        padding: 10px 12px;
+        background: transparent;
+        text-align: center;
+        margin-bottom: 12px;
+    `}
     ${props => props.$white && css `
         background-color: ${props => props.$mode === "Light" ? "#fff" : "#201F24"};
         color: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};

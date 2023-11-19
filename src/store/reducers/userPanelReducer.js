@@ -1,6 +1,6 @@
 import { 
     TOGGLE_MODAL, 
-    IS_LOGGING_OUT, 
+    IS_SIGNING_OUT, 
     SAVE_SETTINGS } from "../actions/userPanelActions";
 import userPanelInitialState from "../states/userPanelInitialState";
 
@@ -9,8 +9,8 @@ const userPanelReducer = (state = userPanelInitialState, {type, payload}) => {
         case TOGGLE_MODAL: return {
             ...state, isShowingUserPanel: !state.isShowingUserPanel
         }
-        case IS_LOGGING_OUT: return {
-            ...state, isLogouting: !state.isLogouting
+        case IS_SIGNING_OUT: return {
+            ...state, isSigningOut: !state.isSigningOut
         }
         case SAVE_SETTINGS: return {
             ...state,

@@ -1,20 +1,17 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import { AppContext } from "../../context/context";
 import styled from "styled-components";
 
-const ImportantTodoList = ({listsArr}) => {
-
-    const lists = useSelector(state => state.dataLists);
+const SearchResultsList = ({ lists }) => {
+    const searchString = useSelector(state => state.todoListUI.searchQuery);
     const activeListId = useSelector(state => state.todoListUI.activeListId);
-
     return (
         <StyledListWrapper>
             {
                 lists.map(list => 
                     (list.id === activeListId)
                         ? list.todos.map(todo => (
-                            todo.isImportant
+                            todo.title.includes(searchString)
                             ? <StyledListItem key={todo.id}>{todo.title}</StyledListItem> : undefined
                         )) : undefined )
             }
@@ -22,7 +19,7 @@ const ImportantTodoList = ({listsArr}) => {
     )
 };
 
-export default ImportantTodoList;
+export default SearchResultsList;
 
 const StyledListWrapper = styled.ul`
 
@@ -30,4 +27,3 @@ const StyledListWrapper = styled.ul`
 const StyledListItem = styled.ul`
 
 `;
-

@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import { AppContext } from "../../context/context";
 import Header from "../../styled/Header";
 
 const Notice = () => {
 
+    const context = useContext(AppContext);
+
     return (
         <Wrapper>
-            <Header $lineHeight={"36px"} $white $margin={"0px 0px 10px 0px"}>Important Tasks</Header>
-            <SubHeader>Try starring some tasks to see them here.</SubHeader>
+            <Header $mode={context.mode} $lineHeight={"36px"} $margin={"0px 0px 10px 0px"} $mediumGrey>Task not found</Header>
+            <SubHeader $mode={context.mode}>We searched high and low but couldn't find what you're looking for</SubHeader>
         </Wrapper>
     )
 };
@@ -31,5 +34,5 @@ const SubHeader = styled.h2`
     line-height: 20px; 
     letter-spacing: 0.25px;
     margin-bottom: 60px;
-    color: #fff;
+    color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.38)" : "rgba(230, 225, 229, 0.38)"};
 `;

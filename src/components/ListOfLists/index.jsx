@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import style from "./ListOfLists.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { switchActiveTodoId } from "../../store/actionCreators/todoListActionCreators";
 import { AppContext } from "../../context/context";

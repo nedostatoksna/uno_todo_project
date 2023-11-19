@@ -11,13 +11,16 @@ const TodoListInterface = () => {
     const context = useContext(AppContext);
 
     return (
-        <TodoListInterfaceWrapper $mode={context.mode}>
-            {
-                lists.map(list => (
-                    list.id === activeList ? <TodoListPanel key={list.id} list={list}/> : undefined
-                ))
-            }
-        </TodoListInterfaceWrapper>
+        <>
+            <TodoListInterfaceWrapper $mode={context.mode}>
+                {
+                    lists.map(list => (
+                        list.id === activeList ? <TodoListPanel key={list.id} list={list}/> : undefined
+                    ))
+                }
+            </TodoListInterfaceWrapper>
+
+        </>
     )
 };
 

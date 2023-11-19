@@ -2,13 +2,13 @@ import React, { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleCreatingList, toggleCreatingTodo, toggleRenamingList } from "../../store/actionCreators/todoListActionCreators";
 import { addTodoToList, createList, renameList } from "../../store/actionCreators/dataListActionCreators.js.js";
-import ModalInput from "../../ui/ModalInput";
+import TextInput from "../../ui/TextInput";
 import { AppContext } from "../../context/context";
 import Button from "../../ui/Button";
-import Modal from "../../styled/divs/Modal";
-import ModalContent from "../../styled/divs/ModalContent";
-import ModalHeader from "../../styled/headers/ModalHeader";
 import styled from "styled-components";
+import Background from "../../styled/Background";
+import ContentBox from "../../styled/ContentBox";
+import Header from "../../styled/Header";
 
 const SaveModal = ({ actionType, listId }) => {
     const context = useContext(AppContext);
@@ -59,10 +59,10 @@ const SaveModal = ({ actionType, listId }) => {
     }
 
     return (
-        <Modal>
-            <ModalContent $mode={context.mode}>
-                <ModalHeader $mode={context.mode}>{header}</ModalHeader>
-                <ModalInput $mode={context.mode} value={value} onChange={(e) => setValue(e.target.value)} placeholder={placeholder}/>
+        <Background $darkTransparent>
+            <ContentBox $primary $mode={context.mode}>
+                <Header $mode={context.mode}>{header}</Header>
+                <TextInput $mode={context.mode} value={value} onChange={(e) => setValue(e.target.value)} placeholder={placeholder}/>
                 <ButtonGroupWrapper>
                         <Button $white onClick={() => {dispatch(setToggleFunction(actionType))}} $mode={context.mode}>Cancel</Button>
                         {
@@ -71,8 +71,8 @@ const SaveModal = ({ actionType, listId }) => {
                                 : <Button onClick={() => setFunction(actionType)} $primary $mode={context.mode}>{buttonText}</Button>
                         }
                 </ButtonGroupWrapper>
-            </ModalContent>
-        </Modal>
+            </ContentBox>
+        </Background>
     )
 };
 

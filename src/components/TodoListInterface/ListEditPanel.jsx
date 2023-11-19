@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { deleteList } from "../../store/actionCreators/dataListActionCreators.js.js";
-import { toggleRenamingList } from "../../store/actionCreators/todoListActionCreators";
+import { toggleDeletingList, toggleRenamingList } from "../../store/actionCreators/todoListActionCreators";
 import styled from "styled-components";
 import Button from "../../ui/Button.jsx";
+import Header from "../../styled/Header";
 
 const ListEditPanel = ({ list }) => {
 
@@ -12,10 +12,10 @@ const ListEditPanel = ({ list }) => {
     return (
         <>
             <ListEditPanelWrapper>
-                    <StyledHeader>{list.title}</StyledHeader>
+                    <Header $white>{list.title}</Header>
                     <HeaderButtonsWrapper>
                         <Button $icon $type={"edit"} $padding={"8px"} onClick={() => {dispatch(toggleRenamingList())}}></Button>
-                        <Button $icon $type={"delete"} $padding={"8px"} onClick={() => {dispatch(deleteList(list.id))}}></Button>
+                        <Button $icon $type={"delete"} $padding={"8px"} onClick={() => {dispatch(toggleDeletingList())}}></Button>
                     </HeaderButtonsWrapper>
             </ListEditPanelWrapper>
        </>
@@ -30,16 +30,6 @@ const ListEditPanelWrapper = styled.div`
     align-items: flex-start;
     justify-content: space-between;
     padding: 12px 0px;
-`;
-const StyledHeader = styled.h1`
-    font-family: "Roboto";
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 28px; 
-    background: transparent;
-    border: none;
-    color: #fff;
 `;
 const HeaderButtonsWrapper = styled.div`
     display: flex;

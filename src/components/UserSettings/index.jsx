@@ -6,6 +6,7 @@ import SaveCancelBtns from "./SaveCancelBtns";
 import About from "../UserInterface/About";
 import { useDispatch } from "react-redux";
 import { AppContext } from "../../context/context";
+import Divider from "../../ui/Divider";
 
 const UserSettings = () => {
     const dispatch = useDispatch();
@@ -28,7 +29,7 @@ const UserSettings = () => {
                 />
                 ))
             }
-            <hr className={style.divider} width="460px" />
+            <Divider $mode={context.mode} $height={"1px"} />
             <About />
             <SaveCancelBtns dispatch={dispatch} dynamicContext={dynamicContext} />
         </div> 

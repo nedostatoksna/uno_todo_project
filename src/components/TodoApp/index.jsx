@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import SearchTodoListPanel from "../SearchTodoListPanel";
 import ImportantTodoListPanel from "../ImportantTodoListPanel";
 import SaveModal from "../modals/SaveModal";
+import BreakModal from "../modals/BreakModal";
 
 const TodoApp = () => {
 
@@ -19,10 +20,17 @@ const TodoApp = () => {
     const isCreatingTodo = useSelector(state => state.todoListUI.isCreatingTodo);
     const activeList = useSelector(state => state.todoListUI.activeListId);
 
+    const isDeletingTodo = useSelector(state => state.todoPanelUI.isDeletingTodo);
+    const isDeletingList = useSelector(state => state.todoListUI.isDeletingList);
+    const isSigningOut = useSelector(state => state.userPanelUI.isSigningOut);
+
     const setActionType = () => {
         const type = isCreatingList ? "createList"
         : isCreatingTodo ? "createTodo"
-        : "renameList";
+        : isRenaming ? "renameList"
+        : isDeletingList ? "deleteList"
+        : isDeletingTodo ? "deleteTodo"
+        : "signOut";
 
         return type;
     }
@@ -33,6 +41,9 @@ const TodoApp = () => {
         <>
             { 
                 isCreatingList || isRenaming || isCreatingTodo ? <SaveModal actionType={setActionType()} listId={activeList} /> : undefined
+            }
+            {
+                isDeletingList || isDeletingTodo || isSigningOut ? <BreakModal actionType={setActionType()} /> : undefined
             }
 
             <Wrapper $mode={context.mode}>
