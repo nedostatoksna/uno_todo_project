@@ -42,7 +42,7 @@ export default SideBar;
 
 const SideBarWrapper = styled.div`
     padding: 40px 20px 20px 20px;
-    width: 280px;
+    width: 20vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;

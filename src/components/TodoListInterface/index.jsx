@@ -29,5 +29,5 @@ export default TodoListInterface;
 const TodoListInterfaceWrapper = styled.div`
     background-color: ${props => props.$mode === "Light" ? "#B0A2F2" : "#544794"};
     padding: 20px;
-    width: calc(100vw - 280px);
+    width: 80vw;
 `;
