@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Checkbox from "../../ui/StyledCheckbox";
 import styled, { css } from "styled-components";
 import { AppContext } from "../../context/context";
+import { changeCompleted, changeImportant } from "../../store/actionCreators/dataListActionCreators.js";
 
 const Todo = ({ todo }) => {
 
@@ -10,20 +11,50 @@ const Todo = ({ todo }) => {
     const context = useContext(AppContext);
     const activeListId = useSelector(state => state.todoListUI.activeListId);
 
-    // const isCompleted = useSelector(state => state.dataLists.isCompleted);
-    // const isImportant = useSelector(state => state.dataLists.isImportant);
+    const [checked, setChecked] = useState({
+        isCompleted: todo.isCompleted,
+        isImportant: todo.isImportant
+    });
+
+    const preChangeCompleted = () => {
+        setChecked({
+            isCompleted: !checked.isCompleted,
+            isImportant: checked.isImportant
+        })
+        dispatch(changeCompleted(activeListId, todo.id))
+    };
+
+    const preChangeImportant = () => {
+        setChecked({
+            isCompleted: checked.isCompleted,
+            isImportant: !checked.isImportant
+        })
+        dispatch(changeImportant(activeListId, todo.id))
+    };
 
     return (
         <StyledItemBox $mode={context.mode}>
-        <Checkbox $primary $checked $mode={context.mode} $margin={"10px 16px 10px 0px"} />
-        <StyledItemTextBox>
-            <StyledItemTitle $mode={context.mode}>{todo.title}</StyledItemTitle>
-            <div>
-                <StyledText $grey $mode={context.mode}>{todo.deadLineDate}</StyledText>
-                <StyledText $coral $mode={context.mode}>{todo.note}</StyledText>
-            </div>
-        </StyledItemTextBox>
-        <Checkbox $mode={context.mode} $star $starChecked $margin={"10px 0px 10px 16px"} />
+            <Checkbox 
+                $primary 
+                $checked 
+                $mode={context.mode} 
+                $margin={"10px 16px 10px 0px"} 
+                checked={checked.isCompleted}
+                onChange={() => {preChangeCompleted()}} />
+            <StyledItemTextBox>
+                <StyledItemTitle $mode={context.mode}>{todo.title}</StyledItemTitle>
+                <div>
+                    <StyledText $grey $mode={context.mode}>{todo.deadLineDate}</StyledText>
+                    <StyledText $coral $mode={context.mode}>{todo.note}</StyledText>
+                </div>
+            </StyledItemTextBox>
+            <Checkbox 
+                $mode={context.mode} 
+                $star 
+                $starChecked 
+                $margin={"10px 0px 10px 16px"} 
+                checked={checked.isImportant}
+                onChange={() => {preChangeImportant()}} />
         </StyledItemBox>
     )
 };

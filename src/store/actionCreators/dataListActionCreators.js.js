@@ -17,8 +17,8 @@ const renameList = (listId, listTitle) => ({ type: RENAME_LIST, payload: { listI
 const deleteList = (listId) => ({ type: DELETE_LIST, payload: { listId } });
 const addTodoToList = (listId, todoTitle) => ({ type: ADD_TODO_TO_LIST, payload: { listId, todoTitle } });
 
-const changeCompleted = (listId, todoId, todoCompleted) => ({ type: CHANGE_COMPLETED, payload: { listId, todoId, todoCompleted } });
-const changeImportant = (listId, todoId, todoImportant) => ({ type: CHANGE_IMPORTANT, payload: { listId, todoId, todoImportant } });
+const changeCompleted = (listId, todoId, todoCompleted) => ({ type: CHANGE_COMPLETED, payload: { listId, todoId } });
+const changeImportant = (listId, todoId, todoImportant) => ({ type: CHANGE_IMPORTANT, payload: { listId, todoId } });
 const changeTitle = (listId, todoId, todoTitle) => ({ type: CHANGE_TITLE, payload: { listId, todoId, todoTitle } });
 const changeNote = (listId, todoId, todoNote) => ({ type: CHANGE_NOTE, payload: { listId, todoId, todoNote } });
 const chooseDeadline = (listId, todoId, todoDeadlineDate) => ({ type: CHOOSE_DEADLINE, payload: { listId, todoId, todoDeadlineDate } });
