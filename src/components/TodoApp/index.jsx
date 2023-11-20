@@ -8,6 +8,7 @@ import SearchTodoListPanel from "../SearchTodoListPanel";
 import ImportantTodoListPanel from "../ImportantTodoListPanel";
 import SaveModal from "../modals/SaveModal";
 import BreakModal from "../modals/BreakModal";
+import TodoEditPanel from "../TodoEditPanel";
 
 const TodoApp = () => {
 
@@ -23,6 +24,9 @@ const TodoApp = () => {
     const isDeletingTodo = useSelector(state => state.todoPanelUI.isDeletingTodo);
     const isDeletingList = useSelector(state => state.todoListUI.isDeletingList);
     const isSigningOut = useSelector(state => state.userPanelUI.isSigningOut);
+
+    const isShowingEditPanel = useSelector(state => state.todoPanelUI.isShowingEditPanel);
+    const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
 
     const setActionType = () => {
         const type = isCreatingList ? "createList"
@@ -49,6 +53,7 @@ const TodoApp = () => {
             <Wrapper $mode={context.mode}>
                     <SideBar />
                     { isSearching ? <SearchTodoListPanel /> : isShowingImportant ? <ImportantTodoListPanel /> : <TaskListInterface />  }
+                    { isShowingEditPanel ? <TodoEditPanel /> : undefined }
             </Wrapper>
         </>
     )

@@ -52,7 +52,7 @@ const dataListReducer = (state = dataInitialState, {type, payload}) => {
                 ...list,
                     todos: list.todos.map(todo => {
                         if (todo.id === payload.todoId) return {
-                            ...todo, isCompleted: payload.todoCompleted
+                            ...todo, isCompleted: payload.isCompleted
                         }
                         return todo
                     })
@@ -64,7 +64,7 @@ const dataListReducer = (state = dataInitialState, {type, payload}) => {
                 ...list,
                     todos: list.todos.map(todo => {
                         if (todo.id === payload.todoId) return {
-                            ...todo, isImportant: payload.todoImportant
+                            ...todo, isImportant: payload.isImportant
                         }
                         return todo
                     })

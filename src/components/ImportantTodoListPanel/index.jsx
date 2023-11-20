@@ -12,22 +12,29 @@ const ImportantTodoListPanel = () => {
     const activeListId = useSelector(state => state.todoListUI.activeListId);
     const context = useContext(AppContext);
     const lists = useSelector(state => state.dataLists);
-    const arr = [];
+    const isShowingEditPanel = useSelector(state => state.todoPanelUI.isShowingEditPanel);
+
+    const resultsArr = [];
     const makeArray = () => {
         lists.map(list => 
             (list.id === activeListId)
                 ? list.todos.map(todo => (
-                    todo.isImportant ? arr.push(todo) : undefined
+                    todo.isImportant ? resultsArr.push(todo) : undefined
                 )) : undefined )
     };
 
+    makeArray();
+
+
     return (
-        <ImportantTodoListWrapper $mode={context.mode}>
+        <ImportantTodoListWrapper $mode={context.mode} $width={isShowingEditPanel ? "60vw" : "80vw"}>
             <Header $mode={context.mode} $white $margin={"18px 0px"}>Important</Header>
-            {
-                arr.length > 0 ? <ImportantTodoList listsArr={makeArray()}/> : <Notice />
-            }
-            <AddTodoBtn />
+            <StyledWrapper>
+                {
+                    resultsArr.length > 0 ? <ImportantTodoList /> : <Notice />
+                }
+                <AddTodoBtn />
+            </StyledWrapper>
         </ImportantTodoListWrapper>
     )
 };
@@ -37,5 +44,11 @@ export default ImportantTodoListPanel;
 const ImportantTodoListWrapper = styled.div`
     background-color: ${props => props.$mode === "Light" ? "#F85977" : "#D9415E"};
     padding: 20px;
-    width: calc(100vw - 280px);
+    width: ${props => props.$width};
+`;
+const StyledWrapper = styled.div`
+    height: calc(100% - 64px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 `;

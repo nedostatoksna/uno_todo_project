@@ -8,10 +8,16 @@ import filledCheckbox from "../images/filledCheckbox.svg";
 import filledCheckboxDark from "../images/filledCheckboxForDark.svg";
 
 const Checkbox = ( props ) => { 
+
+    const setId = () => {
+       const id = props.$primary ? "inputCompleted" + props.id : "inputImportant" + props.id
+       return id
+    }
+
     return (
         <StyledContainer {...props}>
-                <StyledInput {...props} type="checkbox" value="option"/>
-                <StyledLabel {...props} htmlFor="option"></StyledLabel>
+                <StyledInput {...props} type="checkbox" checked={props.checked} id={setId()} />
+                <StyledLabel {...props} htmlFor={setId()} ></StyledLabel>
         </StyledContainer>
     )
 };

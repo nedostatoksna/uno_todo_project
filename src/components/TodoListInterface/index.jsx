@@ -9,10 +9,11 @@ const TodoListInterface = () => {
     const lists = useSelector(state => state.dataLists);
     const activeList = useSelector(state => state.todoListUI.activeListId);
     const context = useContext(AppContext);
+    const isShowingEditPanel = useSelector(state => state.todoPanelUI.isShowingEditPanel);
 
     return (
         <>
-            <TodoListInterfaceWrapper $mode={context.mode}>
+            <TodoListInterfaceWrapper $mode={context.mode} $width={isShowingEditPanel ? "60vw" : "80vw"}>
                 {
                     lists.map(list => (
                         list.id === activeList ? <TodoListPanel key={list.id} list={list}/> : undefined
@@ -29,5 +30,5 @@ export default TodoListInterface;
 const TodoListInterfaceWrapper = styled.div`
     background-color: ${props => props.$mode === "Light" ? "#B0A2F2" : "#544794"};
     padding: 20px;
-    width: 80vw;
+    width: ${props => props.$width};
 `;

@@ -12,6 +12,8 @@ const SearchTodoListPanel = () => {
     const lists = useSelector(state => state.dataLists);
     const activeListId = useSelector(state => state.todoListUI.activeListId);
     const searchString = useSelector(state => state.todoListUI.searchQuery);
+    
+    const isShowingEditPanel = useSelector(state => state.todoPanelUI.isShowingEditPanel);
 
     const resultsArr = [];
     const makeResultsArray = () => {
@@ -24,7 +26,7 @@ const SearchTodoListPanel = () => {
     makeResultsArray();
 
     return (
-        <SearchTodoListWrapper $mode={context.mode}>
+        <SearchTodoListWrapper $mode={context.mode} $width={isShowingEditPanel ? "60vw" : "80vw"}>
             <Header $darkGrey $margin={"18px 0px"}>Search</Header>
             {
                 searchString.length > 0 && resultsArr.length > 0 ? <SearchResultsList lists={lists}/> : <Notice />
@@ -38,5 +40,5 @@ export default SearchTodoListPanel;
 const SearchTodoListWrapper = styled.div`
     background-color: ${props => props.$mode === "Light" ? "#F4F4F4" : "#252429"};
     padding: 20px;
-    width: calc(100vw - 280px);
+    width: ${props => props.$width};
 `;

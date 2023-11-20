@@ -4,57 +4,52 @@ import Checkbox from "../../ui/StyledCheckbox";
 import styled, { css } from "styled-components";
 import { AppContext } from "../../context/context";
 import { changeCompleted, changeImportant } from "../../store/actionCreators/dataListActionCreators.js";
+import { changeActiveTodoId, toggleTodoEditPanel } from "../../store/actionCreators/todoPanelActionCreators";
 
 const Todo = ({ todo }) => {
 
     const dispatch = useDispatch();
     const context = useContext(AppContext);
     const activeListId = useSelector(state => state.todoListUI.activeListId);
+    const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
 
-    const [checked, setChecked] = useState({
-        isCompleted: todo.isCompleted,
-        isImportant: todo.isImportant
-    });
+    const isShowingEditPanel = useSelector(state => state.todoPanelUI.isShowingEditPanel);
 
-    const preChangeCompleted = () => {
-        setChecked({
-            isCompleted: !checked.isCompleted,
-            isImportant: checked.isImportant
-        })
-        dispatch(changeCompleted(activeListId, todo.id))
-    };
-
-    const preChangeImportant = () => {
-        setChecked({
-            isCompleted: checked.isCompleted,
-            isImportant: !checked.isImportant
-        })
-        dispatch(changeImportant(activeListId, todo.id))
-    };
+    const setActiveTodoAndOpenEditPanel = () => {
+        dispatch(changeActiveTodoId(todo.id)) 
+        if  (isShowingEditPanel === false) dispatch(toggleTodoEditPanel()) 
+    }
 
     return (
-        <StyledItemBox $mode={context.mode}>
+        <StyledItemBox 
+            $mode={context.mode} 
+            $active={todo.id === activeTodoId}
+            onClick={() => setActiveTodoAndOpenEditPanel()}
+        >
             <Checkbox 
                 $primary 
                 $checked 
                 $mode={context.mode} 
                 $margin={"10px 16px 10px 0px"} 
-                checked={checked.isCompleted}
-                onChange={() => {preChangeCompleted()}} />
+                checked={todo.isCompleted}
+                id={todo.id}
+                onChange={() => {dispatch(changeCompleted(activeListId, todo.id, !todo.isCompleted))}} />
             <StyledItemTextBox>
                 <StyledItemTitle $mode={context.mode}>{todo.title}</StyledItemTitle>
-                <div>
-                    <StyledText $grey $mode={context.mode}>{todo.deadLineDate}</StyledText>
+                <StyledNoteDateBox>
+                    <StyledText $grey $mode={context.mode}>{todo.deadlineDate}</StyledText>
+                    <StyledText $grey $mode={context.mode}>-</StyledText>
                     <StyledText $coral $mode={context.mode}>{todo.note}</StyledText>
-                </div>
+                </StyledNoteDateBox>
             </StyledItemTextBox>
             <Checkbox 
                 $mode={context.mode} 
                 $star 
                 $starChecked 
                 $margin={"10px 0px 10px 16px"} 
-                checked={checked.isImportant}
-                onChange={() => {preChangeImportant()}} />
+                checked={todo.isImportant}
+                id={todo.id}
+                onChange={() => {dispatch(changeImportant(activeListId, todo.id, !todo.isImportant))}} />
         </StyledItemBox>
     )
 };
@@ -67,7 +62,10 @@ const StyledItemBox = styled.div`
     justify-content: space-between;
     padding: 0px 10px;
     border-radius: 10px;
-    background-color: ${props => props.$mode === "Light" ? "#fff" : "#201F24"};;
+    background-color: ${props => props.$mode === "Light" && props.$active === false ? "#fff" 
+    : props.$active && props.$mode === "Light" ? "rgba(200, 191, 255, 1)" 
+    : props.$active && props.$mode === "Dark" ? "rgba(230, 225, 229, 0.38)" : "#201F24"};
+    margin-bottom: 5px;
 `;
 const StyledItemTitle = styled.p`
     font-family: "Roboto";
@@ -91,6 +89,7 @@ const StyledText = styled.p`
     font-weight: 600;
     line-height: 20px;
     letter-spacing: 0.25px;
+    padding: 2px;
 
     ${props => props.$grey && css `
         color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.6)" : "rgba(230, 225, 229, 0.6)"};
@@ -99,3 +98,8 @@ const StyledText = styled.p`
         color: ${props => props.$mode === "Light" ? "#F85977" : "#D9415E"};
     `}
 `;
+const StyledNoteDateBox = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
+

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { switchActiveTodoId } from "../../store/actionCreators/todoListActionCreators";
+import { switchActiveTodoListId } from "../../store/actionCreators/todoListActionCreators";
 import { AppContext } from "../../context/context";
 import styled from "styled-components";
 import ListButton from "../../ui/ListButton";
@@ -23,7 +23,7 @@ const ListOfLists = () => {
                             $listIcon
                             key={list.id} 
                             $mode={context.mode}
-                            onClick={() => {dispatch(switchActiveTodoId(list.id))}}
+                            onClick={() => {dispatch(switchActiveTodoListId(list.id))}}
                             $margin={"5px 0px 0px 0px"}
                         >
                             {list.title}

@@ -43,13 +43,14 @@ const SearchBar = () => {
                         $mode={context.mode}
                     ></Button>
                         <StyledSearchInputWrapper>
-                            { isSearching ? <StyledLabel $mode={context.mode}>Search</StyledLabel> : undefined}
+                            { isSearching ? <StyledLabel htmlFor="searchInput" $mode={context.mode}>Search</StyledLabel> : undefined}
                                 <StyledSearchInput 
                                     ref={searchInputFocus} 
                                     $mode={context.mode} 
                                     $isSearching={isSearching} 
                                     placeholder="Search" 
                                     value={searchQuery}
+                                    id="searchInput"
                                     onChange={(e) => {dispatch(setSearchQuery(e.target.value))}}
                                 />
                         </StyledSearchInputWrapper>

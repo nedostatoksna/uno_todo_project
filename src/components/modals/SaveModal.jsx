@@ -62,7 +62,7 @@ const SaveModal = ({ actionType, listId }) => {
         <Background $darkTransparent>
             <ContentBox $primary $mode={context.mode}>
                 <Header $mode={context.mode}>{header}</Header>
-                <TextInput $mode={context.mode} value={value} onChange={(e) => setValue(e.target.value)} placeholder={placeholder}/>
+                <TextInput id="saveModalInput" $mode={context.mode} value={value} onChange={(e) => setValue(e.target.value)} placeholder={placeholder}/>
                 <ButtonGroupWrapper>
                         <Button $white onClick={() => {dispatch(setToggleFunction(actionType))}} $mode={context.mode}>Cancel</Button>
                         {
