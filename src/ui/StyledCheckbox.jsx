@@ -4,6 +4,8 @@ import starUnfilled from "../images/starUnfilled.svg";
 import starUnfilledDark from "../images/starUnfilledForDark.svg";
 import starFilled from "../images/starFilled.svg";
 import starFilledDark from "../images/starFilledForDark.svg";
+import starGrey from "../images/starIconGrey.svg";
+import starGreyForDark from "../images/starIconGreyDark.svg";
 import filledCheckbox from "../images/filledCheckbox.svg";
 import filledCheckboxDark from "../images/filledCheckboxForDark.svg";
 
@@ -47,7 +49,11 @@ const StyledLabel = styled.label`
         background-image: ${props.$mode === "Light" ? `url(${starUnfilled})` : `url(${starUnfilledDark})`};
         background-position: center;
         background-repeat: no-repeat;
-
+    `}
+    ${props => props.$starGrey && css `
+        background-image: ${props.$mode === "Light" ? `url(${starGrey})` : `url(${starGreyForDark})`};
+        background-position: center;
+        background-repeat: no-repeat;
     `}
 `;
 const StyledContainer = styled.div`

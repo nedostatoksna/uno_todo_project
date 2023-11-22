@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Checkbox from "../../ui/StyledCheckbox";
 import styled, { css } from "styled-components";

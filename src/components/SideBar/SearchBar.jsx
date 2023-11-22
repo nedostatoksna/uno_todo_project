@@ -33,6 +33,7 @@ const SearchBar = () => {
     return (
         <>
             <SearchBarWrapper $mode={context.mode}>
+                <StyledWrapper>
                     <Button 
                         $icon
                         $type={"search"}
@@ -54,6 +55,7 @@ const SearchBar = () => {
                                     onChange={(e) => {dispatch(setSearchQuery(e.target.value))}}
                                 />
                         </StyledSearchInputWrapper>
+                </StyledWrapper>
                     { 
                         isSearching 
                             ?  <Button
@@ -78,6 +80,12 @@ export default SearchBar;
 const SearchBarWrapper = styled.div`
     background-color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.08)" : "rgba(230, 225, 229, 0.08)"};
     margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+`;
+const StyledWrapper = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;

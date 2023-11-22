@@ -9,6 +9,10 @@ import searchIcon from "../images/searchIcon.svg";
 import searchIconDarkTheme from "../images/searchIconDark.svg";
 import editIconWhite from "../images/editIcon.svg";
 import deleteIconWhite from "../images/deleteIcon.svg";
+import calendarIcon from "../images/calenderIcon.svg";
+import calendarIconForDark from "../images/calendarIconForDark.svg";
+import crossIconGrey from "../images/crossIconGrey.svg";
+import crossIconGreyForDark from "../images/crossIconGreyForDark.svg";
 
 
 const Button = ( props ) => { 
@@ -90,8 +94,12 @@ const StyledButton = styled.button`
             : props.$type === "delete" ? `url(${deleteIconWhite})` 
             : props.$type === "cross" && props.$mode === "Light" ? `url(${blackCrossIcon})` 
             : props.$type === "cross" && props.$mode === "Dark" ? `url(${whiteCrossIcon})`
+            : props.$type === "crossGrey" && props.$mode === "Light" ? `url(${crossIconGrey})` 
+            : props.$type === "crossGrey" && props.$mode === "Dark" ? `url(${crossIconGreyForDark})`
             : props.$type === "search" && props.$mode === "Light" ? `url(${searchIcon})` 
             : props.$type === "search" && props.$mode === "Dark" ? `url(${searchIconDarkTheme})`
+            : props.$type === "addDate" && props.$mode === "Light" ? `url(${calendarIcon})` 
+            : props.$type === "addDate" && props.$mode === "Dark" ? `url(${calendarIconForDark})`
             : undefined
         };
         background-position: center;

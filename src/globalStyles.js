@@ -13,7 +13,9 @@ const GlobalStyle = createGlobalStyle`
     src: local("Roboto-Regular"),
     url("./fonts/Roboto/Roboto-Regular.ttf") format("truetype");
   }
-
+  input {
+    border: none;
+  }
   input:focus {
     outline: none;
   }

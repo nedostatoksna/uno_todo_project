@@ -26,7 +26,6 @@ const TodoApp = () => {
     const isSigningOut = useSelector(state => state.userPanelUI.isSigningOut);
 
     const isShowingEditPanel = useSelector(state => state.todoPanelUI.isShowingEditPanel);
-    const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
 
     const setActionType = () => {
         const type = isCreatingList ? "createList"
@@ -38,9 +37,7 @@ const TodoApp = () => {
 
         return type;
     }
-
-    console.log(setActionType());
-
+    
     return (
         <>
             { 
@@ -67,5 +64,4 @@ const Wrapper = styled.div`
     height: 100vh;
     display: flex;
     flex-direction: row;
-
 `;

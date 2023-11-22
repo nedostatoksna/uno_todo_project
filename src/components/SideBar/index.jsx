@@ -30,7 +30,7 @@ const SideBar = () => {
                 { userPanelState && <UserInterface toggleUserPanel={toggleUserPanel} /> }
                 <SearchBar />
                 <ImportantFilter />
-                <Divider $margin={"9px 0px 10px 0px"} $height={"1px"} />
+                <Divider $mode={context.mode} $margin={"9px 0px 10px 0px"} $light />
                 <ListOfLists />
             </div>
             <NewListBtn />
