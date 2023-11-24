@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import SettingButton from "./SettingButton";
+import UserSettingsButton from "./UserSettingsButton";
 import styled from "styled-components";
 import { AppContext } from "../../context/context";
 
@@ -13,12 +13,13 @@ const SettingsBar = ({ setting, name, dynamicContext, setDynamicContext }) => {
             <RadioButtonsWrapper>
                 {
                     setting.options.map(option => (
-                        <SettingButton
+                        <UserSettingsButton
                             option={option} 
                             name={name}                   
                             dynamicContext={dynamicContext}
                             setDynamicContext={setDynamicContext}
                             key={option}
+                            context={context.mode}
                         />
                     ))
                 }
