@@ -74,10 +74,10 @@ const StyledDueDateInput = styled.input`
     line-height: 24px; 
     text-align: flex-start;
     ${props => props.$grey && css `
-        color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.6)" : "rgba(230, 225, 229, 0.6)"};
+        color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-dark-variant)" : "var(--dark-mode-transparent-grey-text-dark-variant)"};
     `}
     ${props => props.$purple && css `
-        color: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
+        color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
     `}
 `;
 

@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { AppContext } from "../../context/context";
 import SettingsButton from "../../ui/SettingsButton";
 
-const UserSettingsButton = ({option, name, context, setDynamicContext, dynamicContext }) => {
+const UserSettingsButton = ({option, name, setDynamicContext, dynamicContext }) => {
+
+    const context = useContext(AppContext);
 
     const changeHandler = function() {
         switch (name) {
@@ -19,10 +23,10 @@ const UserSettingsButton = ({option, name, context, setDynamicContext, dynamicCo
 
     return (
         <SettingsButton 
-            $onChange={() => changeHandler()} 
-            $checked={isChecked()}  
+            onChange={() => changeHandler()} 
+            checked={isChecked()} 
             $option={option} 
-            $mode={context}
+            $mode={context.mode}
         />
     )
 };

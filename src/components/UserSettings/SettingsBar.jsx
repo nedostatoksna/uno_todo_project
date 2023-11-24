@@ -19,7 +19,6 @@ const SettingsBar = ({ setting, name, dynamicContext, setDynamicContext }) => {
                             dynamicContext={dynamicContext}
                             setDynamicContext={setDynamicContext}
                             key={option}
-                            context={context.mode}
                         />
                     ))
                 }

@@ -60,7 +60,7 @@ const StyledContainer = styled.div`
     -ms-user-select: none;
     user-select: none;
     &:hover ${StyledInput} ~ ${StyledLabel} {
-        background-color: ${props => props.$mode === "Light" ? "var(--transparent-light-grey-text)" : "var(--dark-mode-transparent-light-grey-text)"};
+        background-color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text)" : "var(--dark-mode-transparent-grey-text)"};
     };
     & ${StyledInput}:checked ~ ${StyledLabel} {
         background-color: ${props => props.$mode === "Light" ? "var(--primary-lavender)" : "var(--dark-grayish-lavender)"};

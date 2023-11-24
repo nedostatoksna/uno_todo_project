@@ -12,7 +12,7 @@ const SubText = ( props ) => {
 export default SubText;
 
 const StyledSubText = styled.p` 
-    color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.38)" : "rgba(230, 225, 229, 0.38)" };
+    color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-medium-variant)" : "var(--dark-mode-transparent-grey-text-medium-variant)"};
     font-family: "Roboto";
     font-size: 14px;
     font-style: normal;

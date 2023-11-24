@@ -72,7 +72,7 @@ const StyledItemTitle = styled.input`
     font-style: normal;
     font-weight: 400;
     line-height: 28px; 
-    color: ${props => props.$mode === "Light" ? "#1C1B1F" : "#E6E1E5"};
+    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
     margin: 0px 10px;
     width: calc(20vw - 140px);
     background-color: transparent;
@@ -86,15 +86,15 @@ const StyledTitleWrapper = styled.div`
     font-style: normal;
     font-weight: 400;
     line-height: 28px; 
-    color: ${props => props.$mode === "Light" ? "#1C1B1F" : "#E6E1E5"};
+    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
     margin: 0px 10px;
     padding: 8px 16px;
     width: calc(20vw - 120px);
-    background-color: ${props => props.$mode === "Light" ? "#fff" : "#201F24"};  
+    background-color: ${props => props.$mode === "Light" ? "var(--white)" : "var(--dark-mode-background)"};  
     ${props => props.$isEditing && css `
         border-bottom: 2px solid;
-        border-color: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
-        background-color: ${props => props.$mode === "Light" ? "#fff" : "#49454F"};
+        border-color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
+        background-color: ${props => props.$mode === "Light" ? "var(--white)" : "var(--dark-grayish-lavender-variant)"};
     `}
 `;
 const StyledLabel = styled.label` 
@@ -104,7 +104,7 @@ const StyledLabel = styled.label`
     font-weight: 600;
     line-height: 16px; 
     letter-spacing: 0.4px;
-    color: ${props => props.$mode === 'Light' ? '#5946D2' : '#9373FF'};
+    color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
 `;
 
 

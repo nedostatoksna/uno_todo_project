@@ -21,7 +21,6 @@ export default ListButton;
 const StyledListButton = styled.button`
 
     padding: 10px 8px 10px 48px;
-    margin-bottom: 5px;
     font-family: "Roboto";
     font-size: 16px;
     font-style: normal;
@@ -31,23 +30,37 @@ const StyledListButton = styled.button`
     text-align: start;
     background-repeat: no-repeat;
     background-color: transparent;
-    color: ${props => props.$mode === "Light" ? "#1C1B1F" : "#E6E1E5"};
-    margin: ${props => props.$margin};
+    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
+    margin: ${props => props.$margin || "0px 0px 5px 0px"};
+    background-position: center left 8px, center right 8px;
 
-    ${props => props.$houseIcon && css `
-        background-image: ${props.$mode === "Light" ? `url(${houseIcon})` : `url(${houseIconDark})`}, ${props.$mode === "Light" ? `url(${arrowIcon})` : `url(${arrowIconDark})`};
-        background-position: center left 8px, center right 8px;
+
+    ${props => props.$mode === "Light" && css `
+        ${props => props.$houseIcon && css `
+            background-image: url(${houseIcon}), url(${arrowIcon});
+        `}
+        ${props => props.$starIcon && css `
+            background-image: url(${starIcon}), url(${arrowIcon});
+        `}
+        ${props => props.$listIcon && css `
+            background-image: url(${listIcon}), url(${arrowIcon});
+        `}
     `}
-    ${props => props.$starIcon && css `
-        background-image: ${props.$mode === "Light" ? `url(${starIcon})` : `url(${starIconDark})`}, ${props.$mode === "Light" ? `url(${arrowIcon})` : `url(${arrowIconDark})`};
-        background-position: center left 8px, center right 8px;
+
+    ${props => props.$mode === "Dark" && css `
+        ${props => props.$houseIcon && css `
+            background-image: url(${houseIconDark}), url(${arrowIconDark});
+        `}
+        ${props => props.$starIcon && css `
+            background-image: url(${starIconDark}), url(${arrowIconDark});
+        `}
+        ${props => props.$listIcon && css `
+            background-image: url(${listIconDark}), url(${arrowIconDark});
+        `}
     `}
-    ${props => props.$listIcon && css `
-        background-image: ${props.$mode === "Light" ? `url(${listIcon})` : `url(${listIconDark})`}, ${props.$mode === "Light" ? `url(${arrowIcon})` : `url(${arrowIconDark})`};
-        background-position: center left 8px, center right 8px;
-    `}
+
     ${props => props.$active && css `
-        background-color: rgba(89, 70, 210, 0.08);
+        background-color: var(--transparent-lavender);
     `}
 `;
 

@@ -34,7 +34,7 @@ const StartPage = ({ setIsVisible }) => {
 export default StartPage;
 
 const Wrapper = styled.div`
-    background-color: ${props => props.$mode === "Light" ? "#fff" : "#201F24"};
+    background-color: ${props => props.$mode === "Light" ? "var(--white)" : "var(--dark-mode-background)"};
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -48,7 +48,7 @@ const StartPageTextWrapper = styled.div`
     align-items: center;
 `;
 const ImageWrapper = styled.div`
-    background-color: ${props => props.$mode === "Light" ? "rgba(89, 70, 210, 0.08)" : "rgba(200, 191, 255, 0.08)"}; 
+    background-color: ${props => props.$mode === "Light" ? "var(--transparent-lavender)" : "var(--dark-mode-transparent-lavender)"}; 
     padding: 60px;
     width: calc(100vw / 100 * 70);
     display: flex;
@@ -56,7 +56,7 @@ const ImageWrapper = styled.div`
     align-items: center;
 `;
 const StartPageText = styled.div`
-    background-color: ${props => props.$mode === "Light" ? "#fff" : "#201F24"};
+    background-color: transparent;
     max-width: 330px;
 `;
 const StyledIllustration = styled.img` 
@@ -67,7 +67,7 @@ const StyledLogo = styled.img`
 `;
 const StyledHeader = styled.h1`
     margin-bottom: 16px;
-    color: ${props => props.$mode === "Light" ? "#1C1B1F" : "#E6E1E5"};
+    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
     font-family: "Roboto";
     font-size: 57px;
     font-style: normal;
@@ -77,7 +77,7 @@ const StyledHeader = styled.h1`
 `;
 const StyledSubHeader = styled.h2`
     margin-bottom: 100px;
-    color: ${props => props.$mode === "Light" ? "#5835E5" : "#CBBEFF"};
+    color: ${props => props.$mode === "Light" ? "var(--primary-purple-light-variant)" : "var(--dark-mode-primary-purple-light-variant)"};
     font-family: Roboto;
     font-size: 16px;
     font-style: normal;

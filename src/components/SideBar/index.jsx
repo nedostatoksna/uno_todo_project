@@ -10,8 +10,8 @@ import { AppContext } from "../../context/context";
 import styled from "styled-components";
 import Divider from "../../ui/Divider";
 
-
 const SideBar = () => {
+    
     const dispatch = useDispatch();
     const context = useContext(AppContext);
 
@@ -55,8 +55,8 @@ const UserPicture = styled.div`
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
-    color: ${props => props.$mode === "Light" ? "#fff" : "#201F24"};
+    background: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
+    color: ${props => props.$mode === "Light" ? "var(--white)" : "var(--dark-mode-background)"};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,7 +79,7 @@ const UserName = styled.h1`
     font-style: normal;
     font-weight: 600;
     line-height: 20px;
-    color: ${props => props.$mode === "Light" ? "#1C1B1F" : "#fff"};
+    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--white)"};
 `;
 const UserEmail = styled.h2`
     font-family: "Roboto";
@@ -88,5 +88,5 @@ const UserEmail = styled.h2`
     font-weight: 600;
     line-height: 16px;
     letter-spacing: 0.4px;
-    color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.60)" : "rgba(230, 225, 229, 0.60)"};
+    color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-dark-variant)" : "var(--dark-mode-transparent-grey-text-dark-variant)"};
 `;

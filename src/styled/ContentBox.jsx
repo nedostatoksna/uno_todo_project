@@ -19,6 +19,6 @@ const StyledContentBox = styled.div`
     flex-direction: column;
     
     ${props => props.$primary && css`
-        background-color: ${props => props.$mode === "Light" ? "#fff" : "#201F24"};
+        background-color: ${props => props.$mode === "Light" ? "var(--white)" : "var(--dark-mode-background)"};
     `}
 `;

@@ -23,6 +23,6 @@ const StyledBackground = styled.div`
     z-index: ${props => props.$zIndex || 0 };
 
     ${props => props.$darkTransparent && css `
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: var(--transparent-modal-background);
     `}
 `;
