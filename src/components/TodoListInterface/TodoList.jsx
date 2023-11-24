@@ -5,15 +5,13 @@ import styled from "styled-components";
 const TodoList = ({ list }) => {
 
     return (
-        <>
-            <TodoListWrapper>
-                {
-                    list.todos.map(todo => (
-                        <Todo key={todo.id} todo={todo} />
-                    ))
-                }
-            </TodoListWrapper>
-       </>
+        <TodoListWrapper>
+            {
+                list.todos.map(todo => (
+                    <Todo key={todo.id} todo={todo} />
+                ))
+            }
+        </TodoListWrapper>
     )
 };
 

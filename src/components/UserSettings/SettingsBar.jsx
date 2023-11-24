@@ -8,25 +8,23 @@ const SettingsBar = ({ setting, name, dynamicContext, setDynamicContext }) => {
     const context = useContext(AppContext);
 
     return (
-        <>
-            <RadioGroupContainer>
-                <RadioGroupHeader $mode={context.mode}>{setting.header}</RadioGroupHeader>
-                <RadioButtonsWrapper>
-                    {
-                        setting.options.map(option => (
-                            <SettingButton
-                                option={option} 
-                                name={name}                   
-                                dynamicContext={dynamicContext}
-                                setDynamicContext={setDynamicContext}
-                                key={option}
-                            />
-                        ))
-                    }
-                </RadioButtonsWrapper>
-                { setting.header === "Language" ? <StyledNotice $mode={context.mode}>Change will be applied at next app restart</StyledNotice> : undefined }
-            </RadioGroupContainer>
-        </>
+        <RadioGroupContainer>
+            <RadioGroupHeader $mode={context.mode}>{setting.header}</RadioGroupHeader>
+            <RadioButtonsWrapper>
+                {
+                    setting.options.map(option => (
+                        <SettingButton
+                            option={option} 
+                            name={name}                   
+                            dynamicContext={dynamicContext}
+                            setDynamicContext={setDynamicContext}
+                            key={option}
+                        />
+                    ))
+                }
+            </RadioButtonsWrapper>
+            { setting.header === "Language" ? <StyledNotice $mode={context.mode}>Change will be applied at next app restart</StyledNotice> : undefined }
+        </RadioGroupContainer>
     )
 };
 

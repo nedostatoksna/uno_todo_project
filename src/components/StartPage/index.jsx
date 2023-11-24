@@ -21,7 +21,7 @@ const StartPage = ({ setIsVisible }) => {
                         create and manage your To Do lists to
                         improve your organization.
                     </StyledSubHeader>
-                    <Button onClick={() => setIsVisible(false)} $primary $width={"330px"} $mode={context.mode}>Get started</Button>
+                    <Button onClick={() => setIsVisible(false)} $primary $width={"330px"} $textAlign={"center"} $mode={context.mode}>Get started</Button>
                 </StartPageText>
             </StartPageTextWrapper>
             <ImageWrapper $mode={context.mode}>

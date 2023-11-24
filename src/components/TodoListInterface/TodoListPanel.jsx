@@ -8,17 +8,15 @@ import TodoList from "./TodoList";
 const TodoListPanel = ({ list }) => {
 
     return (
-        <>
-            <ListInterfaceWrapper>
-                <ListWrapper>
-                    <ListEditPanel list={list} />
-                    <Tabs />
-                    <TodoList list={list} />  
-                </ListWrapper>
+        <ListInterfaceWrapper>
+            <ListWrapper>
+                <ListEditPanel list={list} />
+                <Tabs />
+                <TodoList list={list} />  
+            </ListWrapper>
 
-                <AddTodoBtn />
-            </ListInterfaceWrapper>
-       </>
+            <AddTodoBtn />
+        </ListInterfaceWrapper>
     )
 };
 

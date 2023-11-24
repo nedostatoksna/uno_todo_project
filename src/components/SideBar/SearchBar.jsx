@@ -4,7 +4,7 @@ import { setSearchQuery, toggleIsSearching } from "../../store/actionCreators/to
 import { AppContext } from "../../context/context";
 import Divider from "../../ui/Divider";
 import styled from "styled-components";
-import Button from "../../ui/Button";
+import IconButton from "../../ui/IconButton";
 
 const SearchBar = () => {
 
@@ -34,15 +34,13 @@ const SearchBar = () => {
         <>
             <SearchBarWrapper $mode={context.mode}>
                 <StyledWrapper>
-                    <Button 
-                        $icon
+                    <IconButton 
                         $type={"search"}
                         alt="magnifying glass icon" 
                         $margin={"17px 8px 17px 16px"} 
-                        $width={"24px"}
-                        $height={"24px"}
+                        $small
                         $mode={context.mode}
-                    ></Button>
+                    ></IconButton>
                         <StyledSearchInputWrapper>
                             { isSearching ? <StyledLabel htmlFor="searchInput" $mode={context.mode}>Search</StyledLabel> : undefined}
                                 <StyledSearchInput 
@@ -58,16 +56,14 @@ const SearchBar = () => {
                 </StyledWrapper>
                     { 
                         isSearching 
-                            ?  <Button
-                                    $icon
+                            ?  <IconButton
                                     $type={"cross"}
                                     $margin={"17px 16px 17px 8px"}
                                     alt="cross"
-                                    $width={"24px"}
-                                    $height={"24px"}
+                                    $small
                                     onClick={() => cancelSearch()}
                                     $mode={context.mode}
-                                ></Button> : undefined
+                                ></IconButton> : undefined
                     }
             </SearchBarWrapper>
             <Divider $mode={context.mode} />

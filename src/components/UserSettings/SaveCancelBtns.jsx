@@ -10,7 +10,16 @@ const SaveCancelBtns = ({dispatch, dynamicContext}) => {
 
     return (
         <ButtonGroupWrapper>
-                <Button $white onClick={() => {dispatch(toggleUserPanel())}} $mode={context.mode}>Cancel</Button>
+                <Button 
+                    $white 
+                    $ClearBackground 
+                    $paddingSmall 
+                    $purpleColor
+                    $margin={"0px 10px"}
+                    $purpleHover
+                    onClick={() => {dispatch(toggleUserPanel())}} 
+                    $mode={context.mode}
+                    >Cancel</Button>
                 <Button onClick={() => {dispatch(save(dynamicContext))}} $primary $mode={context.mode}>Save</Button>
         </ButtonGroupWrapper>
     )

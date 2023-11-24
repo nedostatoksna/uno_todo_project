@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { AppContext } from "../../context/context";
 import styled from "styled-components";
 import TodoEditHeader from "./TodoEditHeader";
@@ -7,7 +7,6 @@ import Divider from "../../ui/Divider";
 import AddDueDate from "./AddDueDate";
 
 const TodoEditPanel = () => {
-    const dispatch = useDispatch();
     const context = useContext(AppContext);
     const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
     const lists = useSelector(state => state.dataLists);

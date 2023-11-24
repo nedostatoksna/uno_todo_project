@@ -9,6 +9,7 @@ import Divider from "../../ui/Divider";
 import styled from "styled-components";
 
 const UserSettings = () => {
+    
     const dispatch = useDispatch();
     const context = useContext(AppContext);
     const [dynamicContext, setDynamicContext] = useState(context);

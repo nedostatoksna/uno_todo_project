@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import SideBar from "../SideBar";
-import TaskListInterface from "../TodoListInterface";
+import TodoListInterface from "../TodoListInterface";
 import styled from "styled-components";
 import { AppContext } from "../../context/context";
 import { useSelector } from "react-redux";
@@ -49,7 +49,7 @@ const TodoApp = () => {
 
             <Wrapper $mode={context.mode}>
                     <SideBar />
-                    { isSearching ? <SearchTodoListPanel /> : isShowingImportant ? <ImportantTodoListPanel /> : <TaskListInterface />  }
+                    { isSearching ? <SearchTodoListPanel /> : isShowingImportant ? <ImportantTodoListPanel /> : <TodoListInterface />  }
                     { isShowingEditPanel ? <TodoEditPanel /> : undefined }
             </Wrapper>
         </>

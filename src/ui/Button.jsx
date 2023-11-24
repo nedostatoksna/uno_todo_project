@@ -3,30 +3,17 @@ import styled, { css } from "styled-components";
 import plusIcon from "../images/plusIcon.svg";
 import plusIconLighter from "../images/plusIconLighter.svg";
 import plusIconWhite from "../images/whitePlusIcon.svg";
-import whiteCrossIcon from "../images/whiteCrossIcon.svg";
-import blackCrossIcon from "../images/blackCrossIcon.svg";
-import searchIcon from "../images/searchIcon.svg";
-import searchIconDarkTheme from "../images/searchIconDark.svg";
-import editIconWhite from "../images/editIcon.svg";
-import deleteIconWhite from "../images/deleteIcon.svg";
-import calendarIcon from "../images/calenderIcon.svg";
-import calendarIconForDark from "../images/calendarIconForDark.svg";
-import crossIconGrey from "../images/crossIconGrey.svg";
-import crossIconGreyForDark from "../images/crossIconGreyForDark.svg";
-
 
 const Button = ( props ) => { 
     return (
-        <>
-            <StyledButton {...props}>{props.children}</StyledButton>
-        </>
+        <StyledButton {...props}>{props.children}</StyledButton>
     )
 };
 
 export default Button;
 
 const StyledButton = styled.button` 
-    color: ${props => props.$color || "#fff"};
+    color: var(--white);
     font-family: "Roboto";
     font-size: 14px;
     font-style: normal;
@@ -37,78 +24,76 @@ const StyledButton = styled.button`
     border-radius: 20px;
     width: ${props => props.$width || undefined};
     background-repeat: no-repeat;  
+    background-position: ${props => props.$position || "center left 16px"};
+    text-align: ${props => props.$textAlign || "start"};
+    padding: 10px 24px;
+    margin: ${props => props.$margin || undefined};
+     
+    ${props => props.$mode === "Light" && css`
+    
+        ${props => props.$primary && css `
+            background-color: var(--primary-purple);
+        `}
+        ${props => props.$coral && css `
+            background-color: var(--coral);
+        `}
+        ${props => props.$coralColor && css `
+            color: var(--coral);
+        `}
+        ${props => props.$purpleColor && css `
+            color: var(--primary-purple); 
+        `}
+        ${props => props.$purplePlus && css `
+            background-image: url(${plusIcon});
+            padding: 10px 16px 10px 38px;
+        `}
+        ${props => props.$greyTransparent && css `
+            background-color: rgba(28, 27, 31, 0.16);
+        `}
+    `} 
 
-    ${props => props.$primary && css `
-        background-color: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
-        padding: 10px 24px;
-    `}
-    ${props => props.$coral && css `
-        background-color: ${props => props.$mode === "Light" ? "#F85977" : "#D9415E"};
-        padding: 10px 24px;
-    `}
-    ${props => props.$coralWhite && css `
-        color: ${props => props.$mode === "Light" ? "#F85977" : "#D9415E"};
+    ${props => props.$mode === "Dark" && css`
+
+        ${props => props.$primary && css `
+            background-color: var(--dark-mode-primary-purple);
+        `}
+        ${props => props.$coral && css `
+            background-color: var(--dark-mode-coral);
+        `}
+        ${props => props.$coralColor && css `
+            color: var(--dark-mode-coral); 
+        `}
+        ${props => props.$purpleColor && css `
+            color: var(--dark-mode-primary-purple); 
+        `}
+        ${props => props.$purplePlus && css `
+            background-image: url(${plusIconLighter});
+            padding: 10px 16px 10px 38px;
+        `}
+        ${props => props.$greyTransparent && css `
+            background-color: rgba(230, 225, 229, 0.16);
+        `}
+    `} 
+    
+    ${props => props.$paddingSmall && css`
         padding: 10px 12px;
-        background: transparent;
-        text-align: center;
-        margin-bottom: 12px;
     `}
-    ${props => props.$white && css `
-        background-color: ${props => props.$mode === "Light" ? "#fff" : "#201F24"};
-        color: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
-        margin: 0px 10px;
-        padding: 10px 12px;
+    ${props => props.$paddingForPlus && css`
+        padding: 10px 24px 10px 42px;
+    `}
+    ${props => props.$ClearBackground && css`
+        background-color: transparent;
+    `}
+    ${props => props.$whitePlus && css `
+        background-image: url(${plusIconWhite});
+    `}
+    ${props => props.$widthMax && css `
+        width: 100%;
+    `}
+    ${props => props.$purpleHover && css `
         &:hover {
-        background: #E5DEFF;
+        background: var(--light-lavender);
         color: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
         }
     `}
-    ${props => props.$plusBtnWhite && css `
-        background-color: ${props => props.$mode === "Light" ? "#fff" : "#201F24"};
-        color: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
-        background-image: ${props.$mode === "Light" ? `url(${plusIcon})` : `url(${plusIconLighter})`};
-        background-position: center left 12px;
-        padding: 10px 16px 10px 38px;
-        text-align: start;
-        width: 100%;
-    `}
-    ${props => props.$plusBtnPurple && css `
-        background-color: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
-        color: #fff;
-        background-image: url(${plusIconWhite});
-        background-position: center left 16px;
-        padding: 10px 24px 10px 42px;
-        text-align: start;
-    `}
-    ${props => props.$plusBtnTransparent && css `
-        background-color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.16)" : "rgba(230, 225, 229, 0.16)"};
-        background-image: url(${plusIconWhite});
-        background-position: center left 16px;
-        padding: 10px 24px 10px 42px;
-        color: #fff;
-        text-align: start;
-        width: 100%;
-    `}
-    ${props => props.$icon && css `
-        background-image: ${props => props.$type === "edit" ? `url(${editIconWhite})`
-            : props.$type === "delete" ? `url(${deleteIconWhite})` 
-            : props.$type === "cross" && props.$mode === "Light" ? `url(${blackCrossIcon})` 
-            : props.$type === "cross" && props.$mode === "Dark" ? `url(${whiteCrossIcon})`
-            : props.$type === "crossGrey" && props.$mode === "Light" ? `url(${crossIconGrey})` 
-            : props.$type === "crossGrey" && props.$mode === "Dark" ? `url(${crossIconGreyForDark})`
-            : props.$type === "search" && props.$mode === "Light" ? `url(${searchIcon})` 
-            : props.$type === "search" && props.$mode === "Dark" ? `url(${searchIconDarkTheme})`
-            : props.$type === "addDate" && props.$mode === "Light" ? `url(${calendarIcon})` 
-            : props.$type === "addDate" && props.$mode === "Dark" ? `url(${calendarIconForDark})`
-            : undefined
-        };
-        background-position: center;
-        padding: ${props => props.$padding || "0px"};
-        margin: ${props => props.$margin || "0px"};
-        width: ${props => props.$width || "40px"};;
-        height: ${props => props.$height || "40px"};
-        border-radius: 0px;
-        background-color: transparent;
-    `}
-
 `;

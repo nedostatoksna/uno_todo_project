@@ -8,30 +8,19 @@ import AddTodoBtn from "../TodoListInterface/AddTodoBtn";
 import Header from "../../styled/Header";
 
 const ImportantTodoListPanel = () => {
-
-    const activeListId = useSelector(state => state.todoListUI.activeListId);
     const context = useContext(AppContext);
     const lists = useSelector(state => state.dataLists);
     const isShowingEditPanel = useSelector(state => state.todoPanelUI.isShowingEditPanel);
 
-    const resultsArr = [];
-    const makeArray = () => {
-        lists.map(list => 
-            (list.id === activeListId)
-                ? list.todos.map(todo => (
-                    todo.isImportant ? resultsArr.push(todo) : undefined
-                )) : undefined )
-    };
-
-    makeArray();
-
+    const todos = lists.map(list => list.todos).flat(1);
+    const importantTodos = todos.filter(todo => todo.isImportant);
 
     return (
         <ImportantTodoListWrapper $mode={context.mode} $width={isShowingEditPanel ? "60vw" : "80vw"}>
             <Header $mode={context.mode} $white $margin={"18px 0px"}>Important</Header>
             <StyledWrapper>
                 {
-                    resultsArr.length > 0 ? <ImportantTodoList /> : <Notice />
+                    importantTodos.length ? <ImportantTodoList todos={importantTodos} /> : <Notice />
                 }
                 <AddTodoBtn />
             </StyledWrapper>

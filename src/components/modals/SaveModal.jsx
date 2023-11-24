@@ -64,10 +64,19 @@ const SaveModal = ({ actionType, listId }) => {
                 <Header $mode={context.mode}>{header}</Header>
                 <TextInput id="saveModalInput" $mode={context.mode} value={value} onChange={(e) => setValue(e.target.value)} placeholder={placeholder}/>
                 <ButtonGroupWrapper>
-                        <Button $white onClick={() => {dispatch(setToggleFunction(actionType))}} $mode={context.mode}>Cancel</Button>
+                        <Button 
+                            $white 
+                            $ClearBackground 
+                            $paddingSmall 
+                            $purpleColor
+                            $margin={"0px 10px"}
+                            $purpleHover
+                            onClick={() => {dispatch(setToggleFunction(actionType))}} 
+                            $mode={context.mode}
+                            >Cancel</Button>
                         {
                             actionType === "createList" || actionType === "createTodo"
-                                ? <Button  onClick={() => setFunction(actionType)} $plusBtnPurple $mode={context.mode}>{buttonText}</Button>
+                                ? <Button  onClick={() => setFunction(actionType)} $whitePlus $primary $paddingForPlus $mode={context.mode}>{buttonText}</Button>
                                 : <Button onClick={() => setFunction(actionType)} $primary $mode={context.mode}>{buttonText}</Button>
                         }
                 </ButtonGroupWrapper>

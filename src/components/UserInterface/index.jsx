@@ -8,7 +8,7 @@ import { AppContext } from "../../context/context";
 import Header from "../../styled/Header";
 import Divider from "../../ui/Divider";
 import styled from "styled-components";
-import Button from "../../ui/Button";
+import IconButton from "../../ui/IconButton";
 
 const UserInterface = ({ toggleUserPanel }) => {
 
@@ -20,12 +20,12 @@ const UserInterface = ({ toggleUserPanel }) => {
         <Background $darkTransparent>
             <ContentBox $mode={context.mode} $primary $padding={"20px"}>
                 <StyledContainer>
-                    <Button 
-                        $icon 
+                    <IconButton 
+                        $large
                         $type={"cross"} 
                         $mode={context.mode}
                         alt="close icon" 
-                        onClick={() => {dispatch(toggleUserPanel())}}></Button>
+                        onClick={() => {dispatch(toggleUserPanel())}}></IconButton>
                     <Header $mode={context.mode} $margin={"0px 0px 0px 24px"}>Settings</Header>
                 </StyledContainer>
                 <UserCard />

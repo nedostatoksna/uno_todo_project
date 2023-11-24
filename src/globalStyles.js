@@ -6,6 +6,19 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     text-decoration: none;
+
+    --white: #fff;
+
+    --primary-purple: #5946D2;
+    --dark-mode-primary-purple: #9373FF;
+
+    --primary-lavender: #E5DFF9;
+    --light-lavender: #E5DEFF;
+
+    --dark-grayish-lavender: #474459;
+
+    --coral: #F85977;
+    --dark-mode-coral: #D9415E;
   }
   
   @font-face {

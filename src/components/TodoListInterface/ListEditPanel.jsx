@@ -2,23 +2,21 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { toggleDeletingList, toggleRenamingList } from "../../store/actionCreators/todoListActionCreators";
 import styled from "styled-components";
-import Button from "../../ui/Button.jsx";
 import Header from "../../styled/Header";
+import IconButton from "../../ui/IconButton";
 
 const ListEditPanel = ({ list }) => {
-
+    
     const dispatch = useDispatch();
 
     return (
-        <>
-            <ListEditPanelWrapper>
-                    <Header $white>{list.title}</Header>
-                    <HeaderButtonsWrapper>
-                        <Button $icon $type={"edit"} $padding={"8px"} onClick={() => {dispatch(toggleRenamingList())}}></Button>
-                        <Button $icon $type={"delete"} $padding={"8px"} onClick={() => {dispatch(toggleDeletingList())}}></Button>
-                    </HeaderButtonsWrapper>
-            </ListEditPanelWrapper>
-       </>
+        <ListEditPanelWrapper>
+                <Header $white>{list.title}</Header>
+                <HeaderButtonsWrapper>
+                    <IconButton $type={"edit"} $large onClick={() => {dispatch(toggleRenamingList())}}></IconButton>
+                    <IconButton $type={"delete"} $large onClick={() => {dispatch(toggleDeletingList())}}></IconButton>
+                </HeaderButtonsWrapper>
+        </ListEditPanelWrapper>
     )
 };
 

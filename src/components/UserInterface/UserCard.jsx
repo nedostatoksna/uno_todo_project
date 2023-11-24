@@ -17,7 +17,14 @@ const UserCard = () => {
                 <UserName $mode={context.mode}>{context.userName}</UserName>
                 <UserEmail $mode={context.mode}>{context.userEmail}</UserEmail>
             </UserTextBox>
-            <Button $coralWhite $mode={context.mode} onClick={() => {dispatch(changeIsSigningOut())}}>Sign Out</Button>
+            <Button 
+                $coralColor 
+                $ClearBackground 
+                $paddingSmall 
+                $margin={"0px 0px 12px 0px"}
+                $mode={context.mode} 
+                onClick={() => {dispatch(changeIsSigningOut())}}
+            >Sign Out</Button>
         </StyledContainer>
     )
 };

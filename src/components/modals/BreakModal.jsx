@@ -57,7 +57,16 @@ const BreakModal = ({ actionType }) => {
                 <Header $mode={context.mode} $margin={"0px 0px 16px 0px"}>{header}</Header>
                 <SubText $mode={context.mode}>{subText}</SubText>
                 <ButtonGroupWrapper>
-                        <Button $white onClick={() => {dispatch(setToggleFunction(actionType))}} $mode={context.mode}>Cancel</Button>
+                        <Button 
+                            $white 
+                            $ClearBackground 
+                            $paddingSmall 
+                            $purpleColor
+                            $margin={"0px 10px"}
+                            $purpleHover
+                            onClick={() => {dispatch(setToggleFunction(actionType))}} 
+                            $mode={context.mode}
+                        >Cancel</Button>
                         <Button $coral $mode={context.mode} onClick={() => setFunction(actionType)}>{buttonText}</Button>
                 </ButtonGroupWrapper>
             </ContentBox>

@@ -49,7 +49,6 @@ const SettingButton = ({option, name, setDynamicContext, dynamicContext }) => {
                 <StyledMark>{option}</StyledMark>
             </StyledLabel>
         </StyledContainer>
-
     )
 };
 
@@ -97,9 +96,9 @@ const StyledContainer = styled.div`
         background-color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.08)" : "rgba(230, 225, 229, 0.08)"};
     };
     & ${StyledInput}:checked ~ ${StyledLabel} {
-        background-color: ${props => props.$mode === "Light" ? "#E5DFF9" : "#474459"};
-        color: ${props => props.$mode === "Light" ? "#160067" : "#E5DEFF"};
+        background-color: ${props => props.$mode === "Light" ? "var(--primary-lavender" : "var(--dark-grayish-lavender"};
+        color: ${props => props.$mode === "Light" ? "#160067" : "var(--light-lavender)"};
         border: 1px solid;
-        border-color: ${props => props.$mode === "Light" ? "#E5DFF9" : "#474459"};
+        border-color: ${props => props.$mode === "Light" ? "var(--primary-lavender" : "var(--dark-grayish-lavender)"};
     };
 `;

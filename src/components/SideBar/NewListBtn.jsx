@@ -9,11 +9,18 @@ const NewListBtn = () => {
     const context = useContext(AppContext);
 
     return (
-        <>
-            <Button onClick={() => {dispatch(toggleCreatingList())}} $plusBtnWhite $mode={context.mode}>
-                New List
-            </Button>
-        </>
+        <Button 
+            onClick={() => {dispatch(toggleCreatingList())}} 
+            $purplePlus 
+            $positionForPlus 
+            $widthMax 
+            $position={"center left 12px"} 
+            $ClearBackground 
+            $purpleColor 
+            $mode={context.mode}
+        >
+            New List
+        </Button>
     )
 };
 

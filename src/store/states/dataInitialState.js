@@ -4,16 +4,16 @@ const dataInitialState = [
         id: "1",
         todos: [
                 {
-                    title: "default todo",
+                    title: "Homework",
                     id: "001",
                     isCompleted: false,
                     isImportant: false,
                     deadlineDate: "",
                     createDate: "20 Nov 2023",
-                    note: "Default note"
+                    note: ""
                 },
                 {
-                    title: "default todo item 2",
+                    title: "Project",
                     id: "002",
                     isCompleted: false,
                     isImportant: false,
@@ -22,7 +22,7 @@ const dataInitialState = [
                     note: "Default note"
                 },
                 {
-                    title: "default todo item 3",
+                    title: "Sketch",
                     id: "003",
                     isCompleted: true,
                     isImportant: true,
@@ -39,6 +39,30 @@ const dataInitialState = [
             //     createDate: "",
             //     note: ""
             // }
+        ]
+    },
+    {
+        title: "New TodoList",
+        id: "2",
+        todos: [
+                {
+                    title: "Pack",
+                    id: "001",
+                    isCompleted: false,
+                    isImportant: false,
+                    deadlineDate: "",
+                    createDate: "20 Nov 2023",
+                    note: ""
+                },
+                {
+                    title: "Do laundry",
+                    id: "002",
+                    isCompleted: false,
+                    isImportant: false,
+                    deadlineDate: "03 Jun 2024",
+                    createDate: "23 Nov 2023",
+                    note: "Default note"
+                }
         ]
     }
 ];

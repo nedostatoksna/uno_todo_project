@@ -1,67 +1,49 @@
-import React, { useCallback, useContext, useEffect, useRef } from "react";
+import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppContext } from "../../context/context";
 import styled, { css } from "styled-components";
-import Checkbox from "../../ui/StyledCheckbox";
-import { changeCompleted, changeImportant, changeTitle, deleteDeadline } from "../../store/actionCreators/dataListActionCreators.js";
-import { toggleChooseDeadlinePanel, toggleEditingTitle } from "../../store/actionCreators/todoPanelActionCreators";
-import Divider from "../../ui/Divider";
-import Button from "../../ui/Button";
+import { deleteDeadline } from "../../store/actionCreators/dataListActionCreators.js";
+import { toggleChooseDeadlinePanel } from "../../store/actionCreators/todoPanelActionCreators";
+import IconButton from "../../ui/IconButton";
 
 const AddDueDate = ({ todo }) => {
-
-    const titleInputFocus = useRef(null);
 
     const dispatch = useDispatch();
     const context = useContext(AppContext);
     const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
     const activeListId = useSelector(state => state.todoListUI.activeListId);
-    const isEditingTitle = useSelector(state => state.todoPanelUI.isEditingTitle);
-    const isShowingChooseDeadlineModal = useSelector(state => state.todoPanelUI.isShowingChooseDeadlineModal);
     const deadline = todo.deadlineDate;
-
-    // const cashedPreEdit = useCallback(() => {
-    //     dispatch(toggleEditingTitle());
-    // }, [dispatch]);
-
-    // useEffect(() => {
-    //     const input = titleInputFocus.current;
-    //     input.addEventListener("focus", cashedPreEdit);
-    //     return () => input.removeEventListener("focus", cashedPreEdit);
-    // }, [cashedPreEdit]);
 
     return (
         <AddDueDateWrapper $mode={context.mode}>
-            <Button
-                $icon
-                $type={"addDate"}
-                alt="calendar icon" 
-                $margin={"0px 16px 0px 0px"} 
-                $width={"24px"}
-                $height={"24px"}
-                $mode={context.mode}
-            ></Button>
-                        <StyledInputWrapper>
-                                <StyledDueDateInput 
-                                    $mode={context.mode} 
-                                    placeholder="Add Due Date" 
-                                    value={deadline}
-                                    id="dueDateInput"
-                                    onChange={() => {dispatch(toggleChooseDeadlinePanel())}}
-                                />
-                        </StyledInputWrapper>
+         <StyledInputWrapper>
+                <IconButton
+                    $type={ deadline.length > 0 ? "addDateActive" : "addDateGrey"}
+                    alt="calendar icon" 
+                    $margin={"0px 16px 0px 0px"} 
+                    $small
+                    $mode={context.mode}
+                ></IconButton>
+                <StyledDueDateInput
+                    $mode={context.mode} 
+                    placeholder="Add Due Date" 
+                    value={deadline}
+                    id="dueDateInput"
+                    $grey={deadline.length < 0}
+                    $purple={deadline.length > 0}
+                    onChange={() => {dispatch(toggleChooseDeadlinePanel())}}
+                />
+            </StyledInputWrapper>
                     { 
                         deadline.length > 0 
-                            ?  <Button
-                                    $icon
+                            ?  <IconButton
                                     $type={"crossGrey"}
                                     $margin={"0px 0px 0px 16px"}
                                     alt="grey cross"
-                                    $width={"24px"}
-                                    $height={"24px"}
+                                    $small
                                     onClick={() => {dispatch(deleteDeadline(activeListId, activeTodoId))}}
                                     $mode={context.mode}
-                                ></Button> : undefined
+                                ></IconButton> : undefined
                     }
 
         </AddDueDateWrapper>
@@ -79,9 +61,23 @@ const AddDueDateWrapper = styled.div`
     padding: 8px 0px;
 `;
 const StyledInputWrapper = styled.div`
-
+        display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
 `;
 const StyledDueDateInput = styled.input`
-
+    font-family: "Roboto";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px; 
+    text-align: flex-start;
+    ${props => props.$grey && css `
+        color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.6)" : "rgba(230, 225, 229, 0.6)"};
+    `}
+    ${props => props.$purple && css `
+        color: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
+    `}
 `;
 
