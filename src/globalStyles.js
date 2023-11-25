@@ -11,6 +11,8 @@ const GlobalStyle = createGlobalStyle`
     --dark-mode-white-text: #E6E1E5;
     --white-input-background: #FAF9FB;
     --dark-mode-input-background: #49454F;
+    --search-background: #F4F4F4;
+    --dark-mode-search-background: #252429;
     --black: #1C1B1F;
     --dark-mode-background: #201F24;
 

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { switchActiveTodoListId, switchVisibleImportant, toggleShowingAllTodos } from "../../store/actionCreators/todoListActionCreators";
 import styled from "styled-components";
 import ListButton from "../../ui/ListButton";
@@ -9,6 +9,9 @@ const ImportantFilter = () => {
 
     const dispatch = useDispatch();
     const context = useContext(AppContext);
+    const isShowingImportant  = useSelector(state => state.todoListUI.isShowingImportant);
+    const isShowingAllTodos = useSelector(state => state.todoListUI.isShowingAllTodos);
+    
 
     const preShowImportant = () => {
         dispatch(switchActiveTodoListId(""))
@@ -24,8 +27,8 @@ const ImportantFilter = () => {
 
     return (
         <Wrapper>
-            <ListButton $starIcon $mode={context.mode} onClick={() => preShowImportant()}>Important</ListButton>
-            <ListButton $houseIcon $mode={context.mode} onClick={() => preShowAllTodos()}>Tasks</ListButton>
+            <ListButton $active={isShowingImportant} $starIcon $mode={context.mode} onClick={() => preShowImportant()}>Important</ListButton>
+            <ListButton $active={isShowingAllTodos} $houseIcon $mode={context.mode} onClick={() => preShowAllTodos()}>Tasks</ListButton>
         </Wrapper>
     )
 };

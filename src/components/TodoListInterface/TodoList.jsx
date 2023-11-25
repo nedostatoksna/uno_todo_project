@@ -4,8 +4,6 @@ import styled from "styled-components";
 
 const TodoList = ({ list, hostListId }) => {
 
-    console.log(list);
-
     return (
         <TodoListWrapper>
             {

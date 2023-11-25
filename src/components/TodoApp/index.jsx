@@ -54,6 +54,7 @@ const TodoApp = () => {
                     { isSearching 
                         ? <SearchTodoListPanel /> 
                         : isShowingImportant ? <ImportantTodoListPanel /> 
+                        : isShowingAllTodos ? <AllTodosPanel />
                         : <TodoListInterface />  }
                     { isShowingEditPanel ? <TodoEditPanel /> : undefined }
             </Wrapper>

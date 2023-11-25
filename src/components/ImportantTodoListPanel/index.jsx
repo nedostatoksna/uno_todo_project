@@ -31,7 +31,7 @@ const ImportantTodoListPanel = () => {
 export default ImportantTodoListPanel;
 
 const ImportantTodoListWrapper = styled.div`
-    background-color: ${props => props.$mode === "Light" ? "#F85977" : "#D9415E"};
+    background-color: ${props => props.$mode === "Light" ? "var(--coral)" : "var(--dark-mode-coral)"};
     padding: 20px;
     width: ${props => props.$width};
 `;

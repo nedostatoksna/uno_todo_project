@@ -29,7 +29,7 @@ const SearchTodoListPanel = () => {
 export default SearchTodoListPanel;
 
 const SearchTodoListWrapper = styled.div`
-    background-color: ${props => props.$mode === "Light" ? "#F4F4F4" : "#252429"};
+    background-color: ${props => props.$mode === "Light" ? "var(--search-background)" : "var(--dark-mode-search-background)"};
     padding: 20px;
     width: ${props => props.$width};
 `;

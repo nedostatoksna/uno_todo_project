@@ -43,7 +43,7 @@ const ListOfLists = () => {
 export default ListOfLists;
 
 const Wrapper = styled.div`
-    background-color: ${props => props.$mode === "Light" ? "#fff" : "#201F24"};
+    background-color: ${props => props.$mode === "Light" ? "var(--white)" : "var(--dark-mode-background)"};
     margin: auto auto 5px auto;
     display: flex;
     flex-direction: column;
