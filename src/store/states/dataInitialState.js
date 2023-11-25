@@ -30,15 +30,6 @@ const dataInitialState = [
                     createDate: "20 Nov 2023",
                     note: "Default note"
                 }
-            // {
-            //     title: "",
-            //     id: "",
-            //     isCompleted: false,
-            //     isImportant: false,
-            //     deadlineDate: "",
-            //     createDate: "",
-            //     note: ""
-            // }
         ]
     },
     {
@@ -47,7 +38,7 @@ const dataInitialState = [
         todos: [
                 {
                     title: "Pack",
-                    id: "001",
+                    id: "004",
                     isCompleted: false,
                     isImportant: false,
                     deadlineDate: "",
@@ -56,10 +47,10 @@ const dataInitialState = [
                 },
                 {
                     title: "Do laundry",
-                    id: "002",
+                    id: "005",
                     isCompleted: false,
                     isImportant: false,
-                    deadlineDate: "03 Jun 2024",
+                    deadlineDate: "",
                     createDate: "23 Nov 2023",
                     note: "Default note"
                 }

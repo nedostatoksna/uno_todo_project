@@ -8,6 +8,7 @@ import {
     TOOGLE_CREATING_LIST,
     TOOGLE_CREATING_TODO,
     TOOGLE_IS_SEARCHING,
+    TOGGLE_SHOWING_ALL_TODOS,
     SET_SEARCH_QUERY } from "../actions/todoListActions";
 
 const todoListReducer = (state = todoListInitialState, {type, payload}) => {
@@ -31,7 +32,10 @@ const todoListReducer = (state = todoListInitialState, {type, payload}) => {
             ...state, isShowingCompleted: !state.isShowingCompleted
         }
         case SWITCH_VISIBLE_IMPORTANT: return {
-            ...state, isShowingImportant: !state.isShowingImportant
+            ...state, isShowingImportant: payload.boolean
+        }
+        case TOGGLE_SHOWING_ALL_TODOS: return {
+            ...state, isShowingAllTodos: payload.boolean
         }
         case SET_SEARCH_QUERY: return {
             ...state, searchQuery: payload.searchString 

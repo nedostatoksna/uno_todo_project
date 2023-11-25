@@ -41,7 +41,7 @@ const RadioGroupHeader = styled.h4`
     line-height: 16px;
     letter-spacing: 0.4px;
     margin-bottom: 5px;
-    color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 1)" : "rgba(230, 225, 229, 0.38)"};
+    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-transparent-grey-text-medium-variant)"};
 `;
 const RadioButtonsWrapper = styled.h4`
     display: flex;
@@ -54,6 +54,6 @@ const StyledNotice = styled.h4`
     font-weight: 600;
     line-height: 16px;
     letter-spacing: 0.4px;
-    color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.38)" : "rgba(230, 225, 229, 0.38)"};
+    color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-medium-variant)" : "var(--dark-mode-transparent-grey-text-medium-variant)"};
     margin-top: 5px;
 `;

@@ -13,19 +13,19 @@ export default Divider;
 
 const StyledDivider = styled.hr` 
     border: 1px solid;
-    border-color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.38)" : "rgba(230, 225, 229, 0.38)"};
+    border-color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-medium-variant)" : "var(--dark-mode-transparent-grey-text-medium-variant)"};
     height: ${props => props.$height || "2px"};
     margin: ${props => props.$margin || "0px 0px 20px 0px"};
 
     ${props => props.$light && css `
         height: 1px;
         border: 0.5px solid;
-        border-color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.12)" : "rgba(230, 225, 229, 0.12)"};
+        border-color: ${props => props.$mode === "Light" ? "var(--transparent-light-grey-text)" : "var(--dark-mode-transparent-light-grey-text)"};
     `}
     ${props => props.$white && css `
         height: 1px;
         border: 0.5px solid;
-        border-color: ${props => props.$mode === "Light" ? "#fff" : "#5946D2"};
+        border-color: ${props => props.$mode === "Light" ? "var(--white)" : "var(--primary-purple)"};
         opacity: 20%;
     `}
 `;

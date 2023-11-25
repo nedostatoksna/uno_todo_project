@@ -7,14 +7,16 @@ import {
     SWITCH_VISIBLE_IMPORTANT, 
     SET_SEARCH_QUERY, 
     TOOGLE_IS_SEARCHING,
+    TOGGLE_SHOWING_ALL_TODOS,
     TOGGLE_RENAMING_LIST } from "../actions/todoListActions";
 
 const switchActiveTodoListId = (listId) => ({ type: SWITCH_ACTIVE_TODOLIST_ID, payload: { listId } });
 const toggleCreatingTodo = () => ({ type: TOOGLE_CREATING_TODO });
 const toggleCreatingList = () => ({ type: TOOGLE_CREATING_LIST });
 const toggleDeletingList = () => ({ type: TOOGLE_DELETING_LIST });
-const switchVisibleCompleted = () => ({ type: SWITCH_VISIBLE_COMPLETED });
-const switchVisibleImportant = () => ({ type: SWITCH_VISIBLE_IMPORTANT });
+const toggleVisibleCompleted = () => ({ type: SWITCH_VISIBLE_COMPLETED });
+const switchVisibleImportant = (boolean) => ({ type: SWITCH_VISIBLE_IMPORTANT, payload: { boolean } });
+const toggleShowingAllTodos = (boolean) => ({ type: TOGGLE_SHOWING_ALL_TODOS, payload: { boolean } });
 const setSearchQuery = (searchString) => ({ type: SET_SEARCH_QUERY, payload: { searchString } });
 const toggleIsSearching = () => ({ type: TOOGLE_IS_SEARCHING });
 const toggleRenamingList = () => ({ type: TOGGLE_RENAMING_LIST });
@@ -24,8 +26,9 @@ export {
     toggleCreatingTodo,
     toggleCreatingList,
     toggleDeletingList,
-    switchVisibleCompleted,
+    toggleVisibleCompleted,
     switchVisibleImportant,
     setSearchQuery,
     toggleIsSearching,
+    toggleShowingAllTodos,
     toggleRenamingList };

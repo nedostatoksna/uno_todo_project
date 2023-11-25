@@ -35,7 +35,7 @@ const AddDueDate = ({ todo }) => {
                 />
             </StyledInputWrapper>
                     { 
-                        deadline.length > 0 
+                        deadline.length  
                             ?  <IconButton
                                     $type={"crossGrey"}
                                     $margin={"0px 0px 0px 16px"}

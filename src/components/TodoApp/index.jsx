@@ -9,12 +9,14 @@ import ImportantTodoListPanel from "../ImportantTodoListPanel";
 import SaveModal from "../modals/SaveModal";
 import BreakModal from "../modals/BreakModal";
 import TodoEditPanel from "../TodoEditPanel";
+import AllTodosPanel from "../AllTodosPanel";
 
 const TodoApp = () => {
 
     const context = useContext(AppContext);
     const isSearching = useSelector(state => state.todoListUI.isSearching);
     const isShowingImportant  = useSelector(state => state.todoListUI.isShowingImportant);
+    const isShowingAllTodos = useSelector(state => state.todoListUI.isShowingAllTodos);
 
     const isRenaming = useSelector(state => state.todoListUI.isRenamingList);
     const isCreatingList = useSelector(state => state.todoListUI.isCreatingList);
@@ -49,7 +51,10 @@ const TodoApp = () => {
 
             <Wrapper $mode={context.mode}>
                     <SideBar />
-                    { isSearching ? <SearchTodoListPanel /> : isShowingImportant ? <ImportantTodoListPanel /> : <TodoListInterface />  }
+                    { isSearching 
+                        ? <SearchTodoListPanel /> 
+                        : isShowingImportant ? <ImportantTodoListPanel /> 
+                        : <TodoListInterface />  }
                     { isShowingEditPanel ? <TodoEditPanel /> : undefined }
             </Wrapper>
         </>

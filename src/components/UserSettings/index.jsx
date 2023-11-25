@@ -49,6 +49,6 @@ const StyledHeader = styled.h3`
     font-weight: 600;
     line-height: 20px; 
     letter-spacing: 0.1px;
-    color: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
+    color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
     margin-bottom: 12px;
 `;

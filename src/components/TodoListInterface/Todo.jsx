@@ -6,25 +6,26 @@ import { AppContext } from "../../context/context";
 import { changeCompleted, changeImportant } from "../../store/actionCreators/dataListActionCreators.js";
 import { changeActiveTodoId, toggleTodoEditPanel } from "../../store/actionCreators/todoPanelActionCreators";
 
-const Todo = ({ todo }) => {
+const Todo = ({ todo, hostListId }) => {
 
     const dispatch = useDispatch();
     const context = useContext(AppContext);
-    const activeListId = useSelector(state => state.todoListUI.activeListId);
     const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
 
     const isShowingEditPanel = useSelector(state => state.todoPanelUI.isShowingEditPanel);
 
-    const setActiveTodoAndOpenEditPanel = () => {
-        dispatch(changeActiveTodoId(todo.id)) 
-        if  (isShowingEditPanel === false) dispatch(toggleTodoEditPanel()) 
+    const setActiveTodoAndOpenEditPanel = (e) => {
+        if (!e.target.id.includes("input")) {
+            dispatch(changeActiveTodoId(todo.id)) 
+            if  (isShowingEditPanel === false) dispatch(toggleTodoEditPanel()) 
+        }
     }
 
     return (
         <StyledItemBox 
             $mode={context.mode} 
             $active={todo.id === activeTodoId}
-            onClick={() => setActiveTodoAndOpenEditPanel()}
+            onClick={(e) => setActiveTodoAndOpenEditPanel(e)}
         >
             <Checkbox 
                 $primary 
@@ -33,7 +34,7 @@ const Todo = ({ todo }) => {
                 $margin={"10px 16px 10px 0px"} 
                 checked={todo.isCompleted}
                 id={todo.id}
-                onChange={() => {dispatch(changeCompleted(activeListId, todo.id, !todo.isCompleted))}} />
+                onChange={() => {dispatch(changeCompleted(hostListId, todo.id, !todo.isCompleted))}} />
             <StyledItemTextBox>
                 <StyledItemTitle $mode={context.mode}>{todo.title}</StyledItemTitle>
                 <StyledNoteDateBox>
@@ -49,7 +50,7 @@ const Todo = ({ todo }) => {
                 $margin={"10px 0px 10px 16px"} 
                 checked={todo.isImportant}
                 id={todo.id}
-                onChange={() => {dispatch(changeImportant(activeListId, todo.id, !todo.isImportant))}} />
+                onChange={() => {dispatch(changeImportant(hostListId, todo.id, !todo.isImportant))}} />
         </StyledItemBox>
     )
 };
@@ -62,9 +63,9 @@ const StyledItemBox = styled.div`
     justify-content: space-between;
     padding: 0px 10px;
     border-radius: 10px;
-    background-color: ${props => props.$mode === "Light" && props.$active === false ? "#fff" 
-    : props.$active && props.$mode === "Light" ? "rgba(200, 191, 255, 1)" 
-    : props.$active && props.$mode === "Dark" ? "rgba(230, 225, 229, 0.38)" : "#201F24"};
+    background-color: ${props => props.$mode === "Light" && props.$active === false ? "var(--white)"  
+    : props.$active && props.$mode === "Light" ? "var(--transparent-lavender)" 
+    : props.$active && props.$mode === "Dark" ? "var(--dark-mode-transparent-grey-text-medium-variant)" : "var(--dark-mode-background)"};
     margin-bottom: 5px;
 `;
 const StyledItemTitle = styled.p`
@@ -73,7 +74,7 @@ const StyledItemTitle = styled.p`
     font-style: normal;
     font-weight: 600;
     line-height: 24px; 
-    color: ${props => props.$mode === "Light" ? "#1C1B1F" : "#E6E1E5"};
+    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
 `;
 const StyledItemTextBox = styled.div`
     display: flex;
@@ -92,10 +93,10 @@ const StyledText = styled.p`
     padding: 2px;
 
     ${props => props.$grey && css `
-        color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.6)" : "rgba(230, 225, 229, 0.6)"};
+        color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-dark-variant)" : "var(--dark-mode-transparent-grey-text-dark-variant)"};
     `}
     ${props => props.$coral && css `
-        color: ${props => props.$mode === "Light" ? "#F85977" : "#D9415E"};
+        color: ${props => props.$mode === "Light" ? "var(--coral)" : "var(--dark-mode-coral)"};
     `}
 `;
 const StyledNoteDateBox = styled.div`

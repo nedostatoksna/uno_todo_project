@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+
 import styled from "styled-components";
 import { AppContext } from "../../context/context";
 
@@ -26,7 +27,7 @@ const StyledText = styled.p`
     font-weight: 600;
     line-height: 20px;
     letter-spacing: 0.1px;
-    color: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
+    color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
     margin: 2px 0px 12px 0px;
 `;
 const StyledDarkText = styled.p`
@@ -35,9 +36,9 @@ const StyledDarkText = styled.p`
     font-style: normal;
     font-weight: 600;
     line-height: 24px;
-    color: ${props => props.$mode === "Light" ? "#1C1B1F" : "#E6E1E5"};
+    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
 `;
 const StyledNumber = styled.span`
-    color: ${props => props.$mode === "Light" ? "#5946D2" : "#9373FF"};
+    color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
     margin: 0px 0px 0px 12px;
 `;

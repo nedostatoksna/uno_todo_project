@@ -4,15 +4,20 @@ import AddTodoBtn from "./AddTodoBtn";
 import styled from "styled-components";
 import ListEditPanel from "./ListEditPanel";
 import TodoList from "./TodoList";
+import { useSelector } from "react-redux";
 
 const TodoListPanel = ({ list }) => {
+
+    const allTodosOfList = list.todos;
+    const completedTodos = list.todos.filter(todo => todo.isCompleted);
+    const isShowingCompleted = useSelector(state => state.todoListUI.isShowingCompleted);
 
     return (
         <ListInterfaceWrapper>
             <ListWrapper>
                 <ListEditPanel list={list} />
                 <Tabs />
-                <TodoList list={list} />  
+                <TodoList list={isShowingCompleted ? completedTodos : allTodosOfList} hostListId={list.id} />  
             </ListWrapper>
 
             <AddTodoBtn />

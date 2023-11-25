@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { switchActiveTodoListId } from "../../store/actionCreators/todoListActionCreators";
+import { switchActiveTodoListId, switchVisibleImportant, toggleShowingAllTodos } from "../../store/actionCreators/todoListActionCreators";
 import { AppContext } from "../../context/context";
 import styled from "styled-components";
 import ListButton from "../../ui/ListButton";
@@ -11,6 +11,12 @@ const ListOfLists = () => {
     const activeList = useSelector(state => state.todoListUI.activeListId);
     const dispatch = useDispatch();
     const context = useContext(AppContext);
+
+    const preSwitchActiveTodoList = (listId) => {
+        dispatch(switchActiveTodoListId(listId))
+        dispatch(toggleShowingAllTodos(false))
+        dispatch(switchVisibleImportant(false))
+    }
 
     return (
         <Wrapper $mode={context.mode}>
@@ -23,7 +29,7 @@ const ListOfLists = () => {
                             $listIcon
                             key={list.id} 
                             $mode={context.mode}
-                            onClick={() => {dispatch(switchActiveTodoListId(list.id))}}
+                            onClick={() => preSwitchActiveTodoList(list.id)}
                             $margin={"5px 0px 0px 0px"}
                         >
                             {list.title}
