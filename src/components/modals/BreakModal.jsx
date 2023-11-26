@@ -1,16 +1,12 @@
 import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeIsSigningOut } from "../../store/actionCreators/userPanelActionCreators";
-import Button from "../../ui/Button";
 import SubText from "../../styled/SubText";
 import { AppContext } from "../../context/context";
-import styled from "styled-components";
 import { toggleDeletingList } from "../../store/actionCreators/todoListActionCreators";
 import { toggleDeletingTodo } from "../../store/actionCreators/todoPanelActionCreators";
 import { deleteList, deleteTodo } from "../../store/actionCreators/dataListActionCreators.js";
-import Background from "../../styled/Background";
-import ContentBox from "../../styled/ContentBox";
-import Header from "../../styled/Header";
+import Modal from "../../ui/Modal";
 
 const BreakModal = ({ actionType }) => {
 
@@ -52,34 +48,19 @@ const BreakModal = ({ actionType }) => {
     }
 
     return (
-        <Background $darkTransparent $zIndex={"1"}>
-            <ContentBox $primary $width={"310px"} $mode={context.mode}>
-                <Header $mode={context.mode} $margin={"0px 0px 16px 0px"}>{header}</Header>
-                <SubText $mode={context.mode}>{subText}</SubText>
-                <ButtonGroupWrapper>
-                        <Button 
-                            $white 
-                            $ClearBackground 
-                            $paddingSmall 
-                            $purpleColor
-                            $margin={"0px 10px"}
-                            $purpleHover
-                            onClick={() => {dispatch(setToggleFunction(actionType))}} 
-                            $mode={context.mode}
-                        >Cancel</Button>
-                        <Button $coral $mode={context.mode} onClick={() => setFunction(actionType)}>{buttonText}</Button>
-                </ButtonGroupWrapper>
-            </ContentBox>
-        </Background>
+        <Modal 
+            $zIndex={"2"} 
+            $boxWidth={"310px"} 
+            $coral
+            $header={header} 
+            $buttonText={buttonText} 
+            $mode={context.mode} 
+            $onCancelClickHandler={() => {dispatch(setToggleFunction(actionType))}} 
+            $onСonfirmationClick={() => setFunction(actionType)}
+        >
+            <SubText $mode={context.mode}>{subText}</SubText>
+        </Modal>
     )
 };
 
 export default BreakModal;
-
-const ButtonGroupWrapper = styled.div`
-    padding: 20px 4px 0px 4px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-`;

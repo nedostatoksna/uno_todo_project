@@ -9,9 +9,16 @@ import {
 const changeActiveTodoId = (todoId) => ({ type: CHANGE_ACTIVE_TODO_ID, payload : { todoId } });
 const toggleEditingTitle = () => ({ type: TOGGLE_EDITING_TITLE });
 const toggleDeletingTodo = () => ({ type: TOOGLE_DELETING_TODO });
-const toggleTodoEditPanel = () => ({ type: TOGGLE_TODO_EDIT_PANEL });
+const toggleTodoEditPanel = (boolean) => ({ type: TOGGLE_TODO_EDIT_PANEL, payload : { boolean } });
 const toggleChooseDeadlinePanel = () => ({ type: TOGGLE_CHOOSE_DEADLINE_MODAL });
 const openCalendar = () => ({ type: OPEN_CALENDAR });
+
+const setActiveTodoAndOpenEditPanel = (todoId) => {
+    return (dispatch) => {
+        dispatch(changeActiveTodoId(todoId)) 
+        dispatch(toggleTodoEditPanel(true))
+    }
+};
 
 export { 
     changeActiveTodoId,
@@ -19,4 +26,5 @@ export {
     toggleDeletingTodo,
     toggleTodoEditPanel,
     toggleChooseDeadlinePanel,
+    setActiveTodoAndOpenEditPanel,
     openCalendar };

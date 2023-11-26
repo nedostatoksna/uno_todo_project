@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { toggleUserPanel } from "../../store/actionCreators/userPanelActionCreators";
-import UserInterface from "../UserInterface";
 import SearchBar from "./SearchBar";
 import ImportantFilter from "./ImportantFilter";
 import ListOfLists from "../ListOfLists";
@@ -15,8 +14,6 @@ const SideBar = () => {
     const dispatch = useDispatch();
     const context = useContext(AppContext);
 
-    const userPanelState = useSelector(state => state.userPanelUI.isShowingUserPanel);
-
     return (
         <SideBarWrapper $mode={context.mode}>
             <div>
@@ -27,7 +24,6 @@ const SideBar = () => {
                         <UserEmail $mode={context.mode}>{context.userEmail}</UserEmail>
                     </UserTextBox>
                 </UserCard>
-                { userPanelState && <UserInterface toggleUserPanel={toggleUserPanel} /> }
                 <SearchBar />
                 <ImportantFilter />
                 <Divider $mode={context.mode} $margin={"9px 0px 10px 0px"} $light />

@@ -10,6 +10,7 @@ import SaveModal from "../modals/SaveModal";
 import BreakModal from "../modals/BreakModal";
 import TodoEditPanel from "../TodoEditPanel";
 import AllTodosPanel from "../AllTodosPanel";
+import UserInterface from "../UserInterface";
 
 const TodoApp = () => {
 
@@ -28,6 +29,7 @@ const TodoApp = () => {
     const isSigningOut = useSelector(state => state.userPanelUI.isSigningOut);
 
     const isShowingEditPanel = useSelector(state => state.todoPanelUI.isShowingEditPanel);
+    const isShowinguserPanel = useSelector(state => state.userPanelUI.isShowingUserPanel);
 
     const setActionType = () => {
         const type = isCreatingList ? "createList"
@@ -47,6 +49,9 @@ const TodoApp = () => {
             }
             {
                 isDeletingList || isDeletingTodo || isSigningOut ? <BreakModal actionType={setActionType()} /> : undefined
+            }
+            {
+                isShowinguserPanel && <UserInterface /> 
             }
 
             <Wrapper $mode={context.mode}>

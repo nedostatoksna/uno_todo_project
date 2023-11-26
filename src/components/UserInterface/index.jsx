@@ -1,39 +1,40 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
-import UserSettings from "../UserSettings";
 import UserCard from "./UserCard";
-import Background from "../../styled/Background";
-import ContentBox from "../../styled/ContentBox";
 import { AppContext } from "../../context/context";
-import Header from "../../styled/Header";
 import Divider from "../../ui/Divider";
+import Modal from "../../ui/Modal";
+import { save, toggleUserPanel } from "../../store/actionCreators/userPanelActionCreators";
+import About from "./About";
 import styled from "styled-components";
-import IconButton from "../../ui/IconButton";
+import GeneralSettings from "./GeneralSettings";
 
-const UserInterface = ({ toggleUserPanel }) => {
+const UserInterface = () => {
 
     const dispatch = useDispatch();
     const context = useContext(AppContext);
+    const [dynamicContext, setDynamicContext] = useState(context);
 
     return (
-        <>
-        <Background $darkTransparent>
-            <ContentBox $mode={context.mode} $primary $padding={"20px"}>
-                <StyledContainer>
-                    <IconButton 
-                        $large
-                        $type={"cross"} 
-                        $mode={context.mode}
-                        alt="close icon" 
-                        onClick={() => {dispatch(toggleUserPanel())}}></IconButton>
-                    <Header $mode={context.mode} $margin={"0px 0px 0px 24px"}>Settings</Header>
-                </StyledContainer>
-                <UserCard />
+        <Modal
+            $zIndex={"1"}
+            $type={"cross"} 
+            $boxPadding={"20px"}
+            $mode={context.mode}
+            $primary
+            $header={"Settings"} 
+            $buttonText={"Save"} 
+            $onCancelClickHandler={() => {dispatch(toggleUserPanel())}} 
+            $onСonfirmationClick={() => {dispatch(save(dynamicContext))}}
+        >
+            <UserCard />
+            <Divider $mode={context.mode} $height={"1px"} />
+            <StyledContainer>
+                <GeneralSettings dynamicContext={dynamicContext} setDynamicContext={setDynamicContext} />
                 <Divider $mode={context.mode} $height={"1px"} />
-                <UserSettings />
-            </ContentBox>
-        </Background>     
-        </>  
+                <About />
+            </StyledContainer> 
+        </Modal> 
     )
 };
 
@@ -41,7 +42,7 @@ export default UserInterface;
 
 const StyledContainer = styled.div`
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 4px 4px 0px 4px;
+    flex-direction: column;
+    padding-top: 10px;
 `;
+

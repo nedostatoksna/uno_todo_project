@@ -4,7 +4,7 @@ import Checkbox from "../../ui/StyledCheckbox";
 import styled, { css } from "styled-components";
 import { AppContext } from "../../context/context";
 import { changeCompleted, changeImportant } from "../../store/actionCreators/dataListActionCreators.js";
-import { changeActiveTodoId, toggleTodoEditPanel } from "../../store/actionCreators/todoPanelActionCreators";
+import { setActiveTodoAndOpenEditPanel } from "../../store/actionCreators/todoPanelActionCreators";
 
 const Todo = ({ todo }) => {
 
@@ -12,12 +12,9 @@ const Todo = ({ todo }) => {
     const context = useContext(AppContext);
     const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
 
-    const isShowingEditPanel = useSelector(state => state.todoPanelUI.isShowingEditPanel);
-
-    const setActiveTodoAndOpenEditPanel = (e) => {
+    const presetActiveTodoAndOpenEditPanel = (e) => {
         if (!e.target.id.includes("input")) {
-            dispatch(changeActiveTodoId(todo.id)) 
-            if  (isShowingEditPanel === false) dispatch(toggleTodoEditPanel()) 
+            dispatch(setActiveTodoAndOpenEditPanel(todo.id)) 
         }
     }
 
@@ -25,7 +22,7 @@ const Todo = ({ todo }) => {
         <StyledItemBox 
             $mode={context.mode} 
             $active={todo.id === activeTodoId}
-            onClick={(e) => setActiveTodoAndOpenEditPanel(e)}
+            onClick={(e) => presetActiveTodoAndOpenEditPanel(e)}
         >
             <Checkbox 
                 $primary 

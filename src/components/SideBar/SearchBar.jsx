@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useEffect, useRef } from "react";
 import { useDispatch, useSelector} from "react-redux";
-import { setSearchQuery, toggleIsSearching } from "../../store/actionCreators/todoListActionCreators";
+import { cancelSearch, setSearchQuery, toggleIsSearching } from "../../store/actionCreators/todoListActionCreators";
 import { AppContext } from "../../context/context";
 import Divider from "../../ui/Divider";
 import styled from "styled-components";
@@ -9,7 +9,6 @@ import IconButton from "../../ui/IconButton";
 const SearchBar = () => {
 
     const searchInputFocus = useRef(null);
-
     const dispatch = useDispatch();
     const context = useContext(AppContext);
     const isSearching = useSelector(state => state.todoListUI.isSearching);
@@ -18,11 +17,6 @@ const SearchBar = () => {
     const cashedPreSearch = useCallback((e) => {
         dispatch(toggleIsSearching());
     }, [dispatch]);
-
-    const cancelSearch = () => {
-        dispatch(toggleIsSearching());
-        dispatch(setSearchQuery(""))
-    };
 
     useEffect(() => {
         const input = searchInputFocus.current;
@@ -61,7 +55,7 @@ const SearchBar = () => {
                                     $margin={"17px 16px 17px 8px"}
                                     alt="cross"
                                     $small
-                                    onClick={() => cancelSearch()}
+                                    onClick={() => {dispatch(cancelSearch())}}
                                     $mode={context.mode}
                                 ></IconButton> : undefined
                     }

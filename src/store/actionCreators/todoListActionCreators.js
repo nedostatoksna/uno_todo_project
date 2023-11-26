@@ -21,6 +21,37 @@ const setSearchQuery = (searchString) => ({ type: SET_SEARCH_QUERY, payload: { s
 const toggleIsSearching = () => ({ type: TOOGLE_IS_SEARCHING });
 const toggleRenamingList = () => ({ type: TOGGLE_RENAMING_LIST });
 
+const preSwitchActiveTodoList = (listId) => {
+    return (dispatch) => {
+        dispatch(switchActiveTodoListId(listId))
+        dispatch(toggleShowingAllTodos(false))
+        dispatch(switchVisibleImportant(false))
+    }
+}; 
+
+const preShowImportant = () => {
+    return (dispatch) => {
+        dispatch(switchActiveTodoListId(""))
+        dispatch(toggleShowingAllTodos(false))
+        dispatch(switchVisibleImportant(true))
+    }
+};
+
+const preShowAllTodos = () => {
+    return (dispatch) => {
+        dispatch(switchActiveTodoListId(""))
+        dispatch(switchVisibleImportant(false))
+        dispatch(toggleShowingAllTodos(true))
+    }
+};
+
+const cancelSearch = () => {
+    return (dispatch) => {
+        dispatch(toggleIsSearching());
+        dispatch(setSearchQuery(""))
+    }
+};
+
 export { 
     switchActiveTodoListId,
     toggleCreatingTodo,
@@ -31,4 +62,8 @@ export {
     setSearchQuery,
     toggleIsSearching,
     toggleShowingAllTodos,
+    preSwitchActiveTodoList,
+    preShowImportant,
+    preShowAllTodos,
+    cancelSearch,
     toggleRenamingList };

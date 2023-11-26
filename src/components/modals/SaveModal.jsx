@@ -3,12 +3,8 @@ import { useDispatch } from "react-redux";
 import { toggleCreatingList, toggleCreatingTodo, toggleRenamingList } from "../../store/actionCreators/todoListActionCreators";
 import { addTodoToList, createList, renameList } from "../../store/actionCreators/dataListActionCreators.js.js";
 import TextInput from "../../ui/TextInput";
-import { AppContext } from "../../context/context";
-import Button from "../../ui/Button";
-import styled from "styled-components";
-import Background from "../../styled/Background";
-import ContentBox from "../../styled/ContentBox";
-import Header from "../../styled/Header";
+import { AppContext } from "../../context/context"; 
+import Modal from "../../ui/Modal";
 
 const SaveModal = ({ actionType, listId }) => {
     const context = useContext(AppContext);
@@ -59,38 +55,20 @@ const SaveModal = ({ actionType, listId }) => {
     }
 
     return (
-        <Background $darkTransparent>
-            <ContentBox $primary $mode={context.mode}>
-                <Header $mode={context.mode}>{header}</Header>
-                <TextInput id="saveModalInput" $mode={context.mode} value={value} onChange={(e) => setValue(e.target.value)} placeholder={placeholder}/>
-                <ButtonGroupWrapper>
-                        <Button 
-                            $white 
-                            $ClearBackground 
-                            $paddingSmall 
-                            $purpleColor
-                            $margin={"0px 10px"}
-                            $purpleHover
-                            onClick={() => {dispatch(setToggleFunction(actionType))}} 
-                            $mode={context.mode}
-                            >Cancel</Button>
-                        {
-                            actionType === "createList" || actionType === "createTodo"
-                                ? <Button  onClick={() => setFunction(actionType)} $whitePlus $primary $paddingForPlus $mode={context.mode}>{buttonText}</Button>
-                                : <Button onClick={() => setFunction(actionType)} $primary $mode={context.mode}>{buttonText}</Button>
-                        }
-                </ButtonGroupWrapper>
-            </ContentBox>
-        </Background>
+        <Modal
+            $mode={context.mode}
+            $header={header} 
+            $buttonText={buttonText} 
+            $whitePlusForBtn={actionType === "createList" || actionType === "createTodo"}
+            $primary 
+            $paddingForPlusBtn={actionType === "createList" || actionType === "createTodo"}
+            $onCancelClickHandler={() => {dispatch(setToggleFunction(actionType))}} 
+            $onСonfirmationClick={() => setFunction(actionType)}
+        >
+            <TextInput id="saveModalInput" $mode={context.mode} value={value} onChange={(e) => setValue(e.target.value)} placeholder={placeholder}/>
+        </Modal>
     )
 };
 
 export default SaveModal;
 
-const ButtonGroupWrapper = styled.div`
-    padding: 20px 4px 0px 4px;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
-`;

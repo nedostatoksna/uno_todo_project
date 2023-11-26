@@ -10,7 +10,7 @@ import {
 const todoPanelReducer = (state = todoPanelInitialState, { type, payload }) => {
     switch (type) {
         case TOGGLE_TODO_EDIT_PANEL: return {
-            ...state, isShowingEditPanel: !state.isShowingEditPanel
+            ...state, isShowingEditPanel: payload.boolean
         }
         case TOGGLE_EDITING_TITLE: return {
             ...state, isEditingTitle: !state.isEditingTitle
