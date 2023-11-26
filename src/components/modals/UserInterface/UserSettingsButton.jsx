@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { AppContext } from "../../context/context";
-import SettingsButton from "../../ui/SettingsButton";
+import { AppContext } from "../../../context/context";
+import SettingsButton from "../../../ui/SettingsButton";
 
 const UserSettingsButton = ({option, name, setDynamicContext, dynamicContext }) => {
 

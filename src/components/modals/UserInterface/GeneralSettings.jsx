@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { AppContext } from "../../context/context";
-import { settings } from "../../context/settings";
+import { AppContext } from "../../../context/context";
+import { settings } from "../../../context/settings";
 import SettingsBar from "./SettingsBar";
 
 const GeneralSettings = ({ dynamicContext, setDynamicContext }) => {

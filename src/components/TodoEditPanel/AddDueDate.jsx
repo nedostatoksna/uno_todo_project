@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { AppContext } from "../../context/context";
 import styled, { css } from "styled-components";
 import { deleteDeadline } from "../../store/actionCreators/dataListActionCreators.js";
@@ -10,8 +10,6 @@ const AddDueDate = ({ todo }) => {
 
     const dispatch = useDispatch();
     const context = useContext(AppContext);
-    const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
-    const activeListId = useSelector(state => state.todoListUI.activeListId);
     const deadline = todo.deadlineDate;
 
     return (
@@ -23,6 +21,7 @@ const AddDueDate = ({ todo }) => {
                     $margin={"0px 16px 0px 0px"} 
                     $small
                     $mode={context.mode}
+                    onClick={() => {dispatch(toggleChooseDeadlinePanel())}}
                 ></IconButton>
                 <StyledDueDateInput
                     $mode={context.mode} 
@@ -31,17 +30,17 @@ const AddDueDate = ({ todo }) => {
                     id="dueDateInput"
                     $grey={deadline.length < 0}
                     $purple={deadline.length > 0}
-                    onChange={() => {dispatch(toggleChooseDeadlinePanel())}}
+                    disabled
                 />
             </StyledInputWrapper>
                     { 
-                        deadline.length  
+                        deadline
                             ?  <IconButton
                                     $type={"crossGrey"}
                                     $margin={"0px 0px 0px 16px"}
                                     alt="grey cross"
                                     $small
-                                    onClick={() => {dispatch(deleteDeadline(activeListId, activeTodoId))}}
+                                    onClick={() => {dispatch(deleteDeadline(todo.parentListId, todo.id))}}
                                     $mode={context.mode}
                                 ></IconButton> : undefined
                     }
@@ -61,7 +60,7 @@ const AddDueDateWrapper = styled.div`
     padding: 8px 0px;
 `;
 const StyledInputWrapper = styled.div`
-        display: flex;
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
@@ -79,5 +78,6 @@ const StyledDueDateInput = styled.input`
     ${props => props.$purple && css `
         color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
     `}
+    background-color: transparent;
 `;
 

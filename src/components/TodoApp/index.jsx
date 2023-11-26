@@ -10,7 +10,8 @@ import SaveModal from "../modals/SaveModal";
 import BreakModal from "../modals/BreakModal";
 import TodoEditPanel from "../TodoEditPanel";
 import AllTodosPanel from "../AllTodosPanel";
-import UserInterface from "../UserInterface";
+import UserInterface from "../modals/UserInterface";
+import AddDueDate from "../modals/AddDueDateModal";
 
 const TodoApp = () => {
 
@@ -30,6 +31,7 @@ const TodoApp = () => {
 
     const isShowingEditPanel = useSelector(state => state.todoPanelUI.isShowingEditPanel);
     const isShowinguserPanel = useSelector(state => state.userPanelUI.isShowingUserPanel);
+    const isShowingChooseDeadlineModal = useSelector(state => state.todoPanelUI.isShowingChooseDeadlineModal);
 
     const setActionType = () => {
         const type = isCreatingList ? "createList"
@@ -52,6 +54,9 @@ const TodoApp = () => {
             }
             {
                 isShowinguserPanel && <UserInterface /> 
+            }
+            {
+                isShowingChooseDeadlineModal && <AddDueDate /> 
             }
 
             <Wrapper $mode={context.mode}>

@@ -7,6 +7,10 @@ import arrowIcon from "../images/arrowIcon.svg";
 import arrowIconDark from "../images/arrowIconDark.svg";
 import listIcon from "../images/listIcon.svg";
 import listIconDark from "../images/listIconDark.svg";
+import calendarDayIcon from "../images/calendarDay.svg";
+import calendarDayIconForDark from "../images/calendarDayForDark.svg";
+import arrowIconBlack from "../images/arrowIconBlack.svg";
+import arrowIconBlackForDark from "../images/arrowIconBlackForDark.svg";
 
 const ListButton = ( props ) => { 
     return (
@@ -45,6 +49,12 @@ const StyledListButton = styled.button`
         ${props => props.$listIcon && css `
             background-image: url(${listIcon}), url(${arrowIcon});
         `}
+        ${props => props.$calendarDay && css `
+            background-image: url(${calendarDayIcon});
+        `}
+        ${props => props.$calendarDayArrow && css `
+            background-image: url(${calendarDayIcon}), url(${arrowIconBlack});
+        `}
     `}
 
     ${props => props.$mode === "Dark" && css `
@@ -57,10 +67,19 @@ const StyledListButton = styled.button`
         ${props => props.$listIcon && css `
             background-image: url(${listIconDark}), url(${arrowIconDark});
         `}
+        ${props => props.$calendarDay && css `
+            background-image: url(${calendarDayIconForDark});
+        `}
+        ${props => props.$calendarDayArrow && css `
+            background-image: url(${calendarDayIconForDark}), url(${arrowIconBlackForDark});
+        `}
     `}
 
     ${props => props.$active && css `
         background-color: var(--transparent-lavender);
+    `}
+    ${props => props.$paddingSmall && css `
+        padding: 8px 8px 8px 48px;
     `}
 `;
 

@@ -113,7 +113,7 @@ const dataListReducer = (state = dataInitialState, {type, payload}) => {
                 ...list,
                     todos: list.todos.map(todo => {
                         if (todo.id === payload.todoId) return {
-                            ...todo, deadlineDate: null
+                            ...todo, deadlineDate: ""
                         }
                         return todo
                     })

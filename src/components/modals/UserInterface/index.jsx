@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 import UserCard from "./UserCard";
-import { AppContext } from "../../context/context";
-import Divider from "../../ui/Divider";
-import Modal from "../../ui/Modal";
-import { save, toggleUserPanel } from "../../store/actionCreators/userPanelActionCreators";
+import { AppContext } from "../../../context/context";
+import Divider from "../../../ui/Divider";
+import Modal from "../../../ui/Modal";
+import { save, toggleUserPanel } from "../../../store/actionCreators/userPanelActionCreators";
 import About from "./About";
 import styled from "styled-components";
 import GeneralSettings from "./GeneralSettings";

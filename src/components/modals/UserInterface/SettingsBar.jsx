@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import UserSettingsButton from "./UserSettingsButton";
 import styled from "styled-components";
-import { AppContext } from "../../context/context";
+import { AppContext } from "../../../context/context";
 
 const SettingsBar = ({ setting, name, dynamicContext, setDynamicContext }) => {
 

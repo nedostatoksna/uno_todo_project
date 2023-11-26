@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import { changeIsSigningOut } from "../../store/actionCreators/userPanelActionCreators";
+import { changeIsSigningOut } from "../../../store/actionCreators/userPanelActionCreators";
 import { useDispatch } from "react-redux";
-import Button from "../../ui/Button";
-import { AppContext } from "../../context/context";
+import Button from "../../../ui/Button";
+import { AppContext } from "../../../context/context";
 import styled from "styled-components";
 
 const UserCard = () => {

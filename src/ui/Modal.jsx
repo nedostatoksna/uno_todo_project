@@ -12,7 +12,7 @@ const Modal = ( props ) => {
             <ContentBox {...props} $primary $width={props.$boxWidth} $padding={props.$boxPadding}>
 
             {  
-                props.$header === "Settings" 
+                props.$header === "Settings" || props.$header === "Add due date"
                     ?
                         <StyledContainerHeader {...props}>
                             <IconButton
@@ -27,6 +27,8 @@ const Modal = ( props ) => {
                         <ModalHeader {...props}>{props.$header}</ModalHeader>
             }
                 <div {...props}>{props.children}</div>
+            { 
+                props.$header !== "Add due date" &&
                 <ButtonGroupWrapper>
                         <Button 
                             {...props}
@@ -49,6 +51,7 @@ const Modal = ( props ) => {
                             {props.$buttonText}
                         </Button>
                 </ButtonGroupWrapper>
+            }
             </ContentBox>
         </Background>
     )
@@ -77,5 +80,4 @@ const StyledContainerHeader = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 4px 4px 0px 4px;
 `;
