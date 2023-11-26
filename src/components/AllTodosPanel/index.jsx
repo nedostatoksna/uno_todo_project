@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { AppContext } from "../../context/context";
 import styled from "styled-components";
-import AddTodoBtn from "../TodoListInterface/AddTodoBtn";
 import Header from "../../styled/Header";
 import AllTodosList from "./AllTodosList";
 import Tabs from "../TodoListInterface/Tabs";
@@ -22,7 +21,6 @@ const AllTodosPanel = () => {
             <Tabs />
             <StyledWrapper>
                 <AllTodosList todos={isShowingCompleted ? completedTodos : allTodos} /> 
-                <AddTodoBtn />
             </StyledWrapper>
         </AllTodosWrapper>
     )
@@ -36,7 +34,7 @@ const AllTodosWrapper = styled.div`
     width: ${props => props.$width};
 `;
 const StyledWrapper = styled.div`
-    height: calc(100% - 64px);
+    height: calc(100% - 104px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

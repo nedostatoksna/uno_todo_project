@@ -4,7 +4,6 @@ import { AppContext } from "../../context/context";
 import styled from "styled-components";
 import ImportantTodoList from "./ImportantTodoList";
 import Notice from "./Notice";
-import AddTodoBtn from "../TodoListInterface/AddTodoBtn";
 import Header from "../../styled/Header";
 
 const ImportantTodoListPanel = () => {
@@ -22,7 +21,6 @@ const ImportantTodoListPanel = () => {
                 {
                     importantTodos.length ? <ImportantTodoList todos={importantTodos} /> : <Notice />
                 }
-                <AddTodoBtn />
             </StyledWrapper>
         </ImportantTodoListWrapper>
     )
@@ -36,7 +34,7 @@ const ImportantTodoListWrapper = styled.div`
     width: ${props => props.$width};
 `;
 const StyledWrapper = styled.div`
-    height: calc(100% - 64px);
+    height: calc(100% - 104px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

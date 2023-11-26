@@ -6,7 +6,7 @@ import { AppContext } from "../../context/context";
 import { changeCompleted, changeImportant } from "../../store/actionCreators/dataListActionCreators.js";
 import { changeActiveTodoId, toggleTodoEditPanel } from "../../store/actionCreators/todoPanelActionCreators";
 
-const Todo = ({ todo, hostListId }) => {
+const Todo = ({ todo }) => {
 
     const dispatch = useDispatch();
     const context = useContext(AppContext);
@@ -34,7 +34,7 @@ const Todo = ({ todo, hostListId }) => {
                 $margin={"10px 16px 10px 0px"} 
                 checked={todo.isCompleted}
                 id={todo.id}
-                onChange={() => {dispatch(changeCompleted(hostListId, todo.id, !todo.isCompleted))}} />
+                onChange={() => {dispatch(changeCompleted(todo.parentListId, todo.id, !todo.isCompleted))}} />
             <StyledItemTextBox>
                 <StyledItemTitle $mode={context.mode}>{todo.title}</StyledItemTitle>
                 <StyledNoteDateBox>
@@ -50,7 +50,7 @@ const Todo = ({ todo, hostListId }) => {
                 $margin={"10px 0px 10px 16px"} 
                 checked={todo.isImportant}
                 id={todo.id}
-                onChange={() => {dispatch(changeImportant(hostListId, todo.id, !todo.isImportant))}} />
+                onChange={() => {dispatch(changeImportant(todo.parentListId, todo.id, !todo.isImportant))}} />
         </StyledItemBox>
     )
 };

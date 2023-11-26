@@ -17,7 +17,7 @@ const TodoListPanel = ({ list }) => {
             <ListWrapper>
                 <ListEditPanel list={list} />
                 <Tabs />
-                <TodoList list={isShowingCompleted ? completedTodos : allTodosOfList} hostListId={list.id} />  
+                <TodoList list={isShowingCompleted ? completedTodos : allTodosOfList} />  
             </ListWrapper>
 
             <AddTodoBtn />

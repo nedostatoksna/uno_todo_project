@@ -2,13 +2,13 @@ import React from "react";
 import Todo from "./Todo";
 import styled from "styled-components";
 
-const TodoList = ({ list, hostListId }) => {
+const TodoList = ({ list }) => {
 
     return (
         <TodoListWrapper>
             {
                 list.map(todo => (
-                    <Todo key={todo.id} todo={todo} hostListId={hostListId} />
+                    <Todo key={todo.id} todo={todo} />
                 ))
             }
         </TodoListWrapper>

@@ -5,7 +5,8 @@ const dataInitialState = [
         todos: [
                 {
                     title: "Homework",
-                    id: "001",
+                    id: "001", 
+                    parentListId: "1",
                     isCompleted: false,
                     isImportant: false,
                     deadlineDate: "",
@@ -15,6 +16,7 @@ const dataInitialState = [
                 {
                     title: "Project",
                     id: "002",
+                    parentListId: "1",
                     isCompleted: false,
                     isImportant: false,
                     deadlineDate: "03 Jun 2024",
@@ -24,6 +26,7 @@ const dataInitialState = [
                 {
                     title: "Sketch",
                     id: "003",
+                    parentListId: "1",
                     isCompleted: true,
                     isImportant: true,
                     deadlineDate: "28 Sep 2024",
@@ -37,8 +40,9 @@ const dataInitialState = [
         id: "2",
         todos: [
                 {
-                    title: "Pack",
+                    title: "Pack bags",
                     id: "004",
+                    parentListId: "2",
                     isCompleted: false,
                     isImportant: false,
                     deadlineDate: "",
@@ -48,6 +52,7 @@ const dataInitialState = [
                 {
                     title: "Do laundry",
                     id: "005",
+                    parentListId: "2",
                     isCompleted: false,
                     isImportant: false,
                     deadlineDate: "",
