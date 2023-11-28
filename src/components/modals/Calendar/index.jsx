@@ -1,34 +1,52 @@
 import React, { useContext } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppContext } from "../../../context/context";
 import Modal from "../../../ui/Modal";
 import { toggleChooseDeadlinePanel, toggleDaedlinePanelAndOpenCalendar, toggleDaedlinePanelAndSetDeadline } from "../../../store/actionCreators/todoPanelActionCreators";
 import ListButton from "../../../ui/ListButton";
-import { dateOptions } from "../../../context/dateOptions";
 import styled from "styled-components";
+import DateEditPanel from "./DateEditPanel";
+import CalendarSheet from "./CalendarSheet";
+import MonthYearSelector from "./MonthYearSelector";
+import { threeLettersWeekDays, shortMonths }  from "../../../context/calendar";
 
-const Calendar = () => {
+const Calendar = ({ todo }) => {
 
     const dispatch = useDispatch();
     const context = useContext(AppContext);
+    const selectedDate = todo.deadlineDate;
 
-    // const prepDate = (element) => {
-    //     let  result;
-    //     if (element.length === 1) {
-    //         result = "0" + element
-    //     } else {
-    //         result = element
-    //     }
-    //     return result
-    // }
-        // const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        // const dueDate = new Date();
+    const prepDayForDate = (element) => {
+        let  result;
+        if (element.length === 1) {
+            result = "0" + element
+        } else {
+            result = element
+        }
+        return result
+    }
 
-        // const dayOfTheWeek = dueDate.toDateString().slice(0, 3);
-        // const month = months[dueDate.getMonth()];
-        // const day = dueDate.getDate();
-        // const dd = prepDate(day);
-    // }
+        const prepareDateForDisplay = () => {
+            const today = new Date();
+            let dateForDisplay;
+
+            const dayOfTheWeek = threeLettersWeekDays[today.getDay()];
+            const month = shortMonths[today.getMonth()];
+            const day = today.getDate();
+            const dd = prepDayForDate(day);
+
+            if (selectedDate === "Tomorrow") {
+                const dayOfTheWeek = threeLettersWeekDays[today.getDay() + 1];
+                const month = shortMonths[today.getMonth() + 1];
+                const tomorrow = day + 1;
+                const tt = prepDayForDate(tomorrow);
+                dateForDisplay = dayOfTheWeek + ", " + month + " " + tt;
+
+            } else {
+                dateForDisplay = dayOfTheWeek + ", " + month + " " + dd;
+            }
+            return dateForDisplay;
+        }
 
     return (
         <Modal 
@@ -44,6 +62,9 @@ const Calendar = () => {
             $onСonfirmationClick={() => {}} 
         >
             <StyledConteiner>
+                <DateEditPanel dateForDisplayString={prepareDateForDisplay()}/>
+                <MonthYearSelector />
+                <CalendarSheet />
             
             </StyledConteiner>
 
@@ -54,7 +75,6 @@ const Calendar = () => {
 export default Calendar;
 
 const StyledConteiner = styled.div`
-    padding: 12px;
     display: flex;
     flex-direction: column;
 `;

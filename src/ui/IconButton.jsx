@@ -12,6 +12,8 @@ import crossIconGrey from "../images/crossIconGrey.svg";
 import crossIconGreyForDark from "../images/crossIconGreyForDark.svg";
 import calendarGrey from "../images/calendarIconGrey.svg";
 import calendarGreyForDark from "../images/calendarIconGreyDark.svg";
+import editIconGrey from "../images/editIconGrey.svg";
+import editIconGreyForDark from "../images/editIconGreyForDark.svg";
 
 const IconButton = ( props ) => { 
     return (
@@ -34,6 +36,7 @@ const StyledButton = styled.button`
             : props.$type === "crossGrey" ? `url(${crossIconGrey})` 
             : props.$type === "search" ? `url(${searchIcon})` 
             : props.$type === "addDateActive" ? `url(${calendarIcon})` 
+            : props.$type === "editGrey" ? `url(${editIconGrey})` 
             :`url(${calendarGrey})` 
         };
     `} 
@@ -42,6 +45,7 @@ const StyledButton = styled.button`
             : props.$type === "crossGrey" ? `url(${crossIconGreyForDark})`
             : props.$type === "search" ? `url(${searchIconDarkTheme})`
             : props.$type === "addDateActive" ? `url(${calendarIconForDark})`
+            : props.$type === "editGrey" ? `url(${editIconGreyForDark})` 
             :`url(${calendarGreyForDark})`
         };
     `} 

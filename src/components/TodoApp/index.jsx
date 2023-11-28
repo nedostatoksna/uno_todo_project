@@ -77,7 +77,7 @@ const TodoApp = () => {
                 isShowingChooseDeadlineModal && <AddDueDate todo={activeTodo} /> 
             }
             {
-                isShowingCalendar && <Calendar /> 
+                isShowingCalendar && <Calendar todo={activeTodo} /> 
             }
 
             <Wrapper $mode={context.mode}>

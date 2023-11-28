@@ -64,16 +64,10 @@ const GlobalStyle = createGlobalStyle`
     src: local("Roboto-Regular"),
     url("./fonts/Roboto/Roboto-Regular.ttf") format("truetype");
   }
-  input {
+  input, button {
     border: none;
   }
-  input:focus {
-    outline: none;
-  }
-  button {
-    border: none;
-  }
-  button:focus {
+  input:focus, select:focus, button:focus {
     outline: none;
   }
   li {
