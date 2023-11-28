@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../ui/Button";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Background from "../styled/Background";
 import ContentBox from "../styled/ContentBox";
 import IconButton from "./IconButton";
@@ -29,7 +29,7 @@ const Modal = ( props ) => {
                 <div {...props}>{props.children}</div>
             { 
                 props.$header !== "Add due date" &&
-                <ButtonGroupWrapper>
+                <ButtonGroupWrapper {...props}>
                         <Button 
                             {...props}
                             $white 
@@ -47,6 +47,11 @@ const Modal = ( props ) => {
                             $whitePlus={props.$whitePlusForBtn} 
                             $paddingForPlus={props.$paddingForPlusBtn}
                             onClick={props.$onСonfirmationClick}
+                            $white={props.$okButton}
+                            $ClearBackground={props.$okButton}
+                            $paddingSmall={props.$okButton}
+                            $purpleColor={props.$okButton}
+                            $purpleHover={props.$okButton}
                         >
                             {props.$buttonText}
                         </Button>
@@ -66,6 +71,9 @@ const ButtonGroupWrapper = styled.div`
     justify-content: flex-end;
     align-items: center;
     width: 100%;
+    ${props => props.$okButton && css `
+        padding: 6px 2px 2px 2px;
+    `}
 `;
 const ModalHeader = styled.h1`
     margin: ${props => props.$margin || "0px 0px 16px 0px"};
@@ -75,6 +83,14 @@ const ModalHeader = styled.h1`
     font-family: "Roboto";
     font-style: normal;
     font-weight: 400;
+    ${props => props.$smallUppercase && css `
+        font-size: 10px;
+        font-weight: 600;
+        line-height: 16px; 
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        padding: 0px 20px;
+    `}
 `;
 const StyledContainerHeader = styled.div`
     display: flex;

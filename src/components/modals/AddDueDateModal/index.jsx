@@ -2,15 +2,23 @@ import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { AppContext } from "../../../context/context";
 import Modal from "../../../ui/Modal";
-import { toggleChooseDeadlinePanel } from "../../../store/actionCreators/todoPanelActionCreators";
+import { toggleChooseDeadlinePanel, toggleDaedlinePanelAndOpenCalendar, toggleDaedlinePanelAndSetDeadline } from "../../../store/actionCreators/todoPanelActionCreators";
 import ListButton from "../../../ui/ListButton";
 import { dateOptions } from "../../../context/dateOptions";
 import styled from "styled-components";
 
-const AddDueDate = () => {
+const AddDueDate = ({ todo }) => {
 
     const dispatch = useDispatch();
     const context = useContext(AppContext);
+
+    const preSetDueDate = (option) => {
+        if (option === "Pick a Date") {
+            dispatch(toggleDaedlinePanelAndOpenCalendar())
+        } else {
+            dispatch(toggleDaedlinePanelAndSetDeadline(todo.parentListId, todo.id, option))
+        }
+    }
 
     return (
         <Modal 
@@ -24,7 +32,15 @@ const AddDueDate = () => {
         <StyledConteiner>
             {
                 dateOptions.map(option => (
-                    <ListButton $paddingSmall $mode={context.mode} $calendarDay={option !== "Pick a Date"} $calendarDayArrow={option === "Pick a Date"}>{option}</ListButton>
+                    <ListButton 
+                        $paddingSmall 
+                        $mode={context.mode} 
+                        $calendarDay={option !== "Pick a Date"} 
+                        $calendarDayArrow={option === "Pick a Date"}
+                        onClick={() => preSetDueDate(option)}
+                        >
+                            {option}
+                        </ListButton>
                 ))
             }
         </StyledConteiner>

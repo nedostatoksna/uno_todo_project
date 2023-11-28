@@ -12,6 +12,7 @@ import TodoEditPanel from "../TodoEditPanel";
 import AllTodosPanel from "../AllTodosPanel";
 import UserInterface from "../modals/UserInterface";
 import AddDueDate from "../modals/AddDueDateModal";
+import Calendar from "../modals/Calendar";
 
 const TodoApp = () => {
 
@@ -32,6 +33,10 @@ const TodoApp = () => {
     const isShowingEditPanel = useSelector(state => state.todoPanelUI.isShowingEditPanel);
     const isShowinguserPanel = useSelector(state => state.userPanelUI.isShowingUserPanel);
     const isShowingChooseDeadlineModal = useSelector(state => state.todoPanelUI.isShowingChooseDeadlineModal);
+    const isShowingCalendar = useSelector(state => state.todoPanelUI.isShowingCalendar);
+
+    const lists = useSelector(state => state.dataLists);
+    const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
 
     const setActionType = () => {
         const type = isCreatingList ? "createList"
@@ -43,6 +48,19 @@ const TodoApp = () => {
 
         return type;
     }
+
+    const setActiveTodo = () => {
+        let result
+        lists.map(list => 
+            (list.id === activeList)
+                ? list.todos.map(todo => (
+                    (todo.id === activeTodoId)
+                    ? result = todo : undefined
+                )) : undefined )
+        return result;
+    };
+
+    const activeTodo = setActiveTodo();
     
     return (
         <>
@@ -56,7 +74,10 @@ const TodoApp = () => {
                 isShowinguserPanel && <UserInterface /> 
             }
             {
-                isShowingChooseDeadlineModal && <AddDueDate /> 
+                isShowingChooseDeadlineModal && <AddDueDate todo={activeTodo} /> 
+            }
+            {
+                isShowingCalendar && <Calendar /> 
             }
 
             <Wrapper $mode={context.mode}>

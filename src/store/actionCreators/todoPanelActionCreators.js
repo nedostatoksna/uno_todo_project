@@ -4,19 +4,32 @@ import {
     TOOGLE_DELETING_TODO,
     TOGGLE_TODO_EDIT_PANEL, 
     TOGGLE_CHOOSE_DEADLINE_MODAL, 
-    OPEN_CALENDAR } from "../actions/todoPanelActions";
+    TOGGLE_IS_SHOWING_CALENDAR } from "../actions/todoPanelActions";
+import { chooseDeadline } from "./dataListActionCreators.js";
 
 const changeActiveTodoId = (todoId) => ({ type: CHANGE_ACTIVE_TODO_ID, payload : { todoId } });
 const toggleEditingTitle = () => ({ type: TOGGLE_EDITING_TITLE });
 const toggleDeletingTodo = () => ({ type: TOOGLE_DELETING_TODO });
 const toggleTodoEditPanel = (boolean) => ({ type: TOGGLE_TODO_EDIT_PANEL, payload : { boolean } });
 const toggleChooseDeadlinePanel = () => ({ type: TOGGLE_CHOOSE_DEADLINE_MODAL });
-const openCalendar = () => ({ type: OPEN_CALENDAR });
+const toggleIsShowingCalendar = () => ({ type: TOGGLE_IS_SHOWING_CALENDAR });
 
 const setActiveTodoAndOpenEditPanel = (todoId) => {
     return (dispatch) => {
         dispatch(changeActiveTodoId(todoId)) 
         dispatch(toggleTodoEditPanel(true))
+    }
+};
+const toggleDaedlinePanelAndSetDeadline = (listId, todoId, deadline) => {
+    return (dispatch) => {
+        dispatch(chooseDeadline(listId, todoId, deadline))
+        dispatch(toggleChooseDeadlinePanel())
+    }
+};
+const toggleDaedlinePanelAndOpenCalendar = () => {
+    return (dispatch) => {
+        dispatch(toggleChooseDeadlinePanel())
+        dispatch(toggleIsShowingCalendar())
     }
 };
 
@@ -27,4 +40,6 @@ export {
     toggleTodoEditPanel,
     toggleChooseDeadlinePanel,
     setActiveTodoAndOpenEditPanel,
-    openCalendar };
+    toggleDaedlinePanelAndSetDeadline,
+    toggleDaedlinePanelAndOpenCalendar,
+    toggleIsShowingCalendar };

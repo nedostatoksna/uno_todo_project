@@ -5,7 +5,7 @@ import {
     TOOGLE_DELETING_TODO,
     TOGGLE_TODO_EDIT_PANEL, 
     TOGGLE_CHOOSE_DEADLINE_MODAL, 
-    OPEN_CALENDAR } from "../actions/todoPanelActions";
+    TOGGLE_IS_SHOWING_CALENDAR } from "../actions/todoPanelActions";
 
 const todoPanelReducer = (state = todoPanelInitialState, { type, payload }) => {
     switch (type) {
@@ -18,7 +18,7 @@ const todoPanelReducer = (state = todoPanelInitialState, { type, payload }) => {
         case TOGGLE_CHOOSE_DEADLINE_MODAL: return {
             ...state, isShowingChooseDeadlineModal: !state.isShowingChooseDeadlineModal
         }
-        case OPEN_CALENDAR: return {
+        case TOGGLE_IS_SHOWING_CALENDAR: return {
             ...state, isShowingCalendar: !state.isShowingCalendar
         }
         case TOOGLE_DELETING_TODO: return {
