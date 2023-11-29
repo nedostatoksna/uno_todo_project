@@ -1,14 +1,12 @@
 import React, { useContext } from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { AppContext } from "../../../context/context";
 import { fullMonths }  from "../../../context/calendar";
 
-const MonthYearSelector = () => {
+const MonthYearSelector = ({ activeMonth }) => {
     const context = useContext(AppContext);
     const today = new Date();
     const year = today.getFullYear();
-    const activeMonth = fullMonths[today.getMonth()];
-    const stringForSelector = activeMonth + " " + year;
 
     return (
         <SelectorWrapper>
@@ -17,11 +15,9 @@ const MonthYearSelector = () => {
                 >
                     {
                         fullMonths.map(month => (
-                            <StyledOption selected={month === activeMonth} $mode={context.mode} value={month + year}>{month + " " + year}</StyledOption>
+                            <StyledOption selected={month.title === activeMonth} $mode={context.mode} value={month.title + year}>{month.title + " " + year}</StyledOption>
                         ))
                     }
-                    
-
                 </StyledSelector>
         </SelectorWrapper>
     )
@@ -33,8 +29,8 @@ const SelectorWrapper = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
-    padding: 16px 14px 16px 20px;
 `;
 const StyledSelector = styled.select`
     font-family: "Roboto";

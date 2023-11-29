@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { AppContext } from "../../../context/context";
 import Modal from "../../../ui/Modal";
 import { toggleChooseDeadlinePanel, toggleDaedlinePanelAndOpenCalendar, toggleDaedlinePanelAndSetDeadline } from "../../../store/actionCreators/todoPanelActionCreators";
@@ -8,45 +8,57 @@ import styled from "styled-components";
 import DateEditPanel from "./DateEditPanel";
 import CalendarSheet from "./CalendarSheet";
 import MonthYearSelector from "./MonthYearSelector";
-import { threeLettersWeekDays, shortMonths }  from "../../../context/calendar";
+import { threeLettersWeekDays, fullMonths }  from "../../../context/calendar";
+import NextPrevSwitcher from "./NextPrevSwitcher";
 
 const Calendar = ({ todo }) => {
 
     const dispatch = useDispatch();
     const context = useContext(AppContext);
     const selectedDate = todo.deadlineDate;
+    console.log(selectedDate);
+    const today = new Date();
 
-    const prepDayForDate = (element) => {
-        let  result;
-        if (element.length === 1) {
-            result = "0" + element
-        } else {
-            result = element
+        const prepareActiveDay = () => {
+            let day = selectedDate.slice(4, 7);
+            return day;
         }
-        return result
-    }
-
         const prepareDateForDisplay = () => {
-            const today = new Date();
             let dateForDisplay;
 
             const dayOfTheWeek = threeLettersWeekDays[today.getDay()];
-            const month = shortMonths[today.getMonth()];
+            const month = fullMonths[today.getMonth()].title.slice(0, 3);
             const day = today.getDate();
-            const dd = prepDayForDate(day);
 
             if (selectedDate === "Tomorrow") {
                 const dayOfTheWeek = threeLettersWeekDays[today.getDay() + 1];
-                const month = shortMonths[today.getMonth() + 1];
+                const month = fullMonths[today.getMonth() + 1].title.slice(0, 3);
                 const tomorrow = day + 1;
-                const tt = prepDayForDate(tomorrow);
-                dateForDisplay = dayOfTheWeek + ", " + month + " " + tt;
-
+                dateForDisplay = dayOfTheWeek + ", " + month + " " + tomorrow;
             } else {
-                dateForDisplay = dayOfTheWeek + ", " + month + " " + dd;
+                dateForDisplay = dayOfTheWeek + ", " + month + " " + day;
             }
             return dateForDisplay;
         }
+        const prepareMonthForDisplay = () => {
+            let activeMonth;
+            if (selectedDate === "Tomorrow") {
+                activeMonth = fullMonths[today.getMonth() + 1]; 
+            } else if (selectedDate.length && selectedDate !== "Next Week") {
+                let shortActiveMonth = selectedDate.slice(-3);
+                for (let i = 0; i < fullMonths.length; i++) {
+                    let refference = fullMonths[i].title.slice(0, 3);
+                    if (shortActiveMonth === refference) {
+                        activeMonth = fullMonths[i];
+                    }
+                }
+            } else {
+                activeMonth = fullMonths[today.getMonth()];
+            }
+            return activeMonth;
+        }
+        console.log(prepareDateForDisplay());
+        console.log(prepareMonthForDisplay());
 
     return (
         <Modal 
@@ -62,12 +74,13 @@ const Calendar = ({ todo }) => {
             $onСonfirmationClick={() => {}} 
         >
             <StyledConteiner>
-                <DateEditPanel dateForDisplayString={prepareDateForDisplay()}/>
-                <MonthYearSelector />
-                <CalendarSheet />
-            
+            <DateEditPanel dateForDisplayString={prepareDateForDisplay()}/>
+                <StyledConteinerSwitchers>
+                    <MonthYearSelector activeMonth={prepareMonthForDisplay()} />
+                    <NextPrevSwitcher />
+                </StyledConteinerSwitchers>
+                <CalendarSheet activeMonth={prepareMonthForDisplay()} activeDay={prepareActiveDay()}  />
             </StyledConteiner>
-
         </Modal>
     )
 };
@@ -77,4 +90,10 @@ export default Calendar;
 const StyledConteiner = styled.div`
     display: flex;
     flex-direction: column;
+`;
+const StyledConteinerSwitchers = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px 12px 8px 20px;
 `;

@@ -9,8 +9,8 @@ const dataInitialState = [
                     parentListId: "1",
                     isCompleted: false,
                     isImportant: false,
-                    deadlineDate: "",
-                    createDate: "20 Nov 2023",
+                    deadlineDate: "Tomorrow",
+                    createDate: "",
                     note: ""
                 },
                 {
@@ -19,8 +19,8 @@ const dataInitialState = [
                     parentListId: "1",
                     isCompleted: false,
                     isImportant: false,
-                    deadlineDate: "03 Jun 2024",
-                    createDate: "23 Nov 2023",
+                    deadlineDate: "Fri, 1 Dec",
+                    createDate: "",
                     note: "Default note"
                 },
                 {
@@ -29,8 +29,8 @@ const dataInitialState = [
                     parentListId: "1",
                     isCompleted: true,
                     isImportant: true,
-                    deadlineDate: "28 Sep 2024",
-                    createDate: "20 Nov 2023",
+                    deadlineDate: "",
+                    createDate: "",
                     note: "Default note"
                 }
         ]
