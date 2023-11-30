@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { AppContext } from "../../../context/context";
+import CalendarDay from "./CalendarDay";
 
 const CalendarDays = ({ activeMonth, activeDay }) => {
 
@@ -88,13 +89,15 @@ const CalendarDays = ({ activeMonth, activeDay }) => {
      currentDays.push(nextArr);
      const flatDays = currentDays.flat(Infinity);
      console.log(flatDays);
-
-    
-
-
-
+     
     return (
         <Wrapper>
+            {
+                flatDays.map((day, index) => (
+                    <CalendarDay day={day} key={day.date} />
+              
+                ))
+            }
 
         </Wrapper>
     )
@@ -102,8 +105,9 @@ const CalendarDays = ({ activeMonth, activeDay }) => {
 
 export default CalendarDays;
 
-const Wrapper = styled.li`
+const Wrapper = styled.ul`
     display: flex;
-    flex-direction: column;
-    padding: 0px 12px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 4px 0px;
 `;
