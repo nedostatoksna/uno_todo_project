@@ -1,61 +1,39 @@
 import React, { useContext } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AppContext } from "../../../context/context";
 import Modal from "../../../ui/Modal";
-import ListButton from "../../../ui/ListButton";
 import styled from "styled-components";
 import DateEditPanel from "./DateEditPanel";
 import CalendarSheet from "./CalendarSheet";
 import MonthYearSelector from "./MonthYearSelector";
-import { threeLettersWeekDays, fullMonths }  from "../../../context/calendar";
+import { fullMonths }  from "../../../context/calendar";
 import NextPrevSwitcher from "./NextPrevSwitcher";
 
 const Calendar = ({ todo }) => {
 
     const dispatch = useDispatch();
     const context = useContext(AppContext);
-    const selectedDate = todo.deadlineDate;
+    const selectedDateString = todo.deadline.deadlineString;
+    const selectedDateObj = todo.deadline.deadlineObj;
+    const activeMonth = useSelector(state => state.calendarUI.activeMonth);
     const today = new Date();
 
         const prepareActiveDay = () => {
-            let day = selectedDate.slice(4, 7);
-            return day;
+            let activeDay = selectedDateObj 
+                ? selectedDateObj.getDate()
+                : today
+            return activeDay
         }
 
-        // const prepareDateForDisplay = () => {
-        //     let dateForDisplay;
-
-        //     const dayOfTheWeek = threeLettersWeekDays[today.getDay()];
-        //     const month = fullMonths[today.getMonth()].title.slice(0, 3);
-        //     const day = today.getDate();
-
-        //     if (selectedDate === "Tomorrow") {
-        //         const dayOfTheWeek = threeLettersWeekDays[today.getDay() + 1];
-        //         const month = fullMonths[today.getMonth() + 1].title.slice(0, 3);
-        //         const tomorrow = day + 1;
-        //         dateForDisplay = dayOfTheWeek + ", " + month + " " + tomorrow;
-        //     } else {
-        //         dateForDisplay = dayOfTheWeek + ", " + month + " " + day;
-        //     }
-        //     return dateForDisplay;
-        // }
-
         const prepareMonthForDisplay = () => {
-            let activeMonth;
-            if (selectedDate === "Tomorrow") {
-                activeMonth = fullMonths[today.getMonth()]; 
-            } else if (selectedDate.length && selectedDate !== "Next Week") {
-                let shortActiveMonth = selectedDate.slice(-3);
-                for (let i = 0; i < fullMonths.length; i++) {
-                    let refference = fullMonths[i].title.slice(0, 3);
-                    if (shortActiveMonth === refference) {
-                        activeMonth = fullMonths[i];
-                    }
+            let activeMonthId;
+            for (let i = 0; i < fullMonths.length; i++) {
+               if (fullMonths[i].title === activeMonth) {
+                    activeMonthId = fullMonths[i].id
                 }
-            } else {
-                activeMonth = fullMonths[today.getMonth()];
             }
-            return activeMonth;
+            console.log(activeMonthId);
+            return activeMonthId
         }
 
     return (
@@ -72,13 +50,12 @@ const Calendar = ({ todo }) => {
             $onСonfirmationClick={() => {}} 
         >
             <StyledConteiner>
-            {/* <DateEditPanel dateForDisplayString={prepareDateForDisplay()}/> */}
-            <DateEditPanel />
+            <DateEditPanel dateString={selectedDateString} selectedDateObj={selectedDateObj}/>
                 <StyledConteinerSwitchers>
-                    <MonthYearSelector activeMonth={prepareMonthForDisplay()} />
+                    <MonthYearSelector activeMonth={activeMonth} />
                     <NextPrevSwitcher />
                 </StyledConteinerSwitchers>
-                <CalendarSheet activeMonth={prepareMonthForDisplay()} activeDay={prepareActiveDay()}  />
+                <CalendarSheet activeDay={prepareActiveDay()} activeMonthId={prepareMonthForDisplay()} />
             </StyledConteiner>
         </Modal>
     )

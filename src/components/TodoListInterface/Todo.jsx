@@ -5,16 +5,18 @@ import styled, { css } from "styled-components";
 import { AppContext } from "../../context/context";
 import { changeCompleted, changeImportant } from "../../store/actionCreators/dataListActionCreators.js";
 import { setActiveTodoAndOpenEditPanel } from "../../store/actionCreators/todoPanelActionCreators";
+import { fullMonths } from "../../context/calendar.js";
 
 const Todo = ({ todo }) => {
 
     const dispatch = useDispatch();
     const context = useContext(AppContext);
     const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
+    const deadLineForDisplay = todo.deadline && todo.deadline.deadlineString ? todo.deadline.deadlineString : "";
 
     const presetActiveTodoAndOpenEditPanel = (e) => {
         if (!e.target.id.includes("input")) {
-            dispatch(setActiveTodoAndOpenEditPanel(todo.id)) 
+            dispatch(setActiveTodoAndOpenEditPanel(todo.id, fullMonths[todo.deadline.deadlineObj.getMonth()].title)) 
         }
     }
 
@@ -35,7 +37,7 @@ const Todo = ({ todo }) => {
             <StyledItemTextBox>
                 <StyledItemTitle $mode={context.mode}>{todo.title}</StyledItemTitle>
                 <StyledNoteDateBox>
-                    <StyledText $grey $mode={context.mode}>{todo.deadlineDate}</StyledText>
+                    <StyledText $grey $mode={context.mode}>{deadLineForDisplay}</StyledText>
                     <StyledText $grey $mode={context.mode}>-</StyledText>
                     <StyledText $coral $mode={context.mode}>{todo.note}</StyledText>
                 </StyledNoteDateBox>

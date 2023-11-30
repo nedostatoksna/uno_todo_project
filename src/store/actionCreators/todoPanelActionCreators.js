@@ -5,6 +5,7 @@ import {
     TOGGLE_TODO_EDIT_PANEL, 
     TOGGLE_CHOOSE_DEADLINE_MODAL, 
     TOGGLE_IS_SHOWING_CALENDAR } from "../actions/todoPanelActions";
+import { changeSelectedMonth } from "./calendarActionCreators.js";
 import { chooseDeadline } from "./dataListActionCreators.js";
 
 const changeActiveTodoId = (todoId) => ({ type: CHANGE_ACTIVE_TODO_ID, payload : { todoId } });
@@ -14,10 +15,11 @@ const toggleTodoEditPanel = (boolean) => ({ type: TOGGLE_TODO_EDIT_PANEL, payloa
 const toggleChooseDeadlinePanel = () => ({ type: TOGGLE_CHOOSE_DEADLINE_MODAL });
 const toggleIsShowingCalendar = () => ({ type: TOGGLE_IS_SHOWING_CALENDAR });
 
-const setActiveTodoAndOpenEditPanel = (todoId) => {
+const setActiveTodoAndOpenEditPanel = (todoId, activeMonth) => {
     return (dispatch) => {
         dispatch(changeActiveTodoId(todoId)) 
         dispatch(toggleTodoEditPanel(true))
+        dispatch(changeSelectedMonth(activeMonth))
     }
 };
 const toggleDaedlinePanelAndSetDeadline = (listId, todoId, deadline) => {

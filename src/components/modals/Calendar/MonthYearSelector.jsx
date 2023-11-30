@@ -1,21 +1,35 @@
 import React, { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { AppContext } from "../../../context/context";
 import { fullMonths }  from "../../../context/calendar";
+import { changeSelectedMonth } from "../../../store/actionCreators/calendarActionCreators";
+import { useState } from "react";
 
 const MonthYearSelector = ({ activeMonth }) => {
+
     const context = useContext(AppContext);
     const today = new Date();
     const year = today.getFullYear();
+    const dispatch = useDispatch();
 
     return (
         <SelectorWrapper>
                 <StyledSelector 
                     $mode={context.mode}  
+                    onChange={(e) => dispatch(changeSelectedMonth(e.target.value))}
+                    name={"months"}
                 >
                     {
                         fullMonths.map(month => (
-                            <StyledOption selected={month.title === activeMonth} $mode={context.mode} value={month.title + year}>{month.title + " " + year}</StyledOption>
+                            <StyledOption 
+                                selected={month.title === activeMonth} 
+                                $mode={context.mode} 
+                                value={month.title}
+                                key={month.id}
+                            >
+                                {month.title + " " + year}
+                            </StyledOption>
                         ))
                     }
                 </StyledSelector>

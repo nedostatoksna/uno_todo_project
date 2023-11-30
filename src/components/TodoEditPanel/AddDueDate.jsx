@@ -10,13 +10,13 @@ const AddDueDate = ({ todo }) => {
 
     const dispatch = useDispatch();
     const context = useContext(AppContext);
-    const deadline = todo.deadlineDate;
+    let deadlineString = todo.deadline.deadlineString;
 
     return (
         <AddDueDateWrapper $mode={context.mode}>
          <StyledInputWrapper>
                 <IconButton
-                    $type={ deadline.length > 0 ? "addDateActive" : "addDateGrey"}
+                    $type={ deadlineString.length ? "addDateActive" : "addDateGrey"}
                     alt="calendar icon" 
                     $margin={"0px 16px 0px 0px"} 
                     $small
@@ -26,15 +26,15 @@ const AddDueDate = ({ todo }) => {
                 <StyledDueDateInput
                     $mode={context.mode} 
                     placeholder="Add Due Date" 
-                    value={deadline}
+                    value={deadlineString}
                     id="dueDateInput"
-                    $grey={deadline.length < 0}
-                    $purple={deadline.length > 0}
+                    $grey={!deadlineString.length}
+                    $purple={deadlineString.length}
                     disabled
                 />
             </StyledInputWrapper>
                     { 
-                        deadline
+                        deadlineString.length
                             ?  <IconButton
                                     $type={"crossGrey"}
                                     $margin={"0px 0px 0px 16px"}

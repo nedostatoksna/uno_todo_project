@@ -5,7 +5,7 @@ import { AppContext } from "../../../context/context";
 import WeekDays from "./WeekDays";
 import CalendarDays from "./CalendarDays";
 
-const CalendarSheet = ( {activeMonth, activeDay} ) => {
+const CalendarSheet = ( { activeDay, activeMonthId} ) => {
     
     const dispatch = useDispatch();
     const context = useContext(AppContext);
@@ -15,7 +15,7 @@ const CalendarSheet = ( {activeMonth, activeDay} ) => {
     return (
         <CalendarWrapper>
         <WeekDays />
-        <CalendarDays activeDay={activeDay} activeMonth={activeMonth} />
+        <CalendarDays activeDay={activeDay} activeMonthId={activeMonthId} />
 
         </CalendarWrapper>
     )

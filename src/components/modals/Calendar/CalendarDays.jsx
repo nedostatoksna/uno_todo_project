@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { AppContext } from "../../../context/context";
 import CalendarDay from "./CalendarDay";
 
-const CalendarDays = ({ activeMonth, activeDay }) => {
+const CalendarDays = ({ activeMonthId, activeDay }) => {
 
     const today = new Date();
     const year = today.getFullYear();
-    const chosenDate = new Date(year, activeMonth.id, activeDay);
+    const chosenDate = new Date(year, activeMonthId, activeDay);
 
     let currentDays = [];
 
@@ -18,10 +18,10 @@ const CalendarDays = ({ activeMonth, activeDay }) => {
         return new Date(y, m, d).getDate();
      };
 
-     let daysOfTheActiveMonth = findTotalMonthDays(year, activeMonth.id + 1, 0);
-     let daysOfThePrevMonth = findTotalMonthDays(year, activeMonth.id, 0);
-     let weekdayOfFirstDay = findWeekDay(year, activeMonth.id, 1);
-     let weekdayOfLastDay = findWeekDay(year, activeMonth.id, daysOfTheActiveMonth);
+     let daysOfTheActiveMonth = findTotalMonthDays(year, activeMonthId + 1, 0);
+     let daysOfThePrevMonth = findTotalMonthDays(year, activeMonthId, 0);
+     let weekdayOfFirstDay = findWeekDay(year, activeMonthId, 1);
+     let weekdayOfLastDay = findWeekDay(year, activeMonthId, daysOfTheActiveMonth);
 
      const fillPrevMonthDays = () => {
         let resultArr = [];
@@ -30,8 +30,8 @@ const CalendarDays = ({ activeMonth, activeDay }) => {
                 const date = daysOfThePrevMonth--;
                 const dateObj = {
                     date: date,
-                    month: activeMonth.id - 1,
-                    weekDay: new Date(year, activeMonth.id - 1, date).getDay(),
+                    month: activeMonthId - 1,
+                    weekDay: new Date(year, activeMonthId - 1, date).getDay(),
                     activeMonth: false
                 };
                 resultArr.unshift(dateObj);
@@ -46,8 +46,8 @@ const CalendarDays = ({ activeMonth, activeDay }) => {
             let date = i;
             const dateObj = {
                 date: date,
-                month: activeMonth.id,
-                weekDay: new Date(year, activeMonth.id, date).getDay(),
+                month: activeMonthId,
+                weekDay: new Date(year, activeMonthId, date).getDay(),
                 activeMonth: true
             };
             resultArr.push(dateObj);
@@ -67,8 +67,8 @@ const CalendarDays = ({ activeMonth, activeDay }) => {
             let date = i;
             const dateObj = {
                 date: date,
-                month: activeMonth.id + 1,
-                weekDay: new Date(year, activeMonth.id + 1, date).getDay(),
+                month: activeMonthId + 1,
+                weekDay: new Date(year, activeMonthId + 1, date).getDay(),
                 activeMonth: false
             };
             resultArr.push(dateObj);

@@ -13,10 +13,11 @@ const AddDueDate = ({ todo }) => {
     const context = useContext(AppContext);
 
     const preSetDueDate = (option) => {
+
         if (option === "Pick a Date") {
             dispatch(toggleDaedlinePanelAndOpenCalendar())
         } else {
-            dispatch(toggleDaedlinePanelAndSetDeadline(todo.parentListId, todo.id, option))
+            dispatch(toggleDaedlinePanelAndSetDeadline(todo.parentListId, todo.id, option));
         }
     }
 
@@ -29,22 +30,21 @@ const AddDueDate = ({ todo }) => {
             $mode={context.mode} 
             $onCancelClickHandler={() => {dispatch(toggleChooseDeadlinePanel())}} 
         >
-        <StyledConteiner>
-            {
-                dateOptions.map(option => (
-                    <ListButton 
-                        $paddingSmall 
-                        $mode={context.mode} 
-                        $calendarDay={option !== "Pick a Date"} 
-                        $calendarDayArrow={option === "Pick a Date"}
-                        onClick={() => preSetDueDate(option)}
-                        >
-                            {option}
-                        </ListButton>
-                ))
-            }
-        </StyledConteiner>
-
+            <StyledConteiner>
+                {
+                    dateOptions.map(option => (
+                        <ListButton 
+                            $paddingSmall 
+                            $mode={context.mode} 
+                            $calendarDay={option !== "Pick a Date"} 
+                            $calendarDayArrow={option === "Pick a Date"}
+                            onClick={() => preSetDueDate(option)}
+                            >
+                                {option}
+                            </ListButton>
+                    ))
+                }
+            </StyledConteiner>
         </Modal>
     )
 };

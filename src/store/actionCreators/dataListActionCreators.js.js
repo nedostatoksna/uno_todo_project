@@ -21,7 +21,8 @@ const changeCompleted = (listId, todoId, isCompleted) => ({ type: CHANGE_COMPLET
 const changeImportant = (listId, todoId, isImportant) => ({ type: CHANGE_IMPORTANT, payload: { listId, todoId, isImportant } });
 const changeTitle = (listId, todoId, todoTitle) => ({ type: CHANGE_TITLE, payload: { listId, todoId, todoTitle } });
 const changeNote = (listId, todoId, todoNote) => ({ type: CHANGE_NOTE, payload: { listId, todoId, todoNote } });
-const chooseDeadline = (listId, todoId, todoDeadlineDate) => ({ type: CHOOSE_DEADLINE, payload: { listId, todoId, todoDeadlineDate } });
+
+const chooseDeadline = (listId, todoId, todoDeadlineWord) => ({ type: CHOOSE_DEADLINE, payload: { listId, todoId, todoDeadlineWord } });
 const deleteDeadline = (listId, todoId) => ({ type: DELETE_DEADLINE, payload: { listId, todoId } });
 const deleteTodo = (listId, todoId) => ({ type: DELETE_TODO, payload: { listId, todoId } });
 

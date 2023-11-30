@@ -12,7 +12,7 @@ import {
     CHOOSE_DEADLINE, 
     DELETE_DEADLINE, 
     DELETE_TODO } from "../actions/dataTodoActions";
-
+const today = new Date();
 const dataListReducer = (state = dataInitialState, {type, payload}) => {
     switch (type) {
         case CREATE_LIST: return [
@@ -41,7 +41,10 @@ const dataListReducer = (state = dataInitialState, {type, payload}) => {
                         isCompleted: false,
                         isImportant: false,
                         createDate: new Date(),
-                        deadlineDate: null,
+                        deadline: {
+                            deadlineString: "",
+                            deadlineObj: null
+                        },
                         note: null
                     }
                 ]
@@ -101,7 +104,14 @@ const dataListReducer = (state = dataInitialState, {type, payload}) => {
                 ...list,
                     todos: list.todos.map(todo => {
                         if (todo.id === payload.todoId) return {
-                            ...todo, deadlineDate: payload.todoDeadlineDate
+                            ...todo, deadline: {
+                                deadlineString: payload.todoDeadlineWord,
+                                deadlineObj: payload.todoDeadlineWord === "Today" 
+                                                ? today 
+                                                : payload.todoDeadlineWord === "Tomorrow" 
+                                                ? new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1)
+                                                : undefined
+                            }
                         }
                         return todo
                     })
@@ -113,7 +123,10 @@ const dataListReducer = (state = dataInitialState, {type, payload}) => {
                 ...list,
                     todos: list.todos.map(todo => {
                         if (todo.id === payload.todoId) return {
-                            ...todo, deadlineDate: ""
+                            ...todo, deadline: {
+                                deadlineString: "",
+                                deadlineObj: null
+                            },
                         }
                         return todo
                     })

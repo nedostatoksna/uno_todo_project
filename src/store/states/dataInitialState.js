@@ -9,7 +9,10 @@ const dataInitialState = [
                     parentListId: "1",
                     isCompleted: false,
                     isImportant: false,
-                    deadlineDate: "Tomorrow",
+                    deadline: {
+                        deadlineString: "Today",
+                        deadlineObj: new Date()
+                    },
                     createDate: "",
                     note: ""
                 },
@@ -19,7 +22,10 @@ const dataInitialState = [
                     parentListId: "1",
                     isCompleted: false,
                     isImportant: false,
-                    deadlineDate: "Fri, 1 Dec",
+                    deadline: {
+                        deadlineString: "Fri, 1 Dec",
+                        deadlineObj: new Date (2023, 11, 1)
+                    },
                     createDate: "",
                     note: "Default note"
                 },
@@ -29,7 +35,10 @@ const dataInitialState = [
                     parentListId: "1",
                     isCompleted: true,
                     isImportant: true,
-                    deadlineDate: "",
+                    deadline: {
+                        deadlineString: "",
+                        deadlineObj: null
+                    },
                     createDate: "",
                     note: "Default note"
                 }
@@ -45,7 +54,10 @@ const dataInitialState = [
                     parentListId: "2",
                     isCompleted: false,
                     isImportant: false,
-                    deadlineDate: "",
+                    deadline: {
+                        deadlineString: "",
+                        deadlineObj: null
+                    },
                     createDate: "20 Nov 2023",
                     note: ""
                 },
@@ -55,7 +67,10 @@ const dataInitialState = [
                     parentListId: "2",
                     isCompleted: false,
                     isImportant: false,
-                    deadlineDate: "",
+                    deadline: {
+                        deadlineString: "",
+                        deadlineObj: null
+                    },
                     createDate: "23 Nov 2023",
                     note: "Default note"
                 }
