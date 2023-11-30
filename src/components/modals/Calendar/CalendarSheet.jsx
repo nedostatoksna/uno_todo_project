@@ -11,31 +11,11 @@ const CalendarSheet = ( {activeMonth, activeDay} ) => {
     const context = useContext(AppContext);
     const today = new Date();
     const year = today.getFullYear();
-    console.log(activeDay);
-    const getNumberOfDays = () => {
-        let numberOfDays;
-        let daysArray = [];
-        if (activeMonth.title === "January" || "March" || "May" || "July" || "August" || "October" || "December") {
-            numberOfDays = 31;
-        } else if (activeMonth.title === "February") {
-            if (year % 4 === 0) {
-                numberOfDays = 29;
-            } else {
-                numberOfDays = 28;
-            }
-        } else {
-            numberOfDays = 30;
-        }
-        for (let i = 1; i < numberOfDays + 1; i++) {
-            daysArray.push(i);
-        }
-        return daysArray;
-    }
 
     return (
         <CalendarWrapper>
         <WeekDays />
-        <CalendarDays daysOfTheMonth={getNumberOfDays()} activeDay={activeDay} activeMonth={activeMonth} />
+        <CalendarDays activeDay={activeDay} activeMonth={activeMonth} />
 
         </CalendarWrapper>
     )

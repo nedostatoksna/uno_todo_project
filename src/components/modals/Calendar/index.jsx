@@ -16,7 +16,6 @@ const Calendar = ({ todo }) => {
     const dispatch = useDispatch();
     const context = useContext(AppContext);
     const selectedDate = todo.deadlineDate;
-    console.log(selectedDate);
     const today = new Date();
 
         const prepareActiveDay = () => {
@@ -57,8 +56,6 @@ const Calendar = ({ todo }) => {
             }
             return activeMonth;
         }
-        console.log(prepareDateForDisplay());
-        console.log(prepareMonthForDisplay());
 
     return (
         <Modal 
