@@ -37,6 +37,7 @@ const preShowImportant = () => {
         dispatch(switchActiveTodoListId(""))
         dispatch(toggleShowingAllTodos(false))
         dispatch(switchVisibleImportant(true))
+        dispatch(changeActiveTodoId(""))
     }
 };
 
@@ -45,6 +46,7 @@ const preShowAllTodos = () => {
         dispatch(switchActiveTodoListId(""))
         dispatch(switchVisibleImportant(false))
         dispatch(toggleShowingAllTodos(true))
+        dispatch(changeActiveTodoId(""))
     }
 };
 

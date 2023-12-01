@@ -11,13 +11,11 @@ const SearchTodoListPanel = () => {
     const context = useContext(AppContext);
     const lists = useSelector(state => state.dataLists);
     const searchString = useSelector(state => state.todoListUI.searchQuery);
-    
-    const isShowingEditPanel = useSelector(state => state.todoPanelUI.isShowingEditPanel);
     const todos = lists.map(list => list.todos).flat(1);
     const serchedTodos = todos.filter(todo => todo.title.toLowerCase().includes(searchString.toLowerCase()));
 
     return (
-        <SearchTodoListWrapper $mode={context.mode} $width={isShowingEditPanel ? "60vw" : "80vw"}>
+        <SearchTodoListWrapper $mode={context.mode} $width={"80vw"}>
             <Header $darkGrey $margin={"18px 0px"}>Search</Header>
             {
                 serchedTodos.length && searchString ? <SearchResultsList lists={serchedTodos}/> : <Notice />

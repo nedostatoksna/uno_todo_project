@@ -9,13 +9,11 @@ import Header from "../../styled/Header";
 const ImportantTodoListPanel = () => {
     const context = useContext(AppContext);
     const lists = useSelector(state => state.dataLists);
-    const isShowingEditPanel = useSelector(state => state.todoPanelUI.isShowingEditPanel);
-
     const todos = lists.map(list => list.todos).flat(1);
     const importantTodos = todos.filter(todo => todo.isImportant);
 
     return (
-        <ImportantTodoListWrapper $mode={context.mode} $width={isShowingEditPanel ? "60vw" : "80vw"}>
+        <ImportantTodoListWrapper $mode={context.mode} $width={"80vw"}>
             <Header $mode={context.mode} $white $margin={"18px 0px"}>Important</Header>
             <StyledWrapper>
                 {

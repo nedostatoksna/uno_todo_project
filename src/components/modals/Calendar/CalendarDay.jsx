@@ -8,14 +8,10 @@ import { fullMonths, threeLettersWeekDays } from "../../../context/calendar";
 const CalendarDay = ({ day, todo }) => {
     
     const context = useContext(AppContext);
-    // const selectedDay = useSelector(state => state.calendarUI.selectedDate.getDate());
-    // const selectedDayMonth = useSelector(state => state.calendarUI.selectedDate.getMonth());
-    // const year = useSelector(state => state.calendarUI.activeYear);
-
-
     const selectedDay = todo.deadline.deadlineObj.getDate();
     const selectedDayMonth = todo.deadline.deadlineObj.getMonth();
     const year = todo.deadline.deadlineObj.getFullYear();
+    const deadlineString = todo.deadline.deadlineString;
 
     const dispatch = useDispatch();
     const todayDate = new Date().getDate();
@@ -40,7 +36,7 @@ const CalendarDay = ({ day, todo }) => {
         <Wrapper 
             $prevNext={!day.activeMonth} 
             $mode={context.mode}
-            $active={day.date === selectedDay && day.month === selectedDayMonth}
+            $active={deadlineString.length && deadlineString !== "Next Week" && day.date === selectedDay && day.month === selectedDayMonth}
             $isToday={day.date === todayDate && day.month === todayMonth}
             onClick={() => {dispatch(changeSelectedDateInUIAndInData(dateObj, activeListId, activeTodoId, dateString))}}
         >

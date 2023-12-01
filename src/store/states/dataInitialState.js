@@ -23,8 +23,8 @@ const dataInitialState = [
                     isCompleted: false,
                     isImportant: false,
                     deadline: {
-                        deadlineString: "Fri, 1 Dec",
-                        deadlineObj: new Date (2023, 11, 1)
+                        deadlineString: "Fri, 10 Dec",
+                        deadlineObj: new Date (2023, 11, 10)
                     },
                     createDate: new Date(),
                     note: "Default note"

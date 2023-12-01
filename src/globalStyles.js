@@ -73,6 +73,14 @@ const GlobalStyle = createGlobalStyle`
   li {
     list-style-type: none;
   }
+  select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  }
+  select::-ms-expand {
+  display: none;
+  }
 `;
 
 export default GlobalStyle;

@@ -87,7 +87,7 @@ const TodoApp = () => {
                         : isShowingImportant ? <ImportantTodoListPanel /> 
                         : isShowingAllTodos ? <AllTodosPanel />
                         : <TodoListInterface />  }
-                    { isShowingEditPanel ? <TodoEditPanel /> : undefined }
+                    { activeTodoId.length && isShowingEditPanel ? <TodoEditPanel /> : undefined }
             </Wrapper>
         </>
     )
