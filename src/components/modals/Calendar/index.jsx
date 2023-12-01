@@ -17,14 +17,6 @@ const Calendar = ({ todo }) => {
     const selectedDateString = todo.deadline.deadlineString;
     const selectedDateObj = todo.deadline.deadlineObj;
     const activeMonth = useSelector(state => state.calendarUI.activeMonth);
-    const today = new Date();
-
-        const prepareActiveDay = () => {
-            let activeDay = selectedDateObj 
-                ? selectedDateObj.getDate()
-                : today
-            return activeDay
-        }
 
         const findActiveMonthId = () => {
             let activeMonthId;
@@ -47,15 +39,15 @@ const Calendar = ({ todo }) => {
             $buttonText={"Ok"}
             $mode={context.mode} 
             $onCancelClickHandler={() => {dispatch(toggleIsShowingCalendar())}} 
-            $onСonfirmationClick={() => {}} 
+            $onСonfirmationClick={() => {dispatch(toggleIsShowingCalendar())}} 
         >
             <StyledConteiner>
-            <DateEditPanel dateString={selectedDateString} selectedDateObj={selectedDateObj}/>
+            <DateEditPanel />
                 <StyledConteinerSwitchers>
                     <MonthYearSelector activeMonth={activeMonth} />
                     <NextPrevSwitcher activeMonthId={findActiveMonthId()} />
                 </StyledConteinerSwitchers>
-                <CalendarSheet activeTodo={todo} activeDay={prepareActiveDay()} activeMonthId={findActiveMonthId()} />
+                <CalendarSheet activeMonthId={findActiveMonthId()} todo={todo} />
             </StyledConteiner>
         </Modal>
     )

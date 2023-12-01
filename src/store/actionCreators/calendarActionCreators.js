@@ -34,6 +34,12 @@ const switchToPrevMonthAndYear = (monthTitle, selectedYear) => {
         dispatch(changeSelectedYear(selectedYear))
     }
 }
+const changeSelectedDateInUIAndInData = (newDate, listId, todoId, todoDeadlineWord) => {
+    return (dispatch) => {
+        dispatch(changeSelectedDate(newDate))
+        dispatch(chooseDeadline(listId, todoId, todoDeadlineWord, newDate))
+    }
+}
 
 export { 
     switchToNextMonth, 
@@ -44,5 +50,6 @@ export {
     changeSelectedMonth,
     changeSelectedYear,
     switchToNextMonthAndYear,
-    switchToPrevMonthAndYear
+    switchToPrevMonthAndYear,
+    changeSelectedDateInUIAndInData
 };

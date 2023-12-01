@@ -12,7 +12,6 @@ import {
     CHOOSE_DEADLINE, 
     DELETE_DEADLINE, 
     DELETE_TODO } from "../actions/dataTodoActions";
-const today = new Date();
 const dataListReducer = (state = dataInitialState, {type, payload}) => {
     switch (type) {
         case CREATE_LIST: return [
@@ -106,11 +105,7 @@ const dataListReducer = (state = dataInitialState, {type, payload}) => {
                         if (todo.id === payload.todoId) return {
                             ...todo, deadline: {
                                 deadlineString: payload.todoDeadlineWord,
-                                deadlineObj: payload.todoDeadlineWord === "Today" 
-                                                ? today 
-                                                : payload.todoDeadlineWord === "Tomorrow" 
-                                                ? new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1)
-                                                : undefined
+                                deadlineObj: payload.deadlineObj
                             }
                         }
                         return todo

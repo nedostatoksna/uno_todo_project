@@ -22,7 +22,7 @@ const changeImportant = (listId, todoId, isImportant) => ({ type: CHANGE_IMPORTA
 const changeTitle = (listId, todoId, todoTitle) => ({ type: CHANGE_TITLE, payload: { listId, todoId, todoTitle } });
 const changeNote = (listId, todoId, todoNote) => ({ type: CHANGE_NOTE, payload: { listId, todoId, todoNote } });
 
-const chooseDeadline = (listId, todoId, todoDeadlineWord) => ({ type: CHOOSE_DEADLINE, payload: { listId, todoId, todoDeadlineWord } });
+const chooseDeadline = (listId, todoId, todoDeadlineWord, deadlineObj) => ({ type: CHOOSE_DEADLINE, payload: { listId, todoId, todoDeadlineWord, deadlineObj } });
 const deleteDeadline = (listId, todoId) => ({ type: DELETE_DEADLINE, payload: { listId, todoId } });
 const deleteTodo = (listId, todoId) => ({ type: DELETE_TODO, payload: { listId, todoId } });
 

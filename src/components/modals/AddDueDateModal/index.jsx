@@ -11,13 +11,22 @@ const AddDueDate = ({ todo }) => {
 
     const dispatch = useDispatch();
     const context = useContext(AppContext);
+    const today = new Date();
+    const year = String(today.getFullYear());
+    const month = String(today.getMonth());
+    const day = String(today.getDate());
 
-    const preSetDueDate = (option) => {
+    const dateObj = new Date(year, month, day);
+    const dateObjTomorrow = new Date(year, month, day + 1);
+
+    const preSetDueDate = (option, today) => {
 
         if (option === "Pick a Date") {
             dispatch(toggleDaedlinePanelAndOpenCalendar())
+        } else if (option === "Tomorrow") {
+            dispatch(toggleDaedlinePanelAndSetDeadline(todo.parentListId, todo.id, option, dateObjTomorrow));
         } else {
-            dispatch(toggleDaedlinePanelAndSetDeadline(todo.parentListId, todo.id, option));
+            dispatch(toggleDaedlinePanelAndSetDeadline(todo.parentListId, todo.id, option, dateObj));
         }
     }
 
@@ -38,7 +47,7 @@ const AddDueDate = ({ todo }) => {
                             $mode={context.mode} 
                             $calendarDay={option !== "Pick a Date"} 
                             $calendarDayArrow={option === "Pick a Date"}
-                            onClick={() => preSetDueDate(option)}
+                            onClick={() => preSetDueDate(option, today)}
                             >
                                 {option}
                             </ListButton>

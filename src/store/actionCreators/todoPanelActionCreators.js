@@ -15,18 +15,18 @@ const toggleTodoEditPanel = (boolean) => ({ type: TOGGLE_TODO_EDIT_PANEL, payloa
 const toggleChooseDeadlinePanel = () => ({ type: TOGGLE_CHOOSE_DEADLINE_MODAL });
 const toggleIsShowingCalendar = () => ({ type: TOGGLE_IS_SHOWING_CALENDAR });
 
-const setActiveTodoAndOpenEditPanel = (todoId, activeMonth, activeYear, activeDate) => {
+const setActiveTodoAndOpenEditPanel = (todoId, activeMonth, activeMonthId, activeYear, activeDate) => {
     return (dispatch) => {
         dispatch(changeActiveTodoId(todoId)) 
         dispatch(toggleTodoEditPanel(true))
         dispatch(changeSelectedMonth(activeMonth))
         dispatch(changeSelectedYear(activeYear))
-        dispatch(changeSelectedDate(activeDate))
+        dispatch(changeSelectedDate(new Date(activeYear, activeMonthId, activeDate)))
     }
 };
-const toggleDaedlinePanelAndSetDeadline = (listId, todoId, deadline) => {
+const toggleDaedlinePanelAndSetDeadline = (listId, todoId, deadline, deadlineObj) => {
     return (dispatch) => {
-        dispatch(chooseDeadline(listId, todoId, deadline))
+        dispatch(chooseDeadline(listId, todoId, deadline, deadlineObj))
         dispatch(toggleChooseDeadlinePanel())
     }
 };

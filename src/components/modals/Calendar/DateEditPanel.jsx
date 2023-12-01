@@ -4,41 +4,26 @@ import IconButton from "../../../ui/IconButton";
 import { AppContext } from "../../../context/context";
 import { fullMonths, threeLettersWeekDays } from "../../../context/calendar";
 
-const DateEditPanel = ({ dateString, selectedDateObj }) => {
+const DateEditPanel = () => {
 
     const context = useContext(AppContext);
 
-            const prepareDateStringForDisplay = () => {
+    const prepareDateStringForDisplay = () => {
+        let dateForDisplay;
+        const today = new Date();
+        const dayOfTheWeek = threeLettersWeekDays[today.getDay()];
+        const month = fullMonths[today.getMonth()].title.slice(0, 3);
+        const day = today.getDate();
+        dateForDisplay = dayOfTheWeek + ", " + month + " " + day;
 
-            let dateForDisplay;
-            const today = new Date();
-            const dayOfTheWeek = threeLettersWeekDays[today.getDay()];
-            const month = fullMonths[today.getMonth()].title.slice(0, 3);
-            const day = today.getDate();
-
-            if (dateString.length) {
-
-                if (dateString === "Tomorrow" || dateString === "Today") {
-                    const dayOfTheWeek = threeLettersWeekDays[selectedDateObj.getDay()];
-                    const month = fullMonths[selectedDateObj.getMonth()].title.slice(0, 3);
-                    const day = selectedDateObj.getDate();
-                    dateForDisplay = dayOfTheWeek + ", " + month + " " + day;
-                } else if (dateString !== "Next Week") {
-                    dateForDisplay = dateString;
-                }
-            } else {
-                dateForDisplay = dayOfTheWeek + ", " + month + " " + day;
-            }
-            return dateForDisplay;
-        }
+        return dateForDisplay;
+    }
 
     return (
         <DateEditPanelWrapper>
-                <DateInput 
-                    $mode={context.mode}  
-                    value={prepareDateStringForDisplay()}
-                    id="dateInput"
-                    disabled />
+                <DateInput $mode={context.mode}>
+                    {prepareDateStringForDisplay()}
+                </DateInput>
                 <IconButton $mode={context.mode} $type={"editGrey"} $large ></IconButton>
         </DateEditPanelWrapper>
     )
@@ -53,7 +38,7 @@ const DateEditPanelWrapper = styled.div`
     justify-content: space-between;
     padding: 16px 14px 16px 20px;
 `;
-const DateInput = styled.input`
+const DateInput = styled.p`
     font-family: "Roboto";
     font-size: 32px;
     font-style: normal;

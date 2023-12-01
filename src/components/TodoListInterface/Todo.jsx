@@ -19,8 +19,9 @@ const Todo = ({ todo }) => {
             dispatch(setActiveTodoAndOpenEditPanel(
                                                     todo.id, 
                                                     fullMonths[todo.deadline.deadlineObj.getMonth()].title, 
+                                                    fullMonths[todo.deadline.deadlineObj.getMonth()].id, 
                                                     todo.deadline.deadlineObj.getFullYear(), 
-                                                    todo.deadline.deadlineObj.getDate() )) 
+                                                    todo.deadline.deadlineObj.getDate())) 
         }
     }
 
