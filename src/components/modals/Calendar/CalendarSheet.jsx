@@ -1,16 +1,9 @@
-import React, { useContext } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 import styled from "styled-components";
-import { AppContext } from "../../../context/context";
 import WeekDays from "./WeekDays";
 import CalendarDays from "./CalendarDays";
 
 const CalendarSheet = ( { activeTodo, activeDay, activeMonthId} ) => {
-    
-    const dispatch = useDispatch();
-    const context = useContext(AppContext);
-    const today = new Date();
-    const year = today.getFullYear();
 
     return (
         <CalendarWrapper>

@@ -1,32 +1,41 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
 import IconButton from "../../../ui/IconButton";
 import { AppContext } from "../../../context/context";
-import { useDispatch } from "react-redux";
-import { switchToNextMonth, switchToPrevMonth } from "../../../store/actionCreators/calendarActionCreators";
+import { 
+        switchToNextMonth, 
+        switchToNextMonthAndYear, 
+        switchToPrevMonth, 
+        switchToPrevMonthAndYear } from "../../../store/actionCreators/calendarActionCreators";
 import { fullMonths } from "../../../context/calendar";
 
 const NextPrevSwitcher = ({ activeMonthId }) => {
 
     const context = useContext(AppContext);
+    const year = useSelector(state => state.calendarUI.activeYear);
     const dispatch = useDispatch();
+
     const preSwitchToPrev = () => {
         let monthTitle;
         if (activeMonthId - 1 < 0) {
             monthTitle =  fullMonths[11].title;
+            dispatch(switchToPrevMonthAndYear(monthTitle, year - 1))
         } else {
             monthTitle =  fullMonths[activeMonthId - 1].title;
+            dispatch(switchToPrevMonth(monthTitle));
         }
-        dispatch(switchToPrevMonth(monthTitle))
     }
+
     const preSwitchToNext = () => {
         let monthTitle;
         if (activeMonthId + 1 > 11) {
             monthTitle =  fullMonths[0].title;
+            dispatch(switchToNextMonthAndYear(monthTitle, year + 1))
         } else {
             monthTitle =  fullMonths[activeMonthId + 1].title;
+            dispatch(switchToNextMonth(monthTitle));
         }
-        dispatch(switchToNextMonth(monthTitle))
     }
 
     return (

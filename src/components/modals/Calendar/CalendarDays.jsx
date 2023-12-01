@@ -1,15 +1,18 @@
 import React, { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { AppContext } from "../../../context/context";
 import CalendarDay from "./CalendarDay";
 
 const CalendarDays = ({ activeTodo, activeMonthId, activeDay }) => {
 
-    const year = activeTodo.deadline.deadlineObj.getFullYear();
-    console.log(activeMonthId);
+    const year = useSelector(state => state.calendarUI.activeYear);
+    const prevMonthId = activeMonthId === 0 ? 11 : activeMonthId - 1;
+    const nextMonthId = activeMonthId === 11 ? 0 : activeMonthId + 1;
+    console.log(" prev month id : ", prevMonthId);
+    console.log(" active month id : ", activeMonthId);
+    console.log(" next month id : ", nextMonthId);
     console.log(year);
-
-    let currentDays = [];
 
     const findWeekDay = (y, m, d) => {
         return new Date(y, m, d).getDay();
@@ -18,16 +21,16 @@ const CalendarDays = ({ activeTodo, activeMonthId, activeDay }) => {
         return new Date(y, m, d).getDate();
      };
 
-     let daysOfTheActiveMonth = findTotalMonthDays(year, activeMonthId + 1, 0);
-     let daysOfThePrevMonth = findTotalMonthDays(year, activeMonthId, 0);
+     let numberOfDaysInActiveMonth = findTotalMonthDays(year, activeMonthId + 1, 0);
+     let numberOfDaysInPrevMonth = findTotalMonthDays(year, activeMonthId, 0);
      let weekdayOfFirstDay = findWeekDay(year, activeMonthId, 1);
-     let weekdayOfLastDay = findWeekDay(year, activeMonthId, daysOfTheActiveMonth);
+     let weekdayOfLastDay = findWeekDay(year, activeMonthId, numberOfDaysInActiveMonth);
 
      const fillPrevMonthDays = () => {
         let resultArr = [];
         if (weekdayOfFirstDay !== 0) {
             for (let i = 0; i < weekdayOfFirstDay; i++) {
-                const date = daysOfThePrevMonth--;
+                const date = numberOfDaysInPrevMonth - i;
                 const dateObj = {
                     date: date,
                     month: activeMonthId - 1,
@@ -42,7 +45,7 @@ const CalendarDays = ({ activeTodo, activeMonthId, activeDay }) => {
 
      const fillActiveMonthDays = () => {
         let resultArr = [];
-        for (let i = 1; i < daysOfTheActiveMonth + 1; i++) {
+        for (let i = 1; i < numberOfDaysInActiveMonth + 1; i++) {
             let date = i;
             const dateObj = {
                 date: date,
@@ -56,14 +59,8 @@ const CalendarDays = ({ activeTodo, activeMonthId, activeDay }) => {
      }
      const fillNextMonthDays = () => {
         let resultArr = [];
-        let num;
-        if (weekdayOfLastDay === 0) {
-            num = 7;
-        } else {
-            num = 6 - weekdayOfLastDay;
-        }
         
-        for (let i = 1; i < num; i++) {
+        for (let i = 1; i < 7 - weekdayOfLastDay; i++) {
             let date = i;
             const dateObj = {
                 date: date,
@@ -76,24 +73,43 @@ const CalendarDays = ({ activeTodo, activeMonthId, activeDay }) => {
         return resultArr;
      };
 
-     console.log(daysOfTheActiveMonth);
-     console.log(daysOfThePrevMonth);
-     console.log(weekdayOfLastDay);
-     console.log(weekdayOfFirstDay);
+        let currentDays = [];
+        const prevArr = fillPrevMonthDays();
+        const activeArr = fillActiveMonthDays();
+        const nextArr = fillNextMonthDays();
+        currentDays.push(prevArr);
+        currentDays.push(activeArr);
+        currentDays.push(nextArr);
+        const flatDays = currentDays.flat(1);
 
-     const prevArr = fillPrevMonthDays();
-     const activeArr = fillActiveMonthDays();
-     const nextArr = fillNextMonthDays();
-     currentDays.push(prevArr);
-     currentDays.push(activeArr);
-     currentDays.push(nextArr);
-     const flatDays = currentDays.flat(Infinity);
-     console.log(flatDays);
-     
+
+     console.log(" number of days in active month : ", numberOfDaysInActiveMonth);
+     console.log(" number of days in prev month : ", numberOfDaysInPrevMonth);
+
+     console.log(" week day last day of active month : ", weekdayOfLastDay);
+     console.log(" week day first day of active month : ", weekdayOfFirstDay);
+
+     console.log(" prev month days : ", prevArr);
+     console.log(" active month days : ", activeArr);
+     console.log(" next month days : ", nextArr);
+     console.log(" all days for display : ", flatDays);
+
     return (
         <Wrapper>
             {
-                flatDays.map((day, index) => (
+                prevArr.map(day => (
+                    <CalendarDay day={day} key={day.date} />
+              
+                ))
+            }
+            {
+                activeArr.map(day => (
+                    <CalendarDay day={day} key={day.date} />
+              
+                ))
+            }
+            {
+                nextArr.map(day => (
                     <CalendarDay day={day} key={day.date} />
               
                 ))

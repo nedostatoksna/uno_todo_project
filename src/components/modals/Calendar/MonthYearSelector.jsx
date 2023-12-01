@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { AppContext } from "../../../context/context";
 import { fullMonths }  from "../../../context/calendar";
@@ -8,8 +8,7 @@ import { changeSelectedMonth } from "../../../store/actionCreators/calendarActio
 const MonthYearSelector = ({ activeMonth }) => {
 
     const context = useContext(AppContext);
-    const today = new Date();
-    const year = today.getFullYear();
+    const year = useSelector(state => state.calendarUI.activeYear);
     const dispatch = useDispatch();
 
     return (
@@ -27,7 +26,8 @@ const MonthYearSelector = ({ activeMonth }) => {
                                 value={month.title}
                                 key={month.id}
                             >
-                                {month.title + " " + year}
+                                {month.title} 
+                                {year}
                             </StyledOption>
                         ))
                     }

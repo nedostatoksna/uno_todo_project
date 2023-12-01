@@ -1,9 +1,9 @@
-import { fullMonths } from "../../context/calendar";
 import { SWITCH_TO_PREV_MONTH, 
          SWITCH_TO_NEXT_MONTH, 
          CHANGE_SELECTED_DATE, 
          TOGGLE_IS_EDITING_DATE,
-         CHANGE_SELECTED_MONTH } from "../actions/calendarActions";
+         CHANGE_SELECTED_MONTH,
+         CHANGE_SELECTED_YEAR } from "../actions/calendarActions";
 import calendarInitialState from "../states/calendarIInitialState";
 
 const calendarReducer = (state = calendarInitialState, {type, payload}) => {
@@ -12,7 +12,7 @@ const calendarReducer = (state = calendarInitialState, {type, payload}) => {
             ...state, activeMonth: payload.newActiveMonth
         }
         case SWITCH_TO_NEXT_MONTH: return {
-            ...state, activeMonth: payload.newActiveMonth
+            ...state, activeMonth: payload.newActiveMonth 
         }
         case CHANGE_SELECTED_DATE: return {
             ...state, selectedDate: payload.selectedDate
@@ -22,6 +22,9 @@ const calendarReducer = (state = calendarInitialState, {type, payload}) => {
         }
         case CHANGE_SELECTED_MONTH: return {
             ...state, activeMonth: payload.selectedMonth
+        }
+        case CHANGE_SELECTED_YEAR: return {
+            ...state, activeYear: payload.selectedYear
         }
         default: return state;
     }
