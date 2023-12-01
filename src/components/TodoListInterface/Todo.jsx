@@ -12,7 +12,7 @@ const Todo = ({ todo }) => {
     const dispatch = useDispatch();
     const context = useContext(AppContext);
     const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
-    const deadLineForDisplay = todo.deadline && todo.deadline.deadlineString ? todo.deadline.deadlineString : "";
+    const deadLineForDisplay = todo.deadline.deadlineString;
 
     const presetActiveTodoAndOpenEditPanel = (e) => {
         if (!e.target.id.includes("input")) {

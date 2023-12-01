@@ -9,7 +9,6 @@ import { toggleEditingTitle } from "../../store/actionCreators/todoPanelActionCr
 const TodoEditHeader = ({ todo }) => {
 
     const titleInputFocus = useRef(null);
-
     const dispatch = useDispatch();
     const context = useContext(AppContext);
     const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);

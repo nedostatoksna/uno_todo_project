@@ -43,7 +43,7 @@ const dataListReducer = (state = dataInitialState, {type, payload}) => {
                         createDate: new Date(),
                         deadline: {
                             deadlineString: "",
-                            deadlineObj: null
+                            deadlineObj: new Date()
                         },
                         note: null
                     }
@@ -125,7 +125,7 @@ const dataListReducer = (state = dataInitialState, {type, payload}) => {
                         if (todo.id === payload.todoId) return {
                             ...todo, deadline: {
                                 deadlineString: "",
-                                deadlineObj: null
+                                deadlineObj: new Date()
                             },
                         }
                         return todo

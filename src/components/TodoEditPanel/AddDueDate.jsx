@@ -10,7 +10,7 @@ const AddDueDate = ({ todo }) => {
 
     const dispatch = useDispatch();
     const context = useContext(AppContext);
-    let deadlineString = todo.deadline.deadlineString;
+    const deadlineString = todo.deadline.deadlineString;
 
     return (
         <AddDueDateWrapper $mode={context.mode}>
@@ -28,7 +28,7 @@ const AddDueDate = ({ todo }) => {
                     placeholder="Add Due Date" 
                     value={deadlineString}
                     id="dueDateInput"
-                    $grey={!deadlineString.length}
+                    $grey
                     $purple={deadlineString.length}
                     disabled
                 />

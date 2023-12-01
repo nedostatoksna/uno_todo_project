@@ -3,11 +3,11 @@ import styled from "styled-components";
 import { AppContext } from "../../../context/context";
 import CalendarDay from "./CalendarDay";
 
-const CalendarDays = ({ activeMonthId, activeDay }) => {
+const CalendarDays = ({ activeTodo, activeMonthId, activeDay }) => {
 
-    const today = new Date();
-    const year = today.getFullYear();
-    const chosenDate = new Date(year, activeMonthId, activeDay);
+    const year = activeTodo.deadline.deadlineObj.getFullYear();
+    console.log(activeMonthId);
+    console.log(year);
 
     let currentDays = [];
 

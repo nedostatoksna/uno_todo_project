@@ -8,6 +8,7 @@ import CalendarSheet from "./CalendarSheet";
 import MonthYearSelector from "./MonthYearSelector";
 import { fullMonths }  from "../../../context/calendar";
 import NextPrevSwitcher from "./NextPrevSwitcher";
+import { toggleIsShowingCalendar } from "../../../store/actionCreators/todoPanelActionCreators";
 
 const Calendar = ({ todo }) => {
 
@@ -25,14 +26,13 @@ const Calendar = ({ todo }) => {
             return activeDay
         }
 
-        const prepareMonthForDisplay = () => {
+        const findActiveMonthId = () => {
             let activeMonthId;
             for (let i = 0; i < fullMonths.length; i++) {
                if (fullMonths[i].title === activeMonth) {
                     activeMonthId = fullMonths[i].id
                 }
             }
-            console.log(activeMonthId);
             return activeMonthId
         }
 
@@ -46,16 +46,16 @@ const Calendar = ({ todo }) => {
             $okButton
             $buttonText={"Ok"}
             $mode={context.mode} 
-            $onCancelClickHandler={() => {}} 
+            $onCancelClickHandler={() => {dispatch(toggleIsShowingCalendar())}} 
             $onСonfirmationClick={() => {}} 
         >
             <StyledConteiner>
             <DateEditPanel dateString={selectedDateString} selectedDateObj={selectedDateObj}/>
                 <StyledConteinerSwitchers>
                     <MonthYearSelector activeMonth={activeMonth} />
-                    <NextPrevSwitcher />
+                    <NextPrevSwitcher activeMonthId={findActiveMonthId()} />
                 </StyledConteinerSwitchers>
-                <CalendarSheet activeDay={prepareActiveDay()} activeMonthId={prepareMonthForDisplay()} />
+                <CalendarSheet activeTodo={todo} activeDay={prepareActiveDay()} activeMonthId={findActiveMonthId()} />
             </StyledConteiner>
         </Modal>
     )

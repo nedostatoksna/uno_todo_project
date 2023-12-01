@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { AppContext } from "../../../context/context";
 import { fullMonths }  from "../../../context/calendar";
 import { changeSelectedMonth } from "../../../store/actionCreators/calendarActionCreators";
-import { useState } from "react";
 
 const MonthYearSelector = ({ activeMonth }) => {
 

@@ -13,7 +13,7 @@ const dataInitialState = [
                         deadlineString: "Today",
                         deadlineObj: new Date()
                     },
-                    createDate: "",
+                    createDate: new Date(),
                     note: ""
                 },
                 {
@@ -26,7 +26,7 @@ const dataInitialState = [
                         deadlineString: "Fri, 1 Dec",
                         deadlineObj: new Date (2023, 11, 1)
                     },
-                    createDate: "",
+                    createDate: new Date(),
                     note: "Default note"
                 },
                 {
@@ -37,9 +37,9 @@ const dataInitialState = [
                     isImportant: true,
                     deadline: {
                         deadlineString: "",
-                        deadlineObj: null
+                        deadlineObj: new Date()
                     },
-                    createDate: "",
+                    createDate: new Date(),
                     note: "Default note"
                 }
         ]
@@ -56,9 +56,9 @@ const dataInitialState = [
                     isImportant: false,
                     deadline: {
                         deadlineString: "",
-                        deadlineObj: null
+                        deadlineObj: new Date()
                     },
-                    createDate: "20 Nov 2023",
+                    createDate: new Date(),
                     note: ""
                 },
                 {
@@ -69,9 +69,9 @@ const dataInitialState = [
                     isImportant: false,
                     deadline: {
                         deadlineString: "",
-                        deadlineObj: null
+                        deadlineObj: new Date()
                     },
-                    createDate: "23 Nov 2023",
+                    createDate: new Date(),
                     note: "Default note"
                 }
         ]

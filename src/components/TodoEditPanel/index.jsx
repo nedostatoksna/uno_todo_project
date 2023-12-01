@@ -14,23 +14,23 @@ const TodoEditPanel = () => {
 
     const setActiveTodo = () => {
         let result
-        lists.map(list => 
-            (list.id === activeListId)
-                ? list.todos.map(todo => (
-                    (todo.id === activeTodoId)
-                    ? result = todo : undefined
-                )) : undefined )
-        return result;
+        if (activeTodoId.length) {
+            lists.map(list => 
+                (list.id === activeListId)
+                    ? list.todos.map(todo => (
+                        (todo.id === activeTodoId)
+                        ? result = todo : undefined
+                    )) : undefined )
+            return result;
+        }
     };
-
-    const activeTodo = setActiveTodo();
 
     return (
         <TodoEditWrapper $mode={context.mode}>
-            <TodoEditHeader todo={activeTodo} /> 
+            <TodoEditHeader todo={setActiveTodo()} /> 
             <DateNoteEditWrapper>
                 <Divider $mode={context.mode} $light $margin={"0px"} />
-                <AddDueDate todo={activeTodo} />
+                <AddDueDate todo={setActiveTodo()} />
                 <Divider $mode={context.mode} $light $margin={"0px"} />
             </DateNoteEditWrapper>
         </TodoEditWrapper>

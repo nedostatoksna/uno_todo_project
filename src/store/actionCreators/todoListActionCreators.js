@@ -9,6 +9,7 @@ import {
     TOOGLE_IS_SEARCHING,
     TOGGLE_SHOWING_ALL_TODOS,
     TOGGLE_RENAMING_LIST } from "../actions/todoListActions";
+import { changeActiveTodoId, toggleTodoEditPanel } from "./todoPanelActionCreators";
 
 const switchActiveTodoListId = (listId) => ({ type: SWITCH_ACTIVE_TODOLIST_ID, payload: { listId } });
 const toggleCreatingTodo = () => ({ type: TOOGLE_CREATING_TODO });
@@ -26,6 +27,8 @@ const preSwitchActiveTodoList = (listId) => {
         dispatch(switchActiveTodoListId(listId))
         dispatch(toggleShowingAllTodos(false))
         dispatch(switchVisibleImportant(false))
+        dispatch(toggleTodoEditPanel(false))
+        dispatch(changeActiveTodoId(""))
     }
 }; 
 
