@@ -11,9 +11,8 @@ const TodoEditFooter = ({ todo }) => {
     const context = useContext(AppContext);
     const dispatch = useDispatch();
 
-    const prepareDateStringForDisplay = (y, m, d) => {
+    const prepareDateStringForDisplay = (date) => {
         let dateForDisplay;
-        const date = new Date(y, m, d);
         const dayOfTheWeek = threeLettersWeekDays[date.getDay()];
         const month = fullMonths[date.getMonth()].title.slice(0, 3);
         const day = date.getDate();
@@ -32,7 +31,7 @@ const TodoEditFooter = ({ todo }) => {
                         $mode={context.mode}
                     ></IconButton>
                     <StyledText $mode={context.mode}>
-                        Created {prepareDateStringForDisplay(todo.createDate.getFullYear(), todo.createDate.getMonth(), todo.createDate.getDate())}
+                        Created {prepareDateStringForDisplay(todo.createDate)}
                     </StyledText>
                     <IconButton
                         onClick={() => {dispatch(toggleTodoEditPanelAndDeleteTodo(todo.parentListId, todo.id))}}

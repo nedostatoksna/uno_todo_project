@@ -9,13 +9,12 @@ import MonthYearSelector from "./MonthYearSelector";
 import { fullMonths }  from "../../../context/calendar";
 import NextPrevSwitcher from "./NextPrevSwitcher";
 import { toggleIsShowingCalendar } from "../../../store/actionCreators/todoPanelActionCreators";
+import { CalendarContext } from "../../../context/calendarContext";
 
 const Calendar = ({ todo }) => {
 
     const dispatch = useDispatch();
     const context = useContext(AppContext);
-    const selectedDateString = todo.deadline.deadlineString;
-    const selectedDateObj = todo.deadline.deadlineObj;
     const activeMonth = useSelector(state => state.calendarUI.activeMonth);
 
         const findActiveMonthId = () => {

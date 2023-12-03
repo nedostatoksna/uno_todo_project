@@ -18,6 +18,7 @@ const Todo = ({ todo }) => {
         if (!e.target.id.includes("input")) {
             dispatch(setActiveTodoAndOpenEditPanel(
                                                     todo.id, 
+                                                    todo.parentListId,
                                                     fullMonths[todo.deadline.deadlineObj.getMonth()].title, 
                                                     fullMonths[todo.deadline.deadlineObj.getMonth()].id, 
                                                     todo.deadline.deadlineObj.getFullYear(), 

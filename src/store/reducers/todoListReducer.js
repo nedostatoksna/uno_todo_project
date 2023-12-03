@@ -41,7 +41,7 @@ const todoListReducer = (state = todoListInitialState, {type, payload}) => {
             ...state, searchQuery: payload.searchString 
         }
         case TOOGLE_IS_SEARCHING: return {
-            ...state, isSearching: !state.isSearching
+            ...state, isSearching: payload.boolean
         }
         default: return state;
     }

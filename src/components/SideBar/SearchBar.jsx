@@ -1,6 +1,6 @@
 import React, { useCallback, useContext, useEffect, useRef } from "react";
 import { useDispatch, useSelector} from "react-redux";
-import { cancelSearch, setSearchQuery, toggleIsSearching } from "../../store/actionCreators/todoListActionCreators";
+import { cancelSearch, preToggleSearch, setSearchQuery, toggleIsSearching } from "../../store/actionCreators/todoListActionCreators";
 import { AppContext } from "../../context/context";
 import Divider from "../../ui/Divider";
 import styled from "styled-components";
@@ -15,7 +15,7 @@ const SearchBar = () => {
     const searchQuery = useSelector(state => state.todoListUI.searchQuery);
 
     const cashedPreSearch = useCallback(() => {
-        dispatch(toggleIsSearching());
+        dispatch(preToggleSearch());
     }, [dispatch]);
 
     useEffect(() => {

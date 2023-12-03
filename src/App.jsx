@@ -17,7 +17,7 @@ function App() {
     mode: context.mode,
     userName: context.userName,
     userInitials: context.userInitials,
-    userEmail: context.userEmail
+    userEmail: context.userEmail,
   };
   
   return (

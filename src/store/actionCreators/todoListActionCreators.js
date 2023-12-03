@@ -19,7 +19,7 @@ const toggleVisibleCompleted = () => ({ type: SWITCH_VISIBLE_COMPLETED });
 const switchVisibleImportant = (boolean) => ({ type: SWITCH_VISIBLE_IMPORTANT, payload: { boolean } });
 const toggleShowingAllTodos = (boolean) => ({ type: TOGGLE_SHOWING_ALL_TODOS, payload: { boolean } });
 const setSearchQuery = (searchString) => ({ type: SET_SEARCH_QUERY, payload: { searchString } });
-const toggleIsSearching = () => ({ type: TOOGLE_IS_SEARCHING });
+const toggleIsSearching = (boolean) => ({ type: TOOGLE_IS_SEARCHING, payload: { boolean }  });
 const toggleRenamingList = () => ({ type: TOGGLE_RENAMING_LIST });
 
 const preSwitchActiveTodoList = (listId) => {
@@ -28,6 +28,7 @@ const preSwitchActiveTodoList = (listId) => {
         dispatch(toggleShowingAllTodos(false))
         dispatch(switchVisibleImportant(false))
         dispatch(toggleTodoEditPanel(false))
+        dispatch(toggleIsSearching(false))
         dispatch(changeActiveTodoId(""))
     }
 }; 
@@ -50,9 +51,16 @@ const preShowAllTodos = () => {
     }
 };
 
+const preToggleSearch = () => {
+    return (dispatch) => {
+        dispatch(changeActiveTodoId(""))
+        dispatch(toggleIsSearching(true))
+    }
+};
+
 const cancelSearch = () => {
     return (dispatch) => {
-        dispatch(toggleIsSearching());
+        dispatch(toggleIsSearching(false))
         dispatch(setSearchQuery(""))
     }
 };
@@ -71,4 +79,5 @@ export {
     preShowImportant,
     preShowAllTodos,
     cancelSearch,
+    preToggleSearch,
     toggleRenamingList };
