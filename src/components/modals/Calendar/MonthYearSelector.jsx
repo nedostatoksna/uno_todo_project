@@ -65,6 +65,7 @@ const StyledSelector = styled.select`
     letter-spacing: 0.25px;
     color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
     border: none;
+    background: transparent;
 `;
 const StyledImg = styled.div`
 
@@ -88,4 +89,6 @@ const StyledOption = styled.option`
     line-height: 20px; 
     letter-spacing: 0.25px;
     color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
+    background-color: ${props => props.$mode === "Light" ? "var(--white)" : "var(--dark-mode-background)"};
+    text-align: start;
 `;

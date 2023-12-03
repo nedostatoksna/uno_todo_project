@@ -18,6 +18,8 @@ import arrowLeft from "../images/arrowIconLeft.svg";
 import arrowLeftForDark from "../images/arrowIconLeftForDark.svg";
 import arrowRight from "../images/arrowIcon.svg";
 import arrowRightForDark from "../images/arrowIconDark.svg";
+import deleteIconGrey from "../images//deleteIconGrey.svg";
+import deleteIconGreyForDark from "../images/deleteIconGreyForDark.svg";
 
 const IconButton = ( props ) => { 
     return (
@@ -43,6 +45,7 @@ const StyledButton = styled.button`
             : props.$type === "editGrey" ? `url(${editIconGrey})` 
             : props.$type === "arrowLeft" ? `url(${arrowLeft})` 
             : props.$type === "arrowRight" ? `url(${arrowRight})`
+            : props.$type === "deleteGrey" ? `url(${deleteIconGrey})`
             :`url(${calendarGrey})` 
         };
     `} 
@@ -54,6 +57,7 @@ const StyledButton = styled.button`
             : props.$type === "editGrey" ? `url(${editIconGreyForDark})` 
             : props.$type === "arrowLeft" ? `url(${arrowLeftForDark})` 
             : props.$type === "arrowRight" ? `url(${arrowRightForDark})`
+            : props.$type === "deleteGrey" ? `url(${deleteIconGreyForDark})`
             :`url(${calendarGreyForDark})`
         };
     `} 

@@ -73,12 +73,12 @@ const StyledDueDateInput = styled.input`
     line-height: 24px; 
     text-align: flex-start;
     width: calc(100% - 80px);
+    background: transparent;
     ${props => props.$grey && css `
         color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-dark-variant)" : "var(--dark-mode-transparent-grey-text-dark-variant)"};
     `}
     ${props => props.$purple && css `
         color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
     `}
-    background-color: transparent;
 `;
 

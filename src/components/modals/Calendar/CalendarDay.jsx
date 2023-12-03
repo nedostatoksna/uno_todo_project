@@ -88,7 +88,7 @@ const Wrapper = styled.li`
             background-color: var(--dark-mode-primary-purple);
         `}
         ${props => props.$isToday && css `
-            border-color: var(--dark-mode-background);
+            border-color: var(--dark-mode-white-text);
         `}
     `}
     ${props => props.$active && css `

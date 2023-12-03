@@ -14,7 +14,7 @@ const SearchBar = () => {
     const isSearching = useSelector(state => state.todoListUI.isSearching);
     const searchQuery = useSelector(state => state.todoListUI.searchQuery);
 
-    const cashedPreSearch = useCallback((e) => {
+    const cashedPreSearch = useCallback(() => {
         dispatch(toggleIsSearching());
     }, [dispatch]);
 
