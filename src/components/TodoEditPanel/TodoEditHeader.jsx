@@ -66,10 +66,7 @@ const TodoEditHeaderWrapper = styled.div`
     margin-bottom: 10px;
 `;
 const StyledItemTitle = styled.input`
-    font-family: "Roboto";
     font-size: 22px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 28px; 
     color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
     margin: 0px 10px;
@@ -80,10 +77,7 @@ const StyledItemTitle = styled.input`
     `}
 `;
 const StyledTitleWrapper = styled.div`
-    font-family: "Roboto";
     font-size: 22px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 28px; 
     color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
     margin: 0px 10px;
@@ -97,12 +91,6 @@ const StyledTitleWrapper = styled.div`
     `}
 `;
 const StyledLabel = styled.label` 
-    font-family: "Roboto";
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 16px; 
-    letter-spacing: 0.4px;
     color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
 `;
 

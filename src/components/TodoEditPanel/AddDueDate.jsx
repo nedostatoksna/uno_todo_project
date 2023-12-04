@@ -66,11 +66,6 @@ const StyledInputWrapper = styled.div`
     justify-content: flex-start;
 `;
 const StyledDueDateInput = styled.input`
-    font-family: "Roboto";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px; 
     text-align: flex-start;
     width: calc(100% - 80px);
     background: transparent;

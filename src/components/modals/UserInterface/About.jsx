@@ -21,9 +21,6 @@ const StyledContainer = styled.div`
     padding-top: 10px;
 `;
 const StyledText = styled.p`
-    font-family: "Roboto";
-    font-size: 14px;
-    font-style: normal;
     font-weight: 600;
     line-height: 20px;
     letter-spacing: 0.1px;
@@ -31,9 +28,7 @@ const StyledText = styled.p`
     margin: 2px 0px 12px 0px;
 `;
 const StyledDarkText = styled.p`
-    font-family: "Roboto";
     font-size: 16px;
-    font-style: normal;
     font-weight: 600;
     line-height: 24px;
     color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};

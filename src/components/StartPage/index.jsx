@@ -68,19 +68,14 @@ const StyledLogo = styled.img`
 const StyledHeader = styled.h1`
     margin-bottom: 16px;
     color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
-    font-family: "Roboto";
     font-size: 57px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 64px;
     letter-spacing: -0.25px;
 `;
 const StyledSubHeader = styled.h2`
     margin-bottom: 100px;
     color: ${props => props.$mode === "Light" ? "var(--primary-purple-light-variant)" : "var(--dark-mode-primary-purple-light-variant)"};
-    font-family: Roboto;
     font-size: 16px;
-    font-style: normal;
     font-weight: 600;
     line-height: 24px;
 `;

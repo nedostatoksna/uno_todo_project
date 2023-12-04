@@ -46,10 +46,7 @@ const UserPicture = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Roboto";
     font-size: 22px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 28px;
     margin-bottom: 12px;
 `;
@@ -60,17 +57,11 @@ const UserTextBox = styled.div`
     margin-bottom: 12px;
 `;
 const UserName = styled.h1`
-    font-family: "Roboto";
     font-size: 22px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 28px; 
     color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--white)"};
 `;
 const UserEmail = styled.h2`
-    font-family: "Roboto";
-    font-size: 14px;
-    font-style: normal;
     font-weight: 600;
     line-height: 20px; 
     letter-spacing: 0.25px;

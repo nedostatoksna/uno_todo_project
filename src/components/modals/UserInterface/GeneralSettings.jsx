@@ -30,9 +30,6 @@ const GeneralSettings = ({ dynamicContext, setDynamicContext }) => {
 export default GeneralSettings;
 
 const StyledHeader = styled.h3`
-    font-family: "Roboto";
-    font-size: 14px;
-    font-style: normal;
     font-weight: 600;
     line-height: 20px; 
     letter-spacing: 0.1px;

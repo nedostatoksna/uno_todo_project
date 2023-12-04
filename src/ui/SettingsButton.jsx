@@ -37,10 +37,6 @@ const StyledLabel = styled.label`
     border: 1px solid;
     border-color: var(--dark-grey);
     color: ${props => props.$mode === "Light" ? "var(--light-grey-text)" : "var(--dark-mode-light-grey-text)"};
-    font-family: "Roboto";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
     line-height: 20px; 
     letter-spacing: 0.1px;
     border-radius: 8px;

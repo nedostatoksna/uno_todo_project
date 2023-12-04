@@ -54,9 +54,7 @@ const TodoEditFooterWrapper = styled.div`
     justify-content: space-between;
 `;
 const StyledText = styled.p`
-    font-family: "Roboto";
     font-size: 12px;
-    font-style: normal;
     font-weight: 600;
     line-height: 16px; 
     letter-spacing: 0.4px;

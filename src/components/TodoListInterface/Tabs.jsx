@@ -40,9 +40,6 @@ const StyledTab = styled.button`
     text-align: center;
     background: transparent;
     border: none;
-    font-family: "Roboto";
-    font-size: 14px;
-    font-style: normal;
     font-weight: 600;
     line-height: 20px;
     letter-spacing: 0.1px;

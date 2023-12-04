@@ -14,6 +14,7 @@ import UserInterface from "../modals/UserInterface";
 import AddDueDate from "../modals/AddDueDateModal";
 import Calendar from "../modals/Calendar";
 import { CalendarContext } from "../../context/calendarContext";
+import { useState } from "react";
 
 const TodoApp = () => {
 
@@ -39,14 +40,6 @@ const TodoApp = () => {
     const lists = useSelector(state => state.dataLists);
     const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
 
-    const calendarContext = useSelector(state => state.calendarUI);
-
-    const calendarContextObj = {
-      selectedDate: calendarContext.selectedDate,
-      activeMonth: calendarContext.activeMonth,
-      activeYear: calendarContext.activeYear
-    };
-
     const setActionType = () => {
         const type = isCreatingList ? "createList"
         : isCreatingTodo ? "createTodo"
@@ -70,6 +63,7 @@ const TodoApp = () => {
     };
 
     const activeTodo = setActiveTodo();
+   
     
     return (
         <>
@@ -83,13 +77,12 @@ const TodoApp = () => {
                 isShowinguserPanel && <UserInterface /> 
             }
             {
-                isShowingChooseDeadlineModal && <AddDueDate todo={activeTodo} /> 
+                isShowingChooseDeadlineModal && <AddDueDate todo={activeTodo} />
+    
             }
             {
-                isShowingCalendar && 
-                                    <CalendarContext.Provider value={calendarContextObj}>
-                                        <Calendar todo={activeTodo} /> 
-                                    </CalendarContext.Provider>
+                isShowingCalendar && <Calendar todo={activeTodo} /> 
+
             }
 
             <Wrapper $mode={context.mode}>

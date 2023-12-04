@@ -25,9 +25,7 @@ export default ListButton;
 const StyledListButton = styled.button`
 
     padding: 10px 8px 10px 48px;
-    font-family: "Roboto";
     font-size: 16px;
-    font-style: normal;
     font-weight: 600;
     line-height: 24px; 
     letter-spacing: 0.5px;

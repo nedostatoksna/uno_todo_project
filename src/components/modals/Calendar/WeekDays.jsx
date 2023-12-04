@@ -26,12 +26,6 @@ const CalendarWrapper = styled.ul`
     justify-content: space-between;
 `;
 const StyledWeekDay = styled.li`
-    font-family: "Roboto";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px;
-    letter-spacing: 0.5px;
     color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-dark-variant)" : "var(--dark-mode-transparent-grey-text-dark-variant)"};
     padding: 8px 15px;
 `;

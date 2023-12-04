@@ -14,12 +14,6 @@ export default Button;
 
 const StyledButton = styled.button` 
     color: var(--white);
-    font-family: "Roboto";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 20px; 
-    letter-spacing: 0.1px;
     height: 40px;
     border-radius: 20px;
     width: ${props => props.$width || undefined};

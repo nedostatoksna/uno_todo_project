@@ -34,9 +34,7 @@ const RadioGroupContainer = styled.div`
     margin-bottom: 20px;
 `;
 const RadioGroupHeader = styled.h4`
-    font-family: "Roboto";
     font-size: 12px;
-    font-style: normal;
     font-weight: 600;
     line-height: 16px;
     letter-spacing: 0.4px;
@@ -47,10 +45,8 @@ const RadioButtonsWrapper = styled.h4`
     display: flex;
     flex-direction: row;
 `;
-const StyledNotice = styled.h4`
-    font-family: "Roboto";
+const StyledNotice = styled.h5`
     font-size: 12px;
-    font-style: normal;
     font-weight: 600;
     line-height: 16px;
     letter-spacing: 0.4px;

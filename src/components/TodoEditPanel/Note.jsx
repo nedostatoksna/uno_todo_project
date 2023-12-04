@@ -54,21 +54,9 @@ const NoteWrapper = styled.div`
     flex-direction: column;
 `;
 const NoteHeader = styled.label`
-    font-family: "Roboto";
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 16px; 
-    letter-spacing: 0.4px;
     color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
 `;
 const NoteText = styled.textarea`
-    font-family: "Roboto";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 24px; 
-    letter-spacing: 0.5px;
     min-height: 240px;
     border: none;
     resize: none;

@@ -19,14 +19,14 @@ function App() {
     userInitials: context.userInitials,
     userEmail: context.userEmail,
   };
-  
+ 
   return (
     <>
     <GlobalStyle />
     <AppContext.Provider value={contextObj}>
       {
         isVisible
-          ? <StartPage setIsVisible={setIsVisible} /> :  <TodoApp /> 
+          ? <StartPage setIsVisible={setIsVisible} /> : <TodoApp />                                            
       }
     </AppContext.Provider>
     </>

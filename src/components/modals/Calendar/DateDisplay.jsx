@@ -4,7 +4,7 @@ import IconButton from "../../../ui/IconButton";
 import { AppContext } from "../../../context/context";
 import { fullMonths, threeLettersWeekDays } from "../../../context/calendar";
 
-const DateEditPanel = () => {
+const DateDisplay = () => {
 
     const context = useContext(AppContext);
 
@@ -29,7 +29,7 @@ const DateEditPanel = () => {
     )
 };
 
-export default DateEditPanel;
+export default DateDisplay;
 
 const DateEditPanelWrapper = styled.div`
     display: flex;
@@ -39,10 +39,7 @@ const DateEditPanelWrapper = styled.div`
     padding: 16px 14px 16px 20px;
 `;
 const DateInput = styled.p`
-    font-family: "Roboto";
     font-size: 32px;
-    font-style: normal;
-    font-weight: 400;
     line-height: 40px; 
     color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
     background-color: transparent;

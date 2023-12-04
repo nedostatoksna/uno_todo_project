@@ -80,9 +80,6 @@ const ModalHeader = styled.h1`
     font-size: 22px;
     line-height: 28px; 
     color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
-    font-family: "Roboto";
-    font-style: normal;
-    font-weight: 400;
     ${props => props.$smallUppercase && css `
         font-size: 10px;
         font-weight: 600;

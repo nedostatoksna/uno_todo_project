@@ -29,6 +29,7 @@ const setActiveTodoAndOpenEditPanel = (todoId,activeListId, activeMonth, activeM
 const toggleDaedlinePanelAndSetDeadline = (listId, todoId, deadline, deadlineObj) => {
     return (dispatch) => {
         dispatch(chooseDeadline(listId, todoId, deadline, deadlineObj))
+        dispatch(changeSelectedDate(deadlineObj))
         dispatch(toggleChooseDeadlinePanel())
     }
 };

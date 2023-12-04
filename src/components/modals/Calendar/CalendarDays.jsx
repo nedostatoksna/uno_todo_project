@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 import CalendarDay from "./CalendarDay";
 
-const CalendarDays = ({ activeMonthId, todo }) => {
+const CalendarDays = ({ activeMonthId, todo, setChosenDay }) => {
 
     const year = useSelector(state => state.calendarUI.activeYear);
 
@@ -73,19 +73,19 @@ const CalendarDays = ({ activeMonthId, todo }) => {
         <Wrapper>
             {
                 prevArr.map(day => (
-                    <CalendarDay day={day} key={day.date} todo={todo} />
+                    <CalendarDay day={day} key={day.date} todo={todo} setChosenDay={setChosenDay} />
               
                 ))
             }
             {
                 activeArr.map(day => (
-                    <CalendarDay day={day} key={day.date} todo={todo} />
+                    <CalendarDay day={day} key={day.date} todo={todo} setChosenDay={setChosenDay} />
               
                 ))
             }
             {
                 nextArr.map(day => (
-                    <CalendarDay day={day} key={day.date} todo={todo} />
+                    <CalendarDay day={day} key={day.date} todo={todo}setChosenDay={setChosenDay} />
               
                 ))
             }

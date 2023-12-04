@@ -3,19 +3,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppContext } from "../../../context/context";
 import Modal from "../../../ui/Modal";
 import styled from "styled-components";
-import DateEditPanel from "./DateEditPanel";
+import DateDisplay from "./DateDisplay";
 import CalendarSheet from "./CalendarSheet";
 import MonthYearSelector from "./MonthYearSelector";
-import { fullMonths }  from "../../../context/calendar";
+import { fullMonths, threeLettersWeekDays }  from "../../../context/calendar";
 import NextPrevSwitcher from "./NextPrevSwitcher";
 import { toggleIsShowingCalendar } from "../../../store/actionCreators/todoPanelActionCreators";
-import { CalendarContext } from "../../../context/calendarContext";
+import { changeDeadlineAndCloseCalendar } from "../../../store/actionCreators/calendarActionCreators";
+import { useState } from "react";
 
 const Calendar = ({ todo }) => {
 
     const dispatch = useDispatch();
     const context = useContext(AppContext);
     const activeMonth = useSelector(state => state.calendarUI.activeMonth);
+    const year = todo.deadline.deadlineObj.getFullYear();
+    const [chosenDay, setChosenDay] = useState(null);
+    console.log(chosenDay);
 
         const findActiveMonthId = () => {
             let activeMonthId;
@@ -25,6 +29,24 @@ const Calendar = ({ todo }) => {
                 }
             }
             return activeMonthId
+        }
+
+        const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
+        const activeListId = useSelector(state => state.todoListUI.activeListId);
+        const prepareDateStringForDisplay = (y, m, d) => {
+            let dateForDisplay;
+            const date = new Date(y, m, d);
+            const dayOfTheWeek = threeLettersWeekDays[date.getDay()];
+            const month = fullMonths[date.getMonth()].title.slice(0, 3);
+            const day = date.getDate();
+            dateForDisplay = dayOfTheWeek + ", " + month + " " + day;
+            return dateForDisplay;
+        }
+
+        const preSave = (chosenDay) => {
+            const dateString = prepareDateStringForDisplay(year, chosenDay.month, chosenDay.date);
+            const dateObj = new Date(year, chosenDay.month, chosenDay.date);
+            dispatch(changeDeadlineAndCloseCalendar(dateObj, activeListId, activeTodoId, dateString))
         }
 
     return (
@@ -38,15 +60,15 @@ const Calendar = ({ todo }) => {
             $buttonText={"Ok"}
             $mode={context.mode} 
             $onCancelClickHandler={() => {dispatch(toggleIsShowingCalendar())}} 
-            $onСonfirmationClick={() => {dispatch(toggleIsShowingCalendar())}} 
+            $onСonfirmationClick={() => preSave(chosenDay)} 
         >
             <StyledConteiner>
-            <DateEditPanel />
+            <DateDisplay />
                 <StyledConteinerSwitchers>
                     <MonthYearSelector activeMonth={activeMonth} />
                     <NextPrevSwitcher activeMonthId={findActiveMonthId()} />
                 </StyledConteinerSwitchers>
-                <CalendarSheet activeMonthId={findActiveMonthId()} todo={todo} />
+                <CalendarSheet activeMonthId={findActiveMonthId()} todo={todo} setChosenDay={setChosenDay} />
             </StyledConteiner>
         </Modal>
     )

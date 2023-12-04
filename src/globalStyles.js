@@ -6,6 +6,10 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     text-decoration: none;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
 
     --white: #fff;
     --dark-mode-white-text: #E6E1E5;
@@ -28,7 +32,6 @@ const GlobalStyle = createGlobalStyle`
     --lavender-background: #B0A2F2;
     --dark-mode-lavender-background: #544794;
 
-
     --dark-grayish-lavender: #474459;
     --dark-grayish-lavender-variant: #49454F;
     --dark-purple-button-text: #160067;
@@ -37,6 +40,7 @@ const GlobalStyle = createGlobalStyle`
     --dark-mode-coral: #D9415E;
 
     --dark-grey: #79747E;
+    --dark-grey-header: #313033;
 
     --light-grey-text: #A5A0AC;
     --dark-mode-light-grey-text: #CAC4D0;
@@ -70,16 +74,41 @@ const GlobalStyle = createGlobalStyle`
   input:focus, select:focus, button:focus {
     outline: none;
   }
+  input, textarea {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px; 
+    letter-spacing: 0.5px;
+  }
   li {
     list-style-type: none;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.5px;
   }
   select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
   }
   select::-ms-expand {
-  display: none;
+    display: none;
+  }
+  label {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 16px; 
+    letter-spacing: 0.4px;
+  }
+  p, h2, select, option {
+    line-height: 20px;
+    letter-spacing: 0.25px;
+  }
+  button {
+    font-weight: 600;
+    line-height: 20px; 
+    letter-spacing: 0.1px;
   }
 `;
 

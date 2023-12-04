@@ -3,12 +3,12 @@ import styled from "styled-components";
 import WeekDays from "./WeekDays";
 import CalendarDays from "./CalendarDays";
 
-const CalendarSheet = ( { activeMonthId, todo } ) => {
+const CalendarSheet = ( { activeMonthId, todo, setChosenDay } ) => {
 
     return (
         <CalendarWrapper>
             <WeekDays />
-            <CalendarDays activeMonthId={activeMonthId} todo={todo} />
+            <CalendarDays activeMonthId={activeMonthId} todo={todo} setChosenDay={setChosenDay} />
         </CalendarWrapper>
     )
 };
@@ -20,5 +20,3 @@ const CalendarWrapper = styled.ul`
     flex-direction: column;
     padding: 0px 12px;
 `;
-
-
