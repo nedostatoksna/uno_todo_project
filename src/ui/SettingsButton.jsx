@@ -22,7 +22,7 @@ const SettingsButton = ( props ) => {
         </>
     )
 };
-
+ 
 export default SettingsButton;
 
 const StyledInput = styled.input`
@@ -44,6 +44,7 @@ const StyledLabel = styled.label`
 `;
 const StyledMark = styled.span`
     padding: 0px 8px;
+    font-weight: 600;
 `;
 const StyledContainer = styled.div`
     display: block;

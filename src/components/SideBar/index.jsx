@@ -8,6 +8,7 @@ import NewListBtn from "./NewListBtn";
 import { AppContext } from "../../context/context";
 import styled from "styled-components";
 import Divider from "../../ui/Divider";
+import StyledHeader from "../../styled/StyledHeader";
 
 const SideBar = () => {
     
@@ -20,7 +21,7 @@ const SideBar = () => {
                 <UserCard $mode={context.mode} onClick={() => {dispatch(toggleUserPanel())}}>
                     <UserPicture $mode={context.mode}>{context.userInitials}</UserPicture>
                     <UserTextBox>
-                        <UserName $mode={context.mode}>{context.userName}</UserName>
+                        <StyledHeader $lineHeight={"20px"} $zeroMargin $bold $mode={context.mode}>{context.userName}</StyledHeader>
                         <UserEmail $mode={context.mode}>{context.userEmail}</UserEmail>
                     </UserTextBox>
                 </UserCard>
@@ -65,11 +66,6 @@ const UserTextBox = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;  
-`;
-const UserName = styled.h1`
-    font-weight: 600;
-    line-height: 20px;
-    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--white)"};
 `;
 const UserEmail = styled.h2`
     font-size: 12px;

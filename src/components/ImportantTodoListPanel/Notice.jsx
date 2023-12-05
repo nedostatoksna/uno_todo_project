@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import Header from "../../styled/Header";
+import StyledHeader from "../../styled/StyledHeader";
 
 const Notice = () => {
 
     return (
         <Wrapper>
-            <Header $lineHeight={"36px"} $white $margin={"0px 0px 10px 0px"}>Important Tasks</Header>
+            <StyledHeader $mediumLineHeight $white $smallMargin>Important Tasks</StyledHeader>
             <SubHeader>Try starring some tasks to see them here.</SubHeader>
         </Wrapper>
     )

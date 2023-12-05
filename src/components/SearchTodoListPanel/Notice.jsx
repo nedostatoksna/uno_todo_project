@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { AppContext } from "../../context/context";
-import Header from "../../styled/Header";
+import StyledHeader from "../../styled/StyledHeader";
 
 const Notice = () => {
 
@@ -9,7 +9,7 @@ const Notice = () => {
 
     return (
         <Wrapper>
-            <Header $mode={context.mode} $lineHeight={"36px"} $margin={"0px 0px 10px 0px"} $mediumGrey>Task not found</Header>
+            <StyledHeader $mode={context.mode} $mediumLineHeight $smallMargin $mediumGrey>Task not found</StyledHeader>
             <SubHeader $mode={context.mode}>We searched high and low but couldn't find what you're looking for</SubHeader>
         </Wrapper>
     )

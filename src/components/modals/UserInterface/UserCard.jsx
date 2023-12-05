@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import Button from "../../../ui/Button";
 import { AppContext } from "../../../context/context";
 import styled from "styled-components";
+import StyledHeader from "../../../styled/StyledHeader";
 
 const UserCard = () => {
 
@@ -14,7 +15,7 @@ const UserCard = () => {
         <StyledContainer>
             <UserPicture $mode={context.mode}>{context.userInitials}</UserPicture>
             <UserTextBox>
-                <UserName $mode={context.mode}>{context.userName}</UserName>
+                <StyledHeader $zeroMargin $large $mode={context.mode}>{context.userName}</StyledHeader>
                 <UserEmail $mode={context.mode}>{context.userEmail}</UserEmail>
             </UserTextBox>
             <Button 
@@ -55,11 +56,6 @@ const UserTextBox = styled.div`
     flex-direction: column;
     align-items: center;  
     margin-bottom: 12px;
-`;
-const UserName = styled.h1`
-    font-size: 22px;
-    line-height: 28px; 
-    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--white)"};
 `;
 const UserEmail = styled.h2`
     font-weight: 600;

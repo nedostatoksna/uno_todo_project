@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { AppContext } from "../../context/context";
 import styled from "styled-components";
-import Header from "../../styled/Header";
 import AllTodosList from "./AllTodosList";
 import Tabs from "../TodoListInterface/Tabs";
+import StyledHeader from "../../styled/StyledHeader";
 
 const AllTodosPanel = () => {
     const context = useContext(AppContext);
@@ -16,7 +16,7 @@ const AllTodosPanel = () => {
 
     return (
         <AllTodosWrapper $mode={context.mode} $width={"80vw"}>
-            <Header $mode={context.mode} $white $margin={"18px 0px"}>Tasks</Header>
+            <StyledHeader $mode={context.mode} $white>Tasks</StyledHeader>
             <Tabs />
             <StyledWrapper>
                 <AllTodosList todos={isShowingCompleted ? completedTodos : allTodos} /> 

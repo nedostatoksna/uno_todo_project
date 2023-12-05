@@ -41,11 +41,11 @@ const RadioGroupHeader = styled.h4`
     margin-bottom: 5px;
     color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-transparent-grey-text-medium-variant)"};
 `;
-const RadioButtonsWrapper = styled.h4`
+const RadioButtonsWrapper = styled.h5`
     display: flex;
     flex-direction: row;
 `;
-const StyledNotice = styled.h5`
+const StyledNotice = styled.h6`
     font-size: 12px;
     font-weight: 600;
     line-height: 16px;

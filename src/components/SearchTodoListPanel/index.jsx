@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useSelector } from "react-redux";
 import SearchResultsList from "./SearchResultsList";
 import Notice from "./Notice";
-import Header from "../../styled/Header";
+import StyledHeader from "../../styled/StyledHeader";
 
 const SearchTodoListPanel = () => {
 
@@ -16,7 +16,7 @@ const SearchTodoListPanel = () => {
 
     return (
         <SearchTodoListWrapper $mode={context.mode} $width={"80vw"}>
-            <Header $darkGrey $margin={"18px 0px"}>Search</Header>
+            <StyledHeader $darkGrey>Search</StyledHeader>
             {
                 serchedTodos.length && searchString ? <SearchResultsList lists={serchedTodos}/> : <Notice />
             }

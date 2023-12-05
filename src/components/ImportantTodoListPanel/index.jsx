@@ -4,7 +4,7 @@ import { AppContext } from "../../context/context";
 import styled from "styled-components";
 import ImportantTodoList from "./ImportantTodoList";
 import Notice from "./Notice";
-import Header from "../../styled/Header";
+import StyledHeader from "../../styled/StyledHeader";
 
 const ImportantTodoListPanel = () => {
     const context = useContext(AppContext);
@@ -14,7 +14,7 @@ const ImportantTodoListPanel = () => {
 
     return (
         <ImportantTodoListWrapper $mode={context.mode} $width={"80vw"}>
-            <Header $mode={context.mode} $white $margin={"18px 0px"}>Important</Header>
+            <StyledHeader $mode={context.mode} $white>Important</StyledHeader>
             <StyledWrapper>
                 {
                     importantTodos.length ? <ImportantTodoList todos={importantTodos} /> : <Notice />
