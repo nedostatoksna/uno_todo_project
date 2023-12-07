@@ -1,21 +1,17 @@
 import React from "react";
 import Todo from "../TodoListInterface/Todo";
-import styled from "styled-components";
+import FlexWrapper from "../../styled/FlexWrapper";
 
 const ImportantTodoList = ({ todos }) => {
 
     return (
-        <Wrapper>
+        <FlexWrapper>
             {
                 todos.map(todo => <Todo key={todo.id} todo={todo} /> )
             }
-        </Wrapper>
+        </FlexWrapper>
     )
 };
 
 export default ImportantTodoList;
 
-const Wrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-`;

@@ -11,6 +11,7 @@ import NextPrevSwitcher from "./NextPrevSwitcher";
 import { toggleIsShowingCalendar } from "../../../store/actionCreators/todoPanelActionCreators";
 import { changeDeadlineAndCloseCalendar } from "../../../store/actionCreators/calendarActionCreators";
 import { useState } from "react";
+import FlexWrapper from "../../../styled/FlexWrapper";
 
 const Calendar = () => {
 
@@ -63,24 +64,20 @@ const Calendar = () => {
             onCancelClickHandler={() => {dispatch(toggleIsShowingCalendar())}} 
             onСonfirmationClick={() => preSave(chosenDay)} 
         >
-            <StyledConteiner>
+            <FlexWrapper>
             <DateDisplay />
                 <StyledConteinerSwitchers>
                     <MonthYearSelector activeMonth={activeMonth} />
                     <NextPrevSwitcher activeMonthId={findActiveMonthId()} />
                 </StyledConteinerSwitchers>
                 <CalendarSheet activeMonthId={findActiveMonthId()} year={year} setChosenDay={setChosenDay} />
-            </StyledConteiner>
+            </FlexWrapper>
         </Modal>
     )
 };
 
 export default Calendar;
 
-const StyledConteiner = styled.div`
-    display: flex;
-    flex-direction: column;
-`;
 const StyledConteinerSwitchers = styled.div`
     display: flex;
     flex-direction: row;

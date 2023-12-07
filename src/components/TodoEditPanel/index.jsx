@@ -7,6 +7,7 @@ import Divider from "../../ui/Divider";
 import AddDueDate from "./AddDueDate";
 import Note from "./Note";
 import TodoEditFooter from "./TodoEditFooter";
+import FlexWrapper from "../../styled/FlexWrapper";
 
 const TodoEditPanel = () => {
     const context = useContext(AppContext);
@@ -29,7 +30,7 @@ const TodoEditPanel = () => {
     const activeTodo = setActiveTodo();
 
     return (
-        <TodoEditWrapper $mode={context.mode}>
+        <FlexWrapper $padding={"30px 10px 20px 10px"} $spaceBetween $mode={context.mode} $width={"20vw"}>
             <div>
                 <TodoEditHeader todo={activeTodo} /> 
                     <DateNoteEditWrapper>
@@ -41,19 +42,12 @@ const TodoEditPanel = () => {
                     </DateNoteEditWrapper>
             </div>
             <TodoEditFooter todo={activeTodo} />
-        </TodoEditWrapper>
+        </FlexWrapper>
     )
 };
 
 export default TodoEditPanel;
  
-const TodoEditWrapper = styled.div`
-    padding: 30px 10px 20px 10px;
-    width: 20vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-`;
 const DateNoteEditWrapper = styled.div`
     padding: 12px 10px 0px 10px;
     display: flex;

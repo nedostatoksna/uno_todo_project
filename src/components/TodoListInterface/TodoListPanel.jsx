@@ -5,6 +5,7 @@ import styled from "styled-components";
 import ListEditPanel from "./ListEditPanel";
 import TodoList from "./TodoList";
 import { useSelector } from "react-redux";
+import FlexWrapper from "../../styled/FlexWrapper";
 
 const TodoListPanel = ({ list }) => {
 
@@ -13,7 +14,7 @@ const TodoListPanel = ({ list }) => {
     const isShowingCompleted = useSelector(state => state.todoListUI.isShowingCompleted);
 
     return (
-        <ListInterfaceWrapper>
+        <FlexWrapper $height100 $spaceBetween $flexStart>
             <ListWrapper>
                 <ListEditPanel list={list} />
                 <Tabs />
@@ -21,19 +22,12 @@ const TodoListPanel = ({ list }) => {
             </ListWrapper>
 
             <AddTodoBtn />
-        </ListInterfaceWrapper>
+        </FlexWrapper>
     )
 };
 
 export default TodoListPanel;
 
-const ListInterfaceWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
-    height: 100%;
-`;
 const ListWrapper = styled.div`
     width: 100%;
     height: 100%;

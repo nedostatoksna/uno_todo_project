@@ -10,17 +10,28 @@ const FlexWrapper = ( props ) => {
 export default FlexWrapper;
 
 const StyledFlexWrapper = styled.div` 
-    height: calc(100% - 104px);
     display: flex;
     flex-direction: column;
+    padding: ${props => props.$padding};
+    width: ${props => props.$width};
 
     ${props => props.$spaceBetween && css `
         justify-content: space-between;
     `}
     ${props => props.$center && css `
-        width: 100%;
         align-items: center;
         justify-content: center;
+    `}
+    ${props => props.$smallPaddingTop && css `
         padding-top: 10px;
+    `}
+    ${props => props.$Calcheight && css `
+        height: calc(100% - 104px);
+    `}
+    ${props => props.$height100 && css `
+        height: 100%;
+    `}
+    ${props => props.$flexStart && css `
+        align-items: flex-start;
     `}
 `;

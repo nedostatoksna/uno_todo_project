@@ -9,6 +9,7 @@ import { AppContext } from "../../context/context";
 import styled from "styled-components";
 import Divider from "../../ui/Divider";
 import StyledHeader from "../../styled/StyledHeader";
+import FlexWrapper from "../../styled/FlexWrapper";
 
 const SideBar = () => {
     
@@ -20,10 +21,10 @@ const SideBar = () => {
             <div>
                 <UserCard $mode={context.mode} onClick={() => {dispatch(toggleUserPanel())}}>
                     <UserPicture $mode={context.mode}>{context.userInitials}</UserPicture>
-                    <UserTextBox>
+                    <FlexWrapper $flexStart>
                         <StyledHeader $lineHeight={"20px"} $zeroMargin $bold $mode={context.mode}>{context.userName}</StyledHeader>
                         <UserEmail $mode={context.mode}>{context.userEmail}</UserEmail>
-                    </UserTextBox>
+                    </FlexWrapper>
                 </UserCard>
                 <SearchBar />
                 <ImportantFilter />
@@ -61,11 +62,6 @@ const UserPicture = styled.div`
     line-height: 20px; 
     letter-spacing: 0.25px;
     margin-right: 10px;
-`;
-const UserTextBox = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;  
 `;
 const UserEmail = styled.h2`
     font-size: 12px;

@@ -19,7 +19,7 @@ const AllTodosPanel = () => {
         <Background $mode={context.mode} $primary $width={"80vw"}>
             <StyledHeader $mode={context.mode} $white>Tasks</StyledHeader>
             <Tabs />
-            <FlexWrapper $spaceBetween>
+            <FlexWrapper $height $spaceBetween>
                 <AllTodosList todos={isShowingCompleted ? completedTodos : allTodos} /> 
             </FlexWrapper>
         </Background>

@@ -6,7 +6,7 @@ import FlexWrapper from "../../styled/FlexWrapper";
 const Notice = () => {
 
     return (
-        <FlexWrapper $center>
+        <FlexWrapper $height $center $width={"100%"} $smallPaddingTop>
             <StyledHeader $mediumLineHeight $white $smallMargin>Important Tasks</StyledHeader>
             <SubHeader>Try starring some tasks to see them here.</SubHeader>
         </FlexWrapper>

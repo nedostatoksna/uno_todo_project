@@ -5,6 +5,7 @@ import { AppContext } from "../../context/context";
 import Divider from "../../ui/Divider";
 import styled from "styled-components";
 import IconButton from "../../ui/IconButton";
+import FlexWrapper from "../../styled/FlexWrapper";
 
 const SearchBar = () => {
 
@@ -35,7 +36,7 @@ const SearchBar = () => {
                         $small
                         $mode={context.mode}
                     ></IconButton>
-                        <StyledSearchInputWrapper>
+                        <FlexWrapper $flexStart>
                             { isSearching ? <StyledLabel htmlFor="searchInput" $mode={context.mode}>Search</StyledLabel> : undefined}
                                 <StyledSearchInput 
                                     ref={searchInputFocus} 
@@ -46,7 +47,7 @@ const SearchBar = () => {
                                     id="searchInput"
                                     onChange={(e) => {dispatch(setSearchQuery(e.target.value))}}
                                 />
-                        </StyledSearchInputWrapper>
+                        </FlexWrapper>
                 </StyledWrapper>
                     { 
                         isSearching 
@@ -79,11 +80,6 @@ const StyledWrapper = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-`;
-const StyledSearchInputWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
 `;
 const StyledSearchInput = styled.input` 
     color: ${props => props.$mode === "Light" && props.$isSearching === false ?  "rgba(28, 27, 31, 0.38)"

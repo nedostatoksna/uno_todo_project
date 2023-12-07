@@ -16,7 +16,7 @@ const ImportantTodoListPanel = () => {
     return (
         <Background $coral $mode={context.mode} $width={"80vw"}>
             <StyledHeader $mode={context.mode} $white>Important</StyledHeader>
-            <FlexWrapper $spaceBetween>
+            <FlexWrapper $height $spaceBetween>
                 {
                     importantTodos.length ? <ImportantTodoList todos={importantTodos} /> : <Notice />
                 }

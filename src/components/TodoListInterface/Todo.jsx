@@ -6,6 +6,7 @@ import { AppContext } from "../../context/context";
 import { changeCompleted, changeImportant } from "../../store/actionCreators/dataListActionCreators.js";
 import { setActiveTodoAndOpenEditPanel } from "../../store/actionCreators/todoPanelActionCreators";
 import { fullMonths } from "../../data/calendar";
+import FlexWrapper from "../../styled/FlexWrapper.jsx";
 
 const Todo = ({ todo }) => {
 
@@ -40,14 +41,14 @@ const Todo = ({ todo }) => {
                 checked={todo.isCompleted}
                 id={todo.id}
                 onChange={() => {dispatch(changeCompleted(todo.parentListId, todo.id, !todo.isCompleted))}} />
-            <StyledItemTextBox>
+            <FlexWrapper $Calcheight $flexStart $padding={"8px 0px"}>
                 <StyledItemTitle $mode={context.mode}>{todo.title}</StyledItemTitle>
                 <StyledNoteDateBox>
                     <StyledText $grey $mode={context.mode}>{deadLineForDisplay}</StyledText>
                     <StyledText $grey $mode={context.mode}>-</StyledText>
                     <StyledText $coral $mode={context.mode}>{todo.note}</StyledText>
                 </StyledNoteDateBox>
-            </StyledItemTextBox>
+            </FlexWrapper>
             <Checkbox 
                 $mode={context.mode} 
                 $star 
@@ -78,13 +79,6 @@ const StyledItemTitle = styled.p`
     font-weight: 600;
     line-height: 24px; 
     color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
-`;
-const StyledItemTextBox = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    padding: 8px 0px;
-    width: calc(100% - 102px);
 `;
 const StyledText = styled.p`
     font-weight: 600;
