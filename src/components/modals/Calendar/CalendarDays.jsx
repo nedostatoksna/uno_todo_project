@@ -35,7 +35,6 @@ const CalendarDays = ({ activeMonthId, todo, setChosenDay }) => {
         }
         return resultArr;
      }
-
      const fillActiveMonthDays = () => {
         let resultArr = [];
         for (let i = 1; i < numberOfDaysInActiveMonth + 1; i++) {
@@ -68,34 +67,27 @@ const CalendarDays = ({ activeMonthId, todo, setChosenDay }) => {
         const prevArr = fillPrevMonthDays();
         const activeArr = fillActiveMonthDays();
         const nextArr = fillNextMonthDays();
+        const visibleDays = [];
+        visibleDays.push(prevArr);
+        visibleDays.push(activeArr);
+        visibleDays.push(nextArr);
 
     return (
-        <Wrapper>
+        <DaysWrapper>
             {
-                prevArr.map(day => (
-                    <CalendarDay day={day} key={day.date} todo={todo} setChosenDay={setChosenDay} />
-              
-                ))
+                visibleDays.map(daysArray =>
+                    daysArray.map(day => (
+                        <CalendarDay day={day} key={day.date} todo={todo} setChosenDay={setChosenDay} />
+                    ))
+                )
             }
-            {
-                activeArr.map(day => (
-                    <CalendarDay day={day} key={day.date} todo={todo} setChosenDay={setChosenDay} />
-              
-                ))
-            }
-            {
-                nextArr.map(day => (
-                    <CalendarDay day={day} key={day.date} todo={todo}setChosenDay={setChosenDay} />
-              
-                ))
-            }
-        </Wrapper>
+        </DaysWrapper>
     )
 };
 
 export default CalendarDays;
 
-const Wrapper = styled.ul`
+const DaysWrapper = styled.ul`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

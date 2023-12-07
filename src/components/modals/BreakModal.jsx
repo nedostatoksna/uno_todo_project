@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeIsSigningOut } from "../../store/actionCreators/userPanelActionCreators";
-import SubText from "../../styled/SubText";
 import { AppContext } from "../../context/context";
 import { toggleDeletingList } from "../../store/actionCreators/todoListActionCreators";
 import { toggleDeletingTodo } from "../../store/actionCreators/todoPanelActionCreators";
 import { deleteList, deleteTodo } from "../../store/actionCreators/dataListActionCreators.js";
 import Modal from "../../ui/Modal";
+import styled from "styled-components";
 
 const BreakModal = ({ actionType }) => {
 
@@ -58,9 +58,16 @@ const BreakModal = ({ actionType }) => {
             $onCancelClickHandler={() => {dispatch(setToggleFunction(actionType))}} 
             $onСonfirmationClick={() => setFunction(actionType)}
         >
-            <SubText $mode={context.mode}>{subText}</SubText>
+            <StyledSubText $mode={context.mode}>{subText}</StyledSubText>
         </Modal>
     )
 };
 
 export default BreakModal;
+
+const StyledSubText = styled.p` 
+    color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-medium-variant)" : "var(--dark-mode-transparent-grey-text-medium-variant)"};
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    margin-bottom: 20px;
+`;

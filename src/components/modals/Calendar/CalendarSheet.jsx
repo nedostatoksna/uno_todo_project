@@ -15,7 +15,7 @@ const CalendarSheet = ( { activeMonthId, todo, setChosenDay } ) => {
 
 export default CalendarSheet;
 
-const CalendarWrapper = styled.ul`
+const CalendarWrapper = styled.div`
     display: flex;
     flex-direction: column;
     padding: 0px 12px;

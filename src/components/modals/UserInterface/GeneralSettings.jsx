@@ -22,7 +22,6 @@ const GeneralSettings = ({ dynamicContext, setDynamicContext }) => {
                     />
                 ))
             }
-
         </>
     )
 };

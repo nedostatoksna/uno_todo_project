@@ -71,7 +71,7 @@ const GlobalStyle = createGlobalStyle`
   input, button {
     border: none;
   }
-  input:focus, select:focus, button:focus {
+  input:focus, select:focus, button:focus, textarea:focus {
     outline: none;
   }
   input, textarea {

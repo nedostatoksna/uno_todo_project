@@ -7,11 +7,15 @@ import { changeSelectedDate } from "../../../store/actionCreators/calendarAction
 const CalendarDay = ({ day, todo, setChosenDay }) => {
     
     const context = useContext(AppContext);
+    const selectedDate = useSelector(state => state.calendarUI.selectedDate);
     const selectedDay = useSelector(state => state.calendarUI.selectedDate.getDate());
     const selectedDayMonth = useSelector(state => state.calendarUI.selectedDate.getMonth());
+    console.log(selectedDate);
+    console.log("день :", selectedDay, "month :", selectedDayMonth);
 
     const year = todo.deadline.deadlineObj.getFullYear();
     const deadlineString = todo.deadline.deadlineString;
+    console.log(deadlineString);
 
     const dispatch = useDispatch();
     const todayDate = new Date().getDate();
@@ -27,7 +31,7 @@ const CalendarDay = ({ day, todo, setChosenDay }) => {
         <Wrapper 
             $prevNext={!day.activeMonth} 
             $mode={context.mode}
-            $active={deadlineString.length && deadlineString !== "Next Week" && day.date === selectedDay && day.month === selectedDayMonth}
+            $active={deadlineString !== "Next Week" && day.date === selectedDay && day.month === selectedDayMonth}
             $isToday={day.date === todayDate && day.month === todayMonth}
             onClick={() => preChangeSelectedDate(day)}
         >

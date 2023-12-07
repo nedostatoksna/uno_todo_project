@@ -2,7 +2,9 @@ import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { AppContext } from "../../../context/context";
 import Modal from "../../../ui/Modal";
-import { toggleChooseDeadlinePanel, toggleDaedlinePanelAndOpenCalendar, toggleDaedlinePanelAndSetDeadline } from "../../../store/actionCreators/todoPanelActionCreators";
+import { toggleChooseDeadlinePanel, 
+         toggleDaedlinePanelAndOpenCalendar, 
+         toggleDaedlinePanelAndSetDeadline } from "../../../store/actionCreators/todoPanelActionCreators";
 import ListButton from "../../../ui/ListButton";
 import { dateOptions } from "../../../context/dateOptions";
 import styled from "styled-components";
@@ -12,12 +14,7 @@ const AddDueDate = ({ todo }) => {
     const dispatch = useDispatch();
     const context = useContext(AppContext);
     const today = new Date();
-    const year = String(today.getFullYear());
-    const month = String(today.getMonth());
-    const day = String(today.getDate());
-
-    const dateObj = new Date(year, month, day);
-    const dateObjTomorrow = new Date(year, month, day + 1);
+    const dateObjTomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
 
     const preSetDueDate = (option) => {
 
@@ -26,7 +23,7 @@ const AddDueDate = ({ todo }) => {
         } else if (option === "Tomorrow") {
             dispatch(toggleDaedlinePanelAndSetDeadline(todo.parentListId, todo.id, option, dateObjTomorrow));
         } else {
-            dispatch(toggleDaedlinePanelAndSetDeadline(todo.parentListId, todo.id, option, dateObj));
+            dispatch(toggleDaedlinePanelAndSetDeadline(todo.parentListId, todo.id, option, today));
         }
     }
 

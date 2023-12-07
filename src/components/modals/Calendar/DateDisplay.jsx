@@ -21,9 +21,9 @@ const DateDisplay = () => {
 
     return (
         <DateEditPanelWrapper>
-                <DateInput $mode={context.mode}>
+                <StyledDate $mode={context.mode}>
                     {prepareDateStringForDisplay()}
-                </DateInput>
+                </StyledDate>
                 <IconButton $mode={context.mode} $type={"editGrey"} $large ></IconButton>
         </DateEditPanelWrapper>
     )
@@ -38,7 +38,7 @@ const DateEditPanelWrapper = styled.div`
     justify-content: space-between;
     padding: 16px 14px 16px 20px;
 `;
-const DateInput = styled.p`
+const StyledDate= styled.p`
     font-size: 32px;
     line-height: 40px; 
     color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};

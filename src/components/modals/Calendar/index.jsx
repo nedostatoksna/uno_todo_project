@@ -44,9 +44,13 @@ const Calendar = ({ todo }) => {
         }
 
         const preSave = (chosenDay) => {
-            const dateString = prepareDateStringForDisplay(year, chosenDay.month, chosenDay.date);
-            const dateObj = new Date(year, chosenDay.month, chosenDay.date);
-            dispatch(changeDeadlineAndCloseCalendar(dateObj, activeListId, activeTodoId, dateString))
+           if (chosenDay) {
+                const dateString = prepareDateStringForDisplay(year, chosenDay.month, chosenDay.date);
+                const dateObj = new Date(year, chosenDay.month, chosenDay.date);
+                dispatch(changeDeadlineAndCloseCalendar(dateObj, activeListId, activeTodoId, dateString))
+           } else {
+                dispatch(toggleIsShowingCalendar())
+           }
         }
 
     return (
