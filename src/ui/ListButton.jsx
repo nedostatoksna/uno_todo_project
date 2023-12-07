@@ -14,9 +14,7 @@ import arrowIconBlackForDark from "../images/arrowIconBlackForDark.svg";
 
 const ListButton = ( props ) => { 
     return (
-        <>
-            <StyledListButton {...props}>{props.children}</StyledListButton>
-        </>
+        <StyledListButton {...props}>{props.children}</StyledListButton>
     )
 };
 

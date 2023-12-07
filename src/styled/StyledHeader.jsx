@@ -1,17 +1,15 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const StyledHeader = ( props ) => {
+const Header = ( props ) => {
 
     return (
-        <>
-            <Header {...props}>{props.children}</Header>
-        </>
+        <StyledHeader {...props}>{props.children}</StyledHeader>
     )
 };
-export default StyledHeader;
+export default Header;
 
-const Header = styled.h1` 
+const StyledHeader = styled.h1` 
     line-height: ${props => props.$lineHeight || "28px"}; 
     margin: 18px 0px;
 

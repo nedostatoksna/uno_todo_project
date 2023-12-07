@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { AppContext } from "../../context/context";
-import styled from "styled-components";
 import ImportantTodoList from "./ImportantTodoList";
 import Notice from "./Notice";
 import StyledHeader from "../../styled/StyledHeader";
+import Background from "../../styled/Background";
+import FlexWrapper from "../../styled/FlexWrapper";
 
 const ImportantTodoListPanel = () => {
     const context = useContext(AppContext);
@@ -13,27 +14,15 @@ const ImportantTodoListPanel = () => {
     const importantTodos = todos.filter(todo => todo.isImportant);
 
     return (
-        <ImportantTodoListWrapper $mode={context.mode} $width={"80vw"}>
+        <Background $coral $mode={context.mode} $width={"80vw"}>
             <StyledHeader $mode={context.mode} $white>Important</StyledHeader>
-            <StyledWrapper>
+            <FlexWrapper $spaceBetween>
                 {
                     importantTodos.length ? <ImportantTodoList todos={importantTodos} /> : <Notice />
                 }
-            </StyledWrapper>
-        </ImportantTodoListWrapper>
+            </FlexWrapper>
+        </Background>
     )
 };
 
 export default ImportantTodoListPanel;
-
-const ImportantTodoListWrapper = styled.div`
-    background-color: ${props => props.$mode === "Light" ? "var(--coral)" : "var(--dark-mode-coral)"};
-    padding: 20px;
-    width: ${props => props.$width};
-`;
-const StyledWrapper = styled.div`
-    height: calc(100% - 104px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-`;

@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { AppContext } from "../../context/context";
-import styled from "styled-components";
 import { useSelector } from "react-redux";
 import SearchResultsList from "./SearchResultsList";
 import Notice from "./Notice";
 import StyledHeader from "../../styled/StyledHeader";
+import Background from "../../styled/Background";
 
 const SearchTodoListPanel = () => {
 
@@ -15,19 +15,14 @@ const SearchTodoListPanel = () => {
     const serchedTodos = todos.filter(todo => todo.title.toLowerCase().includes(searchString.toLowerCase()));
 
     return (
-        <SearchTodoListWrapper $mode={context.mode} $width={"80vw"}>
+        <Background $grey $mode={context.mode} $width={"80vw"}>
             <StyledHeader $darkGrey>Search</StyledHeader>
             {
                 serchedTodos.length && searchString ? <SearchResultsList lists={serchedTodos}/> : <Notice />
             }
-        </SearchTodoListWrapper>
+        </Background>
     )
 };
 
 export default SearchTodoListPanel;
 
-const SearchTodoListWrapper = styled.div`
-    background-color: ${props => props.$mode === "Light" ? "var(--search-background)" : "var(--dark-mode-search-background)"};
-    padding: 20px;
-    width: ${props => props.$width};
-`;

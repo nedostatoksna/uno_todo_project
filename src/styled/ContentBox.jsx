@@ -4,9 +4,7 @@ import styled, { css } from "styled-components";
 const ContentBox = ( props ) => {
 
     return (
-        <>
-            <StyledContentBox {...props}>{props.children}</StyledContentBox>
-        </>
+        <StyledContentBox {...props}>{props.children}</StyledContentBox>
     )
 };
 export default ContentBox;

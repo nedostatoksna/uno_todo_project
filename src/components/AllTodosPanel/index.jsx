@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { AppContext } from "../../context/context";
-import styled from "styled-components";
 import AllTodosList from "./AllTodosList";
 import Tabs from "../TodoListInterface/Tabs";
 import StyledHeader from "../../styled/StyledHeader";
+import Background from "../../styled/Background";
+import FlexWrapper from "../../styled/FlexWrapper";
 
 const AllTodosPanel = () => {
     const context = useContext(AppContext);
@@ -15,26 +16,15 @@ const AllTodosPanel = () => {
     const completedTodos = allTodos.filter(todo => todo.isCompleted);
 
     return (
-        <AllTodosWrapper $mode={context.mode} $width={"80vw"}>
+        <Background $mode={context.mode} $primary $width={"80vw"}>
             <StyledHeader $mode={context.mode} $white>Tasks</StyledHeader>
             <Tabs />
-            <StyledWrapper>
+            <FlexWrapper $spaceBetween>
                 <AllTodosList todos={isShowingCompleted ? completedTodos : allTodos} /> 
-            </StyledWrapper>
-        </AllTodosWrapper>
+            </FlexWrapper>
+        </Background>
     )
 };
 
 export default AllTodosPanel;
 
-const AllTodosWrapper = styled.div`
-    background-color: ${props => props.$mode === "Light" ? "var(--lavender-background)" : "var(--dark-mode-lavender-background)"};
-    padding: 20px;
-    width: ${props => props.$width};
-`;
-const StyledWrapper = styled.div`
-    height: calc(100% - 104px);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-`;

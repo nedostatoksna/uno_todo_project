@@ -1,25 +1,44 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const Background = ( props ) => {
 
     return (
-        <>
-            <StyledBackground {...props}>{props.children}</StyledBackground>
-        </>
+        <StyledBackground {...props}>{props.children}</StyledBackground>
     )
 };
 export default Background;
 
 const StyledBackground = styled.div` 
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
-    background-color: var(--transparent-modal-background);
+    padding: 20px;
+    width: ${props => props.$width};
+
+    ${props => props.$mode === "Light" && css`
+        ${props => props.$primary && css `
+            background-color: var(--lavender-background);
+        `}
+        ${props => props.$coral && css `
+            background-color: var(--coral);
+        `}
+        ${props => props.$grey && css `
+            color: var(--search-background); 
+        `}
+    `} 
+
+    ${props => props.$mode === "Dark" && css`
+
+        ${props => props.$primary && css `
+            background-color: var(--dark-mode-lavender-background);
+        `}
+        ${props => props.$coral && css `
+            background-color: var(--dark-mode-coral);
+        `}
+        ${props => props.$grey && css `
+            color: var(--dark-mode-search-background); 
+        `}
+    `} 
 `;
+
+
+
+

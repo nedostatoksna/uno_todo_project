@@ -1,17 +1,27 @@
-import React, { Children, useContext } from "react";
+import React, { useContext } from "react";
 import Button from "../ui/Button";
 import styled, { css } from "styled-components";
-import Background from "../styled/Background";
+import TransparentBackground from "../styled/TransparentBackground";
 import ContentBox from "../styled/ContentBox";
 import IconButton from "./IconButton";
 import { AppContext } from "../context/context";
 
-const Modal = ( { boxWidth, boxPadding, header, onCancelClickHandler, onСonfirmationClick, whitePlusForBtn, paddingForPlusBtn, buttonText, okButton, children, smallUppercase  } ) => {
+const Modal = ({ boxWidth, 
+                 boxPadding, 
+                 header, 
+                 onCancelClickHandler, 
+                 onСonfirmationClick, 
+                 whitePlusForBtn, 
+                 paddingForPlusBtn, 
+                 buttonText, 
+                 okButton, 
+                 children, 
+                 smallUppercase }) => {
 
     const context = useContext(AppContext);
 
     return (
-        <Background>
+        <TransparentBackground>
             <ContentBox $primary $width={boxWidth} $padding={boxPadding} $mode={context.mode}>
             {  
                 header === "Settings" || header === "Add due date"
@@ -60,7 +70,7 @@ const Modal = ( { boxWidth, boxPadding, header, onCancelClickHandler, onСonfirm
                 </ButtonGroupWrapper>
             }
             </ContentBox>
-        </Background>
+        </TransparentBackground>
     )
 };
 
