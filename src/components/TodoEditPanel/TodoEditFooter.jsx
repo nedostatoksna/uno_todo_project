@@ -17,7 +17,6 @@ const TodoEditFooter = ({ todo }) => {
         const month = fullMonths[date.getMonth()].title.slice(0, 3);
         const day = date.getDate();
         dateForDisplay = dayOfTheWeek + ", " + month + " " + day;
-
         return dateForDisplay;
     }
 

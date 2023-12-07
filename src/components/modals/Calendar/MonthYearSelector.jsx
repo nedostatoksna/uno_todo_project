@@ -6,33 +6,24 @@ import { fullMonths }  from "../../../data/calendar";
 import { changeSelectedMonth } from "../../../store/actionCreators/calendarActionCreators";
 import arrowDropDown from "../../../images/arrowDropDown.svg";
 import arrowDropDownForDark from "../../../images/arrowDropDownForDark.svg";
-import { useState } from "react";
 
 const MonthYearSelector = ({ activeMonth }) => {
 
     const context = useContext(AppContext);
     const year = useSelector(state => state.calendarUI.activeYear);
-    const selectedMonth = useSelector(state => state.calendarUI.activeMonth);
     const dispatch = useDispatch();
-    const [value, setValue] = useState(selectedMonth);
-
-    const preChangeSelectedMonth = () => {
-        if (value !== selectedMonth) {
-            dispatch(changeSelectedMonth(value))
-        }
-    }
 
     return (
-        <SelectorWrapper onClick={() => preChangeSelectedMonth()}>
+        <SelectorWrapper>
                 <StyledSelector 
                     $mode={context.mode}  
-                    onChange={(e) => setValue(e.target.value)}
+                    value={activeMonth}
+                    onChange={(e) => {dispatch(changeSelectedMonth(e.target.value))}}
                     name={"months"}
                 >
                     {
                         fullMonths.map(month => (
                             <StyledOption 
-                                selected={month.title === activeMonth} 
                                 $mode={context.mode} 
                                 value={month.title}
                                 key={month.id}
