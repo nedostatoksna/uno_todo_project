@@ -49,7 +49,6 @@ const BreakModal = ({ actionType }) => {
 
     return (
         <Modal 
-            $zIndex={"2"} 
             $boxWidth={"310px"} 
             $coral
             $header={header} 

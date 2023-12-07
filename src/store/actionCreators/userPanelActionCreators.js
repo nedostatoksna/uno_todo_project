@@ -13,9 +13,16 @@ const save = (dynamicContext) => {
         dispatch(toggleUserPanel())
     }
 }; 
+const togglePanelandChangeIsSigningOut = (dynamicContext) => {
+    return (dispatch) => {
+        dispatch(toggleUserPanel())
+        dispatch(changeIsSigningOut())
+    }
+}; 
 
 export { 
     toggleUserPanel, 
     changeIsSigningOut, 
+    togglePanelandChangeIsSigningOut,
     save 
 };

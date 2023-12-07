@@ -1,17 +1,18 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import { AppContext } from "../../../context/context";
-import { oneLettersWeekDays } from "../../../context/calendar";
+import { oneLettersWeekDays } from "../../../data/calendar";
 
 const WeekDays = () => {
     
+    let weekDayId = 0;
     const context = useContext(AppContext);
 
     return (
         <CalendarWrapper>
         {
             oneLettersWeekDays.map(day => (
-                <StyledWeekDay $mode={context.mode}>{day}</StyledWeekDay>
+                <StyledWeekDay key={weekDayId++} $mode={context.mode}>{day}</StyledWeekDay>
             ))
         } 
         </CalendarWrapper>

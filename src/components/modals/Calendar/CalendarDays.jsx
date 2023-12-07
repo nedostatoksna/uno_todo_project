@@ -1,11 +1,8 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
 import CalendarDay from "./CalendarDay";
 
-const CalendarDays = ({ activeMonthId, todo, setChosenDay }) => {
-
-    const year = useSelector(state => state.calendarUI.activeYear);
+const CalendarDays = ({ activeMonthId, year, setChosenDay }) => {
 
     const findWeekDay = (y, m, d) => {
         return new Date(y, m, d).getDay();
@@ -77,7 +74,7 @@ const CalendarDays = ({ activeMonthId, todo, setChosenDay }) => {
             {
                 visibleDays.map(daysArray =>
                     daysArray.map(day => (
-                        <CalendarDay day={day} key={day.date} todo={todo} setChosenDay={setChosenDay} />
+                        <CalendarDay day={day} key={day.date} year={year} setChosenDay={setChosenDay} />
                     ))
                 )
             }

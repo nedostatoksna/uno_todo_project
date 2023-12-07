@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import IconButton from "../../../ui/IconButton";
 import { AppContext } from "../../../context/context";
-import { fullMonths, threeLettersWeekDays } from "../../../context/calendar";
+import { fullMonths, threeLettersWeekDays } from "../../../data/calendar";
 
 const DateDisplay = () => {
 

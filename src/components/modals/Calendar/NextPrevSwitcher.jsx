@@ -8,7 +8,7 @@ import {
         switchToNextMonthAndYear, 
         switchToPrevMonth, 
         switchToPrevMonthAndYear } from "../../../store/actionCreators/calendarActionCreators";
-import { fullMonths } from "../../../context/calendar";
+import { fullMonths } from "../../../data/calendar";
 
 const NextPrevSwitcher = ({ activeMonthId }) => {
 

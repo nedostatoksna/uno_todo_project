@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled, { css } from "styled-components";
 import { AppContext } from "../../../context/context";
-import { fullMonths }  from "../../../context/calendar";
+import { fullMonths }  from "../../../data/calendar";
 import { changeSelectedMonth } from "../../../store/actionCreators/calendarActionCreators";
 import arrowDropDown from "../../../images/arrowDropDown.svg";
 import arrowDropDownForDark from "../../../images/arrowDropDownForDark.svg";

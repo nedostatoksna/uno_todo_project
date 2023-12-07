@@ -36,7 +36,7 @@ const TodoEditHeader = ({ todo }) => {
                 onChange={() => {dispatch(changeCompleted(activeListId, activeTodoId, !todo.isCompleted))}} />
             <StyledTitleWrapper $mode={context.mode} $isEditing={isEditingTitle ? true : false}>
                 { isEditingTitle ? <StyledLabel htmlFor="titleInput" $mode={context.mode}>Task Name</StyledLabel> : undefined }
-                <StyledItemTitle 
+                <StyledTodoTitle 
                     ref={titleInputFocus} 
                     $mode={context.mode} 
                     $isEditing={isEditingTitle ? true : false}
@@ -65,7 +65,7 @@ const TodoEditHeaderWrapper = styled.div`
     justify-content: space-between;
     margin-bottom: 10px;
 `;
-const StyledItemTitle = styled.input`
+const StyledTodoTitle = styled.input`
     font-size: 22px;
     line-height: 28px; 
     color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};

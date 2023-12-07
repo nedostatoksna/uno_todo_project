@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 import { AppContext } from "../../context/context";
 import { changeCompleted, changeImportant } from "../../store/actionCreators/dataListActionCreators.js";
 import { setActiveTodoAndOpenEditPanel } from "../../store/actionCreators/todoPanelActionCreators";
-import { fullMonths } from "../../context/calendar.js";
+import { fullMonths } from "../../data/calendar";
 
 const Todo = ({ todo }) => {
 

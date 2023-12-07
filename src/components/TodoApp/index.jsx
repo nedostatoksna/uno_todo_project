@@ -25,6 +25,7 @@ const TodoApp = () => {
     const isCreatingList = useSelector(state => state.todoListUI.isCreatingList);
     const isCreatingTodo = useSelector(state => state.todoListUI.isCreatingTodo);
     const activeList = useSelector(state => state.todoListUI.activeListId);
+    const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
 
     const isDeletingTodo = useSelector(state => state.todoPanelUI.isDeletingTodo);
     const isDeletingList = useSelector(state => state.todoListUI.isDeletingList);
@@ -34,9 +35,6 @@ const TodoApp = () => {
     const isShowinguserPanel = useSelector(state => state.userPanelUI.isShowingUserPanel);
     const isShowingChooseDeadlineModal = useSelector(state => state.todoPanelUI.isShowingChooseDeadlineModal);
     const isShowingCalendar = useSelector(state => state.todoPanelUI.isShowingCalendar);
-
-    const lists = useSelector(state => state.dataLists);
-    const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
 
     const setActionType = () => {
         const type = isCreatingList ? "createList"
@@ -49,20 +47,6 @@ const TodoApp = () => {
         return type;
     }
 
-    const setActiveTodo = () => {
-        let result
-        lists.map(list => 
-            (list.id === activeList)
-                ? list.todos.map(todo => (
-                    (todo.id === activeTodoId)
-                    ? result = todo : undefined
-                )) : undefined )
-        return result;
-    };
-
-    const activeTodo = setActiveTodo();
-   
-    
     return (
         <>
             { 
@@ -75,12 +59,10 @@ const TodoApp = () => {
                 isShowinguserPanel && <UserInterface /> 
             }
             {
-                isShowingChooseDeadlineModal && <AddDueDate todo={activeTodo} />
-    
+                isShowingChooseDeadlineModal && <AddDueDate todoId={activeTodoId} listId={activeList} />
             }
             {
-                isShowingCalendar && <Calendar todo={activeTodo} /> 
-
+                isShowingCalendar && <Calendar /> 
             }
 
             <Wrapper $mode={context.mode}>

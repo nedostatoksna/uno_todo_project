@@ -1,59 +1,61 @@
-import React from "react";
+import React, { Children, useContext } from "react";
 import Button from "../ui/Button";
 import styled, { css } from "styled-components";
 import Background from "../styled/Background";
 import ContentBox from "../styled/ContentBox";
 import IconButton from "./IconButton";
+import { AppContext } from "../context/context";
 
-const Modal = ( props ) => {
+const Modal = ( { boxWidth, boxPadding, header, onCancelClickHandler, onСonfirmationClick, whitePlusForBtn, paddingForPlusBtn, buttonText, okButton, children, smallUppercase  } ) => {
+
+    const context = useContext(AppContext);
 
     return (
-        <Background {...props} $darkTransparent $zIndex={props.$zIndex}>
-            <ContentBox {...props} $primary $width={props.$boxWidth} $padding={props.$boxPadding}>
-
+        <Background>
+            <ContentBox $primary $width={boxWidth} $padding={boxPadding} $mode={context.mode}>
             {  
-                props.$header === "Settings" || props.$header === "Add due date"
+                header === "Settings" || header === "Add due date"
                     ?
-                        <StyledContainerHeader {...props}>
+                        <StyledContainerHeader>
                             <IconButton
                                 $large
                                 $type={"cross"} 
                                 alt="close icon" 
-                                onClick={props.$onCancelClickHandler}
-                                $mode={props.$mode}></IconButton>
-                            <ModalHeader {...props} $margin={"0px 0px 0px 24px"}>{props.$header}</ModalHeader>
+                                onClick={onCancelClickHandler}
+                                $mode={context.mode}></IconButton>
+                            <ModalHeader $mode={context.mode} $margin={"0px 0px 0px 24px"}>{header}</ModalHeader>
                         </StyledContainerHeader> 
                     : 
-                        <ModalHeader {...props}>{props.$header}</ModalHeader>
+                        <ModalHeader $mode={context.mode} $smallUppercase={smallUppercase}>{header}</ModalHeader>
             }
-                <div {...props}>{props.children}</div>
+                <div>{children}</div>
             { 
-                props.$header !== "Add due date" &&
-                <ButtonGroupWrapper {...props}>
+                header !== "Add due date" &&
+                <ButtonGroupWrapper>
                         <Button 
-                            {...props}
+                            $mode={context.mode}
                             $white 
                             $ClearBackground 
                             $paddingSmall 
                             $purpleColor
                             $margin={"0px 10px"}
                             $purpleHover
-                            onClick={props.$onCancelClickHandler}
+                            onClick={onCancelClickHandler}
                         >
                             Cancel
                         </Button>
                         <Button 
-                            {...props} 
-                            $whitePlus={props.$whitePlusForBtn} 
-                            $paddingForPlus={props.$paddingForPlusBtn}
-                            onClick={props.$onСonfirmationClick}
-                            $white={props.$okButton}
-                            $ClearBackground={props.$okButton}
-                            $paddingSmall={props.$okButton}
-                            $purpleColor={props.$okButton}
-                            $purpleHover={props.$okButton}
+                            $mode={context.mode}
+                            $whitePlus={whitePlusForBtn} 
+                            $paddingForPlus={paddingForPlusBtn}
+                            onClick={onСonfirmationClick}
+                            $white={okButton}
+                            $ClearBackground={okButton}
+                            $paddingSmall={okButton}
+                            $purpleColor={okButton}
+                            $purpleHover={okButton}
                         >
-                            {props.$buttonText}
+                            {buttonText}
                         </Button>
                 </ButtonGroupWrapper>
             }

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { AppContext } from "../../context/context";
 import styled from "styled-components";
 import IconButton from "../../ui/IconButton";
-import { fullMonths, threeLettersWeekDays } from "../../context/calendar";
+import { fullMonths, threeLettersWeekDays } from "../../data/calendar";
 import { toggleTodoEditPanel, toggleTodoEditPanelAndDeleteTodo } from "../../store/actionCreators/todoPanelActionCreators";
 
 const TodoEditFooter = ({ todo }) => {

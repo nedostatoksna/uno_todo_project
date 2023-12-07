@@ -36,7 +36,7 @@ const TodoEditPanel = () => {
                         <Divider $mode={context.mode} $light $margin={"0px"} />
                         <AddDueDate todo={activeTodo} />
                         <Divider $mode={context.mode} $light $margin={"0px"} />
-                        <Note todo={activeTodo} /> 
+                        <Note todoId={activeTodo.id} note={activeTodo.note} listId={activeTodo.parentListId} /> 
                         <Divider $mode={context.mode} $light $margin={"0px"} />
                     </DateNoteEditWrapper>
             </div>

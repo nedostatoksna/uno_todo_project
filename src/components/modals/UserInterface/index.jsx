@@ -16,16 +16,12 @@ const UserInterface = () => {
     const [dynamicContext, setDynamicContext] = useState(context);
 
     return (
-        <Modal
-            $zIndex={"1"}
-            $type={"cross"} 
-            $boxPadding={"20px"}
-            $mode={context.mode}
-            $primary
-            $header={"Settings"} 
-            $buttonText={"Save"} 
-            $onCancelClickHandler={() => {dispatch(toggleUserPanel())}} 
-            $onСonfirmationClick={() => {dispatch(save(dynamicContext))}}
+        <Modal 
+            boxPadding={"20px"}
+            header={"Settings"} 
+            buttonText={"Save"} 
+            onCancelClickHandler={() => {dispatch(toggleUserPanel())}} 
+            onСonfirmationClick={() => {dispatch(save(dynamicContext))}}
         >
             <UserCard />
             <Divider $mode={context.mode} $height={"1px"} />

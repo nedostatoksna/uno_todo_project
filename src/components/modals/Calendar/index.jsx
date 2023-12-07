@@ -6,20 +6,19 @@ import styled from "styled-components";
 import DateDisplay from "./DateDisplay";
 import CalendarSheet from "./CalendarSheet";
 import MonthYearSelector from "./MonthYearSelector";
-import { fullMonths, threeLettersWeekDays }  from "../../../context/calendar";
+import { fullMonths, threeLettersWeekDays }  from "../../../data/calendar";
 import NextPrevSwitcher from "./NextPrevSwitcher";
 import { toggleIsShowingCalendar } from "../../../store/actionCreators/todoPanelActionCreators";
 import { changeDeadlineAndCloseCalendar } from "../../../store/actionCreators/calendarActionCreators";
 import { useState } from "react";
 
-const Calendar = ({ todo }) => {
+const Calendar = () => {
 
     const dispatch = useDispatch();
-    const context = useContext(AppContext);
     const activeMonth = useSelector(state => state.calendarUI.activeMonth);
-    const year = todo.deadline.deadlineObj.getFullYear();
+    const year = useSelector(state => state.calendarUI.activeYear);
+
     const [chosenDay, setChosenDay] = useState(null);
-    console.log(chosenDay);
 
         const findActiveMonthId = () => {
             let activeMonthId;
@@ -55,16 +54,14 @@ const Calendar = ({ todo }) => {
 
     return (
         <Modal 
-            $zIndex={"1"} 
-            $boxWidth={"328px"} 
-            $boxPadding={"16px 4px 4px 4px"}
-            $header={"select date"} 
-            $smallUppercase
-            $okButton
-            $buttonText={"Ok"}
-            $mode={context.mode} 
-            $onCancelClickHandler={() => {dispatch(toggleIsShowingCalendar())}} 
-            $onСonfirmationClick={() => preSave(chosenDay)} 
+            boxWidth={"328px"} 
+            boxPadding={"16px 4px 4px 4px"}
+            header={"select date"} 
+            smallUppercase
+            okButton
+            buttonText={"Ok"}
+            onCancelClickHandler={() => {dispatch(toggleIsShowingCalendar())}} 
+            onСonfirmationClick={() => preSave(chosenDay)} 
         >
             <StyledConteiner>
             <DateDisplay />
@@ -72,7 +69,7 @@ const Calendar = ({ todo }) => {
                     <MonthYearSelector activeMonth={activeMonth} />
                     <NextPrevSwitcher activeMonthId={findActiveMonthId()} />
                 </StyledConteinerSwitchers>
-                <CalendarSheet activeMonthId={findActiveMonthId()} todo={todo} setChosenDay={setChosenDay} />
+                <CalendarSheet activeMonthId={findActiveMonthId()} year={year} setChosenDay={setChosenDay} />
             </StyledConteiner>
         </Modal>
     )

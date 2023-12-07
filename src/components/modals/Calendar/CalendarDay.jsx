@@ -4,19 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppContext } from "../../../context/context";
 import { changeSelectedDate } from "../../../store/actionCreators/calendarActionCreators";
 
-const CalendarDay = ({ day, todo, setChosenDay }) => {
+const CalendarDay = ({ day, year, setChosenDay }) => {
     
     const context = useContext(AppContext);
-    const selectedDate = useSelector(state => state.calendarUI.selectedDate);
     const selectedDay = useSelector(state => state.calendarUI.selectedDate.getDate());
     const selectedDayMonth = useSelector(state => state.calendarUI.selectedDate.getMonth());
-    console.log(selectedDate);
-    console.log("день :", selectedDay, "month :", selectedDayMonth);
-
-    const year = todo.deadline.deadlineObj.getFullYear();
-    const deadlineString = todo.deadline.deadlineString;
-    console.log(deadlineString);
-
     const dispatch = useDispatch();
     const todayDate = new Date().getDate();
     const todayMonth = new Date().getMonth();
@@ -31,7 +23,7 @@ const CalendarDay = ({ day, todo, setChosenDay }) => {
         <Wrapper 
             $prevNext={!day.activeMonth} 
             $mode={context.mode}
-            $active={deadlineString !== "Next Week" && day.date === selectedDay && day.month === selectedDayMonth}
+            $active={day.date === selectedDay && day.month === selectedDayMonth}
             $isToday={day.date === todayDate && day.month === todayMonth}
             onClick={() => preChangeSelectedDate(day)}
         >

@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const Background = ( props ) => {
 
@@ -20,9 +20,6 @@ const StyledBackground = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: ${props => props.$zIndex || 0 };
-
-    ${props => props.$darkTransparent && css `
-        background-color: var(--transparent-modal-background);
-    `}
+    z-index: 2;
+    background-color: var(--transparent-modal-background);
 `;
