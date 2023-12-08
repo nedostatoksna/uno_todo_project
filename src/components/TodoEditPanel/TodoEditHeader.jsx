@@ -28,12 +28,12 @@ const TodoEditHeader = ({ todo }) => {
     return (
         <TodoEditHeaderWrapper $mode={context.mode}>
             <Checkbox
-                $primary 
-                $checked 
-                $mode={context.mode} 
-                checked={todo.isCompleted}
-                id={todo.id}
-                onChange={() => {dispatch(changeCompleted(activeListId, activeTodoId, !todo.isCompleted))}} />
+                labelPrimary 
+                checkedPrimary 
+                isChecked={todo.isCompleted}
+                todoId={todo.id}
+                onChangeHandler={() => {dispatch(changeCompleted(activeListId, activeTodoId, !todo.isCompleted))}}
+            />
             <StyledTitleWrapper $mode={context.mode} $isEditing={isEditingTitle ? true : false}>
                 { isEditingTitle ? <StyledLabel htmlFor="titleInput" $mode={context.mode}>Task Name</StyledLabel> : undefined }
                 <StyledTodoTitle 
@@ -46,12 +46,12 @@ const TodoEditHeader = ({ todo }) => {
                 />
             </StyledTitleWrapper>
             <Checkbox 
-                $mode={context.mode} 
-                $starGrey
-                $starChecked 
-                checked={todo.isImportant}
-                id={todo.id}
-                onChange={() => {dispatch(changeImportant(activeListId, todo.id, !todo.isImportant))}} />
+                labelStarGrey
+                starChecked 
+                isChecked={todo.isImportant}
+                todoId={todo.id}
+                onChangeHandler={() => {dispatch(changeImportant(activeListId, todo.id, !todo.isImportant))}} 
+            />
         </TodoEditHeaderWrapper>
     )
 };

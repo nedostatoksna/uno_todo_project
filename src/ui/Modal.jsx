@@ -16,6 +16,8 @@ const Modal = ({ boxWidth,
                  buttonText, 
                  okButton, 
                  children, 
+                 breakModal,
+                 primarySaveBtn,
                  smallUppercase }) => {
 
     const context = useContext(AppContext);
@@ -59,6 +61,8 @@ const Modal = ({ boxWidth,
                             $whitePlus={whitePlusForBtn} 
                             $paddingForPlus={paddingForPlusBtn}
                             onClick={onСonfirmationClick}
+                            $coral={breakModal}
+                            $primary={primarySaveBtn}
                             $white={okButton}
                             $ClearBackground={okButton}
                             $paddingSmall={okButton}

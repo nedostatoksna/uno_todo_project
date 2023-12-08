@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled, { css } from "styled-components";
 import starUnfilled from "../images/starUnfilled.svg";
 import starUnfilledDark from "../images/starUnfilledForDark.svg";
@@ -8,18 +8,41 @@ import starGrey from "../images/starIconGrey.svg";
 import starGreyForDark from "../images/starIconGreyDark.svg";
 import filledCheckbox from "../images/filledCheckbox.svg";
 import filledCheckboxDark from "../images/filledCheckboxForDark.svg";
+import { AppContext } from "../context/context";
 
-const Checkbox = ( props ) => { 
+const Checkbox = ({ labelPrimary, 
+                    labelStarGrey, 
+                    labelStar, 
+                    todoId,
+                    checkedPrimary, 
+                    starChecked, 
+                    margin, 
+                    onChangeHandler, 
+                    isChecked }) => { 
+
+    const context = useContext(AppContext);
 
     const setId = () => {
-       const id = props.$primary ? "inputCompleted" + props.id : "inputImportant" + props.id
+       const id = labelPrimary ? "inputCompleted" + todoId : "inputImportant" + todoId
        return id
     }
 
     return (
-        <StyledContainer {...props}>
-                <StyledInput {...props} type="checkbox" checked={props.checked} id={setId()} />
-                <StyledLabel {...props} htmlFor={setId()} ></StyledLabel>
+        <StyledContainer $mode={context.mode} $margin={margin} $checked={checkedPrimary} $starChecked={starChecked}>
+                <StyledInput 
+                    $mode={context.mode} 
+                    type="checkbox" 
+                    checked={isChecked} 
+                    id={setId()} 
+                    onChange={() => onChangeHandler()} 
+                />
+                <StyledLabel 
+                    $primary={labelPrimary}
+                    $star={labelStar}
+                    $starGrey={labelStarGrey}
+                    $mode={context.mode} 
+                    htmlFor={setId()}
+                ></StyledLabel>
         </StyledContainer>
     )
 };

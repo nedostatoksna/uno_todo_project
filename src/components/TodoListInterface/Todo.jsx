@@ -33,30 +33,34 @@ const Todo = ({ todo }) => {
             $active={todo.id === activeTodoId}
             onClick={(e) => presetActiveTodoAndOpenEditPanel(e)}
         >
+        <StyledWrapper>
             <Checkbox 
-                $primary 
-                $checked 
-                $mode={context.mode} 
-                $margin={"10px 16px 10px 0px"} 
-                checked={todo.isCompleted}
-                id={todo.id}
-                onChange={() => {dispatch(changeCompleted(todo.parentListId, todo.id, !todo.isCompleted))}} />
-            <FlexWrapper $Calcheight $flexStart $padding={"8px 0px"}>
-                <StyledItemTitle $mode={context.mode}>{todo.title}</StyledItemTitle>
-                <StyledNoteDateBox>
-                    <StyledText $grey $mode={context.mode}>{deadLineForDisplay}</StyledText>
-                    <StyledText $grey $mode={context.mode}>-</StyledText>
-                    <StyledText $coral $mode={context.mode}>{todo.note}</StyledText>
-                </StyledNoteDateBox>
-            </FlexWrapper>
+                    labelPrimary 
+                    checkedPrimary
+                    margin={"10px 16px 10px 0px"} 
+                    isChecked={todo.isCompleted}
+                    todoId={todo.id}
+                    onChangeHandler={() => {dispatch(changeCompleted(todo.parentListId, todo.id, !todo.isCompleted))}} 
+                />
+                <FlexWrapper $Calcheight $flexStart $padding={"8px 0px"}>
+                    <StyledItemTitle $mode={context.mode}>{todo.title}</StyledItemTitle>
+                    <StyledNoteDateBox>
+                        <StyledText $grey $mode={context.mode}>{deadLineForDisplay}</StyledText>
+                        {
+                            deadLineForDisplay && todo.note.length ? <StyledText $grey $mode={context.mode}>-</StyledText> : undefined
+                        }
+                        <StyledText $coral $mode={context.mode}>{todo.note}</StyledText>
+                    </StyledNoteDateBox>
+                </FlexWrapper>
+        </StyledWrapper>
             <Checkbox 
-                $mode={context.mode} 
-                $star 
-                $starChecked 
-                $margin={"10px 0px 10px 16px"} 
-                checked={todo.isImportant}
-                id={todo.id}
-                onChange={() => {dispatch(changeImportant(todo.parentListId, todo.id, !todo.isImportant))}} />
+                labelStar 
+                starChecked 
+                margin={"10px 0px 10px 16px"} 
+                isChecked={todo.isImportant}
+                todoId={todo.id}
+                onChangeHandler={() => {dispatch(changeImportant(todo.parentListId, todo.id, !todo.isImportant))}}
+            />
         </StyledItemBox>
     )
 };
@@ -74,6 +78,10 @@ const StyledItemBox = styled.div`
     : props.$active && props.$mode === "Dark" ? "var(--dark-mode-transparent-grey-text-medium-variant)" : "var(--dark-mode-background)"};
     margin-bottom: 5px;
 `;
+const StyledWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+`;
 const StyledItemTitle = styled.p`
     font-size: 16px;
     font-weight: 600;
@@ -85,12 +93,21 @@ const StyledText = styled.p`
     line-height: 20px;
     letter-spacing: 0.25px;
     padding: 2px;
-
-    ${props => props.$grey && css `
-        color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-dark-variant)" : "var(--dark-mode-transparent-grey-text-dark-variant)"};
+    ${props => props.$mode === "Light" && css `
+        ${props => props.$grey && css `
+            color: var(--transparent-grey-text-dark-variant);
+        `}
+        ${props => props.$coral && css `
+            color: var(--coral);
+        `}
     `}
-    ${props => props.$coral && css `
-        color: ${props => props.$mode === "Light" ? "var(--coral)" : "var(--dark-mode-coral)"};
+    ${props => props.$mode === "Dark" && css `
+        ${props => props.$grey && css `
+            color: var(--dark-mode-transparent-grey-text-dark-variant);
+        `}
+        ${props => props.$coral && css `
+            color: var(--dark-mode-coral);
+        `}
     `}
 `;
 const StyledNoteDateBox = styled.div`

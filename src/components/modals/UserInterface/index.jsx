@@ -20,6 +20,7 @@ const UserInterface = () => {
             boxPadding={"20px"}
             header={"Settings"} 
             buttonText={"Save"} 
+            primarySaveBtn
             onCancelClickHandler={() => {dispatch(toggleUserPanel())}} 
             onСonfirmationClick={() => {dispatch(save(dynamicContext))}}
         >

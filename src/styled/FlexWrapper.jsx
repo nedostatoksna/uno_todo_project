@@ -13,6 +13,7 @@ const StyledFlexWrapper = styled.div`
     display: flex;
     flex-direction: column;
     padding: ${props => props.$padding};
+    margin: ${props => props.$margin};
     width: ${props => props.$width};
 
     ${props => props.$spaceBetween && css `

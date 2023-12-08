@@ -49,13 +49,12 @@ const BreakModal = ({ actionType }) => {
 
     return (
         <Modal 
-            $boxWidth={"310px"} 
-            $coral
-            $header={header} 
-            $buttonText={buttonText} 
-            $mode={context.mode} 
-            $onCancelClickHandler={() => {dispatch(setToggleFunction(actionType))}} 
-            $onСonfirmationClick={() => setFunction(actionType)}
+            boxWidth={"310px"} 
+            breakModal
+            header={header} 
+            buttonText={buttonText} 
+            onCancelClickHandler={() => {dispatch(setToggleFunction(actionType))}} 
+            onСonfirmationClick={() => setFunction(actionType)}
         >
             <StyledSubText $mode={context.mode}>{subText}</StyledSubText>
         </Modal>

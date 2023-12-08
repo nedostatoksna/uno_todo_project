@@ -56,14 +56,13 @@ const SaveModal = ({ actionType, listId }) => {
 
     return (
         <Modal
-            $mode={context.mode}
-            $header={header} 
-            $buttonText={buttonText} 
-            $whitePlusForBtn={actionType === "createList" || actionType === "createTodo"}
-            $primary 
-            $paddingForPlusBtn={actionType === "createList" || actionType === "createTodo"}
-            $onCancelClickHandler={() => {dispatch(setToggleFunction(actionType))}} 
-            $onСonfirmationClick={() => setFunction(actionType)}
+            header={header} 
+            buttonText={buttonText} 
+            whitePlusForBtn={actionType === "createList" || actionType === "createTodo"}
+            primarySaveBtn
+            paddingForPlusBtn={actionType === "createList" || actionType === "createTodo"}
+            onCancelClickHandler={() => {dispatch(setToggleFunction(actionType))}} 
+            onСonfirmationClick={() => setFunction(actionType)}
         >
             <TextInput id="saveModalInput" $mode={context.mode} value={value} onChange={(e) => setValue(e.target.value)} placeholder={placeholder}/>
         </Modal>

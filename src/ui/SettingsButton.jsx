@@ -1,22 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import sunIcon from "../images/sunIcon.svg";
 import sunIconDark from "../images/sunIconForDark.svg";
 import moonIcon from "../images/moonIcon.svg";
 import moonIconDark from "../images/moonIconForDark.svg";
+import { AppContext } from "../context/context";
 
-const SettingsButton = ( props ) => { 
+const SettingsButton = ({ option, onChange, checked }) => { 
+
+    const context = useContext(AppContext);
+
     return (
         <>
-            <StyledContainer {...props}>
-                <StyledInput {...props} type="radio" value={props.$option} id={props.$option}/>
-                <StyledLabel {...props} htmlFor={props.$option}>  
+            <StyledContainer $mode={context.mode}>
+                <StyledInput $mode={context.mode} type="radio" value={option} id={option} onChange={onChange} checked={checked}/>
+                <StyledLabel $mode={context.mode} htmlFor={option}>  
                     {
-                        (props.$option === "Light") ? <img {...props} src={props.$mode === "Light" ? sunIcon : sunIconDark} alt="sun" /> 
-                            : props.$option === "Dark" ? <img {...props} src={props.$mode === "Light" ? moonIcon : moonIconDark} alt="moon" /> 
+                        (option === "Light") ? <img src={context.mode === "Light" ? sunIcon : sunIconDark} alt="sun" /> 
+                            : option === "Dark" ? <img src={context.mode === "Light" ? moonIcon : moonIconDark} alt="moon" /> 
                             : undefined
                     }
-                    <StyledMark {...props}>{props.$option}</StyledMark>
+                    <StyledMark>{option}</StyledMark>
                 </StyledLabel>
             </StyledContainer>
         </>

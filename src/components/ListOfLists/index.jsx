@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { preSwitchActiveTodoList } from "../../store/actionCreators/todoListActionCreators";
 import { AppContext } from "../../context/context";
-import styled from "styled-components";
 import ListButton from "../../ui/ListButton";
+import FlexWrapper from "../../styled/FlexWrapper";
 
 const ListOfLists = () => {
 
@@ -13,7 +13,7 @@ const ListOfLists = () => {
     const context = useContext(AppContext);
 
     return (
-        <Wrapper $mode={context.mode}>
+        <FlexWrapper $margin={"auto auto 5px auto"} $mode={context.mode}>
             {
                 (lists.length > 0)
                     ?
@@ -30,15 +30,9 @@ const ListOfLists = () => {
                         </ListButton>
                     )) : undefined
             }
-        </Wrapper>
+        </FlexWrapper>
     )
 };
 
 export default ListOfLists;
 
-const Wrapper = styled.div`
-    background-color: ${props => props.$mode === "Light" ? "var(--white)" : "var(--dark-mode-background)"};
-    margin: auto auto 5px auto;
-    display: flex;
-    flex-direction: column;
-`;
