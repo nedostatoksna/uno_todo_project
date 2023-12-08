@@ -11,6 +11,7 @@ import Divider from "../../ui/Divider";
 import StyledHeader from "../../styled/StyledHeader";
 import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
 import FlexRowWrapper from "../../styled/FlexRowWrapper";
+import UserPicture from "../../styled/UserPicture";
 
 const SideBar = () => {
     
@@ -39,20 +40,6 @@ const SideBar = () => {
 
 export default SideBar;
 
-const UserPicture = styled.div`
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
-    color: ${props => props.$mode === "Light" ? "var(--white)" : "var(--dark-mode-background)"};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: 600;
-    line-height: 20px; 
-    letter-spacing: 0.25px;
-    margin-right: 10px;
-`;
 const UserEmail = styled.h2`
     font-size: 12px;
     font-weight: 600;

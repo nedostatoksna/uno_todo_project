@@ -3,9 +3,10 @@ import { togglePanelandChangeIsSigningOut } from "../../../store/actionCreators/
 import { useDispatch } from "react-redux";
 import Button from "../../../ui/Button";
 import { AppContext } from "../../../context/context";
-import styled from "styled-components";
 import StyledHeader from "../../../styled/StyledHeader";
+import StyledSubHeader from "../../../styled/StyledSubHeader";
 import FlexColumnWrapper from "../../../styled/FlexColumnWrapper";
+import UserPicture from "../../../styled/UserPicture";
 
 const UserCard = () => {
 
@@ -14,10 +15,10 @@ const UserCard = () => {
 
     return (
         <FlexColumnWrapper $smallPaddingTop $center>
-            <UserPicture $mode={context.mode}>{context.userInitials}</UserPicture>
+            <UserPicture $large $mode={context.mode}>{context.userInitials}</UserPicture>
             <FlexColumnWrapper $center $margin={"0px 0px 12px 0px"}>
                 <StyledHeader $zeroMargin $large $mode={context.mode}>{context.userName}</StyledHeader>
-                <UserEmail $mode={context.mode}>{context.userEmail}</UserEmail>
+                <StyledSubHeader $dark $mode={context.mode}>{context.userEmail}</StyledSubHeader>
             </FlexColumnWrapper>
             <Button 
                 $coralColor 
@@ -32,23 +33,3 @@ const UserCard = () => {
 };
 
 export default UserCard;
-
-const UserPicture = styled.div`
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
-    color: ${props => props.$mode === "Light" ? "var(--white)" : "var(--dark-mode-background)"};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 22px;
-    line-height: 28px;
-    margin-bottom: 12px;
-`;
-const UserEmail = styled.h2`
-    font-weight: 600;
-    line-height: 20px; 
-    letter-spacing: 0.25px;
-    color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-dark-variant)" : "var(--dark-mode-transparent-grey-text-dark-variant)"};
-`;

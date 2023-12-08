@@ -11,7 +11,7 @@ const Notice = () => {
     return (
         <FlexColumnWrapper $height $center $width={"100%"} $smallPaddingTop>
             <StyledHeader $mode={context.mode} $mediumLineHeight $smallMargin $mediumGrey $Xlarge>Task not found</StyledHeader>
-            <StyledSubHeader $mode={context.mode}>We searched high and low but couldn't find what you're looking for</StyledSubHeader>
+            <StyledSubHeader $marginBottom60 $mode={context.mode}>We searched high and low but couldn't find what you're looking for</StyledSubHeader>
         </FlexColumnWrapper>
     )
 };

@@ -8,7 +8,7 @@ const Notice = () => {
     return (
         <FlexColumnWrapper $height $center $width={"100%"} $smallPaddingTop>
             <StyledHeader $mediumLineHeight $white $smallMargin $Xlarge>Important Tasks</StyledHeader>
-            <StyledSubHeader $white>Try starring some tasks to see them here.</StyledSubHeader>
+            <StyledSubHeader $marginBottom60 $white>Try starring some tasks to see them here.</StyledSubHeader>
         </FlexColumnWrapper>
     )
 };
