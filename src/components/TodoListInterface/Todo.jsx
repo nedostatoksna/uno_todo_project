@@ -74,7 +74,7 @@ const StyledItemBox = styled.div`
     padding: 0px 10px;
     border-radius: 10px;
     background-color: ${props => props.$mode === "Light" && props.$active === false ? "var(--white)"  
-    : props.$active && props.$mode === "Light" ? "var(--transparent-lavender)" 
+    : props.$active && props.$mode === "Light" ? "var(--transparent-lavender-active-todo)" 
     : props.$active && props.$mode === "Dark" ? "var(--dark-mode-transparent-grey-text-medium-variant)" : "var(--dark-mode-background)"};
     margin-bottom: 5px;
 `;

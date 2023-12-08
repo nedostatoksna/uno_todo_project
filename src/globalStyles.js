@@ -58,6 +58,7 @@ const GlobalStyle = createGlobalStyle`
     --dark-mode-transparent-grey-text-medium-variant: rgba(230, 225, 229, 0.38);
 
     --transparent-lavender: rgba(89, 70, 210, 0.08);
+    --transparent-lavender-active-todo: rgba(255, 255, 255, 0.38);
     --dark-mode-transparent-lavender: rgba(200, 191, 255, 0.08);
 
     --transparent-modal-background: rgba(0, 0, 0, 0.4);
