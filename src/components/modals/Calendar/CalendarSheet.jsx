@@ -1,22 +1,18 @@
 import React from "react";
-import styled from "styled-components";
 import WeekDays from "./WeekDays";
 import CalendarDays from "./CalendarDays";
+import FlexColumnWrapper from "../../../styled/FlexColumnWrapper";
 
 const CalendarSheet = ( { activeMonthId, year, setChosenDay } ) => {
 
     return (
-        <CalendarWrapper>
+        <FlexColumnWrapper $padding={"0px 12px"}>
             <WeekDays />
             <CalendarDays activeMonthId={activeMonthId} year={year} setChosenDay={setChosenDay} />
-        </CalendarWrapper>
+        </FlexColumnWrapper>
     )
 };
 
 export default CalendarSheet;
 
-const CalendarWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 0px 12px;
-`;
+

@@ -5,6 +5,7 @@ import styled, { css } from "styled-components";
 import Checkbox from "../../ui/StyledCheckbox";
 import { changeCompleted, changeImportant, changeTitle } from "../../store/actionCreators/dataListActionCreators.js";
 import { toggleEditingTitle } from "../../store/actionCreators/todoPanelActionCreators";
+import FlexRowWrapper from "../../styled/FlexRowWrapper.jsx";
 
 const TodoEditHeader = ({ todo }) => {
 
@@ -26,7 +27,7 @@ const TodoEditHeader = ({ todo }) => {
     }, [cashedPreEdit]);
 
     return (
-        <TodoEditHeaderWrapper $mode={context.mode}>
+        <FlexRowWrapper $center $margin={"0px 0px 10px 0px"} $spaceBetween>
             <Checkbox
                 labelPrimary 
                 checkedPrimary 
@@ -52,19 +53,12 @@ const TodoEditHeader = ({ todo }) => {
                 todoId={todo.id}
                 onChangeHandler={() => {dispatch(changeImportant(activeListId, todo.id, !todo.isImportant))}} 
             />
-        </TodoEditHeaderWrapper>
+        </FlexRowWrapper>
     )
 };
 
 export default TodoEditHeader;
  
-const TodoEditHeaderWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-`;
 const StyledTodoTitle = styled.input`
     font-size: 22px;
     line-height: 28px; 
@@ -79,15 +73,29 @@ const StyledTodoTitle = styled.input`
 const StyledTitleWrapper = styled.div`
     font-size: 22px;
     line-height: 28px; 
-    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
     margin: 0px 10px;
     padding: 8px 16px;
     width: calc(20vw - 120px);
-    background-color: ${props => props.$mode === "Light" ? "var(--white)" : "var(--dark-mode-background)"};  
     ${props => props.$isEditing && css `
         border-bottom: 2px solid;
-        border-color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
-        background-color: ${props => props.$mode === "Light" ? "var(--white)" : "var(--dark-grayish-lavender-variant)"};
+    `}
+    ${props => props.$mode === "Light" && css `
+        color: var(--black);
+        background-color: var(--white);
+
+        ${props => props.$isEditing && css `
+            border-color: var(--primary-purple);
+            background-color: var(--white);
+        `}
+    `}
+    ${props => props.$mode === "Dark" && css `
+        color: var(--dark-mode-white-text);
+        background-color: var(--dark-mode-background);
+
+        ${props => props.$isEditing && css `
+            border-color: var(--dark-mode-primary-purple);
+            background-color: var(--dark-grayish-lavender-variant);
+        `}
     `}
 `;
 const StyledLabel = styled.label` 

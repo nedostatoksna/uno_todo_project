@@ -1,8 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AppContext } from "../../../context/context";
 import Modal from "../../../ui/Modal";
-import styled from "styled-components";
 import DateDisplay from "./DateDisplay";
 import CalendarSheet from "./CalendarSheet";
 import MonthYearSelector from "./MonthYearSelector";
@@ -11,7 +9,8 @@ import NextPrevSwitcher from "./NextPrevSwitcher";
 import { toggleIsShowingCalendar } from "../../../store/actionCreators/todoPanelActionCreators";
 import { changeDeadlineAndCloseCalendar } from "../../../store/actionCreators/calendarActionCreators";
 import { useState } from "react";
-import FlexWrapper from "../../../styled/FlexWrapper";
+import FlexColumnWrapper from "../../../styled/FlexColumnWrapper";
+import FlexRowWrapper from "../../../styled/FlexRowWrapper";
 
 const Calendar = () => {
 
@@ -64,23 +63,16 @@ const Calendar = () => {
             onCancelClickHandler={() => {dispatch(toggleIsShowingCalendar())}} 
             onСonfirmationClick={() => preSave(chosenDay)} 
         >
-            <FlexWrapper>
+            <FlexColumnWrapper>
             <DateDisplay />
-                <StyledConteinerSwitchers>
+                <FlexRowWrapper $spaceBetween $padding={"8px 12px 8px 20px"}>
                     <MonthYearSelector activeMonth={activeMonth} />
                     <NextPrevSwitcher activeMonthId={findActiveMonthId()} />
-                </StyledConteinerSwitchers>
+                </FlexRowWrapper>
                 <CalendarSheet activeMonthId={findActiveMonthId()} year={year} setChosenDay={setChosenDay} />
-            </FlexWrapper>
+            </FlexColumnWrapper>
         </Modal>
     )
 };
 
 export default Calendar;
-
-const StyledConteinerSwitchers = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 8px 12px 8px 20px;
-`;

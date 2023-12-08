@@ -4,9 +4,7 @@ import styled, { css } from "styled-components";
 const Divider = ( props ) => {
 
     return (
-        <>
-            <StyledDivider {...props} />
-        </>
+        <StyledDivider {...props} />
     )
 };
 export default Divider;

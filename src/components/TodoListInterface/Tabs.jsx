@@ -44,9 +44,16 @@ const StyledTab = styled.button`
     line-height: 20px;
     letter-spacing: 0.1px;
     ${props => props.$active && css `
-        color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
         border-bottom: solid 2px;
-        border-color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
+
+        ${props => props.$mode === "Light" && css `
+            color: var(--primary-purple);
+            border-color: var(--primary-purple);
+        `}
+        ${props => props.$mode === "Dark" && css `
+            color: var(--dark-mode-primary-purple);
+            border-color: var(--dark-mode-primary-purple);
+        `}
     `}
 `;
 

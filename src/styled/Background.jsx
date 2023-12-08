@@ -21,7 +21,7 @@ const StyledBackground = styled.div`
             background-color: var(--coral);
         `}
         ${props => props.$grey && css `
-            color: var(--search-background); 
+            background-color: var(--search-background); 
         `}
     `} 
 
@@ -34,7 +34,7 @@ const StyledBackground = styled.div`
             background-color: var(--dark-mode-coral);
         `}
         ${props => props.$grey && css `
-            color: var(--dark-mode-search-background); 
+            background-color: var(--dark-mode-search-background); 
         `}
     `} 
 `;

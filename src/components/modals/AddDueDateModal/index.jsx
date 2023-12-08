@@ -7,7 +7,7 @@ import { toggleChooseDeadlinePanel,
          toggleDaedlinePanelAndSetDeadline } from "../../../store/actionCreators/todoPanelActionCreators";
 import ListButton from "../../../ui/ListButton";
 import { dateOptions } from "../../../data/dateOptions";
-import styled from "styled-components";
+import FlexColumnWrapper from "../../../styled/FlexColumnWrapper";
 
 const AddDueDate = ({ todoId, listId }) => {
 
@@ -37,7 +37,7 @@ const AddDueDate = ({ todoId, listId }) => {
             header={"Add due date"} 
             onCancelClickHandler={() => {dispatch(toggleChooseDeadlinePanel())}} 
         >
-            <StyledConteiner>
+            <FlexColumnWrapper $padding={"12px"}>
                 {
                     dateOptions.map(option => (
                         <ListButton 
@@ -52,15 +52,9 @@ const AddDueDate = ({ todoId, listId }) => {
                             </ListButton>
                     ))
                 }
-            </StyledConteiner>
+            </FlexColumnWrapper>
         </Modal>
     )
 };
 
 export default AddDueDate;
-
-const StyledConteiner = styled.div`
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-`;

@@ -5,6 +5,7 @@ import styled, { css } from "styled-components";
 import { deleteDeadline } from "../../store/actionCreators/dataListActionCreators.js";
 import { toggleChooseDeadlinePanel } from "../../store/actionCreators/todoPanelActionCreators";
 import IconButton from "../../ui/IconButton";
+import FlexRowWrapper from "../../styled/FlexRowWrapper.jsx";
 
 const AddDueDate = ({ todo }) => {
 
@@ -13,8 +14,8 @@ const AddDueDate = ({ todo }) => {
     const deadlineString = todo.deadline.deadlineString;
 
     return (
-        <AddDueDateWrapper $mode={context.mode}>
-         <StyledInputWrapper>
+        <FlexRowWrapper $spaceBetween $center $margin={"12px 0px"} $padding={"8px 0px"}>
+         <FlexRowWrapper $flexStart $center>
                 <IconButton
                     $type={ deadlineString.length ? "addDateActive" : "addDateGrey"}
                     alt="calendar icon" 
@@ -32,7 +33,7 @@ const AddDueDate = ({ todo }) => {
                     $purple={deadlineString.length}
                     disabled
                 />
-            </StyledInputWrapper>
+            </FlexRowWrapper>
                     { 
                         deadlineString.length
                             ?  <IconButton
@@ -45,26 +46,12 @@ const AddDueDate = ({ todo }) => {
                                 ></IconButton> : undefined
                     }
 
-        </AddDueDateWrapper>
+        </FlexRowWrapper>
     )
 };
 
 export default AddDueDate;
  
-const AddDueDateWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin: 12px 0px;
-    padding: 8px 0px;
-`;
-const StyledInputWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-`;
 const StyledDueDateInput = styled.input`
     text-align: flex-start;
     width: calc(100% - 80px);

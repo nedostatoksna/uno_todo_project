@@ -1,13 +1,13 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const FlexWrapper = ( props ) => {
+const FlexColumnWrapper = ( props ) => {
 
     return (
         <StyledFlexWrapper {...props}>{props.children}</StyledFlexWrapper>
     )
 };
-export default FlexWrapper;
+export default FlexColumnWrapper;
 
 const StyledFlexWrapper = styled.div` 
     display: flex;

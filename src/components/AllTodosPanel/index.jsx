@@ -5,7 +5,7 @@ import AllTodosList from "./AllTodosList";
 import Tabs from "../TodoListInterface/Tabs";
 import StyledHeader from "../../styled/StyledHeader";
 import Background from "../../styled/Background";
-import FlexWrapper from "../../styled/FlexWrapper";
+import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
 
 const AllTodosPanel = () => {
     const context = useContext(AppContext);
@@ -17,11 +17,11 @@ const AllTodosPanel = () => {
 
     return (
         <Background $mode={context.mode} $primary $width={"80vw"}>
-            <StyledHeader $mode={context.mode} $white>Tasks</StyledHeader>
+            <StyledHeader $large $mode={context.mode} $white>Tasks</StyledHeader>
             <Tabs />
-            <FlexWrapper $height $spaceBetween>
+            <FlexColumnWrapper $height $spaceBetween>
                 <AllTodosList todos={isShowingCompleted ? completedTodos : allTodos} /> 
-            </FlexWrapper>
+            </FlexColumnWrapper>
         </Background>
     )
 };

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import IconButton from "../../../ui/IconButton";
 import { AppContext } from "../../../context/context";
 import { fullMonths, threeLettersWeekDays } from "../../../data/calendar";
+import FlexRowWrapper from "../../../styled/FlexRowWrapper";
 
 const DateDisplay = () => {
 
@@ -20,24 +21,17 @@ const DateDisplay = () => {
     }
 
     return (
-        <DateEditPanelWrapper>
+        <FlexRowWrapper $flexStart $spaceBetween $padding={"16px 14px 16px 20px"}>
                 <StyledDate $mode={context.mode}>
                     {prepareDateStringForDisplay()}
                 </StyledDate>
                 <IconButton $mode={context.mode} $type={"editGrey"} $large ></IconButton>
-        </DateEditPanelWrapper>
+        </FlexRowWrapper>
     )
 };
 
 export default DateDisplay;
-
-const DateEditPanelWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: 16px 14px 16px 20px;
-`;
+  
 const StyledDate= styled.p`
     font-size: 32px;
     line-height: 40px; 

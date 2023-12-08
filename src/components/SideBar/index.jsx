@@ -9,7 +9,8 @@ import { AppContext } from "../../context/context";
 import styled from "styled-components";
 import Divider from "../../ui/Divider";
 import StyledHeader from "../../styled/StyledHeader";
-import FlexWrapper from "../../styled/FlexWrapper";
+import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
+import FlexRowWrapper from "../../styled/FlexRowWrapper";
 
 const SideBar = () => {
     
@@ -17,38 +18,27 @@ const SideBar = () => {
     const context = useContext(AppContext);
 
     return (
-        <SideBarWrapper $mode={context.mode}>
+        <FlexColumnWrapper $padding={"40px 20px 20px 20px"} $width={"20vw"} $spaceBetween>
             <div>
-                <UserCard $mode={context.mode} onClick={() => {dispatch(toggleUserPanel())}}>
+                <FlexRowWrapper  onClick={() => {dispatch(toggleUserPanel())}}>
                     <UserPicture $mode={context.mode}>{context.userInitials}</UserPicture>
-                    <FlexWrapper $flexStart>
+                    <FlexColumnWrapper $flexStart>
                         <StyledHeader $lineHeight={"20px"} $zeroMargin $bold $mode={context.mode}>{context.userName}</StyledHeader>
                         <UserEmail $mode={context.mode}>{context.userEmail}</UserEmail>
-                    </FlexWrapper>
-                </UserCard>
+                    </FlexColumnWrapper>
+                </FlexRowWrapper>
                 <SearchBar />
                 <ImportantFilter />
                 <Divider $mode={context.mode} $margin={"9px 0px 10px 0px"} $light />
                 <ListOfLists />
             </div>
             <NewListBtn />
-        </SideBarWrapper>
+        </FlexColumnWrapper>
     )
 };
 
 export default SideBar;
 
-const SideBarWrapper = styled.div`
-    padding: 40px 20px 20px 20px;
-    width: 20vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-`;
-const UserCard = styled.div`
-    display: flex;
-    flex-direction: row;
-`;
 const UserPicture = styled.div`
     width: 32px;
     height: 32px;

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { AppContext } from "../../../context/context";
 import { oneLettersWeekDays } from "../../../data/calendar";
+import FlexRowWrapper from "../../../styled/FlexRowWrapper";
 
 const WeekDays = () => {
     
@@ -9,23 +10,18 @@ const WeekDays = () => {
     const context = useContext(AppContext);
 
     return (
-        <CalendarWrapper>
+        <FlexRowWrapper as="ul" $spaceBetween>
         {
             oneLettersWeekDays.map(day => (
                 <StyledWeekDay key={weekDayId++} $mode={context.mode}>{day}</StyledWeekDay>
             ))
         } 
-        </CalendarWrapper>
+        </FlexRowWrapper>
     )
 };
 
 export default WeekDays;
 
-const CalendarWrapper = styled.ul`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-`;
 const StyledWeekDay = styled.li`
     color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-dark-variant)" : "var(--dark-mode-transparent-grey-text-dark-variant)"};
     padding: 8px 15px;

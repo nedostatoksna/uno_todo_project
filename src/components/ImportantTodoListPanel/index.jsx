@@ -5,7 +5,7 @@ import ImportantTodoList from "./ImportantTodoList";
 import Notice from "./Notice";
 import StyledHeader from "../../styled/StyledHeader";
 import Background from "../../styled/Background";
-import FlexWrapper from "../../styled/FlexWrapper";
+import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
 
 const ImportantTodoListPanel = () => {
     const context = useContext(AppContext);
@@ -15,12 +15,12 @@ const ImportantTodoListPanel = () => {
 
     return (
         <Background $coral $mode={context.mode} $width={"80vw"}>
-            <StyledHeader $mode={context.mode} $white>Important</StyledHeader>
-            <FlexWrapper $height $spaceBetween>
-                {
-                    importantTodos.length ? <ImportantTodoList todos={importantTodos} /> : <Notice />
-                }
-            </FlexWrapper>
+            <StyledHeader $large $mode={context.mode} $white>Important</StyledHeader>
+                <FlexColumnWrapper $Calcheight $center={!importantTodos.length}>
+                    {
+                        importantTodos.length ? <ImportantTodoList todos={importantTodos} /> : <Notice />
+                    }
+                </FlexColumnWrapper>           
         </Background>
     )
 };

@@ -5,6 +5,7 @@ import styled from "styled-components";
 import IconButton from "../../ui/IconButton";
 import { fullMonths, threeLettersWeekDays } from "../../data/calendar";
 import { toggleTodoEditPanel, toggleTodoEditPanelAndDeleteTodo } from "../../store/actionCreators/todoPanelActionCreators";
+import FlexRowWrapper from "../../styled/FlexRowWrapper";
 
 const TodoEditFooter = ({ todo }) => {
 
@@ -21,7 +22,7 @@ const TodoEditFooter = ({ todo }) => {
     }
 
     return (
-        <TodoEditFooterWrapper $mode={context.mode}>
+        <FlexRowWrapper $center $spaceBetween>
                     <IconButton
                         onClick={() => {dispatch(toggleTodoEditPanel(false))}}
                         $type={"arrowLeft"}
@@ -40,18 +41,12 @@ const TodoEditFooter = ({ todo }) => {
                         $mode={context.mode}
                     ></IconButton>
 
-        </TodoEditFooterWrapper>
+        </FlexRowWrapper>
     )
 };
 
 export default TodoEditFooter;
- 
-const TodoEditFooterWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-`;
+
 const StyledText = styled.p`
     font-size: 12px;
     font-weight: 600;

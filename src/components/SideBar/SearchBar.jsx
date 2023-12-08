@@ -1,11 +1,12 @@
 import React, { useCallback, useContext, useEffect, useRef } from "react";
 import { useDispatch, useSelector} from "react-redux";
-import { cancelSearch, preToggleSearch, setSearchQuery, toggleIsSearching } from "../../store/actionCreators/todoListActionCreators";
+import { cancelSearch, preToggleSearch, setSearchQuery } from "../../store/actionCreators/todoListActionCreators";
 import { AppContext } from "../../context/context";
 import Divider from "../../ui/Divider";
 import styled from "styled-components";
 import IconButton from "../../ui/IconButton";
-import FlexWrapper from "../../styled/FlexWrapper";
+import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
+import FlexRowWrapper from "../../styled/FlexRowWrapper";
 
 const SearchBar = () => {
 
@@ -28,7 +29,7 @@ const SearchBar = () => {
     return (
         <>
             <SearchBarWrapper $mode={context.mode}>
-                <StyledWrapper>
+                <FlexRowWrapper $center>
                     <IconButton 
                         $type={"search"}
                         alt="magnifying glass icon" 
@@ -36,7 +37,7 @@ const SearchBar = () => {
                         $small
                         $mode={context.mode}
                     ></IconButton>
-                        <FlexWrapper $flexStart>
+                        <FlexColumnWrapper $flexStart>
                             { isSearching ? <StyledLabel htmlFor="searchInput" $mode={context.mode}>Search</StyledLabel> : undefined}
                                 <StyledSearchInput 
                                     ref={searchInputFocus} 
@@ -47,8 +48,8 @@ const SearchBar = () => {
                                     id="searchInput"
                                     onChange={(e) => {dispatch(setSearchQuery(e.target.value))}}
                                 />
-                        </FlexWrapper>
-                </StyledWrapper>
+                        </FlexColumnWrapper>
+                </FlexRowWrapper>
                     { 
                         isSearching 
                             ?  <IconButton
@@ -75,11 +76,6 @@ const SearchBarWrapper = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-`;
-const StyledWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
 `;
 const StyledSearchInput = styled.input` 
     color: ${props => props.$mode === "Light" && props.$isSearching === false ?  "rgba(28, 27, 31, 0.38)"

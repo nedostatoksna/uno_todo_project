@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import IconButton from "../../../ui/IconButton";
 import { AppContext } from "../../../context/context";
@@ -9,6 +8,7 @@ import {
         switchToPrevMonth, 
         switchToPrevMonthAndYear } from "../../../store/actionCreators/calendarActionCreators";
 import { fullMonths } from "../../../data/calendar";
+import FlexRowWrapper from "../../../styled/FlexRowWrapper";
 
 const NextPrevSwitcher = ({ activeMonthId }) => {
 
@@ -39,19 +39,14 @@ const NextPrevSwitcher = ({ activeMonthId }) => {
     }
 
     return (
-        <SwitcherWrapper>
+        <FlexRowWrapper $center>
                 <IconButton onClick={() => preSwitchToPrev()} $mode={context.mode} $type={"arrowLeft"} $large ></IconButton>
                 <IconButton onClick={() => preSwitchToNext()} $mode={context.mode} $type={"arrowRight"} $large ></IconButton>
-        </SwitcherWrapper>
+        </FlexRowWrapper>
     )
 };
 
 export default NextPrevSwitcher;
 
-const SwitcherWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-`;
 
 

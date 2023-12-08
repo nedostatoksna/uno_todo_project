@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import styled, { css } from "styled-components";
 import { changeNote } from "../../store/actionCreators/dataListActionCreators.js";
 import { useRef } from "react";
-import FlexWrapper from "../../styled/FlexWrapper.jsx";
+import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
 
 const Note = ({ todoId, listId, note }) => {
 
@@ -13,7 +13,7 @@ const Note = ({ todoId, listId, note }) => {
     const dispatch = useDispatch();
 
     return (
-        <FlexWrapper $padding={"12px 0px 0px 0px"} $mode={context.mode}>
+        <FlexColumnWrapper $padding={"12px 0px 0px 0px"} $mode={context.mode}>
         {
             note && <NoteHeader htmlFor="note" $mode={context.mode}>Note</NoteHeader>
         }
@@ -29,7 +29,7 @@ const Note = ({ todoId, listId, note }) => {
                 onChange={(e) => {dispatch(changeNote(listId, todoId, e.target.value))}}
             >
             </NoteText>
-        </FlexWrapper>
+        </FlexColumnWrapper>
     )
 };
 

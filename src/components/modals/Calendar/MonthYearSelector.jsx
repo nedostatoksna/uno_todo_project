@@ -6,6 +6,7 @@ import { fullMonths }  from "../../../data/calendar";
 import { changeSelectedMonth } from "../../../store/actionCreators/calendarActionCreators";
 import arrowDropDown from "../../../images/arrowDropDown.svg";
 import arrowDropDownForDark from "../../../images/arrowDropDownForDark.svg";
+import FlexRowWrapper from "../../../styled/FlexRowWrapper";
 
 const MonthYearSelector = ({ activeMonth }) => {
 
@@ -14,7 +15,7 @@ const MonthYearSelector = ({ activeMonth }) => {
     const dispatch = useDispatch();
 
     return (
-        <SelectorWrapper>
+        <FlexRowWrapper $spaceBetween $center $width={"fit-content"}>
                 <StyledSelector 
                     $mode={context.mode}  
                     value={activeMonth}
@@ -34,19 +35,12 @@ const MonthYearSelector = ({ activeMonth }) => {
                     }
                 </StyledSelector>
                 <StyledImg  $mode={context.mode} ></StyledImg>
-        </SelectorWrapper>
+        </FlexRowWrapper>
     )
 };
 
 export default MonthYearSelector;
 
-const SelectorWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: fit-content;
-`;
 const StyledSelector = styled.select`
     font-weight: 600;
     color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
@@ -54,7 +48,6 @@ const StyledSelector = styled.select`
     background: transparent;
 `;
 const StyledImg = styled.div`
-
     background-repeat: no-repeat;
     background-position: center right;
     width: 24px;

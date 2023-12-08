@@ -8,6 +8,7 @@ import { save, toggleUserPanel } from "../../../store/actionCreators/userPanelAc
 import About from "./About";
 import styled from "styled-components";
 import GeneralSettings from "./GeneralSettings";
+import FlexColumnWrapper from "../../../styled/FlexColumnWrapper";
 
 const UserInterface = () => {
 
@@ -26,20 +27,16 @@ const UserInterface = () => {
         >
             <UserCard />
             <Divider $mode={context.mode} $height={"1px"} />
-            <StyledContainer>
+            <FlexColumnWrapper $smallPaddingTop>
                 <GeneralSettings dynamicContext={dynamicContext} setDynamicContext={setDynamicContext} />
                 <Divider $mode={context.mode} $height={"1px"} />
                 <About />
-            </StyledContainer> 
+            </FlexColumnWrapper> 
         </Modal> 
     )
 };
 
 export default UserInterface; 
 
-const StyledContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding-top: 10px;
-`;
+
 

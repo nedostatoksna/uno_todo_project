@@ -33,6 +33,7 @@ const StyledDarkText = styled.p`
     color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
 `;
 const StyledNumber = styled.span`
+    font-weight: 600;
     color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
     margin: 0px 0px 0px 12px;
 `;

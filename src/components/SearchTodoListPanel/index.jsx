@@ -5,6 +5,7 @@ import SearchResultsList from "./SearchResultsList";
 import Notice from "./Notice";
 import StyledHeader from "../../styled/StyledHeader";
 import Background from "../../styled/Background";
+import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
 
 const SearchTodoListPanel = () => {
 
@@ -16,10 +17,12 @@ const SearchTodoListPanel = () => {
 
     return (
         <Background $grey $mode={context.mode} $width={"80vw"}>
-            <StyledHeader $darkGrey>Search</StyledHeader>
-            {
-                serchedTodos.length && searchString ? <SearchResultsList lists={serchedTodos}/> : <Notice />
-            }
+            <StyledHeader $mode={context.mode} $large $darkGrey>Search</StyledHeader>
+            <FlexColumnWrapper $Calcheight $center={!serchedTodos.length || !searchString}>
+                {
+                    serchedTodos.length && searchString ? <SearchResultsList lists={serchedTodos}/> : <Notice />
+                }
+            </FlexColumnWrapper>
         </Background>
     )
 };

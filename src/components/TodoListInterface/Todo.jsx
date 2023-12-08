@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import Checkbox from "../../ui/StyledCheckbox";
 import styled, { css } from "styled-components";
 import { AppContext } from "../../context/context";
-import { changeCompleted, changeImportant } from "../../store/actionCreators/dataListActionCreators.js";
 import { setActiveTodoAndOpenEditPanel } from "../../store/actionCreators/todoPanelActionCreators";
 import { fullMonths } from "../../data/calendar";
-import FlexWrapper from "../../styled/FlexWrapper.jsx";
+import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
+import { changeCompleted, changeImportant } from "../../store/actionCreators/dataListActionCreators.js";
+import FlexRowWrapper from "../../styled/FlexRowWrapper.jsx";
 
 const Todo = ({ todo }) => {
 
@@ -28,12 +29,8 @@ const Todo = ({ todo }) => {
     }
 
     return (
-        <StyledItemBox 
-            $mode={context.mode} 
-            $active={todo.id === activeTodoId}
-            onClick={(e) => presetActiveTodoAndOpenEditPanel(e)}
-        >
-        <StyledWrapper>
+        <StyledItemBox $mode={context.mode} $active={todo.id === activeTodoId} onClick={(e) => presetActiveTodoAndOpenEditPanel(e)}>
+        <FlexRowWrapper>
             <Checkbox 
                     labelPrimary 
                     checkedPrimary
@@ -42,17 +39,17 @@ const Todo = ({ todo }) => {
                     todoId={todo.id}
                     onChangeHandler={() => {dispatch(changeCompleted(todo.parentListId, todo.id, !todo.isCompleted))}} 
                 />
-                <FlexWrapper $Calcheight $flexStart $padding={"8px 0px"}>
+                <FlexColumnWrapper $Calcheight $flexStart $padding={"8px 0px"}>
                     <StyledItemTitle $mode={context.mode}>{todo.title}</StyledItemTitle>
-                    <StyledNoteDateBox>
+                    <FlexRowWrapper>
                         <StyledText $grey $mode={context.mode}>{deadLineForDisplay}</StyledText>
                         {
                             deadLineForDisplay && todo.note.length ? <StyledText $grey $mode={context.mode}>-</StyledText> : undefined
                         }
                         <StyledText $coral $mode={context.mode}>{todo.note}</StyledText>
-                    </StyledNoteDateBox>
-                </FlexWrapper>
-        </StyledWrapper>
+                    </FlexRowWrapper>
+                </FlexColumnWrapper>
+        </FlexRowWrapper>
             <Checkbox 
                 labelStar 
                 starChecked 
@@ -73,14 +70,21 @@ const StyledItemBox = styled.div`
     justify-content: space-between;
     padding: 0px 10px;
     border-radius: 10px;
-    background-color: ${props => props.$mode === "Light" && props.$active === false ? "var(--white)"  
-    : props.$active && props.$mode === "Light" ? "var(--transparent-lavender-active-todo)" 
-    : props.$active && props.$mode === "Dark" ? "var(--dark-mode-transparent-grey-text-medium-variant)" : "var(--dark-mode-background)"};
     margin-bottom: 5px;
-`;
-const StyledWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
+    ${props => props.$mode === "Light" && css`
+        background-color: var(--white);
+
+        ${props => props.$active && css`
+            background-color: var(--transparent-lavender-active-todo);
+        `}
+    `}
+    ${props => props.$mode === "Dark" && css`
+        background-color: var(--dark-mode-background);
+
+        ${props => props.$active && css`
+            background-color: var(--dark-mode-transparent-grey-text-medium-variant);
+        `}
+    `}
 `;
 const StyledItemTitle = styled.p`
     font-size: 16px;
@@ -109,9 +113,5 @@ const StyledText = styled.p`
             color: var(--dark-mode-coral);
         `}
     `}
-`;
-const StyledNoteDateBox = styled.div`
-    display: flex;
-    flex-direction: row;
 `;
 

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { preSwitchActiveTodoList } from "../../store/actionCreators/todoListActionCreators";
 import { AppContext } from "../../context/context";
 import ListButton from "../../ui/ListButton";
-import FlexWrapper from "../../styled/FlexWrapper";
+import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
 
 const ListOfLists = () => {
 
@@ -13,7 +13,7 @@ const ListOfLists = () => {
     const context = useContext(AppContext);
 
     return (
-        <FlexWrapper $margin={"auto auto 5px auto"} $mode={context.mode}>
+        <FlexColumnWrapper $margin={"auto auto 5px auto"} $mode={context.mode}>
             {
                 (lists.length > 0)
                     ?
@@ -30,7 +30,7 @@ const ListOfLists = () => {
                         </ListButton>
                     )) : undefined
             }
-        </FlexWrapper>
+        </FlexColumnWrapper>
     )
 };
 

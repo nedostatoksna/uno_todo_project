@@ -43,6 +43,9 @@ const StyledHeader = styled.h1`
     ${props => props.$large && css `
         font-size: 22px;
     `}
+    ${props => props.$Xlarge && css `
+        font-size: 28px;
+    `}
     ${props => props.$bold && css `
         font-weight: 600;
     `}
