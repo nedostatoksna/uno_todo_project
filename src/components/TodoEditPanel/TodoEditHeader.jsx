@@ -29,6 +29,7 @@ const TodoEditHeader = ({ todo }) => {
     return (
         <FlexRowWrapper $center $margin={"0px 0px 10px 0px"} $spaceBetween>
             <Checkbox
+                sidebar
                 labelPrimary 
                 checkedPrimary 
                 isChecked={todo.isCompleted}

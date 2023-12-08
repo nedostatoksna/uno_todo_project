@@ -14,6 +14,7 @@ const Checkbox = ({ labelPrimary,
                     labelStarGrey, 
                     labelStar, 
                     todoId,
+                    sidebar,
                     checkedPrimary, 
                     starChecked, 
                     margin, 
@@ -23,8 +24,11 @@ const Checkbox = ({ labelPrimary,
     const context = useContext(AppContext);
 
     const setId = () => {
-       const id = labelPrimary ? "inputCompleted" + todoId : "inputImportant" + todoId
-       return id
+        const id = labelPrimary && sidebar ? "sidebarPrimary" + todoId
+        : labelStarGrey ? "sidebarStar" + todoId
+        : labelStar ? "star" + todoId
+        : "primary" + todoId
+        return id
     }
 
     return (
