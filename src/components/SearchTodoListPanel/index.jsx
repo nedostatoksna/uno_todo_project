@@ -16,7 +16,7 @@ const SearchTodoListPanel = () => {
     const serchedTodos = todos.filter(todo => todo.title.toLowerCase().includes(searchString.toLowerCase()));
 
     return (
-        <Background $grey $mode={context.mode} $width={"80vw"}>
+        <Background $grey $mode={context.mode} $widthLarge>
             <StyledHeader $mode={context.mode} $large $darkGrey>Search</StyledHeader>
             <FlexColumnWrapper $Calcheight $center={!serchedTodos.length || !searchString}>
                 {

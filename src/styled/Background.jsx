@@ -11,8 +11,12 @@ export default Background;
 
 const StyledBackground = styled.div` 
     padding: 20px;
-    width: ${props => props.$width};
-
+    ${props => props.$widthLarge && css`
+        width: 80vw;
+    `}
+    ${props => props.$widthSmall && css`
+        width: 60vw;
+    `}
     ${props => props.$mode === "Light" && css`
         ${props => props.$primary && css `
             background-color: var(--lavender-background);
@@ -24,7 +28,6 @@ const StyledBackground = styled.div`
             background-color: var(--search-background); 
         `}
     `} 
-
     ${props => props.$mode === "Dark" && css`
 
         ${props => props.$primary && css `

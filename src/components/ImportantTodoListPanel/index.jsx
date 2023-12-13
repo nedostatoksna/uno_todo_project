@@ -14,7 +14,7 @@ const ImportantTodoListPanel = () => {
     const importantTodos = todos.filter(todo => todo.isImportant);
 
     return (
-        <Background $coral $mode={context.mode} $width={"80vw"}>
+        <Background $coral $mode={context.mode} $widthLarge>
             <StyledHeader $large $mode={context.mode} $white>Important</StyledHeader>
                 <FlexColumnWrapper $Calcheight $center={!importantTodos.length}>
                     {

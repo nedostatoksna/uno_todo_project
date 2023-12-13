@@ -13,7 +13,7 @@ const save = (dynamicContext) => {
         dispatch(toggleUserPanel())
     }
 }; 
-const togglePanelandChangeIsSigningOut = (dynamicContext) => {
+const togglePanelandChangeIsSigningOut = () => {
     return (dispatch) => {
         dispatch(toggleUserPanel())
         dispatch(changeIsSigningOut())

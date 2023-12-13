@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { toggleDeletingList, toggleRenamingList } from "../../store/actionCreators/todoListActionCreators";
-import styled from "styled-components";
 import IconButton from "../../ui/IconButton";
 import StyledHeader from "../../styled/StyledHeader";
 import FlexRowWrapper from "../../styled/FlexRowWrapper";

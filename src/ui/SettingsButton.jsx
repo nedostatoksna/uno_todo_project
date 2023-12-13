@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import sunIcon from "../images/sunIcon.svg";
 import sunIconDark from "../images/sunIconForDark.svg";
 import moonIcon from "../images/moonIcon.svg";
@@ -11,19 +11,17 @@ const SettingsButton = ({ option, onChange, checked }) => {
     const context = useContext(AppContext);
 
     return (
-        <>
-            <StyledContainer $mode={context.mode}>
-                <StyledInput $mode={context.mode} type="radio" value={option} id={option} onChange={onChange} checked={checked}/>
-                <StyledLabel $mode={context.mode} htmlFor={option}>  
-                    {
-                        (option === "Light") ? <img src={context.mode === "Light" ? sunIcon : sunIconDark} alt="sun" /> 
-                            : option === "Dark" ? <img src={context.mode === "Light" ? moonIcon : moonIconDark} alt="moon" /> 
-                            : undefined
-                    }
-                    <StyledMark>{option}</StyledMark>
-                </StyledLabel>
-            </StyledContainer>
-        </>
+        <StyledContainer $mode={context.mode}>
+            <StyledInput $mode={context.mode} type="radio" value={option} id={option} onChange={onChange} checked={checked}/>
+            <StyledLabel $mode={context.mode} htmlFor={option}>  
+                {
+                    (option === "Light") ? <img src={context.mode === "Light" ? sunIcon : sunIconDark} alt="sun" /> 
+                        : option === "Dark" ? <img src={context.mode === "Light" ? moonIcon : moonIconDark} alt="moon" /> 
+                        : undefined
+                }
+                <StyledMark>{option}</StyledMark>
+            </StyledLabel>
+        </StyledContainer>
     )
 };
  
@@ -40,11 +38,16 @@ const StyledLabel = styled.label`
     display: flex;
     border: 1px solid;
     border-color: var(--dark-grey);
-    color: ${props => props.$mode === "Light" ? "var(--light-grey-text)" : "var(--dark-mode-light-grey-text)"};
     line-height: 20px; 
     letter-spacing: 0.1px;
     border-radius: 8px;
     padding: 6px 8px;
+    ${props => props.$mode === "Light" && css`
+        color: var(--light-grey-text);
+    `};
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-light-grey-text);
+    `};
 `;
 const StyledMark = styled.span`
     padding: 0px 8px;
@@ -61,12 +64,24 @@ const StyledContainer = styled.div`
     -ms-user-select: none;
     user-select: none;
     &:hover ${StyledInput} ~ ${StyledLabel} {
-        background-color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text)" : "var(--dark-mode-transparent-grey-text)"};
+        ${props => props.$mode === "Light" && css`
+            background-color: var(--transparent-grey-text);
+        `};
+        ${props => props.$mode === "Dark" && css`
+            background-color: var(--dark-mode-transparent-grey-text);
+        `};
     };
     & ${StyledInput}:checked ~ ${StyledLabel} {
-        background-color: ${props => props.$mode === "Light" ? "var(--primary-lavender)" : "var(--dark-grayish-lavender)"};
-        color: ${props => props.$mode === "Light" ? "var(--dark-purple-button-text)" : "var(--light-lavender)"};
         border: 1px solid;
-        border-color: ${props => props.$mode === "Light" ? "var(--primary-lavender)" : "var(--dark-grayish-lavender)"};
+        ${props => props.$mode === "Light" && css`
+            background-color: var(--primary-lavender);
+            color: var(--dark-purple-button-text);
+            border-color: var(--primary-lavender);
+        `};
+        ${props => props.$mode === "Dark" && css`
+            background-color: var(--dark-grayish-lavender);
+            color: var(--light-lavender);
+            border-color: var(--dark-grayish-lavender);
+        `};
     };
 `;

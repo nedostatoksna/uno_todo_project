@@ -16,7 +16,7 @@ const AllTodosPanel = () => {
     const completedTodos = allTodos.filter(todo => todo.isCompleted);
 
     return (
-        <Background $mode={context.mode} $primary $width={"80vw"}>
+        <Background $mode={context.mode} $primary $widthLarge>
             <StyledHeader $large $mode={context.mode} $white>Tasks</StyledHeader>
             <Tabs />
             <FlexColumnWrapper $height $spaceBetween>

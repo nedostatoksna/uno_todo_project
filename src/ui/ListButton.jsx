@@ -30,12 +30,12 @@ const StyledListButton = styled.button`
     text-align: start;
     background-repeat: no-repeat;
     background-color: transparent;
-    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
     margin: ${props => props.$margin || "0px 0px 5px 0px"};
     background-position: center left 8px, center right 8px;
 
 
     ${props => props.$mode === "Light" && css `
+        color: var(--black);
         ${props => props.$houseIcon && css `
             background-image: url(${houseIcon}), url(${arrowIcon});
         `}
@@ -54,6 +54,7 @@ const StyledListButton = styled.button`
     `}
 
     ${props => props.$mode === "Dark" && css `
+        color: var(--dark-mode-white-text);
         ${props => props.$houseIcon && css `
             background-image: url(${houseIconDark}), url(${arrowIconDark});
         `}

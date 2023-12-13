@@ -12,7 +12,7 @@ const TodoListInterface = () => {
     const isShowingTodoEditPanel = useSelector(state => state.todoPanelUI.isShowingEditPanel);
 
     return (
-        <Background $primary $mode={context.mode} $width={isShowingTodoEditPanel ? "60vw" : "80vw"}>
+        <Background $primary $mode={context.mode} $width={isShowingTodoEditPanel ? "$widthSmall" : "$widthLarge"}>
             {
                 lists.map(list => (
                     list.id === activeList ? <TodoListPanel key={list.id} list={list}/> : undefined

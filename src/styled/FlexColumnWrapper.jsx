@@ -32,6 +32,9 @@ const StyledFlexWrapper = styled.div`
     ${props => props.$height100 && css `
         height: 100%;
     `}
+    ${props => props.$width100 && css `
+        width: 100%;
+    `}
     ${props => props.$flexStart && css `
         align-items: flex-start;
     `}

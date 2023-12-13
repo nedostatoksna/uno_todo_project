@@ -6,7 +6,7 @@ import StyledSubHeader from "../../styled/StyledSubHeader";
 const Notice = () => {
 
     return (
-        <FlexColumnWrapper $height $center $width={"100%"} $smallPaddingTop>
+        <FlexColumnWrapper $height $center $width100 $smallPaddingTop>
             <StyledHeader $mediumLineHeight $white $smallMargin $Xlarge>Important Tasks</StyledHeader>
             <StyledSubHeader $marginBottom60 $white>Try starring some tasks to see them here.</StyledSubHeader>
         </FlexColumnWrapper>

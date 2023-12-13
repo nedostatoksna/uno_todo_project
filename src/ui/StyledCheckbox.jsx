@@ -15,9 +15,10 @@ const Checkbox = ({ labelPrimary,
                     labelStar, 
                     todoId,
                     sidebar,
-                    checkedPrimary, 
+                    checkedPrimary,
+                    leftPosition,
+                    rightPosition,
                     starChecked, 
-                    margin, 
                     onChangeHandler, 
                     isChecked }) => { 
 
@@ -32,7 +33,7 @@ const Checkbox = ({ labelPrimary,
     }
 
     return (
-        <StyledContainer $mode={context.mode} $margin={margin} $checked={checkedPrimary} $starChecked={starChecked}>
+        <StyledContainer $mode={context.mode} $leftPosition={leftPosition} $rightPosition={rightPosition} $checked={checkedPrimary} $starChecked={starChecked}>
                 <StyledInput 
                     $mode={context.mode} 
                     type="checkbox" 
@@ -85,7 +86,7 @@ const StyledLabel = styled.label`
 `;
 const StyledContainer = styled.div`
     padding: 10px 10px;
-    margin: ${props => props.$margin};
+    margin: 10px 0;
     display: block;
     position: relative;
     cursor: pointer;
@@ -94,7 +95,12 @@ const StyledContainer = styled.div`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-
+    ${props => props.$leftPosition && css `
+        margin-right: 16px;
+    `}
+    ${props => props.$rightPosition && css `
+        margin-left: 16px;
+    `}
     & ${StyledInput}:checked ~ ${StyledLabel} {
         ${props => props.$starChecked && css `
             background-image: ${props.$mode === "Light" ? `url(${starFilled})` : `url(${starFilledDark})`};

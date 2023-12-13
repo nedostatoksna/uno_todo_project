@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeIsSigningOut } from "../../store/actionCreators/userPanelActionCreators";
 import { AppContext } from "../../context/context";
-import { toggleDeletingList } from "../../store/actionCreators/todoListActionCreators";
+import { switchActiveTodoListId, toggleDeletingList } from "../../store/actionCreators/todoListActionCreators";
 import { toggleDeletingTodo } from "../../store/actionCreators/todoPanelActionCreators";
 import { deleteList, deleteTodo } from "../../store/actionCreators/dataListActionCreators.js";
 import Modal from "../../ui/Modal";
@@ -16,6 +16,7 @@ const BreakModal = ({ actionType }) => {
 
     const preDeleteList = () => {
         dispatch(deleteList(activeListId))
+        dispatch(switchActiveTodoListId(""))
         dispatch(toggleDeletingList())
     };
 

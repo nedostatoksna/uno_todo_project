@@ -34,7 +34,7 @@ const Todo = ({ todo }) => {
             <Checkbox 
                     labelPrimary 
                     checkedPrimary
-                    margin={"10px 16px 10px 0px"} 
+                    leftPosition
                     isChecked={todo.isCompleted}
                     todoId={todo.id}
                     onChangeHandler={() => {dispatch(changeCompleted(todo.parentListId, todo.id, !todo.isCompleted))}} 
@@ -53,7 +53,7 @@ const Todo = ({ todo }) => {
             <Checkbox 
                 labelStar 
                 starChecked 
-                margin={"10px 0px 10px 16px"} 
+                rightPosition
                 isChecked={todo.isImportant}
                 todoId={todo.id}
                 onChangeHandler={() => {dispatch(changeImportant(todo.parentListId, todo.id, !todo.isImportant))}}

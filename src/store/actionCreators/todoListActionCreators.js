@@ -42,7 +42,7 @@ const preShowImportant = () => {
     }
 };
 
-const preShowAllTodos = () => {
+const showAllTodos = () => {
     return (dispatch) => {
         dispatch(switchActiveTodoListId(""))
         dispatch(switchVisibleImportant(false))
@@ -77,7 +77,7 @@ export {
     toggleShowingAllTodos,
     preSwitchActiveTodoList,
     preShowImportant,
-    preShowAllTodos,
+    showAllTodos,
     cancelSearch,
     preToggleSearch,
     toggleRenamingList };

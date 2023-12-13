@@ -13,6 +13,7 @@ import AllTodosPanel from "../AllTodosPanel";
 import UserInterface from "../modals/UserInterface";
 import AddDueDate from "../modals/AddDueDateModal";
 import Calendar from "../modals/Calendar";
+import NoListsNoActiveListsNotice from "../NoListsNoActiveListsNotice";
 
 const TodoApp = () => {
 
@@ -71,6 +72,7 @@ const TodoApp = () => {
                         ? <SearchTodoListPanel /> 
                         : isShowingImportant ? <ImportantTodoListPanel /> 
                         : isShowingAllTodos ? <AllTodosPanel />
+                        : !activeList ? <NoListsNoActiveListsNotice />
                         : <TodoListInterface />  }
                     { activeTodoId.length && isShowingEditPanel ? <TodoEditPanel /> : undefined }
             </Wrapper>
