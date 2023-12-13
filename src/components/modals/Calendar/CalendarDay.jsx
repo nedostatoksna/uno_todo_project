@@ -15,8 +15,7 @@ const CalendarDay = ({ day, year, setChosenDay }) => {
 
     const preChangeSelectedDate = (day) => {
         setChosenDay(day)
-        const dateObj = new Date(year, day.month, day.date);
-        dispatch(changeSelectedDate(dateObj))
+        dispatch(changeSelectedDate({ activeYear: year, activeMonthId: day.month, activeDate: day.date }))
     }
 
     return (

@@ -16,7 +16,6 @@ const TodoEditPanel = () => {
 
     const setActiveTodo = () => {
         let result
-        if (activeTodoId.length) {
             lists.map(list => 
                 (list.id === activeListId)
                     ? list.todos.map(todo => (
@@ -24,7 +23,6 @@ const TodoEditPanel = () => {
                         ? result = todo : undefined
                     )) : undefined )
             return result;
-        }
     };
     const activeTodo = setActiveTodo();
 

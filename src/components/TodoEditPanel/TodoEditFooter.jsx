@@ -4,9 +4,8 @@ import { AppContext } from "../../context/context";
 import styled from "styled-components";
 import IconButton from "../../ui/IconButton";
 import { fullMonths, threeLettersWeekDays } from "../../data/calendar";
-import { toggleTodoEditPanel, toggleTodoEditPanelAndDeleteTodo } from "../../store/actionCreators/todoPanelActionCreators";
+import { toggleDeletingTodo, toggleTodoEditPanel } from "../../store/actionCreators/todoPanelActionCreators";
 import FlexRowWrapper from "../../styled/FlexRowWrapper";
-import { deleteTodoAndCloseTodoEditPanel } from "../../store/actionCreators/thunks";
 
 const TodoEditFooter = ({ todo }) => {
 
@@ -25,7 +24,7 @@ const TodoEditFooter = ({ todo }) => {
     return (
         <FlexRowWrapper $center $spaceBetween>
                     <IconButton
-                        onClick={() => {dispatch(toggleTodoEditPanel(false))}}
+                        onClick={() => {dispatch(toggleTodoEditPanel({ boolean: false}))}}
                         $type={"arrowLeft"}
                         alt="arrow left" 
                         $large
@@ -35,7 +34,7 @@ const TodoEditFooter = ({ todo }) => {
                         Created {prepareDateStringForDisplay(todo.createDate)}
                     </StyledText>
                     <IconButton
-                        onClick={() => {dispatch(deleteTodoAndCloseTodoEditPanel({ listId: todo.parentListId, todoId: todo.id }))}}
+                        onClick={() => {dispatch(toggleDeletingTodo())}}
                         $type={"deleteGrey"}
                         alt="garbage bin outline" 
                         $large

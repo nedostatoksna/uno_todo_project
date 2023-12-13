@@ -41,7 +41,7 @@ const AddDueDate = ({ todo }) => {
                                     $margin={"0px 0px 0px 16px"}
                                     alt="grey cross"
                                     $small
-                                    onClick={() => {dispatch(deleteDeadline(todo.parentListId, todo.id))}}
+                                    onClick={() => {dispatch(deleteDeadline({ listId: todo.parentListId, todoId: todo.id }))}}
                                     $mode={context.mode}
                                 ></IconButton> : undefined
                     }

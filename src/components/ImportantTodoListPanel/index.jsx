@@ -8,10 +8,12 @@ import Background from "../../styled/Background";
 import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
 
 const ImportantTodoListPanel = () => {
+    
     const context = useContext(AppContext);
     const lists = useSelector(state => state.dataLists);
     const todos = lists.map(list => list.todos).flat(1);
     const importantTodos = todos.filter(todo => todo.isImportant);
+    console.log(importantTodos);
 
     return (
         <Background $coral $mode={context.mode} $widthLarge>

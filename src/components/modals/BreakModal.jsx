@@ -2,11 +2,11 @@ import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeIsSigningOut } from "../../store/actionCreators/userPanelActionCreators";
 import { AppContext } from "../../context/context";
-import { switchActiveTodoListId, toggleDeletingList } from "../../store/actionCreators/todoListActionCreators";
+import { toggleDeletingList } from "../../store/actionCreators/todoListActionCreators";
 import { toggleDeletingTodo } from "../../store/actionCreators/todoPanelActionCreators";
-import { deleteList, deleteTodo } from "../../store/actionCreators/dataListActionCreators.js";
 import Modal from "../../ui/Modal";
 import styled from "styled-components";
+import { deleteListAndCloseModal, deleteTodoAndCloseModal } from "../../store/actionCreators/thunks";
 
 const BreakModal = ({ actionType }) => {
 
@@ -14,17 +14,6 @@ const BreakModal = ({ actionType }) => {
     const context = useContext(AppContext);
     const activeListId = useSelector(state => state.todoListUI.activeListId);
     const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
-
-    const preDeleteList = () => {
-        dispatch(deleteList({ listId: activeListId }))
-        dispatch(switchActiveTodoListId())
-        dispatch(toggleDeletingList())
-    };
-
-    const preDeleteTodo = () => {
-        dispatch(deleteTodo(activeListId, activeTodoId))
-        dispatch(toggleDeletingTodo())
-    };
 
     const header = actionType === "signOut" ? "Sign Out" : "Are you sure?";
 
@@ -44,8 +33,8 @@ const BreakModal = ({ actionType }) => {
     const setFunction = (type) => {
         switch (type) {
             case "signOut": return dispatch(changeIsSigningOut())
-            case "deleteList": return preDeleteList()
-            default: return preDeleteTodo()
+            case "deleteList": return dispatch(deleteListAndCloseModal({ listId: activeListId }))
+            default: return dispatch(deleteTodoAndCloseModal({listId: activeListId, todoId: activeTodoId }))
         }
     }
 

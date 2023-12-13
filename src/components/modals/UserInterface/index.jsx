@@ -14,7 +14,12 @@ const UserInterface = () => {
 
     const dispatch = useDispatch();
     const context = useContext(AppContext);
-    const [dynamicContext, setDynamicContext] = useState(context);
+    const dynamicContextObj = {
+        palette: context.palette,
+        lang: context.lang,
+        mode: context.mode,
+    };
+    const [dynamicContext, setDynamicContext] = useState(dynamicContextObj);
 
     return (
         <Modal 

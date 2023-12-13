@@ -14,13 +14,14 @@ const Todo = ({ todo }) => {
     const dispatch = useDispatch();
     const context = useContext(AppContext);
     const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
+    const isShowingAllTasks = useSelector(state => state.todoListUI.isShowingAllTodos);
     const deadLineForDisplay = todo.deadline.deadlineString;
 
     const presetActiveTodoAndOpenEditPanel = (e) => {
         if (e.target.tagName !== "INPUT") {
             dispatch(setActiveTodoAndOpenTodoEditPanel({
                                                     todoId: todo.id, 
-                                                    activeListId: todo.parentListId,
+                                                    listId: todo.parentListId,
                                                     activeMonth: fullMonths[todo.deadline.deadlineObj.getMonth()].title, 
                                                     activeMonthId: fullMonths[todo.deadline.deadlineObj.getMonth()].id, 
                                                     activeYear: todo.deadline.deadlineObj.getFullYear(), 

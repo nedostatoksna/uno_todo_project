@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleCreatingList, toggleCreatingTodo, toggleRenamingList } from "../../store/actionCreators/todoListActionCreators";
-import { addTodoToList, createList, renameList } from "../../store/actionCreators/dataListActionCreators.js.js";
+import { addTodoToList, createList, renameList } from "../../store/actionCreators/dataListActionCreators.js";
 import TextInput from "../../ui/TextInput";
 import { AppContext } from "../../context/context"; 
 import Modal from "../../ui/Modal";

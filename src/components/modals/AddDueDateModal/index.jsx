@@ -2,9 +2,7 @@ import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { AppContext } from "../../../context/context";
 import Modal from "../../../ui/Modal";
-import { toggleChooseDeadlinePanel, 
-         toggleDaedlinePanelAndOpenCalendar, 
-         toggleDaedlinePanelAndSetDeadline } from "../../../store/actionCreators/todoPanelActionCreators";
+import { toggleChooseDeadlinePanel } from "../../../store/actionCreators/todoPanelActionCreators";
 import ListButton from "../../../ui/ListButton";
 import { dateOptions } from "../../../data/dateOptions";
 import FlexColumnWrapper from "../../../styled/FlexColumnWrapper";
@@ -15,19 +13,32 @@ const AddDueDate = ({ todoId, listId }) => {
     const dispatch = useDispatch();
     const context = useContext(AppContext);
     const today = new Date();
-    const dateObjTomorrow = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
-    const dateObjNextWeek = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
 
     const preSetDueDate = (option) => {
 
         if (option === "Pick a Date") {
             dispatch(closeDeadlineModalAndOpenCalendar())
         } else if (option === "Tomorrow") {
-            dispatch(setDeadlineAndCloseDeadlineModal({ listId, todoId, deadline: option, deadlineObj: dateObjTomorrow }));
+            dispatch(setDeadlineAndCloseDeadlineModal({ listId, 
+                                                        todoId, 
+                                                        todoDeadlineWord: option, 
+                                                        activeYear: today.getFullYear(), 
+                                                        activeMonthId: today.getMonth(), 
+                                                        activeDate: today.getDate() + 1 }));
         } else if (option === "Next Week") {
-            dispatch(setDeadlineAndCloseDeadlineModal({ listId, todoId, deadline: option, deadlineObj: dateObjNextWeek }));
+            dispatch(setDeadlineAndCloseDeadlineModal({ listId, 
+                                                        todoId, 
+                                                        todoDeadlineWord: option, 
+                                                        activeYear: today.getFullYear(), 
+                                                        activeMonthId: today.getMonth(), 
+                                                        activeDate: today.getDate() + 7 }));
         } else {
-            dispatch(setDeadlineAndCloseDeadlineModal({ listId, todoId, deadline: option, deadlineObj: today }));
+            dispatch(setDeadlineAndCloseDeadlineModal({ listId, 
+                                                        todoId, 
+                                                        todoDeadlineWord: option, 
+                                                        activeYear: today.getFullYear(), 
+                                                        activeMonthId: today.getMonth(), 
+                                                        activeDate: today.getDate() }));
         }
     }
 

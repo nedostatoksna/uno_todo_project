@@ -105,7 +105,7 @@ const dataListReducer = (state = dataInitialState, {type, payload}) => {
                         if (todo.id === payload.todoId) return {
                             ...todo, deadline: {
                                 deadlineString: payload.todoDeadlineWord,
-                                deadlineObj: payload.deadlineObj
+                                deadlineObj: new Date(payload.activeYear, payload.activeMonthId, payload.activeDate)
                             }
                         }
                         return todo

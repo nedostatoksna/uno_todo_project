@@ -1,44 +1,44 @@
 import { changeSelectedDate, changeSelectedMonth, changeSelectedYear, switchToNextMonth, switchToPrevMonth } from "./calendarActionCreators.js";
-import { chooseDeadline, deleteTodo } from "./dataListActionCreators.js.js";
-import { setSearchQuery, switchActiveTodoListId, switchVisibleImportant, toggleIsSearching, toggleShowingAllTodos } from "./todoListActionCreators.js";
-import { changeActiveTodoId, toggleChooseDeadlinePanel, toggleIsShowingCalendar, toggleTodoEditPanel } from "./todoPanelActionCreators.js";
-import { changeIsSigningOut, toggleUserPanel } from "./userPanelActionCreators.js";
+import { chooseDeadline, deleteList, deleteTodo } from "./dataListActionCreators.js";
+import { setSearchQuery, switchActiveTodoListId, switchVisibleImportant, toggleDeletingList, toggleIsSearching, toggleShowingAllTodos } from "./todoListActionCreators.js";
+import { changeActiveTodoId, toggleChooseDeadlinePanel, toggleDeletingTodo, toggleIsShowingCalendar, toggleTodoEditPanel } from "./todoPanelActionCreators.js";
+import { saveSettings, toggleUserPanel } from "./userPanelActionCreators.js";
 
 const switchActiveTodoList = (payload) => {
     return (dispatch) => {
         dispatch(switchActiveTodoListId(payload))
-        dispatch(toggleShowingAllTodos(false))
-        dispatch(switchVisibleImportant(false))
-        dispatch(toggleTodoEditPanel(false))
-        dispatch(toggleIsSearching(false))
+        dispatch(toggleShowingAllTodos({ boolean: false }))
+        dispatch(switchVisibleImportant({ boolean: false }))
+        dispatch(toggleTodoEditPanel({ boolean: false }))
+        dispatch(toggleIsSearching({ boolean: false }))
         dispatch(changeActiveTodoId(""))
     }
 }
 const openImportantTodoListPanel = () => {
     return (dispatch) => {
         dispatch(switchActiveTodoListId(""))
-        dispatch(toggleShowingAllTodos(false))
-        dispatch(switchVisibleImportant(true))
+        dispatch(toggleShowingAllTodos({ boolean: false }))
+        dispatch(switchVisibleImportant({ boolean: true }))
         dispatch(changeActiveTodoId(""))
     }
 }
 const openAllTodosPanel = () => {
     return (dispatch) => {
         dispatch(switchActiveTodoListId(""))
-        dispatch(switchVisibleImportant(false))
-        dispatch(toggleShowingAllTodos(true))
+        dispatch(switchVisibleImportant({ boolean: false }))
+        dispatch(toggleShowingAllTodos({ boolean: true }))
         dispatch(changeActiveTodoId(""))
     }
 }
 const openSearchPanel = () => {
     return (dispatch) => {
         dispatch(changeActiveTodoId(""))
-        dispatch(toggleIsSearching(true))
+        dispatch(toggleIsSearching({ boolean: true }))
     }
 }
 const cancelSearchAndCloseSearchPanel = () => {
     return (dispatch) => {
-        dispatch(toggleIsSearching(false))
+        dispatch(toggleIsSearching({ boolean: false }))
         dispatch(setSearchQuery(""))
     }
 }
@@ -46,7 +46,7 @@ const setActiveTodoAndOpenTodoEditPanel = (payload) => {
     return (dispatch) => {
         dispatch(changeActiveTodoId(payload)) 
         dispatch(switchActiveTodoListId(payload))
-        dispatch(toggleTodoEditPanel(true))
+        dispatch(toggleTodoEditPanel({ boolean: true }))
         dispatch(changeSelectedMonth(payload))
         dispatch(changeSelectedYear(payload))
         dispatch(changeSelectedDate(payload))
@@ -67,7 +67,7 @@ const closeDeadlineModalAndOpenCalendar = () => {
 }
 const deleteTodoAndCloseTodoEditPanel = (payload) => {
     return (dispatch) => {
-        dispatch(toggleTodoEditPanel(false))
+        dispatch(toggleTodoEditPanel({ boolean: false }))
         dispatch(deleteTodo(payload))
     }
 }
@@ -91,8 +91,22 @@ const setDeadlineAndCloseCalendar = (payload) => {
 }
 const saveUserSettings = (payload) => {
     return (dispatch) => {
-        dispatch(saveUserSettings(payload))
+        dispatch(saveSettings(payload))
         dispatch(toggleUserPanel())
+    }
+}
+const deleteListAndCloseModal = (payload) => {
+    return (dispatch) => {
+        dispatch(deleteList(payload))
+        dispatch(switchActiveTodoListId({listId: ""}))
+        dispatch(toggleDeletingList())
+    }
+}
+const deleteTodoAndCloseModal = (payload) => {
+    return (dispatch) => {
+        dispatch(deleteTodo(payload))
+        dispatch(toggleTodoEditPanel({ boolean: false }))
+        dispatch(toggleDeletingTodo())
     }
 }
 
@@ -109,5 +123,7 @@ export {
     switchToNextMonthAndYear,
     switchToPrevMonthAndYear,
     setDeadlineAndCloseCalendar,
-    saveUserSettings
+    saveUserSettings,
+    deleteListAndCloseModal,
+    deleteTodoAndCloseModal
 };
