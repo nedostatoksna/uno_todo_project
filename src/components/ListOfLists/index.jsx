@@ -11,6 +11,7 @@ const ListOfLists = () => {
     const activeList = useSelector(state => state.todoListUI.activeListId);
     const dispatch = useDispatch();
     const context = useContext(AppContext);
+    const isShowingAllTasks = useSelector(state => state.todoListUI.isShowingAllTodos);
 
     return (
         <FlexColumnWrapper $margin={"auto auto 5px auto"} $mode={context.mode}>
@@ -19,7 +20,7 @@ const ListOfLists = () => {
                     ?
                     lists.map(list => (
                         <ListButton 
-                            $active={list.id === activeList}
+                            $active={!isShowingAllTasks && list.id === activeList}
                             $listIcon
                             key={list.id} 
                             $mode={context.mode}

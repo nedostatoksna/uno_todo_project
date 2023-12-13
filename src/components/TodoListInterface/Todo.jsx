@@ -14,7 +14,6 @@ const Todo = ({ todo }) => {
     const dispatch = useDispatch();
     const context = useContext(AppContext);
     const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
-    const isShowingAllTasks = useSelector(state => state.todoListUI.isShowingAllTodos);
     const deadLineForDisplay = todo.deadline.deadlineString;
 
     const presetActiveTodoAndOpenEditPanel = (e) => {

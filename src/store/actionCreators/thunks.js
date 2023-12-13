@@ -39,7 +39,7 @@ const openSearchPanel = () => {
 const cancelSearchAndCloseSearchPanel = () => {
     return (dispatch) => {
         dispatch(toggleIsSearching({ boolean: false }))
-        dispatch(setSearchQuery(""))
+        dispatch(setSearchQuery({ searchString: "" }))
     }
 }
 const setActiveTodoAndOpenTodoEditPanel = (payload) => {
