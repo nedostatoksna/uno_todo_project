@@ -11,28 +11,28 @@ const switchActiveTodoList = (payload) => {
         dispatch(switchVisibleImportant({ boolean: false }))
         dispatch(toggleTodoEditPanel({ boolean: false }))
         dispatch(toggleIsSearching({ boolean: false }))
-        dispatch(changeActiveTodoId(""))
+        dispatch(changeActiveTodoId({ todoId: "" }))
     }
 }
 const openImportantTodoListPanel = () => {
     return (dispatch) => {
-        dispatch(switchActiveTodoListId(""))
+        dispatch(switchActiveTodoListId({ listId: "" }))
         dispatch(toggleShowingAllTodos({ boolean: false }))
         dispatch(switchVisibleImportant({ boolean: true }))
-        dispatch(changeActiveTodoId(""))
+        dispatch(changeActiveTodoId({ todoId: "" }))
     }
 }
 const openAllTodosPanel = () => {
     return (dispatch) => {
-        dispatch(switchActiveTodoListId(""))
+        dispatch(switchActiveTodoListId({ listId: "" }))
         dispatch(switchVisibleImportant({ boolean: false }))
         dispatch(toggleShowingAllTodos({ boolean: true }))
-        dispatch(changeActiveTodoId(""))
+        dispatch(changeActiveTodoId({ todoId: "" }))
     }
 }
 const openSearchPanel = () => {
     return (dispatch) => {
-        dispatch(changeActiveTodoId(""))
+        dispatch(changeActiveTodoId({ todoId: "" }))
         dispatch(toggleIsSearching({ boolean: true }))
     }
 }
