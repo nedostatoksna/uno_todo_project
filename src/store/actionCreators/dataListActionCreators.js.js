@@ -12,19 +12,18 @@ import  {
     DELETE_DEADLINE, 
     DELETE_TODO } from "../actions/dataTodoActions";
 
-const createList = (listTitle) => ({ type: CREATE_LIST, payload: { listTitle } });
-const renameList = (listId, listTitle) => ({ type: RENAME_LIST, payload: { listId, listTitle } });
-const deleteList = (listId) => ({ type: DELETE_LIST, payload: { listId } });
-const addTodoToList = (listId, todoTitle) => ({ type: ADD_TODO_TO_LIST, payload: { listId, todoTitle } });
+const createList = (payload) => ({ type: CREATE_LIST, payload });
+const renameList = (payload) => ({ type: RENAME_LIST, payload });
+const deleteList = (payload) => ({ type: DELETE_LIST, payload });
+const addTodoToList = (payload) => ({ type: ADD_TODO_TO_LIST, payload });
 
-const changeCompleted = (listId, todoId, isCompleted) => ({ type: CHANGE_COMPLETED, payload: { listId, todoId, isCompleted } });
-const changeImportant = (listId, todoId, isImportant) => ({ type: CHANGE_IMPORTANT, payload: { listId, todoId, isImportant } });
-const changeTitle = (listId, todoId, todoTitle) => ({ type: CHANGE_TITLE, payload: { listId, todoId, todoTitle } });
-const changeNote = (listId, todoId, todoNote) => ({ type: CHANGE_NOTE, payload: { listId, todoId, todoNote } });
-
-const chooseDeadline = (listId, todoId, todoDeadlineWord, deadlineObj) => ({ type: CHOOSE_DEADLINE, payload: { listId, todoId, todoDeadlineWord, deadlineObj } });
-const deleteDeadline = (listId, todoId) => ({ type: DELETE_DEADLINE, payload: { listId, todoId } });
-const deleteTodo = (listId, todoId) => ({ type: DELETE_TODO, payload: { listId, todoId } });
+const changeCompleted = (payload) => ({ type: CHANGE_COMPLETED, payload });
+const changeImportant = (payload) => ({ type: CHANGE_IMPORTANT, payload });
+const changeTitle = (payload) => ({ type: CHANGE_TITLE, payload });
+const changeNote = (payload) => ({ type: CHANGE_NOTE, payload });
+const deleteTodo = (payload) => ({ type: DELETE_TODO, payload });
+const chooseDeadline = (payload) => ({ type: CHOOSE_DEADLINE, payload });
+const deleteDeadline = (payload) => ({ type: DELETE_DEADLINE, payload });
 
 export { 
     createList, 

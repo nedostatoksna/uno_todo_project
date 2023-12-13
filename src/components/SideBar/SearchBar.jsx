@@ -1,12 +1,13 @@
 import React, { useCallback, useContext, useEffect, useRef } from "react";
 import { useDispatch, useSelector} from "react-redux";
-import { cancelSearch, preToggleSearch, setSearchQuery } from "../../store/actionCreators/todoListActionCreators";
+import { setSearchQuery } from "../../store/actionCreators/todoListActionCreators";
 import { AppContext } from "../../context/context";
 import Divider from "../../ui/Divider";
 import styled from "styled-components";
 import IconButton from "../../ui/IconButton";
 import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
 import FlexRowWrapper from "../../styled/FlexRowWrapper";
+import { cancelSearchAndCloseSearchPanel, openSearchPanel } from "../../store/actionCreators/thunks";
 
 const SearchBar = () => {
 
@@ -17,7 +18,7 @@ const SearchBar = () => {
     const searchQuery = useSelector(state => state.todoListUI.searchQuery);
 
     const cashedPreSearch = useCallback(() => {
-        dispatch(preToggleSearch());
+        dispatch(openSearchPanel());
     }, [dispatch]);
 
     useEffect(() => {
@@ -46,7 +47,7 @@ const SearchBar = () => {
                                     placeholder="Search" 
                                     value={searchQuery}
                                     id="searchInput"
-                                    onChange={(e) => {dispatch(setSearchQuery(e.target.value))}}
+                                    onChange={(e) => {dispatch(setSearchQuery({ searchString: e.target.value }))}}
                                 />
                         </FlexColumnWrapper>
                 </FlexRowWrapper>
@@ -57,7 +58,7 @@ const SearchBar = () => {
                                     $margin={"17px 16px 17px 8px"}
                                     alt="cross"
                                     $small
-                                    onClick={() => {dispatch(cancelSearch())}}
+                                    onClick={() => {dispatch(cancelSearchAndCloseSearchPanel())}}
                                     $mode={context.mode}
                                 ></IconButton> : undefined
                     }

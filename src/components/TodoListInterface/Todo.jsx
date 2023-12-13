@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import Checkbox from "../../ui/StyledCheckbox";
 import styled, { css } from "styled-components";
 import { AppContext } from "../../context/context";
-import { setActiveTodoAndOpenEditPanel } from "../../store/actionCreators/todoPanelActionCreators";
 import { fullMonths } from "../../data/calendar";
 import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
 import { changeCompleted, changeImportant } from "../../store/actionCreators/dataListActionCreators.js";
 import FlexRowWrapper from "../../styled/FlexRowWrapper.jsx";
+import { setActiveTodoAndOpenTodoEditPanel } from "../../store/actionCreators/thunks.js";
 
 const Todo = ({ todo }) => {
 
@@ -17,14 +17,14 @@ const Todo = ({ todo }) => {
     const deadLineForDisplay = todo.deadline.deadlineString;
 
     const presetActiveTodoAndOpenEditPanel = (e) => {
-        if (!e.target.id.includes("input")) {
-            dispatch(setActiveTodoAndOpenEditPanel(
-                                                    todo.id, 
-                                                    todo.parentListId,
-                                                    fullMonths[todo.deadline.deadlineObj.getMonth()].title, 
-                                                    fullMonths[todo.deadline.deadlineObj.getMonth()].id, 
-                                                    todo.deadline.deadlineObj.getFullYear(), 
-                                                    todo.deadline.deadlineObj.getDate())) 
+        if (e.target.tagName !== "INPUT") {
+            dispatch(setActiveTodoAndOpenTodoEditPanel({
+                                                    todoId: todo.id, 
+                                                    activeListId: todo.parentListId,
+                                                    activeMonth: fullMonths[todo.deadline.deadlineObj.getMonth()].title, 
+                                                    activeMonthId: fullMonths[todo.deadline.deadlineObj.getMonth()].id, 
+                                                    activeYear: todo.deadline.deadlineObj.getFullYear(), 
+                                                    activeDate: todo.deadline.deadlineObj.getDate() })) 
         }
     }
 
@@ -37,7 +37,7 @@ const Todo = ({ todo }) => {
                     leftPosition
                     isChecked={todo.isCompleted}
                     todoId={todo.id}
-                    onChangeHandler={() => {dispatch(changeCompleted(todo.parentListId, todo.id, !todo.isCompleted))}} 
+                    onChangeHandler={() => {dispatch(changeCompleted({ listId: todo.parentListId, todoId: todo.id, isCompleted: !todo.isCompleted }))}} 
                 />
                 <FlexColumnWrapper $Calcheight $flexStart $padding={"8px 0px"}>
                     <StyledItemTitle $mode={context.mode}>{todo.title}</StyledItemTitle>
@@ -56,7 +56,7 @@ const Todo = ({ todo }) => {
                 rightPosition
                 isChecked={todo.isImportant}
                 todoId={todo.id}
-                onChangeHandler={() => {dispatch(changeImportant(todo.parentListId, todo.id, !todo.isImportant))}}
+                onChangeHandler={() => {dispatch(changeImportant({ listId: todo.parentListId, todoId: todo.id, isImportant: !todo.isImportant }))}}
             />
         </StyledItemBox>
     )

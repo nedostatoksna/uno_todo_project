@@ -7,10 +7,10 @@ import MonthYearSelector from "./MonthYearSelector";
 import { fullMonths, threeLettersWeekDays }  from "../../../data/calendar";
 import NextPrevSwitcher from "./NextPrevSwitcher";
 import { toggleIsShowingCalendar } from "../../../store/actionCreators/todoPanelActionCreators";
-import { changeDeadlineAndCloseCalendar } from "../../../store/actionCreators/calendarActionCreators";
 import { useState } from "react";
 import FlexColumnWrapper from "../../../styled/FlexColumnWrapper";
 import FlexRowWrapper from "../../../styled/FlexRowWrapper";
+import { setDeadlineAndCloseCalendar } from "../../../store/actionCreators/thunks";
 
 const Calendar = () => {
 
@@ -46,7 +46,7 @@ const Calendar = () => {
            if (chosenDay) {
                 const dateString = prepareDateStringForDisplay(year, chosenDay.month, chosenDay.date);
                 const dateObj = new Date(year, chosenDay.month, chosenDay.date);
-                dispatch(changeDeadlineAndCloseCalendar(dateObj, activeListId, activeTodoId, dateString))
+                dispatch(setDeadlineAndCloseCalendar({ newDate: dateObj, listId: activeListId, todoId: activeTodoId, todoDeadlineWord: dateString }))
            } else {
                 dispatch(toggleIsShowingCalendar())
            }

@@ -44,7 +44,7 @@ const dataListReducer = (state = dataInitialState, {type, payload}) => {
                             deadlineString: "",
                             deadlineObj: new Date()
                         },
-                        note: null
+                        note: ""
                     }
                 ]
             }

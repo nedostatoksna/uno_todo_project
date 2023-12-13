@@ -86,8 +86,13 @@ const StyledButton = styled.button`
     `}
     ${props => props.$purpleHover && css `
         &:hover {
-        background: var(--light-lavender);
-        color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
+            background: var(--light-lavender);
+            ${props => props.$mode === "Light" && css`
+                color: var(--primary-purple);
+            `} 
+            ${props => props.$mode === "Dark" && css`
+                color: var(--dark-mode-primary-purple);
+            `}
         }
     `}
 `;

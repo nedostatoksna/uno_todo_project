@@ -4,11 +4,11 @@ import UserCard from "./UserCard";
 import { AppContext } from "../../../context/context";
 import Divider from "../../../ui/Divider";
 import Modal from "../../../ui/Modal";
-import { save, toggleUserPanel } from "../../../store/actionCreators/userPanelActionCreators";
+import { toggleUserPanel } from "../../../store/actionCreators/userPanelActionCreators";
 import About from "./About";
-import styled from "styled-components";
 import GeneralSettings from "./GeneralSettings";
 import FlexColumnWrapper from "../../../styled/FlexColumnWrapper";
+import { saveUserSettings } from "../../../store/actionCreators/thunks";
 
 const UserInterface = () => {
 
@@ -23,7 +23,7 @@ const UserInterface = () => {
             buttonText={"Save"} 
             primarySaveBtn
             onCancelClickHandler={() => {dispatch(toggleUserPanel())}} 
-            onСonfirmationClick={() => {dispatch(save(dynamicContext))}}
+            onСonfirmationClick={() => {dispatch(saveUserSettings({ dynamicContext }))}}
         >
             <UserCard />
             <Divider $mode={context.mode} $height={"1px"} />

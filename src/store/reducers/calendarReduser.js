@@ -15,16 +15,16 @@ const calendarReducer = (state = calendarInitialState, {type, payload}) => {
             ...state, activeMonth: payload.newActiveMonth 
         }
         case CHANGE_SELECTED_DATE: return {
-            ...state, selectedDate: payload.selectedDate
+            ...state, selectedDate: new Date(payload.activeYear, payload.activeMonthId, payload.activeDate)
         }
         case TOGGLE_IS_EDITING_DATE: return {
             ...state, isEditingDate: !state.isEditingDate
         }
         case CHANGE_SELECTED_MONTH: return {
-            ...state, activeMonth: payload.selectedMonth
+            ...state, activeMonth: payload.activeMonth
         }
         case CHANGE_SELECTED_YEAR: return {
-            ...state, activeYear: payload.selectedYear
+            ...state, activeYear: payload.activeYear
         }
         default: return state;
     }

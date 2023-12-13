@@ -8,6 +8,7 @@ import { toggleChooseDeadlinePanel,
 import ListButton from "../../../ui/ListButton";
 import { dateOptions } from "../../../data/dateOptions";
 import FlexColumnWrapper from "../../../styled/FlexColumnWrapper";
+import { closeDeadlineModalAndOpenCalendar, setDeadlineAndCloseDeadlineModal } from "../../../store/actionCreators/thunks";
 
 const AddDueDate = ({ todoId, listId }) => {
 
@@ -20,13 +21,13 @@ const AddDueDate = ({ todoId, listId }) => {
     const preSetDueDate = (option) => {
 
         if (option === "Pick a Date") {
-            dispatch(toggleDaedlinePanelAndOpenCalendar())
+            dispatch(closeDeadlineModalAndOpenCalendar())
         } else if (option === "Tomorrow") {
-            dispatch(toggleDaedlinePanelAndSetDeadline(listId, todoId, option, dateObjTomorrow));
+            dispatch(setDeadlineAndCloseDeadlineModal({ listId, todoId, deadline: option, deadlineObj: dateObjTomorrow }));
         } else if (option === "Next Week") {
-            dispatch(toggleDaedlinePanelAndSetDeadline(listId, todoId, option, dateObjNextWeek));
+            dispatch(setDeadlineAndCloseDeadlineModal({ listId, todoId, deadline: option, deadlineObj: dateObjNextWeek }));
         } else {
-            dispatch(toggleDaedlinePanelAndSetDeadline(listId, todoId, option, today));
+            dispatch(setDeadlineAndCloseDeadlineModal({ listId, todoId, deadline: option, deadlineObj: today }));
         }
     }
 

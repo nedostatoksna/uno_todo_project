@@ -13,17 +13,17 @@ const SaveModal = ({ actionType, listId }) => {
     const dispatch = useDispatch();
 
     const preAddNewTodo = () => {
-        dispatch(addTodoToList(listId, value));
+        dispatch(addTodoToList({ listId, todoTitle: value }));
         dispatch(toggleCreatingTodo());
     };
 
     const preSaveNewName = () => {
-        dispatch(renameList(listId, value));
+        dispatch(renameList({ listId, listTitle: value }));
         dispatch(toggleRenamingList());
     };
 
         const preCreateNewList = () => {
-        dispatch(createList(value));
+        dispatch(createList({ listTitle: value }));
         dispatch(toggleCreatingList());
     };
 

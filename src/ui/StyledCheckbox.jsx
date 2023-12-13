@@ -70,18 +70,33 @@ const StyledLabel = styled.label`
 
     ${props => props.$primary && css `
         border: 2px solid;
-        border-color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-dark-variant)" : "var(--dark-mode-transparent-grey-text-dark-variant)"};
         border-radius: 4px;
+        ${props => props.$mode === "Light" && css`
+            border-color: var(--transparent-grey-text-dark-variant);
+        `} 
+        ${props => props.$mode === "Dark" && css`
+            border-color: var(--dark-mode-transparent-grey-text-dark-variant);
+        `} 
     `}
     ${props => props.$star && css `
-        background-image: ${props.$mode === "Light" ? `url(${starUnfilled})` : `url(${starUnfilledDark})`};
         background-position: center;
         background-repeat: no-repeat;
+        ${props => props.$mode === "Light" && css`
+            background-image: url(${starUnfilled});
+        `} 
+        ${props => props.$mode === "Dark" && css`
+            background-image: url(${starUnfilledDark});
+        `} 
     `}
     ${props => props.$starGrey && css `
-        background-image: ${props.$mode === "Light" ? `url(${starGrey})` : `url(${starGreyForDark})`};
         background-position: center;
         background-repeat: no-repeat;
+        ${props => props.$mode === "Light" && css`
+            background-image: url(${starGrey});
+        `} 
+        ${props => props.$mode === "Dark" && css`
+            background-image: url(${starGreyForDark});
+        `} 
     `}
 `;
 const StyledContainer = styled.div`
@@ -103,15 +118,26 @@ const StyledContainer = styled.div`
     `}
     & ${StyledInput}:checked ~ ${StyledLabel} {
         ${props => props.$starChecked && css `
-            background-image: ${props.$mode === "Light" ? `url(${starFilled})` : `url(${starFilledDark})`};
             background-position: center;
             background-repeat: no-repeat;
+            ${props => props.$mode === "Light" && css`
+                background-image: url(${starFilled});
+            `} 
+            ${props => props.$mode === "Dark" && css`
+                background-image: url(${starFilledDark});
+            `} 
         `}
         ${props => props.$checked && css `
-            background-image: ${props.$mode === "Light" ? `url(${filledCheckbox})` : `url(${filledCheckboxDark})`};
-            border-color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
             background-position: center;
             background-repeat: no-repeat;
+            ${props => props.$mode === "Light" && css`
+                background-image: url(${filledCheckbox});
+                border-color: var(--primary-purple);
+            `} 
+            ${props => props.$mode === "Dark" && css`
+                background-image: url(${filledCheckboxDark});
+                border-color: var(--dark-mode-primary-purple);
+            `} 
         `}
     };
 `;

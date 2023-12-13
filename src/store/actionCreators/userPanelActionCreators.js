@@ -5,24 +5,10 @@ import {
 
 const toggleUserPanel = () => ({ type: TOGGLE_MODAL });
 const changeIsSigningOut = () => ({ type: IS_SIGNING_OUT });
-const saveSettings = (dynamicContext) => ({ type: SAVE_SETTINGS, payload: { dynamicContext } });
-
-const save = (dynamicContext) => {
-    return (dispatch) => {
-        dispatch(saveSettings(dynamicContext))
-        dispatch(toggleUserPanel())
-    }
-}; 
-const togglePanelandChangeIsSigningOut = () => {
-    return (dispatch) => {
-        dispatch(toggleUserPanel())
-        dispatch(changeIsSigningOut())
-    }
-}; 
+const saveSettings = (payload) => ({ type: SAVE_SETTINGS, payload });
 
 export { 
     toggleUserPanel, 
     changeIsSigningOut, 
-    togglePanelandChangeIsSigningOut,
-    save 
+    saveSettings
 };

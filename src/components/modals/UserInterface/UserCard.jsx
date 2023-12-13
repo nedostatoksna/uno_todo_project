@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { togglePanelandChangeIsSigningOut } from "../../../store/actionCreators/userPanelActionCreators";
+import { changeIsSigningOut } from "../../../store/actionCreators/userPanelActionCreators";
 import { useDispatch } from "react-redux";
 import Button from "../../../ui/Button";
 import { AppContext } from "../../../context/context";
@@ -26,7 +26,7 @@ const UserCard = () => {
                 $paddingSmall 
                 $margin={"0px 0px 12px 0px"}
                 $mode={context.mode} 
-                onClick={() => {dispatch(togglePanelandChangeIsSigningOut())}}
+                onClick={() => {dispatch(changeIsSigningOut())}}
             >Sign Out</Button>
         </FlexColumnWrapper>
     )

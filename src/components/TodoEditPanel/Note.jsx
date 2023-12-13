@@ -26,7 +26,7 @@ const Note = ({ todoId, listId, note }) => {
                 $black
                 $grey={!note}
                 value={note}
-                onChange={(e) => {dispatch(changeNote(listId, todoId, e.target.value))}}
+                onChange={(e) => {dispatch(changeNote({ listId, todoId, todoNote: e.target.value }))}}
             >
             </NoteText>
         </FlexColumnWrapper>

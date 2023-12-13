@@ -6,6 +6,7 @@ import IconButton from "../../ui/IconButton";
 import { fullMonths, threeLettersWeekDays } from "../../data/calendar";
 import { toggleTodoEditPanel, toggleTodoEditPanelAndDeleteTodo } from "../../store/actionCreators/todoPanelActionCreators";
 import FlexRowWrapper from "../../styled/FlexRowWrapper";
+import { deleteTodoAndCloseTodoEditPanel } from "../../store/actionCreators/thunks";
 
 const TodoEditFooter = ({ todo }) => {
 
@@ -34,7 +35,7 @@ const TodoEditFooter = ({ todo }) => {
                         Created {prepareDateStringForDisplay(todo.createDate)}
                     </StyledText>
                     <IconButton
-                        onClick={() => {dispatch(toggleTodoEditPanelAndDeleteTodo(todo.parentListId, todo.id))}}
+                        onClick={() => {dispatch(deleteTodoAndCloseTodoEditPanel({ listId: todo.parentListId, todoId: todo.id }))}}
                         $type={"deleteGrey"}
                         alt="garbage bin outline" 
                         $large

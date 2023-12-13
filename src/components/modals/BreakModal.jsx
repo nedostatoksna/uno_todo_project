@@ -13,15 +13,16 @@ const BreakModal = ({ actionType }) => {
     const dispatch = useDispatch();
     const context = useContext(AppContext);
     const activeListId = useSelector(state => state.todoListUI.activeListId);
+    const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
 
     const preDeleteList = () => {
-        dispatch(deleteList(activeListId))
-        dispatch(switchActiveTodoListId(""))
+        dispatch(deleteList({ listId: activeListId }))
+        dispatch(switchActiveTodoListId())
         dispatch(toggleDeletingList())
     };
 
     const preDeleteTodo = () => {
-        dispatch(deleteTodo(activeListId))
+        dispatch(deleteTodo(activeListId, activeTodoId))
         dispatch(toggleDeletingTodo())
     };
 
@@ -51,6 +52,7 @@ const BreakModal = ({ actionType }) => {
     return (
         <Modal 
             boxWidth={"310px"} 
+            signOut
             breakModal
             header={header} 
             buttonText={buttonText} 

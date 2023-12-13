@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { preSwitchActiveTodoList } from "../../store/actionCreators/todoListActionCreators";
 import { AppContext } from "../../context/context";
 import ListButton from "../../ui/ListButton";
 import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
+import { switchActiveTodoList } from "../../store/actionCreators/thunks";
 
 const ListOfLists = () => {
 
@@ -23,7 +23,7 @@ const ListOfLists = () => {
                             $listIcon
                             key={list.id} 
                             $mode={context.mode}
-                            onClick={() => {dispatch(preSwitchActiveTodoList(list.id))}}
+                            onClick={() => {dispatch(switchActiveTodoList({ listId: list.id }))}}
                             $margin={"5px 0px 0px 0px"}
                         >
                             {list.title}

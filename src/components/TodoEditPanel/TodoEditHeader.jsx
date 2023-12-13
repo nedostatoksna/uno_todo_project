@@ -34,7 +34,7 @@ const TodoEditHeader = ({ todo }) => {
                 checkedPrimary 
                 isChecked={todo.isCompleted}
                 todoId={todo.id}
-                onChangeHandler={() => {dispatch(changeCompleted(activeListId, activeTodoId, !todo.isCompleted))}}
+                onChangeHandler={() => {dispatch(changeCompleted({ listId: activeListId, todoId: activeTodoId, isCompleted: !todo.isCompleted }))}}
             />
             <StyledTitleWrapper $mode={context.mode} $isEditing={isEditingTitle ? true : false}>
                 { isEditingTitle ? <StyledLabel htmlFor="titleInput" $mode={context.mode}>Task Name</StyledLabel> : undefined }
@@ -43,7 +43,7 @@ const TodoEditHeader = ({ todo }) => {
                     $mode={context.mode} 
                     $isEditing={isEditingTitle ? true : false}
                     value={todo.title} 
-                    onChange={(e) => dispatch(changeTitle(activeListId, activeTodoId, e.target.value))} 
+                    onChange={(e) => dispatch(changeTitle({ listId: activeListId, todoId: activeTodoId, todoTitle: e.target.value }))} 
                     id="titleInput"
                 />
             </StyledTitleWrapper>
@@ -52,7 +52,7 @@ const TodoEditHeader = ({ todo }) => {
                 starChecked 
                 isChecked={todo.isImportant}
                 todoId={todo.id}
-                onChangeHandler={() => {dispatch(changeImportant(activeListId, todo.id, !todo.isImportant))}} 
+                onChangeHandler={() => {dispatch(changeImportant({ listId: activeListId, todoId: todo.id, isImportant: !todo.isImportant }))}} 
             />
         </FlexRowWrapper>
     )

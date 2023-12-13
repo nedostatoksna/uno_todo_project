@@ -18,13 +18,14 @@ const Modal = ({ boxWidth,
                  children, 
                  breakModal,
                  primarySaveBtn,
-                 smallUppercase }) => {
+                 smallUppercase,
+                 signOut }) => {
 
     const context = useContext(AppContext);
 
     return (
-        <TransparentBackground>
-            <ContentBox $primary $width={boxWidth} $padding={boxPadding} $mode={context.mode}>
+        <TransparentBackground $secondLayerModal={signOut}>
+            <ContentBox $primary $width={boxWidth} $padding={boxPadding} $mode={context.mode} $signOut>
             {  
                 header === "Settings" || header === "Add due date"
                     ?
@@ -95,7 +96,12 @@ const ModalHeader = styled.h1`
     margin: ${props => props.$margin || "0px 0px 16px 0px"};
     font-size: 22px;
     line-height: 28px; 
-    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
+    ${props => props.$mode === "Light" && css`
+        color: var(--black);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-white-text);
+    `} 
     ${props => props.$smallUppercase && css `
         font-size: 10px;
         font-weight: 600;

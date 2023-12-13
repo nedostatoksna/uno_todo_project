@@ -4,11 +4,10 @@ import IconButton from "../../../ui/IconButton";
 import { AppContext } from "../../../context/context";
 import { 
         switchToNextMonth, 
-        switchToNextMonthAndYear, 
-        switchToPrevMonth, 
-        switchToPrevMonthAndYear } from "../../../store/actionCreators/calendarActionCreators";
+        switchToPrevMonth } from "../../../store/actionCreators/calendarActionCreators";
 import { fullMonths } from "../../../data/calendar";
 import FlexRowWrapper from "../../../styled/FlexRowWrapper";
+import { switchToNextMonthAndYear, switchToPrevMonthAndYear } from "../../../store/actionCreators/thunks";
 
 const NextPrevSwitcher = ({ activeMonthId }) => {
 
@@ -20,7 +19,7 @@ const NextPrevSwitcher = ({ activeMonthId }) => {
         let monthTitle;
         if (activeMonthId - 1 < 0) {
             monthTitle =  fullMonths[11].title;
-            dispatch(switchToPrevMonthAndYear(monthTitle, year - 1))
+            dispatch(switchToPrevMonthAndYear({ monthTitle, activeYear: year - 1 }))
         } else {
             monthTitle =  fullMonths[activeMonthId - 1].title;
             dispatch(switchToPrevMonth(monthTitle));
@@ -31,7 +30,7 @@ const NextPrevSwitcher = ({ activeMonthId }) => {
         let monthTitle;
         if (activeMonthId + 1 > 11) {
             monthTitle =  fullMonths[0].title;
-            dispatch(switchToNextMonthAndYear(monthTitle, year + 1))
+            dispatch(switchToNextMonthAndYear({ monthTitle, activeYear:  year + 1 }))
         } else {
             monthTitle =  fullMonths[activeMonthId + 1].title;
             dispatch(switchToNextMonth(monthTitle));
