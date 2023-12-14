@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { AppContext } from "../../../context/context";
 import { oneLettersWeekDays } from "../../../data/calendar";
-import FlexRowWrapper from "../../../styled/FlexRowWrapper";
+import FlexRowWrapper from "../../../ui/FlexRowWrapper";
 
 const WeekDays = () => {
     

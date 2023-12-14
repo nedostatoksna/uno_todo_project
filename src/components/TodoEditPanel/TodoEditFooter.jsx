@@ -5,7 +5,7 @@ import styled from "styled-components";
 import IconButton from "../../ui/IconButton";
 import { fullMonths, threeLettersWeekDays } from "../../data/calendar";
 import { toggleDeletingTodo, toggleTodoEditPanel } from "../../store/actionCreators/todoPanelActionCreators";
-import FlexRowWrapper from "../../styled/FlexRowWrapper";
+import FlexRowWrapper from "../../ui/FlexRowWrapper";
 
 const TodoEditFooter = ({ todo }) => {
 

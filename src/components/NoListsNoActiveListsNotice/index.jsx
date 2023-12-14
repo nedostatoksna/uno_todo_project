@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
-import StyledHeader from "../../styled/StyledHeader";
-import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
-import StyledSubHeader from "../../styled/StyledSubHeader";
-import Background from "../../styled/Background";
+import StyledHeader from "../../ui/StyledHeader";
+import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
+import StyledSubHeader from "../../ui/StyledSubHeader";
+import Background from "../../ui/Background";
 import { AppContext } from "../../context/context";
 import { useSelector } from "react-redux";
 

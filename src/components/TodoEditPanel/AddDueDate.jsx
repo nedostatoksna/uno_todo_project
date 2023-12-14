@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 import { deleteDeadline } from "../../store/actionCreators/dataListActionCreators.js";
 import { toggleChooseDeadlinePanel } from "../../store/actionCreators/todoPanelActionCreators";
 import IconButton from "../../ui/IconButton";
-import FlexRowWrapper from "../../styled/FlexRowWrapper.jsx";
+import FlexRowWrapper from "../../ui/FlexRowWrapper.jsx";
 
 const AddDueDate = ({ todo }) => {
 

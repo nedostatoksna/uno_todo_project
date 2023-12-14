@@ -6,7 +6,7 @@ import { fullMonths }  from "../../../data/calendar";
 import { changeSelectedMonth } from "../../../store/actionCreators/calendarActionCreators";
 import arrowDropDown from "../../../images/arrowDropDown.svg";
 import arrowDropDownForDark from "../../../images/arrowDropDownForDark.svg";
-import FlexRowWrapper from "../../../styled/FlexRowWrapper";
+import FlexRowWrapper from "../../../ui/FlexRowWrapper";
 
 const MonthYearSelector = ({ activeMonth }) => {
 

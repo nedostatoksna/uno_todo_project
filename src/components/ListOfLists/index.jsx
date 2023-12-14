@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppContext } from "../../context/context";
 import ListButton from "../../ui/ListButton";
-import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
+import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
 import { switchActiveTodoList } from "../../store/actionCreators/thunks";
 
 const ListOfLists = () => {

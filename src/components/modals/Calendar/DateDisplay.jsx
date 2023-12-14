@@ -3,7 +3,7 @@ import styled from "styled-components";
 import IconButton from "../../../ui/IconButton";
 import { AppContext } from "../../../context/context";
 import { fullMonths, threeLettersWeekDays } from "../../../data/calendar";
-import FlexRowWrapper from "../../../styled/FlexRowWrapper";
+import FlexRowWrapper from "../../../ui/FlexRowWrapper";
 
 const DateDisplay = () => {
 

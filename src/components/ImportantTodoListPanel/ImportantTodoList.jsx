@@ -1,6 +1,6 @@
 import React from "react";
 import Todo from "../TodoListInterface/Todo";
-import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
+import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
 
 const ImportantTodoList = ({ todos }) => {
 

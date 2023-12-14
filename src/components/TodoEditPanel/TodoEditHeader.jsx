@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 import Checkbox from "../../ui/StyledCheckbox";
 import { changeCompleted, changeImportant, changeTitle } from "../../store/actionCreators/dataListActionCreators.js";
 import { toggleEditingTitle } from "../../store/actionCreators/todoPanelActionCreators";
-import FlexRowWrapper from "../../styled/FlexRowWrapper.jsx";
+import FlexRowWrapper from "../../ui/FlexRowWrapper.jsx";
 
 const TodoEditHeader = ({ todo }) => {
 

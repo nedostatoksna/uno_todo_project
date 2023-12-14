@@ -4,9 +4,9 @@ import Checkbox from "../../ui/StyledCheckbox";
 import styled, { css } from "styled-components";
 import { AppContext } from "../../context/context";
 import { fullMonths } from "../../data/calendar";
-import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
+import FlexColumnWrapper from "../../ui/FlexColumnWrapper.jsx";
 import { changeCompleted, changeImportant } from "../../store/actionCreators/dataListActionCreators.js";
-import FlexRowWrapper from "../../styled/FlexRowWrapper.jsx";
+import FlexRowWrapper from "../../ui/FlexRowWrapper.jsx";
 import { setActiveTodoAndOpenTodoEditPanel } from "../../store/actionCreators/thunks.js";
 
 const Todo = ({ todo }) => {

@@ -5,8 +5,8 @@ import { AppContext } from "../../context/context";
 import Divider from "../../ui/Divider";
 import styled from "styled-components";
 import IconButton from "../../ui/IconButton";
-import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
-import FlexRowWrapper from "../../styled/FlexRowWrapper";
+import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
+import FlexRowWrapper from "../../ui/FlexRowWrapper";
 import { cancelSearchAndCloseSearchPanel, openSearchPanel } from "../../store/actionCreators/thunks";
 
 const SearchBar = () => {

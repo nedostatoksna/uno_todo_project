@@ -7,7 +7,7 @@ import Modal from "../../../ui/Modal";
 import { toggleUserPanel } from "../../../store/actionCreators/userPanelActionCreators";
 import About from "./About";
 import GeneralSettings from "./GeneralSettings";
-import FlexColumnWrapper from "../../../styled/FlexColumnWrapper";
+import FlexColumnWrapper from "../../../ui/FlexColumnWrapper";
 import { saveUserSettings } from "../../../store/actionCreators/thunks";
 
 const UserInterface = () => {
@@ -23,7 +23,6 @@ const UserInterface = () => {
 
     return (
         <Modal 
-            boxPadding={"20px"}
             header={"Settings"} 
             buttonText={"Save"} 
             primarySaveBtn

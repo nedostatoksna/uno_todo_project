@@ -12,7 +12,6 @@ export default ContentBox;
 const StyledContentBox = styled.div` 
     border-radius: 28px;
     width: ${props => props.$width || "500px" };
-    padding: ${props => props.$padding || "24px"};
     display: flex;
     flex-direction: column;
     
@@ -23,5 +22,17 @@ const StyledContentBox = styled.div`
         ${props => props.$mode === "Dark" && css`
             background-color: var(--dark-mode-background);
         `} 
+    `}
+    ${props => props.$paddingXSmall && css`
+        padding: 4px;
+    `}
+    ${props => props.$paddingSmall && css`
+        padding: 12px;
+    `}
+    ${props => props.$paddingMedium && css`
+        padding: 20px;
+    `}
+    ${props => props.$paddingLarge && css`
+        padding: 24px;
     `}
 `;

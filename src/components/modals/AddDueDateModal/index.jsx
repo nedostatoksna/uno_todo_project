@@ -5,7 +5,7 @@ import Modal from "../../../ui/Modal";
 import { toggleChooseDeadlinePanel } from "../../../store/actionCreators/todoPanelActionCreators";
 import ListButton from "../../../ui/ListButton";
 import { dateOptions } from "../../../data/dateOptions";
-import FlexColumnWrapper from "../../../styled/FlexColumnWrapper";
+import FlexColumnWrapper from "../../../ui/FlexColumnWrapper";
 import { closeDeadlineModalAndOpenCalendar, setDeadlineAndCloseDeadlineModal } from "../../../store/actionCreators/thunks";
 
 const AddDueDate = ({ todoId, listId }) => {
@@ -45,7 +45,6 @@ const AddDueDate = ({ todoId, listId }) => {
     return (
         <Modal 
             boxWidth={"390px"} 
-            boxPadding={"18px 12px 12px 12px"}
             header={"Add due date"} 
             onCancelClickHandler={() => {dispatch(toggleChooseDeadlinePanel())}} 
         >
@@ -61,7 +60,7 @@ const AddDueDate = ({ todoId, listId }) => {
                             onClick={() => preSetDueDate(option)}
                             >
                                 {option}
-                            </ListButton>
+                        </ListButton>
                     ))
                 }
             </FlexColumnWrapper>

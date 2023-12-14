@@ -6,7 +6,7 @@ import Divider from "../../ui/Divider";
 import AddDueDate from "./AddDueDate";
 import Note from "./Note";
 import TodoEditFooter from "./TodoEditFooter";
-import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
+import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
 
 const TodoEditPanel = () => {
     const context = useContext(AppContext);

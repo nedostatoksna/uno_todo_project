@@ -5,7 +5,7 @@ import styled from "styled-components";
 import ListEditPanel from "./ListEditPanel";
 import TodoList from "./TodoList";
 import { useSelector } from "react-redux";
-import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
+import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
 
 const TodoListPanel = ({ list }) => {
 

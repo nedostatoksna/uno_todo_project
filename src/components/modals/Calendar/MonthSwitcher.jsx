@@ -2,14 +2,12 @@ import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import IconButton from "../../../ui/IconButton";
 import { AppContext } from "../../../context/context";
-import { 
-        switchToNextMonth, 
-        switchToPrevMonth } from "../../../store/actionCreators/calendarActionCreators";
+import { switchToNextMonth, switchToPrevMonth } from "../../../store/actionCreators/calendarActionCreators";
 import { fullMonths } from "../../../data/calendar";
-import FlexRowWrapper from "../../../styled/FlexRowWrapper";
+import FlexRowWrapper from "../../../ui/FlexRowWrapper";
 import { switchToNextMonthAndYear, switchToPrevMonthAndYear } from "../../../store/actionCreators/thunks";
 
-const NextPrevSwitcher = ({ activeMonthId }) => {
+const MonthSwitcher = ({ activeMonthId }) => {
 
     const context = useContext(AppContext);
     const year = useSelector(state => state.calendarUI.activeYear);
@@ -45,7 +43,7 @@ const NextPrevSwitcher = ({ activeMonthId }) => {
     )
 };
 
-export default NextPrevSwitcher;
+export default MonthSwitcher;
 
 
 

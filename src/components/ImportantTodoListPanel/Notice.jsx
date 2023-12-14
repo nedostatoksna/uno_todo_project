@@ -1,7 +1,7 @@
 import React from "react";
-import StyledHeader from "../../styled/StyledHeader";
-import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
-import StyledSubHeader from "../../styled/StyledSubHeader";
+import StyledHeader from "../../ui/StyledHeader";
+import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
+import StyledSubHeader from "../../ui/StyledSubHeader";
 
 const Notice = () => {
 

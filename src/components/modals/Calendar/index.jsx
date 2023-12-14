@@ -5,11 +5,11 @@ import DateDisplay from "./DateDisplay";
 import CalendarSheet from "./CalendarSheet";
 import MonthYearSelector from "./MonthYearSelector";
 import { fullMonths, threeLettersWeekDays }  from "../../../data/calendar";
-import NextPrevSwitcher from "./NextPrevSwitcher";
+import MonthSwitcher from "./MonthSwitcher";
 import { toggleIsShowingCalendar } from "../../../store/actionCreators/todoPanelActionCreators";
 import { useState } from "react";
-import FlexColumnWrapper from "../../../styled/FlexColumnWrapper";
-import FlexRowWrapper from "../../../styled/FlexRowWrapper";
+import FlexColumnWrapper from "../../../ui/FlexColumnWrapper";
+import FlexRowWrapper from "../../../ui/FlexRowWrapper";
 import { setDeadlineAndCloseCalendar } from "../../../store/actionCreators/thunks";
 
 const Calendar = () => {
@@ -55,7 +55,6 @@ const Calendar = () => {
     return (
         <Modal 
             boxWidth={"328px"} 
-            boxPadding={"16px 4px 4px 4px"}
             header={"select date"} 
             smallUppercase
             okButton
@@ -67,7 +66,7 @@ const Calendar = () => {
             <DateDisplay />
                 <FlexRowWrapper $spaceBetween $padding={"8px 12px 8px 20px"}>
                     <MonthYearSelector activeMonth={activeMonth} />
-                    <NextPrevSwitcher activeMonthId={findActiveMonthId()} />
+                    <MonthSwitcher activeMonthId={findActiveMonthId()} />
                 </FlexRowWrapper>
                 <CalendarSheet activeMonthId={findActiveMonthId()} year={year} setChosenDay={setChosenDay} />
             </FlexColumnWrapper>

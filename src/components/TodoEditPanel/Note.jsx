@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import styled, { css } from "styled-components";
 import { changeNote } from "../../store/actionCreators/dataListActionCreators.js";
 import { useRef } from "react";
-import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
+import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
 
 const Note = ({ todoId, listId, note }) => {
 

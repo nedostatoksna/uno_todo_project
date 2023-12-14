@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { AppContext } from "../../context/context";
 import TodoListPanel from "./TodoListPanel";
-import Background from "../../styled/Background";
+import Background from "../../ui/Background";
 
 const TodoListInterface = () => {
 

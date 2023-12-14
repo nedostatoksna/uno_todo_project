@@ -1,7 +1,7 @@
 import React from "react";
 import WeekDays from "./WeekDays";
 import CalendarDays from "./CalendarDays";
-import FlexColumnWrapper from "../../../styled/FlexColumnWrapper";
+import FlexColumnWrapper from "../../../ui/FlexColumnWrapper";
 
 const CalendarSheet = ( { activeMonthId, year, setChosenDay } ) => {
 

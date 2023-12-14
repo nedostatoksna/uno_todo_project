@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
 import Button from "../ui/Button";
 import styled, { css } from "styled-components";
-import TransparentBackground from "../styled/TransparentBackground";
-import ContentBox from "../styled/ContentBox";
+import TransparentBackground from "../ui/TransparentBackground";
+import ContentBox from "../ui/ContentBox";
 import IconButton from "./IconButton";
 import { AppContext } from "../context/context";
 
 const Modal = ({ boxWidth, 
-                 boxPadding, 
                  header, 
                  onCancelClickHandler, 
                  onСonfirmationClick, 
@@ -25,21 +24,41 @@ const Modal = ({ boxWidth,
 
     return (
         <TransparentBackground $secondLayerModal={signOut}>
-            <ContentBox $primary $width={boxWidth} $padding={boxPadding} $mode={context.mode} $signOut>
+            <ContentBox 
+                $primary 
+                $width={boxWidth} 
+                $mode={context.mode} 
+                $paddingXSmall={header === "select date"}
+                $paddingSmall={header === "Add due date"}
+                $paddingMedium={header === "Settings"}
+                $paddingLarge={header !== "select date" && header !== "Add due date" && header !== "Settings"}
+            >
             {  
                 header === "Settings" || header === "Add due date"
                     ?
-                        <StyledContainerHeader>
+                        <StyledContainerHeader $paddingTopSmall={header === "Add due date"}>
                             <IconButton
                                 $large
                                 $type={"cross"} 
                                 alt="close icon" 
                                 onClick={onCancelClickHandler}
                                 $mode={context.mode}></IconButton>
-                            <ModalHeader $mode={context.mode} $margin={"0px 0px 0px 24px"}>{header}</ModalHeader>
+                            <ModalHeader 
+                                $mode={context.mode} 
+                                $marginLeft={header === "Add due date" || header === "Settings"}
+                                $marginBottom={header !== "Add due date" && header !== "Settings"}
+                            >
+                                {header}
+                            </ModalHeader>
                         </StyledContainerHeader> 
                     : 
-                        <ModalHeader $mode={context.mode} $smallUppercase={smallUppercase}>{header}</ModalHeader>
+                        <ModalHeader 
+                            $mode={context.mode} 
+                            $smallUppercase={smallUppercase}
+                            $marginBottom={header !== "Add due date" && header !== "Settings"}
+                        >
+                            {header}
+                        </ModalHeader>
             }
                 <div>{children}</div>
             { 
@@ -93,7 +112,6 @@ const ButtonGroupWrapper = styled.div`
     `}
 `;
 const ModalHeader = styled.h1`
-    margin: ${props => props.$margin || "0px 0px 16px 0px"};
     font-size: 22px;
     line-height: 28px; 
     ${props => props.$mode === "Light" && css`
@@ -108,11 +126,21 @@ const ModalHeader = styled.h1`
         line-height: 16px; 
         letter-spacing: 1.5px;
         text-transform: uppercase;
-        padding: 0px 20px;
+        padding: 12px 20px 0px 20px;
+    `}
+    ${props => props.$marginLeft && css `
+        margin-left: 24px;
+    `}
+    ${props => props.$marginBottom && css `
+        margin-bottom: 16px;
     `}
 `;
 const StyledContainerHeader = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-bottom: 16px;
+    ${props => props.$paddingTopSmall && css`
+        padding-top: 6px;
+    `} 
 `;

@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import { AppContext } from "../../context/context";
 import AllTodosList from "./AllTodosList";
 import Tabs from "../TodoListInterface/Tabs";
-import StyledHeader from "../../styled/StyledHeader";
-import Background from "../../styled/Background";
-import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
+import StyledHeader from "../../ui/StyledHeader";
+import Background from "../../ui/Background";
+import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
 
 const AllTodosPanel = () => {
     const context = useContext(AppContext);

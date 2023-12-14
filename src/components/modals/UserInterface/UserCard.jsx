@@ -3,10 +3,10 @@ import { changeIsSigningOut } from "../../../store/actionCreators/userPanelActio
 import { useDispatch } from "react-redux";
 import Button from "../../../ui/Button";
 import { AppContext } from "../../../context/context";
-import StyledHeader from "../../../styled/StyledHeader";
-import StyledSubHeader from "../../../styled/StyledSubHeader";
-import FlexColumnWrapper from "../../../styled/FlexColumnWrapper";
-import UserPicture from "../../../styled/UserPicture";
+import StyledHeader from "../../../ui/StyledHeader";
+import StyledSubHeader from "../../../ui/StyledSubHeader";
+import FlexColumnWrapper from "../../../ui/FlexColumnWrapper";
+import Picture from "../../../ui/Picture";
 
 const UserCard = () => {
 
@@ -15,7 +15,7 @@ const UserCard = () => {
 
     return (
         <FlexColumnWrapper $smallPaddingTop $center>
-            <UserPicture $large $mode={context.mode}>{context.userInitials}</UserPicture>
+            <Picture $large $mode={context.mode}>{context.userInitials}</Picture>
             <FlexColumnWrapper $center $margin={"0px 0px 12px 0px"}>
                 <StyledHeader $zeroMargin $large $mode={context.mode}>{context.userName}</StyledHeader>
                 <StyledSubHeader $dark $mode={context.mode}>{context.userEmail}</StyledSubHeader>

@@ -1,15 +1,15 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const UserPicture = ( props ) => {
+const Picture = ( props ) => {
 
     return (
-        <StyledUserPicture {...props}>{props.children}</StyledUserPicture>
+        <StyledPicture {...props}>{props.children}</StyledPicture>
     )
 };
-export default UserPicture;
+export default Picture;
 
-const StyledUserPicture = styled.div` 
+const StyledPicture = styled.div` 
     width: 32px;
     height: 32px;
     border-radius: 50%;

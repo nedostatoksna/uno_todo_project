@@ -8,10 +8,10 @@ import NewListBtn from "./NewListBtn";
 import { AppContext } from "../../context/context";
 import styled from "styled-components";
 import Divider from "../../ui/Divider";
-import StyledHeader from "../../styled/StyledHeader";
-import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
-import FlexRowWrapper from "../../styled/FlexRowWrapper";
-import UserPicture from "../../styled/UserPicture";
+import StyledHeader from "../../ui/StyledHeader";
+import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
+import FlexRowWrapper from "../../ui/FlexRowWrapper";
+import Picture from "../../ui/Picture";
 
 const SideBar = () => {
     
@@ -22,7 +22,7 @@ const SideBar = () => {
         <FlexColumnWrapper $padding={"40px 20px 20px 20px"} $width={"20vw"} $spaceBetween>
             <div>
                 <FlexRowWrapper  onClick={() => {dispatch(toggleUserPanel())}}>
-                    <UserPicture $mode={context.mode}>{context.userInitials}</UserPicture>
+                    <Picture $mode={context.mode}>{context.userInitials}</Picture>
                     <FlexColumnWrapper $flexStart>
                         <StyledHeader $lineHeight={"20px"} $zeroMargin $bold $mode={context.mode}>{context.userName}</StyledHeader>
                         <UserEmail $mode={context.mode}>{context.userEmail}</UserEmail>

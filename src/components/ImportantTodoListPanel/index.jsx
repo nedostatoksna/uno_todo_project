@@ -3,9 +3,9 @@ import { useSelector } from "react-redux";
 import { AppContext } from "../../context/context";
 import ImportantTodoList from "./ImportantTodoList";
 import Notice from "./Notice";
-import StyledHeader from "../../styled/StyledHeader";
-import Background from "../../styled/Background";
-import FlexColumnWrapper from "../../styled/FlexColumnWrapper";
+import StyledHeader from "../../ui/StyledHeader";
+import Background from "../../ui/Background";
+import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
 
 const ImportantTodoListPanel = () => {
     
