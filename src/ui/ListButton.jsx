@@ -30,7 +30,7 @@ const StyledListButton = styled.button`
     text-align: start;
     background-repeat: no-repeat;
     background-color: transparent;
-    margin: ${props => props.$margin || "0px 0px 5px 0px"};
+    margin-bottom: 5px;
     background-position: center left 8px, center right 8px;
 
 
@@ -77,6 +77,10 @@ const StyledListButton = styled.button`
     `}
     ${props => props.$paddingSmall && css `
         padding: 8px 8px 8px 48px;
+    `}
+    ${props => props.$marginTop && css `
+        margin-top: 5px;
+        margin-bottom: 0;
     `}
 `;
 

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import UserSettingsButton from "./UserSettingsButton";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { AppContext } from "../../../context/context";
 
 const SettingsBar = ({ setting, name, dynamicContext, setDynamicContext }) => {
@@ -39,7 +39,12 @@ const RadioGroupHeader = styled.h4`
     line-height: 16px;
     letter-spacing: 0.4px;
     margin-bottom: 5px;
-    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-transparent-grey-text-medium-variant)"};
+    ${props => props.$mode === "Light" && css`
+        color: var(--black);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-transparent-grey-text-medium-variant);
+    `} 
 `;
 const RadioButtonsWrapper = styled.h5`
     display: flex;
@@ -50,6 +55,11 @@ const StyledNotice = styled.h6`
     font-weight: 600;
     line-height: 16px;
     letter-spacing: 0.4px;
-    color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-medium-variant)" : "var(--dark-mode-transparent-grey-text-medium-variant)"};
     margin-top: 5px;
+    ${props => props.$mode === "Light" && css`
+        color: var(--transparent-grey-text-medium-variant);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-transparent-grey-text-medium-variant);
+    `} 
 `;

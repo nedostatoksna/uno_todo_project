@@ -5,7 +5,7 @@ import { AppContext } from "../../context/context";
 import { toggleDeletingList } from "../../store/actionCreators/todoListActionCreators";
 import { toggleDeletingTodo } from "../../store/actionCreators/todoPanelActionCreators";
 import Modal from "../../ui/Modal";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { deleteListAndCloseModal, deleteTodoAndCloseModal } from "../../store/actionCreators/thunks";
 
 const BreakModal = ({ actionType }) => {
@@ -56,8 +56,13 @@ const BreakModal = ({ actionType }) => {
 export default BreakModal;
 
 const StyledSubText = styled.p` 
-    color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-medium-variant)" : "var(--dark-mode-transparent-grey-text-medium-variant)"};
     line-height: 20px;
     letter-spacing: 0.25px;
     margin-bottom: 20px;
+    ${props => props.$mode === "Light" && css`
+        color: var(--transparent-grey-text-medium-variant);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-transparent-grey-text-medium-variant);
+    `} 
 `;

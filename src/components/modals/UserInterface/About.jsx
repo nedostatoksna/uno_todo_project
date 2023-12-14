@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { AppContext } from "../../../context/context";
 
 const About = () => {
@@ -22,18 +22,32 @@ const StyledContainer = styled.div`
 const StyledText = styled.p`
     font-weight: 600;
     line-height: 20px;
-    letter-spacing: 0.1px;
-    color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
     margin: 2px 0px 12px 0px;
+    ${props => props.$mode === "Light" && css`
+        color: var(--primary-purple);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-primary-purple);
+    `} 
 `;
 const StyledDarkText = styled.p`
     font-size: 16px;
     font-weight: 600;
     line-height: 24px;
-    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
+    ${props => props.$mode === "Light" && css`
+        color: var(--black);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-white-text);
+    `} 
 `;
 const StyledNumber = styled.span`
     font-weight: 600;
-    color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
     margin: 0px 0px 0px 12px;
+    ${props => props.$mode === "Light" && css`
+        color: var(--primary-purple);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-primary-purple);
+    `} 
 `;

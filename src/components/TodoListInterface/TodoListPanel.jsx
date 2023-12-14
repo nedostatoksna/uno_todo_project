@@ -20,7 +20,6 @@ const TodoListPanel = ({ list }) => {
                 <Tabs />
                 <TodoList list={isShowingCompleted ? completedTodos : allTodosOfList} />  
             </ListWrapper>
-
             <AddTodoBtn />
         </FlexColumnWrapper>
     )

@@ -42,14 +42,13 @@ const Wrapper = styled.li`
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
-
     ${props => props.$isToday && css `
             border-radius: 35px;
             border: 1px solid;
             background-color: transparent;
         `}
     ${props => props.$mode === "Light" && css`
+        color: var(--black);
         ${props => props.$prevNext && css `
             color: var(--transparent-grey-text-medium-variant);
         `}
@@ -61,6 +60,7 @@ const Wrapper = styled.li`
         `}
     `}
     ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-white-text);
         ${props => props.$prevNext && css `
             color: var(--dark-mode-transparent-grey-text-medium-variant);
         `}

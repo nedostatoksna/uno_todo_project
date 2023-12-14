@@ -13,7 +13,6 @@ const StyledFlexWrapper = styled.div`
     display: flex;
     flex-direction: column;
     padding: ${props => props.$padding};
-    margin: ${props => props.$margin};
     width: ${props => props.$width};
 
     ${props => props.$spaceBetween && css `
@@ -37,5 +36,29 @@ const StyledFlexWrapper = styled.div`
     `}
     ${props => props.$flexStart && css `
         align-items: flex-start;
+    `}
+    ${props => props.$marginBottomSmall && css `
+        margin-bottom: 5px;
+    `}
+    ${props => props.$marginBottomLarge && css `
+        margin-bottom: 12px;
+    `}
+    ${props => props.$paddingOnTheSidesSmall && css `
+        padding: 0 10px;
+    `}
+    ${props => props.$paddingOnTheSidesLarge && css `
+        padding: 0 20px;
+    `}
+    ${props => props.$paddingTopSmall && css `
+        padding-top: 12px;
+    `}
+    ${props => props.$paddingTopMedium && css `
+        padding-top: 30px;
+    `}
+    ${props => props.$paddingTopLarge && css `
+        padding-top: 40px;
+    `}
+    ${props => props.$paddingBottom && css `
+        padding-bottom: 20px;
     `}
 `;

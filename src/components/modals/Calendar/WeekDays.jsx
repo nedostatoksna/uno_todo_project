@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { AppContext } from "../../../context/context";
 import { oneLettersWeekDays } from "../../../data/calendar";
 import FlexRowWrapper from "../../../ui/FlexRowWrapper";
@@ -23,8 +23,13 @@ const WeekDays = () => {
 export default WeekDays;
 
 const StyledWeekDay = styled.li`
-    color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-dark-variant)" : "var(--dark-mode-transparent-grey-text-dark-variant)"};
     padding: 8px 15px;
+    ${props => props.$mode === "Light" && css`
+        color: var(--transparent-grey-text-dark-variant);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-transparent-grey-text-dark-variant);
+    `} 
 `;
 
 

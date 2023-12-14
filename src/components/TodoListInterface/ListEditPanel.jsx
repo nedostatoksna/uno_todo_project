@@ -10,7 +10,7 @@ const ListEditPanel = ({ list }) => {
     const dispatch = useDispatch();
 
     return (
-        <FlexRowWrapper $center $spaceBetween $padding={"12px 0px"}>
+        <FlexRowWrapper $center $spaceBetween $paddingTopBottomMedium>
                 <StyledHeader $large $zeroMargin $white>{list.title}</StyledHeader>
                 <FlexRowWrapper $center $spaceBetween $margin={"0px 0px 0px 24px"}>
                     <IconButton $type={"edit"} $large onClick={() => {dispatch(toggleRenamingList())}}></IconButton>

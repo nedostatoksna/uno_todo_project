@@ -13,7 +13,7 @@ const Note = ({ todoId, listId, note }) => {
     const dispatch = useDispatch();
 
     return (
-        <FlexColumnWrapper $padding={"12px 0px 0px 0px"} $mode={context.mode}>
+        <FlexColumnWrapper $paddingTopSmall $mode={context.mode}>
         {
             note && <NoteHeader htmlFor="note" $mode={context.mode}>Note</NoteHeader>
         }

@@ -6,7 +6,7 @@ import ImportantFilter from "./ImportantFilter";
 import ListOfLists from "../ListOfLists";
 import NewListBtn from "./NewListBtn";
 import { AppContext } from "../../context/context";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Divider from "../../ui/Divider";
 import StyledHeader from "../../ui/StyledHeader";
 import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
@@ -19,7 +19,7 @@ const SideBar = () => {
     const context = useContext(AppContext);
 
     return (
-        <FlexColumnWrapper $padding={"40px 20px 20px 20px"} $width={"20vw"} $spaceBetween>
+        <FlexColumnWrapper $paddingOnTheSidesLarge $paddingTopLarge $paddingBottom $width={"20vw"} $spaceBetween>
             <div>
                 <FlexRowWrapper  onClick={() => {dispatch(toggleUserPanel())}}>
                     <Picture $mode={context.mode}>{context.userInitials}</Picture>
@@ -45,5 +45,10 @@ const UserEmail = styled.h2`
     font-weight: 600;
     line-height: 16px;
     letter-spacing: 0.4px;
-    color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-dark-variant)" : "var(--dark-mode-transparent-grey-text-dark-variant)"};
+    ${props => props.$mode === "Light" && css`
+        color: var(--transparent-grey-text-dark-variant);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-transparent-grey-text-dark-variant);
+    `} 
 `;

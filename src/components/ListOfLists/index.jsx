@@ -14,7 +14,7 @@ const ListOfLists = () => {
     const isShowingAllTasks = useSelector(state => state.todoListUI.isShowingAllTodos);
 
     return (
-        <FlexColumnWrapper $margin={"auto auto 5px auto"} $mode={context.mode}>
+        <FlexColumnWrapper $marginBottomSmall $mode={context.mode}>
             {
                 (lists.length > 0)
                     ?
@@ -25,7 +25,7 @@ const ListOfLists = () => {
                             key={list.id} 
                             $mode={context.mode}
                             onClick={() => {dispatch(switchActiveTodoList({ listId: list.id }))}}
-                            $margin={"5px 0px 0px 0px"}
+                            $marginTop 
                         >
                             {list.title}
                         </ListButton>

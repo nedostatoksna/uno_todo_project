@@ -16,7 +16,7 @@ const UserCard = () => {
     return (
         <FlexColumnWrapper $smallPaddingTop $center>
             <Picture $large $mode={context.mode}>{context.userInitials}</Picture>
-            <FlexColumnWrapper $center $margin={"0px 0px 12px 0px"}>
+            <FlexColumnWrapper $center $marginBottomLarge>
                 <StyledHeader $zeroMargin $large $mode={context.mode}>{context.userName}</StyledHeader>
                 <StyledSubHeader $dark $mode={context.mode}>{context.userEmail}</StyledSubHeader>
             </FlexColumnWrapper>

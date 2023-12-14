@@ -14,12 +14,12 @@ const AddDueDate = ({ todo }) => {
     const deadlineString = todo.deadline.deadlineString;
 
     return (
-        <FlexRowWrapper $spaceBetween $center $margin={"12px 0px"} $padding={"8px 0px"}>
+        <FlexRowWrapper $spaceBetween $center $margin={"12px 0px"} $paddingTopBottomSmall>
          <FlexRowWrapper $flexStart $center>
                 <IconButton
                     $type={ deadlineString.length ? "addDateActive" : "addDateGrey"}
                     alt="calendar icon" 
-                    $margin={"0px 16px 0px 0px"} 
+                    $marginRightLarge
                     $small
                     $mode={context.mode}
                     onClick={() => {dispatch(toggleChooseDeadlinePanel())}}
@@ -38,7 +38,7 @@ const AddDueDate = ({ todo }) => {
                         deadlineString.length
                             ?  <IconButton
                                     $type={"crossGrey"}
-                                    $margin={"0px 0px 0px 16px"}
+                                    $marginLeftLarge
                                     alt="grey cross"
                                     $small
                                     onClick={() => {dispatch(deleteDeadline({ listId: todo.parentListId, todoId: todo.id }))}}

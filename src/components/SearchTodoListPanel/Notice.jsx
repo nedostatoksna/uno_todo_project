@@ -9,7 +9,7 @@ const Notice = () => {
     const context = useContext(AppContext);
 
     return (
-        <FlexColumnWrapper $height $center $width={"100%"} $smallPaddingTop>
+        <FlexColumnWrapper $height $center $width100 $smallPaddingTop>
             <StyledHeader $mode={context.mode} $mediumLineHeight $smallMargin $mediumGrey $Xlarge>Task not found</StyledHeader>
             <StyledSubHeader $marginBottom60 $mode={context.mode}>We searched high and low but couldn't find what you're looking for</StyledSubHeader>
         </FlexColumnWrapper>

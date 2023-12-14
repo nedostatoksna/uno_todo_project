@@ -18,7 +18,7 @@ const ImportantFilter = () => {
     }
     
     return (
-        <FlexColumnWrapper $margin={"auto auto 5px auto"}>
+        <FlexColumnWrapper $marginBottomSmall>
             <ListButton $active={isShowingImportant} $starIcon $mode={context.mode} onClick={() => {dispatch(openImportantTodoListPanel())}}>Important</ListButton>
             <ListButton $active={isShowingAllTodos} $houseIcon $mode={context.mode} onClick={() => checkAreThereAnyTodosAndDispatch()}>Tasks</ListButton>
         </FlexColumnWrapper>

@@ -4,7 +4,7 @@ import Button from "../../ui/Button";
 import { AppContext } from "../../context/context";
 import logoLightMode from "../../images/logoUnoMD.svg";
 import logoDarkMode from "../../images/logoUnoWhite.svg";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const StartPage = ({ setIsVisible }) => {
 
@@ -34,11 +34,16 @@ const StartPage = ({ setIsVisible }) => {
 export default StartPage;
 
 const Wrapper = styled.div`
-    background-color: ${props => props.$mode === "Light" ? "var(--white)" : "var(--dark-mode-background)"};
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: row;
+    ${props => props.$mode === "Light" && css`
+        background-color: var(--white);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        background-color: var(--dark-mode-background);
+    `} 
 `;
 const StartPageTextWrapper = styled.div`
     padding: 20px 60px;
@@ -48,12 +53,17 @@ const StartPageTextWrapper = styled.div`
     align-items: center;
 `;
 const ImageWrapper = styled.div`
-    background-color: ${props => props.$mode === "Light" ? "var(--transparent-lavender)" : "var(--dark-mode-transparent-lavender)"}; 
     padding: 60px;
     width: calc(100vw / 100 * 70);
     display: flex;
     justify-content: center;
     align-items: center;
+    ${props => props.$mode === "Light" && css`
+        background-color: var(--transparent-lavender);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        background-color: var(--dark-mode-transparent-lavender);
+    `} 
 `;
 const StartPageText = styled.div`
     background-color: transparent;
@@ -67,15 +77,25 @@ const StyledLogo = styled.img`
 `;
 const StyledHeader = styled.h1`
     margin-bottom: 16px;
-    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
     font-size: 57px;
     line-height: 64px;
     letter-spacing: -0.25px;
+    ${props => props.$mode === "Light" && css`
+        color: var(--black);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-white-text);
+    `} 
 `;
 const StyledSubHeader = styled.h2`
     margin-bottom: 100px;
-    color: ${props => props.$mode === "Light" ? "var(--primary-purple-light-variant)" : "var(--dark-mode-primary-purple-light-variant)"};
     font-size: 16px;
     font-weight: 600;
     line-height: 24px;
+    ${props => props.$mode === "Light" && css`
+        color: var(--primary-purple-light-variant);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-primary-purple-light-variant);
+    `} 
 `;

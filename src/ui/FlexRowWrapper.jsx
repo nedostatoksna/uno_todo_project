@@ -28,4 +28,27 @@ const StyledFlexWrapper = styled.div`
     ${props => props.$flexStart && css `
         align-items: flex-start;
     `}
+
+
+    ${props => props.$paddingLeft && css `
+        padding-left: 20px;
+    `}
+    ${props => props.$paddingRightSmall && css `
+        padding-right: 12px;
+    `}
+    ${props => props.$paddingRightMedium && css `
+        padding-right: 14px;
+    `}
+    ${props => props.$paddingTopBottomSmall && css `
+        padding-top: 8px;
+        padding-bottom: 8px;
+    `}
+    ${props => props.$paddingTopBottomMedium && css `
+        padding-top: 12px;
+        padding-bottom: 12px;
+    `}
+    ${props => props.$paddingTopBottomLarge && css `
+        padding-top: 16px;
+        padding-bottom: 16px;
+    `}
 `;

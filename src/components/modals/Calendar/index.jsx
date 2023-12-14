@@ -64,7 +64,7 @@ const Calendar = () => {
         >
             <FlexColumnWrapper>
             <DateDisplay />
-                <FlexRowWrapper $spaceBetween $padding={"8px 12px 8px 20px"}>
+                <FlexRowWrapper $spaceBetween $paddingTopBottomSmall $paddingLeft $paddingRightSmall>
                     <MonthYearSelector activeMonth={activeMonth} />
                     <MonthSwitcher activeMonthId={findActiveMonthId()} />
                 </FlexRowWrapper>

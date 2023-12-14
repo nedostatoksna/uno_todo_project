@@ -3,7 +3,7 @@ import { useDispatch, useSelector} from "react-redux";
 import { setSearchQuery } from "../../store/actionCreators/todoListActionCreators";
 import { AppContext } from "../../context/context";
 import Divider from "../../ui/Divider";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import IconButton from "../../ui/IconButton";
 import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
 import FlexRowWrapper from "../../ui/FlexRowWrapper";
@@ -34,7 +34,9 @@ const SearchBar = () => {
                     <IconButton 
                         $type={"search"}
                         alt="magnifying glass icon" 
-                        $margin={"17px 8px 17px 16px"} 
+                        $marginLeftLarge
+                        $marginRightSmall
+                        $marginTopBottom
                         $small
                         $mode={context.mode}
                     ></IconButton>
@@ -55,7 +57,9 @@ const SearchBar = () => {
                         isSearching 
                             ?  <IconButton
                                     $type={"cross"}
-                                    $margin={"17px 16px 17px 8px"}
+                                    $marginTopBottom
+                                    $marginRightLarge
+                                    $marginLeftSmall
                                     alt="cross"
                                     $small
                                     onClick={() => {dispatch(cancelSearchAndCloseSearchPanel())}}
@@ -71,23 +75,45 @@ const SearchBar = () => {
 export default SearchBar;
 
 const SearchBarWrapper = styled.div`
-    background-color: ${props => props.$mode === "Light" ? "rgba(28, 27, 31, 0.08)" : "rgba(230, 225, 229, 0.08)"};
     margin-top: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    ${props => props.$mode === "Light" && css`
+        background-color: var(--transparent-grey-text);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        background-color: var(--dark-mode-transparent-grey-text);
+    `} 
 `;
 const StyledSearchInput = styled.input` 
-    color: ${props => props.$mode === "Light" && props.$isSearching === false ?  "rgba(28, 27, 31, 0.38)"
-    : props => props.$mode === "Light" && props.$isSearching === true ? "#1C1B1F"
-    : props => props.$mode === "Dark" && props.$isSearching === true ? "#E6E1E5"
-    : "rgba(230, 225, 229, 0.38)"};
     background: transparent;
     width: ${props => props.$isSearching === true ? "144px" : "176px"};
     height: 24px;
     border: none;
+    ${props => props.$mode === "Light" && css`
+        ${props => props.$isSearching === false && css`
+            color: var(--transparent-grey-text-medium-variant);
+        `} 
+        ${props => props.$isSearching === true && css`
+            color: var(--black);
+        `} 
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        ${props => props.$isSearching === false && css`
+            color: var(--dark-mode-transparent-grey-text-medium-variant);
+        `} 
+        ${props => props.$isSearching === true && css`
+            color: var(--dark-mode-white-text);
+        `}
+    `} 
 `;
 const StyledLabel = styled.label` 
-    color: ${props => props.$mode === 'Light' ? '#5946D2' : '#9373FF'};
+    ${props => props.$mode === "Light" && css`
+        color: var(--primary-purple);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-primary-purple);
+    `} 
 `;

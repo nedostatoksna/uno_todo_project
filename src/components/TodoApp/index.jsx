@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import SideBar from "../SideBar";
 import TodoListInterface from "../TodoListInterface";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { AppContext } from "../../context/context";
 import { useSelector } from "react-redux";
 import SearchTodoListPanel from "../SearchTodoListPanel";
@@ -83,9 +83,14 @@ const TodoApp = () => {
 export default TodoApp;
 
 const Wrapper = styled.div`
-    background-color: ${props => props.$mode === "Light" ? "var(--white)" : "var(--dark-mode-background)"};
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: row;
+    ${props => props.$mode === "Light" && css`
+        background-color: var(--white);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        background-color: var(--dark-mode-background);
+    `} 
 `;

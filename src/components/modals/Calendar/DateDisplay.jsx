@@ -21,7 +21,7 @@ const DateDisplay = () => {
     }
 
     return (
-        <FlexRowWrapper $flexStart $spaceBetween $padding={"16px 14px 16px 20px"}>
+        <FlexRowWrapper $flexStart $spaceBetween $paddingTopBottomLarge $paddingRightMedium $paddingLeft>
                 <StyledDate $mode={context.mode}>
                     {prepareDateStringForDisplay()}
                 </StyledDate>

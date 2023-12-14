@@ -69,4 +69,20 @@ const StyledButton = styled.button`
         height: 24px;
         width: 24px;
     `}
+    ${props => props.$marginTopBottom && css`
+        margin-top: 17px;
+        margin-bottom: 17px;
+    `}
+    ${props => props.$marginRightSmall && css`
+        margin-right: 8px;
+    `}
+    ${props => props.$marginLeftSmall && css`
+        margin-left: 8px;
+    `}
+    ${props => props.$marginRightLarge && css`
+        margin-right: 16px;
+    `}
+    ${props => props.$marginLeftLarge && css`
+        margin-left: 16px;
+    `}
 `;
