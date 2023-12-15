@@ -14,7 +14,7 @@ const AddDueDate = ({ todo }) => {
     const deadlineString = todo.deadline.deadlineString;
 
     return (
-        <FlexRowWrapper $spaceBetween $center $margin={"12px 0px"} $paddingTopBottomSmall>
+        <FlexRowWrapper $spaceBetween $center $marginTopBottomSmall $paddingTopBottomSmall>
          <FlexRowWrapper $flexStart $center>
                 <IconButton
                     $type={ deadlineString.length ? "addDateActive" : "addDateGrey"}

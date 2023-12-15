@@ -27,15 +27,15 @@ const TodoEditPanel = () => {
     const activeTodo = setActiveTodo();
 
     return (
-        <FlexColumnWrapper $paddingOnTheSidesSmall $paddingTopMedium $paddingBottom $spaceBetween $mode={context.mode} $width={"20vw"}>
+        <FlexColumnWrapper $paddingOnTheSidesSmall $paddingTopMedium $paddingBottom $spaceBetween $mode={context.mode} $widthSmall>
             <div>
                 <TodoEditHeader todo={activeTodo} /> 
                     <FlexColumnWrapper $paddingOnTheSidesSmall $paddingTopSmall>
-                        <Divider $mode={context.mode} $light $margin={"0px"} />
+                        <Divider $mode={context.mode} $light $noMargin />
                         <AddDueDate todo={activeTodo} />
-                        <Divider $mode={context.mode} $light $margin={"0px"} />
+                        <Divider $mode={context.mode} $light $noMargin />
                         <Note todoId={activeTodo.id} note={activeTodo.note} listId={activeTodo.parentListId} /> 
-                        <Divider $mode={context.mode} $light $margin={"0px"} />
+                        <Divider $mode={context.mode} $light $noMargin />
                     </FlexColumnWrapper>
             </div>
             <TodoEditFooter todo={activeTodo} />

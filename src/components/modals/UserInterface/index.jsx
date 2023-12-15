@@ -30,10 +30,10 @@ const UserInterface = () => {
             onСonfirmationClick={() => {dispatch(saveUserSettings({ dynamicContext }))}}
         >
             <UserCard />
-            <Divider $mode={context.mode} $height={"1px"} />
+            <Divider $mode={context.mode} $heightSmall />
             <FlexColumnWrapper $smallPaddingTop>
                 <GeneralSettings dynamicContext={dynamicContext} setDynamicContext={setDynamicContext} />
-                <Divider $mode={context.mode} $height={"1px"} />
+                <Divider $mode={context.mode} $heightSmall />
                 <About />
             </FlexColumnWrapper> 
         </Modal> 

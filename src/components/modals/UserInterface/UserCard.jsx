@@ -24,7 +24,7 @@ const UserCard = () => {
                 $coralColor 
                 $ClearBackground 
                 $paddingSmall 
-                $margin={"0px 0px 12px 0px"}
+                $MarginBottom
                 $mode={context.mode} 
                 onClick={() => {dispatch(changeIsSigningOut())}}
             >Sign Out</Button>

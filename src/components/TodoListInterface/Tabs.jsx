@@ -23,7 +23,7 @@ const Tabs = () => {
                 $active={completedTabActive}
                 $mode={context.mode}
             >Completed</StyledTab>
-            <Divider $white $margin={"0px"} $mode={context.mode} />
+            <Divider $white $noMargin $mode={context.mode} />
         </StyledTabsWrapper>
     )
 };

@@ -52,4 +52,14 @@ const StyledFlexWrapper = styled.div`
         padding-top: 16px;
         padding-bottom: 16px;
     `}
+    ${props => props.$marginLeftLarge && css `
+        margin-left: 24px;
+    `}
+    ${props => props.$marginBottomSmall && css `
+        margin-bottom: 10px;
+    `}
+    ${props => props.$marginTopBottomSmall && css `
+        margin-top: 12px;
+        margin-bottom: 12px;
+    `}
 `;

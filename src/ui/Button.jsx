@@ -18,7 +18,7 @@ const StyledButton = styled.button`
     border-radius: 20px;
     width: ${props => props.$width || undefined};
     background-repeat: no-repeat;  
-    background-position: ${props => props.$position || "center left 16px"};
+    background-position: center left 16px;
     text-align: ${props => props.$textAlign || "start"};
     padding: 10px 24px;
     margin: ${props => props.$margin || undefined};
@@ -83,6 +83,12 @@ const StyledButton = styled.button`
     `}
     ${props => props.$widthMax && css `
         width: 100%;
+    `}
+    ${props => props.$MarginBottom && css `
+        margin-bottom: 12px;
+    `}
+    ${props => props.$positionSmallIndent && css `
+        background-position: center left 12px;
     `}
     ${props => props.$purpleHover && css `
         &:hover {

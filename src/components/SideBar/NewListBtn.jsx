@@ -14,7 +14,7 @@ const NewListBtn = () => {
             $purplePlus 
             $positionForPlus 
             $widthMax 
-            $position={"center left 12px"} 
+            $positionSmallIndent
             $ClearBackground 
             $purpleColor 
             $mode={context.mode}

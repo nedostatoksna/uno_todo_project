@@ -19,7 +19,7 @@ const SideBar = () => {
     const context = useContext(AppContext);
 
     return (
-        <FlexColumnWrapper $paddingOnTheSidesLarge $paddingTopLarge $paddingBottom $width={"20vw"} $spaceBetween>
+        <FlexColumnWrapper $paddingOnTheSidesLarge $paddingTopLarge $paddingBottom $widthSmall $spaceBetween>
             <div>
                 <FlexRowWrapper $pointer onClick={() => {dispatch(toggleUserPanel())}}>
                     <Picture $mode={context.mode}>{context.userInitials}</Picture>

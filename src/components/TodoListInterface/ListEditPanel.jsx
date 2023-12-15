@@ -12,7 +12,7 @@ const ListEditPanel = ({ list }) => {
     return (
         <FlexRowWrapper $center $spaceBetween $paddingTopBottomMedium>
                 <StyledHeader $large $zeroMargin $white>{list.title}</StyledHeader>
-                <FlexRowWrapper $center $spaceBetween $margin={"0px 0px 0px 24px"}>
+                <FlexRowWrapper $center $spaceBetween $marginLeftLarge>
                     <IconButton $type={"edit"} $large onClick={() => {dispatch(toggleRenamingList())}}></IconButton>
                     <IconButton $type={"delete"} $large onClick={() => {dispatch(toggleDeletingList())}}></IconButton>
                 </FlexRowWrapper>

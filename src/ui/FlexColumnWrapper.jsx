@@ -15,6 +15,12 @@ const StyledFlexWrapper = styled.div`
     padding: ${props => props.$padding};
     width: ${props => props.$width};
 
+    ${props => props.$widthSmall && css `
+        width: 20vw;
+    `}
+    ${props => props.$widthMax && css `
+        width: 80vw;
+    `}
     ${props => props.$spaceBetween && css `
         justify-content: space-between;
     `}
@@ -46,8 +52,14 @@ const StyledFlexWrapper = styled.div`
     ${props => props.$paddingOnTheSidesSmall && css `
         padding: 0 10px;
     `}
+    ${props => props.$paddingOnTheSidesMiddle && css `
+        padding: 0 12px;
+    `}
     ${props => props.$paddingOnTheSidesLarge && css `
         padding: 0 20px;
+    `}
+    ${props => props.$paddingAllSides && css `
+        padding: 12px;
     `}
     ${props => props.$paddingTopSmall && css `
         padding-top: 12px;
@@ -60,5 +72,9 @@ const StyledFlexWrapper = styled.div`
     `}
     ${props => props.$paddingBottom && css `
         padding-bottom: 20px;
+    `}
+    ${props => props.$paddingTopBottomSmall && css `
+        padding-bottom: 8px;
+        padding-top: 8px;
     `}
 `;

@@ -14,7 +14,7 @@ const StartPage = ({ setIsVisible }) => {
         <Wrapper $mode={context.mode}>
             <StartPageTextWrapper>
                 <StartPageText $mode={context.mode}>
-                    <StyledLogo src={context.mode === "Light" ? logoLightMode : logoDarkMode} width={"103px"} />
+                    <StyledLogo src={context.mode === "Light" ? logoLightMode : logoDarkMode} />
                     <StyledHeader $mode={context.mode}>Welcome to Uno To Do!</StyledHeader>
                     <StyledSubHeader $mode={context.mode}>
                         Start using the best to-do app, you can
@@ -74,6 +74,7 @@ const StyledIllustration = styled.img`
 `;
 const StyledLogo = styled.img` 
     margin-bottom: 100px;
+    width: 103px;
 `;
 const StyledHeader = styled.h1`
     margin-bottom: 16px;

@@ -48,7 +48,7 @@ const AddDueDate = ({ todoId, listId }) => {
             header={"Add due date"} 
             onCancelClickHandler={() => {dispatch(toggleChooseDeadlinePanel())}} 
         >
-            <FlexColumnWrapper $padding={"12px"}>
+            <FlexColumnWrapper $paddingAllSides>
                 {
                     dateOptions.map(option => (
                         <ListButton 

@@ -39,7 +39,7 @@ const Todo = ({ todo }) => {
                     todoId={todo.id}
                     onChangeHandler={() => {dispatch(changeCompleted({ listId: todo.parentListId, todoId: todo.id, isCompleted: !todo.isCompleted }))}} 
                 />
-                <FlexColumnWrapper $center $flexStart $padding={"8px 0px"}>
+                <FlexColumnWrapper $center $flexStart $paddingTopBottomSmall>
                     <StyledItemTitle $mode={context.mode}>{todo.title}</StyledItemTitle>
                     <FlexRowWrapper>
                         <StyledText $grey $mode={context.mode}>{deadLineForDisplay}</StyledText>

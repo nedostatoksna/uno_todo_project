@@ -27,7 +27,7 @@ const TodoEditHeader = ({ todo }) => {
     }, [cashedPreEdit]);
 
     return (
-        <FlexRowWrapper $center $margin={"0px 0px 10px 0px"} $spaceBetween>
+        <FlexRowWrapper $center $marginBottomSmall $spaceBetween>
             <Checkbox
                 sidebar
                 labelPrimary 

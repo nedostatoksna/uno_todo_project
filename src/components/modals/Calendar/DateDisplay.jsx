@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import IconButton from "../../../ui/IconButton";
 import { AppContext } from "../../../context/context";
 import { fullMonths, threeLettersWeekDays } from "../../../data/calendar";
@@ -35,7 +35,12 @@ export default DateDisplay;
 const StyledDate= styled.p`
     font-size: 32px;
     line-height: 40px; 
-    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
+    ${props => props.$mode === "Light" && css`
+        color: var(--black);
+    `}
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-white-text);
+    `}
     background-color: transparent;
     width: calc(100% - 88px);
 `;
