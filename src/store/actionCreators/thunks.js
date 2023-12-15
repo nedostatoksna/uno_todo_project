@@ -94,6 +94,7 @@ const saveUserSettings = (payload) => {
 const deleteListAndCloseModal = (payload) => {
     return (dispatch) => {
         dispatch(deleteList(payload))
+        dispatch(toggleTodoEditPanel({ boolean: false }))
         dispatch(switchActiveTodoListId({listId: ""}))
         dispatch(toggleDeletingList())
     }
