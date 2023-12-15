@@ -12,6 +12,7 @@ const ImportantFilter = () => {
     const context = useContext(AppContext);
     const isShowingImportant  = useSelector(state => state.todoListUI.isShowingImportant);
     const isShowingAllTodos = useSelector(state => state.todoListUI.isShowingAllTodos);
+    const isSearching = useSelector(state => state.todoListUI.isSearching);
 
     const checkAreThereAnyTodosAndDispatch = () => {
         if (lists.length) dispatch(openAllTodosPanel()) 
@@ -19,8 +20,8 @@ const ImportantFilter = () => {
     
     return (
         <FlexColumnWrapper $marginBottomSmall>
-            <ListButton $active={isShowingImportant} $starIcon $mode={context.mode} onClick={() => {dispatch(openImportantTodoListPanel())}}>Important</ListButton>
-            <ListButton $active={isShowingAllTodos} $houseIcon $mode={context.mode} onClick={() => checkAreThereAnyTodosAndDispatch()}>Tasks</ListButton>
+            <ListButton $active={!isSearching && isShowingImportant} $starIcon $mode={context.mode} onClick={() => {!isSearching && dispatch(openImportantTodoListPanel())}}>Important</ListButton>
+            <ListButton $active={!isSearching && isShowingAllTodos} $houseIcon $mode={context.mode} onClick={() => !isSearching && checkAreThereAnyTodosAndDispatch()}>Tasks</ListButton>
         </FlexColumnWrapper>
     )
 };

@@ -63,13 +63,18 @@ export default TodoEditHeader;
 const StyledTodoTitle = styled.input`
     font-size: 22px;
     line-height: 28px; 
-    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
     margin: 0px 10px;
     width: calc(20vw - 140px);
     background-color: transparent;
     ${props => props.$isEditing && css `
         margin: 0px;
     `}
+    ${props => props.$mode === "Light" && css`
+        color: var(--black);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-white-text);
+    `} 
 `;
 const StyledTitleWrapper = styled.div`
     font-size: 22px;
@@ -100,7 +105,12 @@ const StyledTitleWrapper = styled.div`
     `}
 `;
 const StyledLabel = styled.label` 
-    color: ${props => props.$mode === "Light" ? "var(--primary-purple)" : "var(--dark-mode-primary-purple)"};
+    ${props => props.$mode === "Light" && css`
+        color: var(--primary-purple);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-primary-purple);
+    `} 
 `;
 
 

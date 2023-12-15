@@ -25,7 +25,7 @@ const TodoApp = () => {
     const isRenaming = useSelector(state => state.todoListUI.isRenamingList);
     const isCreatingList = useSelector(state => state.todoListUI.isCreatingList);
     const isCreatingTodo = useSelector(state => state.todoListUI.isCreatingTodo);
-    const activeList = useSelector(state => state.todoListUI.activeListId);
+    const activeListId = useSelector(state => state.todoListUI.activeListId);
     const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
 
     const isDeletingTodo = useSelector(state => state.todoPanelUI.isDeletingTodo);
@@ -36,6 +36,8 @@ const TodoApp = () => {
     const isShowinguserPanel = useSelector(state => state.userPanelUI.isShowingUserPanel);
     const isShowingChooseDeadlineModal = useSelector(state => state.todoPanelUI.isShowingChooseDeadlineModal);
     const isShowingCalendar = useSelector(state => state.todoPanelUI.isShowingCalendar);
+    const lists = useSelector(state => state.dataLists);
+    const activeList = lists.filter(list => list.id ===  activeListId);
 
     const setActionType = () => {
         const type = isCreatingList ? "createList"
@@ -51,7 +53,7 @@ const TodoApp = () => {
     return (
         <>
             { 
-                isCreatingList || isRenaming || isCreatingTodo ? <SaveModal actionType={setActionType()} listId={activeList} /> : undefined
+                isCreatingList || isRenaming || isCreatingTodo ? <SaveModal actionType={setActionType()} listId={activeListId} activeList={activeList} /> : undefined
             }
             {
                 isDeletingList || isDeletingTodo || isSigningOut ? <BreakModal actionType={setActionType()} /> : undefined
@@ -60,7 +62,7 @@ const TodoApp = () => {
                 isShowinguserPanel && <UserInterface /> 
             }
             {
-                isShowingChooseDeadlineModal && <AddDueDate todoId={activeTodoId} listId={activeList} />
+                isShowingChooseDeadlineModal && <AddDueDate todoId={activeTodoId} listId={activeListId} />
             }
             {
                 isShowingCalendar && <Calendar /> 
@@ -72,7 +74,7 @@ const TodoApp = () => {
                         ? <SearchTodoListPanel /> 
                         : isShowingImportant ? <ImportantTodoListPanel /> 
                         : isShowingAllTodos ? <AllTodosPanel />
-                        : !activeList ? <NoListsNoActiveListsNotice />
+                        : !activeListId ? <NoListsNoActiveListsNotice />
                         : <TodoListInterface />  }
                     { activeTodoId && isShowingEditPanel ? <TodoEditPanel /> : undefined }
             </Wrapper>

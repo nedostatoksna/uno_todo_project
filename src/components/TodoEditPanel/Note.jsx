@@ -36,7 +36,12 @@ const Note = ({ todoId, listId, note }) => {
 export default Note;
  
 const NoteHeader = styled.label`
-    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
+    ${props => props.$mode === "Light" && css`
+        color: var(--black);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-white-text);
+    `} 
 `;
 const NoteText = styled.textarea`
     min-height: 240px;

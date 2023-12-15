@@ -39,7 +39,7 @@ const Todo = ({ todo }) => {
                     todoId={todo.id}
                     onChangeHandler={() => {dispatch(changeCompleted({ listId: todo.parentListId, todoId: todo.id, isCompleted: !todo.isCompleted }))}} 
                 />
-                <FlexColumnWrapper $Calcheight $flexStart $padding={"8px 0px"}>
+                <FlexColumnWrapper $center $flexStart $padding={"8px 0px"}>
                     <StyledItemTitle $mode={context.mode}>{todo.title}</StyledItemTitle>
                     <FlexRowWrapper>
                         <StyledText $grey $mode={context.mode}>{deadLineForDisplay}</StyledText>
@@ -71,6 +71,7 @@ const StyledItemBox = styled.div`
     padding: 0px 10px;
     border-radius: 10px;
     margin-bottom: 5px;
+    cursor: pointer;
     ${props => props.$mode === "Light" && css`
         background-color: var(--white);
 
@@ -90,7 +91,12 @@ const StyledItemTitle = styled.p`
     font-size: 16px;
     font-weight: 600;
     line-height: 24px; 
-    color: ${props => props.$mode === "Light" ? "var(--black)" : "var(--dark-mode-white-text)"};
+    ${props => props.$mode === "Light" && css`
+        color: var(--black);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-white-text);
+    `} 
 `;
 const StyledText = styled.p`
     font-weight: 600;

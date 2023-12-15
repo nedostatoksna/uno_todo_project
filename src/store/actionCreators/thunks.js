@@ -33,6 +33,8 @@ const openAllTodosPanel = () => {
 const openSearchPanel = () => {
     return (dispatch) => {
         dispatch(changeActiveTodoId({ todoId: "" }))
+        dispatch(switchVisibleImportant({ boolean: false }))
+        dispatch(toggleShowingAllTodos({ boolean: false }))
         dispatch(toggleIsSearching({ boolean: true }))
     }
 }

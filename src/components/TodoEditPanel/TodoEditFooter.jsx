@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { AppContext } from "../../context/context";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import IconButton from "../../ui/IconButton";
 import { fullMonths, threeLettersWeekDays } from "../../data/calendar";
 import { toggleDeletingTodo, toggleTodoEditPanel } from "../../store/actionCreators/todoPanelActionCreators";
@@ -52,5 +52,10 @@ const StyledText = styled.p`
     font-weight: 600;
     line-height: 16px; 
     letter-spacing: 0.4px;
-    color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-dark-variant)" : "var(--dark-mode-transparent-grey-text-dark-variant)"};
+    ${props => props.$mode === "Light" && css`
+        color: var(--transparent-grey-text-dark-variant);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-transparent-grey-text-dark-variant);
+    `} 
 `;

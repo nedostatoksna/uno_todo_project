@@ -34,7 +34,6 @@ const StyledTabsWrapper = styled.div`
     width: fit-content;
 `;
 const StyledTab = styled.button`
-    color: ${props => props.$mode === "Light" ? "var(--transparent-grey-text-medium-variant)" : "var(--dark-mode-transparent-grey-text-medium-variant)"};
     min-width: 180px;
     padding: 12px 16px 11px 16px;
     text-align: center;
@@ -43,9 +42,14 @@ const StyledTab = styled.button`
     font-weight: 600;
     line-height: 20px;
     letter-spacing: 0.1px;
+    ${props => props.$mode === "Light" && css`
+        color: var(--transparent-grey-text-medium-variant);
+    `} 
+    ${props => props.$mode === "Dark" && css`
+        color: var(--dark-mode-transparent-grey-text-medium-variant);
+    `} 
     ${props => props.$active && css `
         border-bottom: solid 2px;
-
         ${props => props.$mode === "Light" && css `
             color: var(--primary-purple);
             border-color: var(--primary-purple);

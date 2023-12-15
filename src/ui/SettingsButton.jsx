@@ -42,6 +42,7 @@ const StyledLabel = styled.label`
     letter-spacing: 0.1px;
     border-radius: 8px;
     padding: 6px 8px;
+    cursor: pointer;
     ${props => props.$mode === "Light" && css`
         color: var(--light-grey-text);
     `};
@@ -52,6 +53,7 @@ const StyledLabel = styled.label`
 const StyledMark = styled.span`
     padding: 0px 8px;
     font-weight: 600;
+    cursor: pointer;
 `;
 const StyledContainer = styled.div`
     display: block;
@@ -63,6 +65,7 @@ const StyledContainer = styled.div`
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    cursor: pointer;
     &:hover ${StyledInput} ~ ${StyledLabel} {
         ${props => props.$mode === "Light" && css`
             background-color: var(--transparent-grey-text);

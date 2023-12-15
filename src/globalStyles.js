@@ -75,6 +75,9 @@ const GlobalStyle = createGlobalStyle`
   input:focus, select:focus, button:focus, textarea:focus {
     outline: none;
   }
+  select:hover, button:hover {
+    cursor: pointer;
+  }
   input, textarea {
     font-size: 16px;
     font-weight: 600;

@@ -6,10 +6,10 @@ import TextInput from "../../ui/TextInput";
 import { AppContext } from "../../context/context"; 
 import Modal from "../../ui/Modal";
 
-const SaveModal = ({ actionType, listId }) => {
+const SaveModal = ({ actionType, listId, activeList }) => {
     const context = useContext(AppContext);
 
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState(actionType === "renameList" ? activeList[0].title : "" );
     const dispatch = useDispatch();
 
     const preAddNewTodo = () => {

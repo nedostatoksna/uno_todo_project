@@ -21,7 +21,7 @@ const SideBar = () => {
     return (
         <FlexColumnWrapper $paddingOnTheSidesLarge $paddingTopLarge $paddingBottom $width={"20vw"} $spaceBetween>
             <div>
-                <FlexRowWrapper  onClick={() => {dispatch(toggleUserPanel())}}>
+                <FlexRowWrapper $pointer onClick={() => {dispatch(toggleUserPanel())}}>
                     <Picture $mode={context.mode}>{context.userInitials}</Picture>
                     <FlexColumnWrapper $flexStart>
                         <StyledHeader $lineHeight={"20px"} $zeroMargin $bold $mode={context.mode}>{context.userName}</StyledHeader>

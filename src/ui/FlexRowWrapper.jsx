@@ -28,8 +28,9 @@ const StyledFlexWrapper = styled.div`
     ${props => props.$flexStart && css `
         align-items: flex-start;
     `}
-
-
+    ${props => props.$pointer && css `
+        cursor: pointer;
+    `}
     ${props => props.$paddingLeft && css `
         padding-left: 20px;
     `}
