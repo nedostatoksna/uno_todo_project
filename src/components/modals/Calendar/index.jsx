@@ -57,7 +57,7 @@ const Calendar = () => {
 
     return (
         <Modal 
-            boxWidth={"328px"} 
+            $smallSize
             header={"select date"} 
             smallUppercase
             okButton

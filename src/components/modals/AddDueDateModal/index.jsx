@@ -44,7 +44,7 @@ const AddDueDate = ({ todoId, listId }) => {
 
     return (
         <Modal 
-            boxWidth={"390px"} 
+            $mediumSize
             header={"Add due date"} 
             onCancelClickHandler={() => {dispatch(toggleChooseDeadlinePanel())}} 
         >

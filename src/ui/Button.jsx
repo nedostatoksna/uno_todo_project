@@ -16,7 +16,6 @@ const StyledButton = styled.button`
     color: var(--white);
     height: 40px;
     border-radius: 20px;
-    width: ${props => props.$width || undefined};
     background-repeat: no-repeat;  
     background-position: center left 16px;
     text-align: ${props => props.$textAlign || "start"};
@@ -72,6 +71,9 @@ const StyledButton = styled.button`
     ${props => props.$paddingSmall && css`
         padding: 10px 12px;
     `}
+    ${props => props.$widthMax && css `
+        width: 330px;
+    `}
     ${props => props.$paddingForPlus && css`
         padding: 10px 24px 10px 42px;
     `}
@@ -86,6 +88,9 @@ const StyledButton = styled.button`
     `}
     ${props => props.$MarginBottom && css `
         margin-bottom: 12px;
+    `}
+    ${props => props.$MarginSides && css `
+        margin: 0 10px;
     `}
     ${props => props.$positionSmallIndent && css `
         background-position: center left 12px;

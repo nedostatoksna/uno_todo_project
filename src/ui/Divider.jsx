@@ -25,6 +25,10 @@ const StyledDivider = styled.hr`
     ${props => props.$noMargin && css`
         margin: 0;
     `}
+    ${props => props.$marginTopBottom && css`
+        margin-top: 9px;
+        margin-bottom: 10px;
+    `}
     ${props => props.$light && css `
         height: 1px;
         border: 0.5px solid;

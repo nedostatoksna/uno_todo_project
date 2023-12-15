@@ -21,7 +21,7 @@ const StartPage = ({ setIsVisible }) => {
                         create and manage your To Do lists to
                         improve your organization.
                     </StyledSubHeader>
-                    <Button onClick={() => setIsVisible(false)} $primary $width={"330px"} $textAlign={"center"} $mode={context.mode}>Get started</Button>
+                    <Button onClick={() => setIsVisible(false)} $primary $widthMax $textAlign={"center"} $mode={context.mode}>Get started</Button>
                 </StartPageText>
             </StartPageTextWrapper>
             <ImageWrapper $mode={context.mode}>
@@ -74,7 +74,7 @@ const StyledIllustration = styled.img`
 `;
 const StyledLogo = styled.img` 
     margin-bottom: 100px;
-    width: 103px;
+    width: 103px; 
 `;
 const StyledHeader = styled.h1`
     margin-bottom: 16px;

@@ -18,6 +18,7 @@ const Modal = ({ boxWidth,
                  breakModal,
                  primarySaveBtn,
                  smallUppercase,
+                 saveModal,
                  signOut }) => {
 
     const context = useContext(AppContext);
@@ -28,10 +29,11 @@ const Modal = ({ boxWidth,
                 $primary 
                 $width={boxWidth} 
                 $mode={context.mode} 
-                $paddingXSmall={header === "select date"}
-                $paddingSmall={header === "Add due date"}
-                $paddingMedium={header === "Settings"}
-                $paddingLarge={header !== "select date" && header !== "Add due date" && header !== "Settings"}
+                $sizeLargeStandartPadding={saveModal}
+                $smallSize={header === "select date"}
+                $mediumSize={header === "Add due date"}
+                $sizeLargeSmallPadding={header === "Settings"}
+                $minimumSize={breakModal}
             >
             {  
                 header === "Settings" || header === "Add due date"
@@ -70,7 +72,7 @@ const Modal = ({ boxWidth,
                             $ClearBackground 
                             $paddingSmall 
                             $purpleColor
-                            $margin={"0px 10px"}
+                            $MarginSides
                             $purpleHover
                             onClick={onCancelClickHandler}
                         >

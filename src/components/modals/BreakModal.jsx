@@ -40,7 +40,6 @@ const BreakModal = ({ actionType }) => {
 
     return (
         <Modal 
-            boxWidth={"310px"} 
             signOut
             breakModal
             header={header} 

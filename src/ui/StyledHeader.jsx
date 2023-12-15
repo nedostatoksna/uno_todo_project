@@ -58,6 +58,9 @@ const StyledHeader = styled.h1`
     ${props => props.$zeroMargin && css `
         margin: 0;
     `}
+    ${props => props.$smallLineHeight && css `
+        line-height: 20px; 
+    `}
     ${props => props.$mediumLineHeight && css `
         line-height: 36px; 
     `}

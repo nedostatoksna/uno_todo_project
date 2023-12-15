@@ -56,6 +56,7 @@ const SaveModal = ({ actionType, listId, activeList }) => {
 
     return (
         <Modal
+            saveModal
             header={header} 
             buttonText={buttonText} 
             whitePlusForBtn={actionType === "createList" || actionType === "createTodo"}

@@ -24,13 +24,13 @@ const SideBar = () => {
                 <FlexRowWrapper $pointer onClick={() => {dispatch(toggleUserPanel())}}>
                     <Picture $mode={context.mode}>{context.userInitials}</Picture>
                     <FlexColumnWrapper $flexStart>
-                        <StyledHeader $lineHeight={"20px"} $zeroMargin $bold $mode={context.mode}>{context.userName}</StyledHeader>
+                        <StyledHeader $smallLineHeight $zeroMargin $bold $mode={context.mode}>{context.userName}</StyledHeader>
                         <UserEmail $mode={context.mode}>{context.userEmail}</UserEmail>
                     </FlexColumnWrapper>
                 </FlexRowWrapper>
                 <SearchBar />
                 <ImportantFilter />
-                <Divider $mode={context.mode} $margin={"9px 0px 10px 0px"} $light />
+                <Divider $mode={context.mode} $marginTopBottom $light />
                 <ListOfLists />
             </div>
             <NewListBtn />
