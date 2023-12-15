@@ -1,6 +1,4 @@
-import { SWITCH_TO_PREV_MONTH, 
-         SWITCH_TO_NEXT_MONTH, 
-         CHANGE_SELECTED_DATE, 
+import { CHANGE_SELECTED_DATE, 
          TOGGLE_IS_EDITING_DATE,
          CHANGE_SELECTED_MONTH,
          CHANGE_SELECTED_YEAR } from "../actions/calendarActions";
@@ -8,12 +6,6 @@ import calendarInitialState from "../states/calendarIInitialState";
 
 const calendarReducer = (state = calendarInitialState, {type, payload}) => {
     switch (type) {
-        case SWITCH_TO_PREV_MONTH: return {
-            ...state, activeMonth: payload.newActiveMonth
-        }
-        case SWITCH_TO_NEXT_MONTH: return {
-            ...state, activeMonth: payload.newActiveMonth 
-        }
         case CHANGE_SELECTED_DATE: return {
             ...state, selectedDate: new Date(payload.activeYear, payload.activeMonthId, payload.activeDate)
         }

@@ -19,7 +19,7 @@ const MonthYearSelector = ({ activeMonth }) => {
             <StyledSelector 
                 $mode={context.mode}  
                 value={activeMonth}
-                onChange={(e) => {dispatch(changeSelectedMonth(e.target.value))}}
+                onChange={(e) => {dispatch(changeSelectedMonth({ activeMonth: e.target.value }))}}
                 name={"months"}
             >
                 {

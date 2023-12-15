@@ -3,28 +3,33 @@ import styled, { css } from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { AppContext } from "../../../context/context";
 import { changeSelectedDate } from "../../../store/actionCreators/calendarActionCreators";
+import { fullMonths } from "../../../data/calendar";
+import { switchMonthAndYear } from "../../../store/actionCreators/thunks";
 
-const CalendarDay = ({ day, year, setChosenDay }) => {
+const CalendarDay = ({ day, setChosenDay }) => {
     
     const context = useContext(AppContext);
     const selectedDay = useSelector(state => state.calendarUI.selectedDate.getDate());
     const selectedDayMonth = useSelector(state => state.calendarUI.selectedDate.getMonth());
+    const selectedDayYear = useSelector(state => state.calendarUI.selectedDate.getFullYear());
     const dispatch = useDispatch();
     const todayDate = new Date().getDate();
     const todayMonth = new Date().getMonth();
+    const todayYear = new Date().getFullYear();
 
     const preChangeSelectedDate = (day) => {
         setChosenDay(day)
-        dispatch(changeSelectedDate({ activeYear: year, activeMonthId: day.month, activeDate: day.date }))
+        dispatch(changeSelectedDate({ activeYear: day.year, activeMonthId: day.month, activeDate: day.date }))
     }
 
     return (
         <Wrapper 
             $prevNext={!day.activeMonth} 
             $mode={context.mode}
-            $active={day.date === selectedDay && day.month === selectedDayMonth}
-            $isToday={day.date === todayDate && day.month === todayMonth}
-            onClick={() => preChangeSelectedDate(day)}
+            $active={day.date === selectedDay && day.month === selectedDayMonth && day.year === selectedDayYear}
+            $isToday={day.date === todayDate && day.month === todayMonth && day.year === todayYear}
+            onClick={() => day.activeMonth ? preChangeSelectedDate(day) 
+                                           : dispatch(switchMonthAndYear({ activeMonth: fullMonths[day.month].title, activeYear: day.year }))}
         >
             {day.date}
         </Wrapper>

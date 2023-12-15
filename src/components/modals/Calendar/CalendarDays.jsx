@@ -23,8 +23,9 @@ const CalendarDays = ({ activeMonthId, year, setChosenDay }) => {
                 const date = numberOfDaysInPrevMonth - i;
                 const dateObj = {
                     date: date,
-                    month: activeMonthId - 1,
-                    weekDay: new Date(year, activeMonthId - 1, date).getDay(),
+                    month: activeMonthId === 0 ? 11 : activeMonthId - 1,
+                    weekDay: new Date(year, activeMonthId === 0 ? 11 : activeMonthId - 1, date).getDay(),
+                    year: activeMonthId === 0 ? year - 1 : year,
                     activeMonth: false,
                 };
                 resultArr.unshift(dateObj);
@@ -40,6 +41,7 @@ const CalendarDays = ({ activeMonthId, year, setChosenDay }) => {
                 date: date,
                 month: activeMonthId,
                 weekDay: new Date(year, activeMonthId, date).getDay(),
+                year: year,
                 activeMonth: true,
             };
             resultArr.push(dateObj);
@@ -53,8 +55,9 @@ const CalendarDays = ({ activeMonthId, year, setChosenDay }) => {
             let date = i;
             const dateObj = {
                 date: date,
-                month: activeMonthId + 1,
-                weekDay: new Date(year, activeMonthId + 1, date).getDay(),
+                month: activeMonthId === 11 ? 0 : activeMonthId + 1,
+                weekDay: new Date(year, activeMonthId === 11 ? 0 : activeMonthId + 1, date).getDay(),
+                year: activeMonthId === 11 ? year + 1 : year,
                 activeMonth: false,
             };
             resultArr.push(dateObj);
@@ -74,7 +77,7 @@ const CalendarDays = ({ activeMonthId, year, setChosenDay }) => {
             {
                 visibleDays.map(daysArray =>
                     daysArray.map(day => (
-                        <CalendarDay day={day} key={day.date} year={year} setChosenDay={setChosenDay} />
+                        <CalendarDay day={day} key={day.date} setChosenDay={setChosenDay} />
                     ))
                 )
             }

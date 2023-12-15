@@ -1,4 +1,4 @@
-import { changeSelectedDate, changeSelectedMonth, changeSelectedYear, switchToNextMonth, switchToPrevMonth } from "./calendarActionCreators.js";
+import { changeSelectedDate, changeSelectedMonth, changeSelectedYear} from "./calendarActionCreators.js";
 import { chooseDeadline, deleteList, deleteTodo } from "./dataListActionCreators.js";
 import { setSearchQuery, switchActiveTodoListId, switchVisibleImportant, toggleDeletingList, toggleIsSearching, toggleShowingAllTodos } from "./todoListActionCreators.js";
 import { changeActiveTodoId, toggleChooseDeadlinePanel, toggleDeletingTodo, toggleIsShowingCalendar, toggleTodoEditPanel } from "./todoPanelActionCreators.js";
@@ -71,15 +71,9 @@ const deleteTodoAndCloseTodoEditPanel = (payload) => {
         dispatch(deleteTodo(payload))
     }
 }
-const switchToNextMonthAndYear = (payload) => {
+const switchMonthAndYear = (payload) => {
     return (dispatch) => {
-        dispatch(switchToNextMonth(payload))
-        dispatch(changeSelectedYear(payload))
-    }
-}
-const switchToPrevMonthAndYear = (payload) => {
-    return (dispatch) => {
-        dispatch(switchToPrevMonth(payload))
+        dispatch(changeSelectedMonth(payload))
         dispatch(changeSelectedYear(payload))
     }
 }
@@ -120,8 +114,7 @@ export {
     setDeadlineAndCloseDeadlineModal,
     closeDeadlineModalAndOpenCalendar,
     deleteTodoAndCloseTodoEditPanel,
-    switchToNextMonthAndYear,
-    switchToPrevMonthAndYear,
+    switchMonthAndYear,
     setDeadlineAndCloseCalendar,
     saveUserSettings,
     deleteListAndCloseModal,
