@@ -1,6 +1,6 @@
 import { changeSelectedDate, changeSelectedMonth, changeSelectedYear} from "./calendarActionCreators.js";
-import { chooseDeadline, deleteList, deleteTodo } from "./dataListActionCreators.js";
-import { setSearchQuery, switchActiveTodoListId, switchVisibleImportant, toggleDeletingList, toggleIsSearching, toggleShowingAllTodos } from "./todoListActionCreators.js";
+import { addTodoToList, chooseDeadline, createList, deleteList, deleteTodo, renameList } from "./dataListActionCreators.js";
+import { setSearchQuery, switchActiveTodoListId, switchVisibleImportant, toggleCreatingList, toggleCreatingTodo, toggleDeletingList, toggleIsSearching, toggleRenamingList, toggleShowingAllTodos } from "./todoListActionCreators.js";
 import { changeActiveTodoId, toggleChooseDeadlinePanel, toggleDeletingTodo, toggleIsShowingCalendar, toggleTodoEditPanel } from "./todoPanelActionCreators.js";
 import { saveSettings, toggleUserPanel } from "./userPanelActionCreators.js";
 
@@ -105,6 +105,24 @@ const deleteTodoAndCloseModal = (payload) => {
         dispatch(toggleDeletingTodo())
     }
 }
+const createNewListAndCloseModal = (payload) => {
+    return (dispatch) => {
+        dispatch(createList(payload));
+        dispatch(toggleCreatingList());
+    }
+}
+const addNewTodoAndCloseModal = (payload) => {
+    return (dispatch) => {
+        dispatch(addTodoToList(payload));
+        dispatch(toggleCreatingTodo());
+    }
+}
+const renameTaskAndCloseModal = (payload) => {
+    return (dispatch) => {
+        dispatch(renameList(payload));
+        dispatch(toggleRenamingList());
+    }
+}
 
 export {
     switchActiveTodoList,
@@ -120,5 +138,8 @@ export {
     setDeadlineAndCloseCalendar,
     saveUserSettings,
     deleteListAndCloseModal,
-    deleteTodoAndCloseModal
+    deleteTodoAndCloseModal,
+    createNewListAndCloseModal,
+    addNewTodoAndCloseModal,
+    renameTaskAndCloseModal
 };

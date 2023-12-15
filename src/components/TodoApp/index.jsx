@@ -6,14 +6,18 @@ import { AppContext } from "../../context/context";
 import { useSelector } from "react-redux";
 import SearchTodoListPanel from "../SearchTodoListPanel";
 import ImportantTodoListPanel from "../ImportantTodoListPanel";
-import SaveModal from "../modals/SaveModal";
-import BreakModal from "../modals/BreakModal";
 import TodoEditPanel from "../TodoEditPanel";
 import AllTodosPanel from "../AllTodosPanel";
 import UserInterface from "../modals/UserInterface";
 import AddDueDate from "../modals/AddDueDateModal";
 import Calendar from "../modals/Calendar";
 import NoListsNoActiveListsNotice from "../NoListsNoActiveListsNotice";
+import DeleteListModal from "../modals/DeleteListModal";
+import DeleteTaskModal from "../modals/DeleteTaskModal";
+import SignOutModal from "../modals/SignOutModal";
+import CreateListModal from "../modals/CreateListModal";
+import RenameModal from "../modals/RenameModal";
+import CreateTaskModal from "../modals/CreateTaskModal";
 
 const TodoApp = () => {
 
@@ -39,24 +43,17 @@ const TodoApp = () => {
     const lists = useSelector(state => state.dataLists);
     const activeList = lists.filter(list => list.id ===  activeListId);
 
-    const setActionType = () => {
-        const type = isCreatingList ? "createList"
-        : isCreatingTodo ? "createTodo"
-        : isRenaming ? "renameList"
-        : isDeletingList ? "deleteList"
-        : isDeletingTodo ? "deleteTodo"
-        : "signOut";
-
-        return type;
-    }
-
     return (
         <>
             { 
-                isCreatingList || isRenaming || isCreatingTodo ? <SaveModal actionType={setActionType()} listId={activeListId} activeList={activeList} /> : undefined
+                isCreatingList ? <CreateListModal /> 
+                               : isRenaming ? <RenameModal listId={activeListId} activeList={activeList} /> 
+                               : isCreatingTodo && <CreateTaskModal listId={activeListId} /> 
             }
             {
-                isDeletingList || isDeletingTodo || isSigningOut ? <BreakModal actionType={setActionType()} /> : undefined
+                isDeletingList ? <DeleteListModal /> 
+                               : isDeletingTodo ? <DeleteTaskModal /> 
+                               : isSigningOut && <SignOutModal /> 
             }
             {
                 isShowinguserPanel && <UserInterface /> 
