@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
-import StyledHeader from "../../ui/StyledHeader";
-import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
-import StyledSubHeader from "../../ui/StyledSubHeader";
 import Background from "../../ui/Background";
 import { AppContext } from "../../context/context";
 import { useSelector } from "react-redux";
+import BackgroundWithText from "../../ui/BackgroundWithText";
 
 const NoListsNoActiveListsNotice = () => {
 
@@ -13,12 +11,14 @@ const NoListsNoActiveListsNotice = () => {
 
     return (
         <Background $primary $mode={context.mode} $widthLarge>
-            <FlexColumnWrapper $center $height100 $smallPaddingTop>
-                <StyledHeader $mediumLineHeight $white $smallMargin $Xlarge>{lists.length ? "There is no active task list" : "There are no task lists yet"}</StyledHeader>
-                <StyledSubHeader $marginBottom60 $white>{lists.length ? "Click on one of the lists to see it here" : "Try creating one by clicking the 'New List' button"}</StyledSubHeader>
-            </FlexColumnWrapper>
+            <BackgroundWithText
+                white
+                headerText={lists.length ? "There is no active task list" : "There are no task lists yet"}
+                subHeaderText={lists.length ? "Click on one of the lists to see it here" : "Try creating one by clicking the 'New List' button"}
+            />
         </Background>
     )
 };
 
 export default NoListsNoActiveListsNotice;
+

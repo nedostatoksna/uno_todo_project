@@ -1,15 +1,14 @@
 import React from "react";
-import StyledHeader from "../../ui/StyledHeader";
-import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
-import StyledSubHeader from "../../ui/StyledSubHeader";
+import BackgroundWithText from "../../ui/BackgroundWithText";
 
 const Notice = () => {
 
     return (
-        <FlexColumnWrapper $height100 $center $width100 $smallPaddingTop>
-            <StyledHeader $mediumLineHeight $white $smallMargin $Xlarge>Important Tasks</StyledHeader>
-            <StyledSubHeader $marginBottom60 $white>Try starring some tasks to see them here.</StyledSubHeader>
-        </FlexColumnWrapper>
+        <BackgroundWithText 
+            white
+            headerText={"Important Tasks"} 
+            subHeaderText={"Try starring some tasks to see them here."}
+        />
     )
 };
 
