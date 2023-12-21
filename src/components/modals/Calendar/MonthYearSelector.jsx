@@ -4,8 +4,8 @@ import styled, { css } from "styled-components";
 import { AppContext } from "../../../context/context";
 import { fullMonths }  from "../../../data/calendar";
 import { changeSelectedMonth } from "../../../store/actionCreators/calendarActionCreators";
-import arrowDropDown from "../../../images/arrowDropDown.svg";
-import arrowDropDownForDark from "../../../images/arrowDropDownForDark.svg";
+import arrowDropDown from "../../../resources/images/arrowDropDown.svg";
+import arrowDropDownForDark from "../../../resources/images/arrowDropDownForDark.svg";
 import FlexRowWrapper from "../../../ui/FlexRowWrapper";
 
 const MonthYearSelector = ({ activeMonth }) => {

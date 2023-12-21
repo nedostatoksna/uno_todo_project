@@ -1,6 +1,30 @@
-# Getting Started with Create React App
+# Todo App "Uno To Do" 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a training application built using React native, Redux, Hooks and styled with styled-components.
+The app allows users to add, edit, and delete tasks, as well as mark them as completed or important.
+You can view a live demo of the project here: [https://nedostatoksna.github.io/uno_todo_project/].
+
+## Features
+
+- Create, delete, and rename task lists.
+- Add a new task to the list.
+- Add a due date to the task using a date picker or choose the date from the built-in calendar.
+- Edit or delete the due date.
+- Add a note to the task.
+- Edit the task title.
+- Delete tasks.
+- Mark tasks as important or completed.
+- Filter visible tasks to see all tasks from all lists.
+- Filter visible tasks to see only important or completed tasks.
+- Search tasks by title.
+- Choose a palette, language, or mode of the application in the settings.
+
+## Technologies Used
+
+- **React Native**: A JavaScript framework for building native mobile applications.
+- **Redux**: A predictable state container for managing the application's state.
+- **Hooks**: Utilized for functional components to manage state and side effects.
+- **styled-components**: A popular CSS-in-JS library for styling React components.
 
 ## Available Scripts
 
@@ -9,15 +33,6 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `npm run build`
 
@@ -27,44 +42,42 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `npm run deploy`
 
-### `npm run eject`
+## Usage 
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Get Started:
+Press the "Get Started" button to open the app.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Right Sidebar:
+To create a new task list, navigate to the right sidebar and click on the "New List" button.
+To view a list, click on the list name that appears in the sidebar.
+Filter visible tasks by selecting the desired filter option. Choose from "Tasks" to view all tasks from all lists or "Important" for important tasks.
+Search for tasks by title using the search bar. Type the task title, and relevant tasks will be displayed.
+To cancel the search, click on the cross button.
+For Settings, click on the username displayed at the top of the sidebar.
+Customize the app's appearance by accessing the "Settings" modal.
+Choose a color palette, language, or mode to personalize your experience.
+To sign out, click on the "Sign Out" button.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Task List:
+To delete or rename a task list, find the delete and edit icons near the list title.
+While the list is open, you can add a new task to that list by clicking on the "Add a task" button.
+Mark tasks as important or completed by clicking on the star for important or the square checkbox for completed tasks.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Task Edit Panel:
+To open the task edit panel, click on the task.
+In the edit panel, you can edit the task title by tapping on the task name and making the necessary changes.
+Delete a task by pressing on the rubbish bin icon at the bottom.
+To close the edit panel, click on the chevron button at the bottom.
 
-## Learn More
+Due Dates:
+Assign a due date to a task by clicking on the calendar icon and selecting an option in the modal. To view the calendar, choose the "Pick a Date" option.
+Delete the due date by clicking on the cross icon.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Calendar:
+Choose the desired date by clicking and pressing "Ok" to save your choice and close the calendar.
+Navigate to the next or previous month with the chevron buttons or pick any month of the year with the selector.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Note:
+Add a note to a task by typing something in the "Add Note" section.

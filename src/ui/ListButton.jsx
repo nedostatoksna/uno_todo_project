@@ -1,16 +1,16 @@
 import styled, { css } from "styled-components";
-import starIcon from "../images/starIcon.svg";
-import starIconDark from "../images/starIconDark.svg";
-import houseIcon from "../images/houseIcon.svg";
-import houseIconDark from "../images/houseIconDark.svg";
-import arrowIcon from "../images/arrowIcon.svg";
-import arrowIconDark from "../images/arrowIconDark.svg";
-import listIcon from "../images/listIcon.svg";
-import listIconDark from "../images/listIconDark.svg";
-import calendarDayIcon from "../images/calendarDay.svg";
-import calendarDayIconForDark from "../images/calendarDayForDark.svg";
-import arrowIconBlack from "../images/arrowIconBlack.svg";
-import arrowIconBlackForDark from "../images/arrowIconBlackForDark.svg";
+import starIcon from "../resources/images/starIcon.svg";
+import starIconDark from "../resources/images/starIconDark.svg";
+import houseIcon from "../resources/images/houseIcon.svg";
+import houseIconDark from "../resources/images/houseIconDark.svg";
+import arrowIcon from "../resources/images/arrowIcon.svg";
+import arrowIconDark from "../resources/images/arrowIconDark.svg";
+import listIcon from "../resources/images/listIcon.svg";
+import listIconDark from "../resources/images/listIconDark.svg";
+import calendarDayIcon from "../resources/images/calendarDay.svg";
+import calendarDayIconForDark from "../resources/images/calendarDayForDark.svg";
+import arrowIconBlack from "../resources/images/arrowIconBlack.svg";
+import arrowIconBlackForDark from "../resources/images/arrowIconBlackForDark.svg";
 
 const ListButton = ( props ) => { 
     return (

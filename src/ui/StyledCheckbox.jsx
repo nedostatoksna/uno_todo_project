@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import styled, { css } from "styled-components";
-import starUnfilled from "../images/starUnfilled.svg";
-import starUnfilledDark from "../images/starUnfilledForDark.svg";
-import starFilled from "../images/starFilled.svg";
-import starFilledDark from "../images/starFilledForDark.svg";
-import starGrey from "../images/starIconGrey.svg";
-import starGreyForDark from "../images/starIconGreyDark.svg";
-import filledCheckbox from "../images/filledCheckbox.svg";
-import filledCheckboxDark from "../images/filledCheckboxForDark.svg";
+import starUnfilled from "../resources/images/starUnfilled.svg";
+import starUnfilledDark from "../resources/images/starUnfilledForDark.svg";
+import starFilled from "../resources/images/starFilled.svg";
+import starFilledDark from "../resources/images/starFilledForDark.svg";
+import starGrey from "../resources/images/starIconGrey.svg";
+import starGreyForDark from "../resources/images/starIconGreyDark.svg";
+import filledCheckbox from "../resources/images/filledCheckbox.svg";
+import filledCheckboxDark from "../resources/images/filledCheckboxForDark.svg";
 import { AppContext } from "../context/context";
 
 const Checkbox = ({ labelPrimary, 

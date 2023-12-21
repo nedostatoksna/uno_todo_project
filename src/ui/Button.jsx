@@ -1,8 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import plusIcon from "../images/plusIcon.svg";
-import plusIconLighter from "../images/plusIconLighter.svg";
-import plusIconWhite from "../images/whitePlusIcon.svg";
+import plusIcon from "../resources/images/plusIcon.svg";
+import plusIconLighter from "../resources/images/plusIconLighter.svg";
+import plusIconWhite from "../resources/images/whitePlusIcon.svg";
 
 const Button = ( props ) => { 
     return (

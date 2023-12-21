@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import startPageIllustration from "../../images/startPageIlustration.svg";
+import startPageIllustration from "../../resources/images/startPageIlustration.svg";
 import Button from "../../ui/Button";
 import { AppContext } from "../../context/context";
-import logoLightMode from "../../images/logoUnoMD.svg";
-import logoDarkMode from "../../images/logoUnoWhite.svg";
+import logoLightMode from "../../resources/images/logoUnoMD.svg";
+import logoDarkMode from "../../resources/images/logoUnoWhite.svg";
 import styled, { css } from "styled-components";
 
 const StartPage = ({ setIsVisible }) => {

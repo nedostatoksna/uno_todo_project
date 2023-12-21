@@ -112,6 +112,13 @@ const createNewListAndCloseModal = (payload) => {
         dispatch(toggleCreatingList());
     }
 }
+const createNewListSetActiveListIdAndCloseModal = (payload) => {
+    return (dispatch) => {
+        dispatch(createList(payload));
+        dispatch(switchActiveTodoListId(payload))
+        dispatch(toggleCreatingList());
+    }
+}
 const addNewTodoAndCloseModal = (payload) => {
     return (dispatch) => {
         dispatch(addTodoToList(payload));
@@ -142,5 +149,6 @@ export {
     deleteTodoAndCloseModal,
     createNewListAndCloseModal,
     addNewTodoAndCloseModal,
-    renameTaskAndCloseModal
+    renameTaskAndCloseModal,
+    createNewListSetActiveListIdAndCloseModal
 };

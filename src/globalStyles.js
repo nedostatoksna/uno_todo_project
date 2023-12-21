@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import robotoRegularFont from "./resources/fonts/Roboto/Roboto-Regular.ttf";
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -67,7 +68,7 @@ const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: "Roboto";
     src: local("Roboto-Regular"),
-    url("./fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+    url(${robotoRegularFont}) format("truetype");
   }
   input, button {
     border: none;

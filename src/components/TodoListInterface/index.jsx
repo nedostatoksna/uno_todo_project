@@ -7,7 +7,7 @@ import Background from "../../ui/Background";
 const TodoListInterface = () => {
 
     const lists = useSelector(state => state.dataLists);
-    const activeList = useSelector(state => state.todoListUI.activeListId);
+    const activeListId = useSelector(state => state.todoListUI.activeListId);
     const context = useContext(AppContext);
     const isShowingTodoEditPanel = useSelector(state => state.todoPanelUI.isShowingEditPanel);
 
@@ -20,7 +20,7 @@ const TodoListInterface = () => {
         >
             {
                 lists.map(list => (
-                    list.id === activeList ? <TodoListPanel key={list.id} list={list}/> : undefined
+                    list.id === activeListId ? <TodoListPanel key={list.id} list={list}/> : undefined
                 ))
             }
         </Background>

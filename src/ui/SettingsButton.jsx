@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import styled, { css } from "styled-components";
-import sunIcon from "../images/sunIcon.svg";
-import sunIconDark from "../images/sunIconForDark.svg";
-import moonIcon from "../images/moonIcon.svg";
-import moonIconDark from "../images/moonIconForDark.svg";
+import sunIcon from "../resources/images/sunIcon.svg";
+import sunIconDark from "../resources/images/sunIconForDark.svg";
+import moonIcon from "../resources/images/moonIcon.svg";
+import moonIconDark from "../resources/images/moonIconForDark.svg";
 import { AppContext } from "../context/context";
 
 const SettingsButton = ({ option, onChange, checked }) => { 

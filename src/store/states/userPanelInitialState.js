@@ -10,4 +10,3 @@ const userPanelInitialState = {
 };
 
 export default userPanelInitialState;
-

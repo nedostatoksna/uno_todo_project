@@ -6,7 +6,7 @@ const todoListInitialState = {
     isShowingCompleted: false,
     isShowingImportant: false,
     isShowingAllTodos: false,
-    activeListId: "1",
+    activeListId: "",
     searchQuery: "",
     isSearching: false
 };

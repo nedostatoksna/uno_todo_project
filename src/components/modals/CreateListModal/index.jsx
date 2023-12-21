@@ -24,7 +24,11 @@ const CreateListModal = () => {
             onCancelClickHandler={() => {dispatch(toggleCreatingList())}} 
             onСonfirmationClick={() => dispatch(createNewListAndCloseModal({ listTitle: value }))}
         >
-            <TextInput id="saveModalInput" $mode={context.mode} value={value} onChange={(e) => setValue(e.target.value)} placeholder={"Enter list title"}/>
+            <TextInput 
+                id="saveModalInput" 
+                $mode={context.mode} 
+                value={value} 
+                onChange={(e) => setValue(e.target.value)} placeholder={"Enter list title"} />
         </Modal>
     )
 };

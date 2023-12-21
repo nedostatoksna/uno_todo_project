@@ -1,25 +1,25 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import whiteCrossIcon from "../images/whiteCrossIcon.svg";
-import blackCrossIcon from "../images/blackCrossIcon.svg";
-import searchIcon from "../images/searchIcon.svg";
-import searchIconDarkTheme from "../images/searchIconDark.svg";
-import editIconWhite from "../images/editIcon.svg";
-import deleteIconWhite from "../images/deleteIcon.svg";
-import calendarIcon from "../images/calenderIcon.svg";
-import calendarIconForDark from "../images/calendarIconForDark.svg";
-import crossIconGrey from "../images/crossIconGrey.svg";
-import crossIconGreyForDark from "../images/crossIconGreyForDark.svg";
-import calendarGrey from "../images/calendarIconGrey.svg";
-import calendarGreyForDark from "../images/calendarIconGreyDark.svg";
-import editIconGrey from "../images/editIconGrey.svg";
-import editIconGreyForDark from "../images/editIconGreyForDark.svg";
-import arrowLeft from "../images/arrowIconLeft.svg";
-import arrowLeftForDark from "../images/arrowIconLeftForDark.svg";
-import arrowRight from "../images/arrowIcon.svg";
-import arrowRightForDark from "../images/arrowIconDark.svg";
-import deleteIconGrey from "../images//deleteIconGrey.svg";
-import deleteIconGreyForDark from "../images/deleteIconGreyForDark.svg";
+import whiteCrossIcon from "../resources/images/whiteCrossIcon.svg";
+import blackCrossIcon from "../resources/images/blackCrossIcon.svg";
+import searchIcon from "../resources/images/searchIcon.svg";
+import searchIconDarkTheme from "../resources/images/searchIconDark.svg";
+import editIconWhite from "../resources/images/editIcon.svg";
+import deleteIconWhite from "../resources/images/deleteIcon.svg";
+import calendarIcon from "../resources/images/calenderIcon.svg";
+import calendarIconForDark from "../resources/images/calendarIconForDark.svg";
+import crossIconGrey from "../resources/images/crossIconGrey.svg";
+import crossIconGreyForDark from "../resources/images/crossIconGreyForDark.svg";
+import calendarGrey from "../resources/images/calendarIconGrey.svg";
+import calendarGreyForDark from "../resources/images/calendarIconGreyDark.svg";
+import editIconGrey from "../resources/images/editIconGrey.svg";
+import editIconGreyForDark from "../resources/images/editIconGreyForDark.svg";
+import arrowLeft from "../resources/images/arrowIconLeft.svg";
+import arrowLeftForDark from "../resources/images/arrowIconLeftForDark.svg";
+import arrowRight from "../resources/images/arrowIcon.svg";
+import arrowRightForDark from "../resources/images/arrowIconDark.svg";
+import deleteIconGrey from "../resources/images//deleteIconGrey.svg";
+import deleteIconGreyForDark from "../resources/images/deleteIconGreyForDark.svg";
 
 const IconButton = ( props ) => { 
     return (
