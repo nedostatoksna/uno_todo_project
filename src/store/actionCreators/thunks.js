@@ -1,8 +1,28 @@
-import { changeSelectedDate, changeSelectedMonth, changeSelectedYear} from "./calendarActionCreators.js";
-import { addTodoToList, chooseDeadline, createList, deleteList, deleteTodo, renameList } from "./dataListActionCreators.js";
-import { setSearchQuery, switchActiveTodoListId, switchVisibleImportant, toggleCreatingList, toggleCreatingTodo, toggleDeletingList, toggleIsSearching, toggleRenamingList, toggleShowingAllTodos } from "./todoListActionCreators.js";
-import { changeActiveTodoId, toggleChooseDeadlinePanel, toggleDeletingTodo, toggleIsShowingCalendar, toggleTodoEditPanel } from "./todoPanelActionCreators.js";
-import { saveSettings, toggleUserPanel } from "./userPanelActionCreators.js";
+import { changeSelectedDate, 
+         changeSelectedMonth, 
+         changeSelectedYear} from "./calendarActionCreators.js";
+import { addTodoToList, 
+         chooseDeadline, 
+         createList, 
+         deleteList, 
+         deleteTodo, 
+         renameList } from "./dataListActionCreators.js";
+import { setSearchQuery, 
+         switchActiveTodoListId, 
+         switchVisibleImportant, 
+         toggleCreatingList, 
+         toggleCreatingTodo, 
+         toggleDeletingList, 
+         toggleIsSearching, 
+         toggleRenamingList, 
+         toggleShowingAllTodos } from "./todoListActionCreators.js";
+import { changeActiveTodoId, 
+         toggleChooseDeadlinePanel, 
+         toggleDeletingTodo, 
+         toggleIsShowingCalendar, 
+         toggleTodoEditPanel } from "./todoPanelActionCreators.js";
+import { saveSettings, 
+         toggleUserPanel } from "./userPanelActionCreators.js";
 
 const switchActiveTodoList = (payload) => {
     return (dispatch) => {

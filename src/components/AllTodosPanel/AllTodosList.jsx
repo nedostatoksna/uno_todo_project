@@ -7,7 +7,7 @@ const AllTodosList = ({ todos }) => {
     return (
         <FlexColumnWrapper $smallPaddingTop>
             {
-                todos.map(todo => <Todo key={todo.id} todo={todo} /> )
+                todos.map(todo => <Todo key={todo.id} todo={todo} />)
             }
         </FlexColumnWrapper>
     )

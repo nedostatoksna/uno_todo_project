@@ -3,4 +3,7 @@ const RENAME_LIST = "RENAME_LIST";
 const DELETE_LIST = "DELETE_LIST";
 const ADD_TODO_TO_LIST = "ADD_TODO";
 
-export { CREATE_LIST , RENAME_LIST , DELETE_LIST , ADD_TODO_TO_LIST };
+export { CREATE_LIST, 
+         RENAME_LIST, 
+         DELETE_LIST, 
+         ADD_TODO_TO_LIST };
