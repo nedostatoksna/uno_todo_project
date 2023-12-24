@@ -13,56 +13,51 @@ const CalendarDays = ({ activeMonthId, year, setChosenDay }) => {
     let weekdayOfLastDay = findWeekDay(year, activeMonthId, numberOfDaysInActiveMonth);
 
      const fillPrevMonthDays = () => {
-        let resultArr = [];
         if (weekdayOfFirstDay !== 0) {
-            for (let i = 0; i < weekdayOfFirstDay; i++) {
-                const date = numberOfDaysInPrevMonth - i;
+            const daysInThisMonth = Array.from({ length: numberOfDaysInPrevMonth }, (_, index) => index + 1);
+            return daysInThisMonth.map((date) => {
                 const dateObj = {
                     date: date,
                     month: activeMonthId === 0 ? 11 : activeMonthId - 1,
                     weekDay: new Date(year, activeMonthId === 0 ? 11 : activeMonthId - 1, date).getDay(),
                     year: activeMonthId === 0 ? year - 1 : year,
-                    activeMonth: false,
-                };
-                resultArr.unshift(dateObj);
-            }
+                    activeMonth: false
+                }
+                return dateObj
+            })
         }
-        return resultArr;
+        return []
      }
      const fillActiveMonthDays = () => {
-        let resultArr = [];
-        for (let i = 1; i < numberOfDaysInActiveMonth + 1; i++) {
-            let date = i;
+        const daysInThisMonth = Array.from({ length: numberOfDaysInActiveMonth }, (_, index) => index + 1);
+        return daysInThisMonth.map((date) => {
             const dateObj = {
                 date: date,
                 month: activeMonthId,
                 weekDay: new Date(year, activeMonthId, date).getDay(),
                 year: year,
-                activeMonth: true,
-            };
-            resultArr.push(dateObj);
-        }
-        return resultArr;
+                activeMonth: true
+            }
+            return dateObj
+        })
      }
      const fillNextMonthDays = () => {
-        let resultArr = [];
-        
-        for (let i = 1; i < 7 - weekdayOfLastDay; i++) {
-            let date = i;
+        const daysInThisMonth = Array.from({ length: 6 }, (_, index) => index + 1);
+        return daysInThisMonth.map((date) => {
             const dateObj = {
                 date: date,
                 month: activeMonthId === 11 ? 0 : activeMonthId + 1,
                 weekDay: new Date(year, activeMonthId === 11 ? 0 : activeMonthId + 1, date).getDay(),
                 year: activeMonthId === 11 ? year + 1 : year,
-                activeMonth: false,
-            };
-            resultArr.push(dateObj);
-        }
-        return resultArr;
-     };
-        const prevArr = fillPrevMonthDays();
+                activeMonth: false
+            }
+            return dateObj
+        })
+     }
+
+        const prevArr = fillPrevMonthDays().slice(numberOfDaysInPrevMonth - weekdayOfFirstDay, numberOfDaysInPrevMonth)
         const activeArr = fillActiveMonthDays();
-        const nextArr = fillNextMonthDays();
+        const nextArr = fillNextMonthDays().slice(0, 6 - weekdayOfLastDay);
         const visibleDays = [];
         visibleDays.push(prevArr);
         visibleDays.push(activeArr);
