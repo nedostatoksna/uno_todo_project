@@ -42,7 +42,7 @@ Install the dependencies:
 
 Use the following command to run the app on your desktop:
 
-### `npm run build`
+### `npm start`
 
 The app will automatically open in your default web browser.
 
