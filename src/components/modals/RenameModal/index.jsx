@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { toggleRenamingList } from "../../../store/actionCreators/todoListActionCreators";
 import TextInput from "../../../ui/TextInput";
 import { AppContext } from "../../../context/context"; 
-import Modal from "../../../ui/Modal";
+import Modal from "../index.jsx";
 import { renameTaskAndCloseModal } from "../../../store/actionCreators/thunks.js";
 
 const RenameModal = ({ listId, activeList }) => {

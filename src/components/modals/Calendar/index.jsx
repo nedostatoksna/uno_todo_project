@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Modal from "../../../ui/Modal";
+import Modal from "..";
 import DateDisplay from "./DateDisplay";
 import CalendarSheet from "./CalendarSheet";
 import MonthYearSelector from "./MonthYearSelector";
@@ -61,8 +61,8 @@ const Calendar = () => {
         <Modal 
             $smallSize
             header={"select date"} 
+            calendar
             smallUppercase
-            okButton
             buttonText={"Ok"}
             onCancelClickHandler={() => {dispatch(toggleIsShowingCalendar())}} 
             onСonfirmationClick={() => preSave(chosenDay)} 

@@ -1,12 +1,15 @@
 import React, { useContext } from "react";
-import Button from "../ui/Button";
+import Button from "../../ui/Button";
 import styled, { css } from "styled-components";
-import TransparentBackground from "../ui/TransparentBackground";
-import ContentBox from "../ui/ContentBox";
-import IconButton from "./IconButton";
-import { AppContext } from "../context/context";
+import TransparentBackground from "../../ui/TransparentBackground";
+import ContentBox from "../../ui/ContentBox";
+import IconButton from "../../ui/IconButton";
+import { AppContext } from "../../context/context";
 
 const Modal = ({ 
+    settings,
+    calendar,
+    addDueDate,
     boxWidth,   
     header, 
     onCancelClickHandler, 
@@ -14,7 +17,6 @@ const Modal = ({
     whitePlusForBtn, 
     paddingForPlusBtn, 
     buttonText, 
-    okButton, 
     children, 
     breakModal,
     primarySaveBtn,
@@ -31,15 +33,15 @@ const Modal = ({
                 $width={boxWidth} 
                 $mode={context.mode} 
                 $sizeLargeStandartPadding={saveModal}
-                $smallSize={header === "select date"}
-                $mediumSize={header === "Add due date"}
-                $sizeLargeSmallPadding={header === "Settings"}
+                $smallSize={calendar}
+                $mediumSize={addDueDate}
+                $sizeLargeSmallPadding={settings}
                 $minimumSize={breakModal}
             >
             {  
-                header === "Settings" || header === "Add due date"
+                settings || addDueDate
                     ?
-                        <StyledContainerHeader $paddingTopSmall={header === "Add due date"}>
+                        <StyledContainerHeader $paddingTopSmall={addDueDate}>
                             <IconButton
                                 $large
                                 $type={"cross"} 
@@ -48,8 +50,8 @@ const Modal = ({
                                 $mode={context.mode}></IconButton>
                             <ModalHeader 
                                 $mode={context.mode} 
-                                $marginLeft={header === "Add due date" || header === "Settings"}
-                                $marginBottom={header !== "Add due date" && header !== "Settings"}
+                                $marginLeft={addDueDate || settings}
+                                $marginBottom={!addDueDate && !settings}
                             >
                                 {header}
                             </ModalHeader>
@@ -58,14 +60,14 @@ const Modal = ({
                         <ModalHeader 
                             $mode={context.mode} 
                             $smallUppercase={smallUppercase}
-                            $marginBottom={header !== "Add due date" && header !== "Settings"}
+                            $marginBottom={!addDueDate && !settings}
                         >
                             {header}
                         </ModalHeader>
             }
                 <div>{children}</div>
             { 
-                header !== "Add due date" &&
+                !addDueDate &&
                 <ButtonGroupWrapper>
                         <Button 
                             $mode={context.mode}
@@ -86,11 +88,11 @@ const Modal = ({
                             onClick={onСonfirmationClick}
                             $coral={breakModal}
                             $primary={primarySaveBtn}
-                            $white={okButton}
-                            $ClearBackground={okButton}
-                            $paddingSmall={okButton}
-                            $purpleColor={okButton}
-                            $purpleHover={okButton}
+                            $white={calendar}
+                            $ClearBackground={calendar}
+                            $paddingSmall={calendar}
+                            $purpleColor={calendar}
+                            $purpleHover={calendar}
                         >
                             {buttonText}
                         </Button>

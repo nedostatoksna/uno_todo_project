@@ -13,7 +13,7 @@ const BackgroundWithText = ({
     const context = useContext(AppContext);
 
     return (
-        <FlexColumnWrapper $height100 $center $width100 $smallPaddingTop>
+        <FlexColumnWrapper $heightMax $center $widthMax $smallPaddingTop>
             <StyledHeader 
                 $mediumLineHeight 
                 $white={white} 

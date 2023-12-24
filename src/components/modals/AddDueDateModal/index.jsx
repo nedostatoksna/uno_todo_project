@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { AppContext } from "../../../context/context";
-import Modal from "../../../ui/Modal";
+import Modal from "..";
 import { toggleChooseDeadlinePanel } from "../../../store/actionCreators/todoPanelActionCreators";
 import ListButton from "../../../ui/ListButton";
 import { dateOptions } from "../../../data/dateOptions";
@@ -53,6 +53,7 @@ const AddDueDate = ({ todoId, listId }) => {
     return (
         <Modal 
             $mediumSize
+            addDueDate
             header={"Add due date"} 
             onCancelClickHandler={() => {dispatch(toggleChooseDeadlinePanel())}} 
         >

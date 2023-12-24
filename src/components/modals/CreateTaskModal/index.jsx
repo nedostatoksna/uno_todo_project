@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 import TextInput from "../../../ui/TextInput";
 import { AppContext } from "../../../context/context"; 
-import Modal from "../../../ui/Modal";
+import Modal from "../index.jsx";
 import { toggleCreatingTodo } from "../../../store/actionCreators/todoListActionCreators.js";
 import { addNewTodoAndCloseModal } from "../../../store/actionCreators/thunks.js";
 

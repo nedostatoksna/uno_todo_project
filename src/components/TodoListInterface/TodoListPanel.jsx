@@ -15,7 +15,7 @@ const TodoListPanel = ({ list }) => {
 
     return (
         <FlexColumnWrapper 
-            $height100 
+            $heightMax
             $spaceBetween 
             $flexStart
         >

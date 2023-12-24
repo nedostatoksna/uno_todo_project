@@ -34,10 +34,10 @@ const StyledFlexWrapper = styled.div`
     ${props => props.$Calcheight && css `
         height: calc(100% - 104px);
     `}
-    ${props => props.$height100 && css `
+    ${props => props.$heightMax && css `
         height: 100%;
     `}
-    ${props => props.$width100 && css `
+    ${props => props.$widthMax && css `
         width: 100%;
     `}
     ${props => props.$flexStart && css `

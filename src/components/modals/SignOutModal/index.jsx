@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { AppContext } from "../../../context/context";
-import Modal from "../../../ui/Modal";
+import Modal from "..";
 import { changeIsSigningOut } from "../../../store/actionCreators/userPanelActionCreators";
 import SubText from "../../../ui/SubText";
 

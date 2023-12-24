@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import UserCard from "./UserCard";
 import { AppContext } from "../../../context/context";
 import Divider from "../../../ui/Divider";
-import Modal from "../../../ui/Modal";
+import Modal from "..";
 import { toggleUserPanel } from "../../../store/actionCreators/userPanelActionCreators";
 import About from "./About";
 import GeneralSettings from "./GeneralSettings";
@@ -25,6 +25,7 @@ const UserInterface = () => {
         <Modal 
             header={"Settings"} 
             buttonText={"Save"} 
+            settings
             primarySaveBtn
             onCancelClickHandler={() => {dispatch(toggleUserPanel())}} 
             onСonfirmationClick={() => {dispatch(saveUserSettings({ dynamicContext }))}}

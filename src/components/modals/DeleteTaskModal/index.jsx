@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppContext } from "../../../context/context";
 import { toggleDeletingTodo } from "../../../store/actionCreators/todoPanelActionCreators";
-import Modal from "../../../ui/Modal";
+import Modal from "..";
 import { deleteTodoAndCloseModal } from "../../../store/actionCreators/thunks";
 import SubText from "../../../ui/SubText";
 
