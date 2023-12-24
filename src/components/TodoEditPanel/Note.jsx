@@ -15,7 +15,12 @@ const Note = ({ todoId, listId, note }) => {
     return (
         <FlexColumnWrapper $paddingTopSmall $mode={context.mode}>
         {
-            note && <NoteHeader htmlFor="note" $mode={context.mode}>Note</NoteHeader>
+            note && <NoteHeader 
+                        htmlFor="note" 
+                        $mode={context.mode}
+                    >
+                        Note
+                    </NoteHeader>
         }
             <NoteText 
                 ref={textareaFocus}
@@ -26,7 +31,9 @@ const Note = ({ todoId, listId, note }) => {
                 $black
                 $grey={!note}
                 value={note}
-                onChange={(e) => {dispatch(changeNote({ listId, todoId, todoNote: e.target.value }))}}
+                onChange={(e) => {dispatch(changeNote({ listId, 
+                                                        todoId, 
+                                                        todoNote: e.target.value }))}}
             >
             </NoteText>
         </FlexColumnWrapper>

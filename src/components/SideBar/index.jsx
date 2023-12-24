@@ -19,18 +19,42 @@ const SideBar = () => {
     const context = useContext(AppContext);
 
     return (
-        <FlexColumnWrapper $paddingOnTheSidesLarge $paddingTopLarge $paddingBottom $widthSmall $spaceBetween>
+        <FlexColumnWrapper  
+            $paddingOnTheSidesLarge 
+            $paddingTopLarge 
+            $paddingBottom 
+            $widthSmall 
+            $spaceBetween
+        >
             <div>
-                <FlexRowWrapper $pointer onClick={() => {dispatch(toggleUserPanel())}}>
-                    <Picture $mode={context.mode}>{context.userInitials}</Picture>
+                <FlexRowWrapper 
+                    $pointer 
+                    onClick={() => {dispatch(toggleUserPanel())}}>
+                    <Picture $mode={context.mode}
+                >
+                    {context.userInitials}
+                    </Picture>
                     <FlexColumnWrapper $flexStart>
-                        <StyledHeader $smallLineHeight $zeroMargin $bold $mode={context.mode}>{context.userName}</StyledHeader>
-                        <UserEmail $mode={context.mode}>{context.userEmail}</UserEmail>
+                        <StyledHeader 
+                            $smallLineHeight 
+                            $zeroMargin 
+                            $bold 
+                            $mode={context.mode}
+                        >
+                            {context.userName}
+                        </StyledHeader>
+                        <UserEmail $mode={context.mode}>
+                            {context.userEmail}
+                        </UserEmail>
                     </FlexColumnWrapper>
                 </FlexRowWrapper>
                 <SearchBar />
                 <ImportantFilter />
-                <Divider $mode={context.mode} $marginTopBottom $light />
+                <Divider 
+                    $mode={context.mode} 
+                    $marginTopBottom 
+                    $light 
+                />
                 <ListOfLists />
             </div>
             <NewListBtn />

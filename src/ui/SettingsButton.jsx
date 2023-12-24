@@ -12,11 +12,23 @@ const SettingsButton = ({ option, onChange, checked }) => {
 
     return (
         <StyledContainer $mode={context.mode}>
-            <StyledInput $mode={context.mode} type="radio" value={option} id={option} onChange={onChange} checked={checked}/>
+            <StyledInput 
+                $mode={context.mode} 
+                type="radio" 
+                value={option} 
+                id={option} 
+                onChange={onChange} 
+                checked={checked}
+            />
             <StyledLabel $mode={context.mode} htmlFor={option}>  
                 {
-                    (option === "Light") ? <img src={context.mode === "Light" ? sunIcon : sunIconDark} alt="sun" /> 
-                        : option === "Dark" ? <img src={context.mode === "Light" ? moonIcon : moonIconDark} alt="moon" /> 
+                    (option === "Light") 
+                        ? <img 
+                                src={context.mode === "Light" ? sunIcon : sunIconDark} 
+                                alt="sun" /> 
+                        : option === "Dark" ? <img 
+                                                    src={context.mode === "Light" ? moonIcon : moonIconDark} 
+                                                    alt="moon" /> 
                         : undefined
                 }
                 <StyledMark>{option}</StyledMark>

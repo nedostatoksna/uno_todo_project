@@ -19,7 +19,9 @@ const SignOutModal = () => {
             onCancelClickHandler={() => {dispatch(changeIsSigningOut())}} 
             onСonfirmationClick={() => {dispatch(changeIsSigningOut())}}
         >
-            <SubText $mode={context.mode}>Are you sure you would like to sign out?</SubText>
+            <SubText $mode={context.mode}>
+                Are you sure you would like to sign out?
+            </SubText>
         </Modal>
     )
 };

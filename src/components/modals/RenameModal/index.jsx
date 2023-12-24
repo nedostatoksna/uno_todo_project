@@ -22,7 +22,13 @@ const RenameModal = ({ listId, activeList }) => {
             onCancelClickHandler={() => {dispatch(toggleRenamingList())}} 
             onСonfirmationClick={() => dispatch(renameTaskAndCloseModal({ listId, listTitle: value }))}
         >
-            <TextInput id="saveModalInput" $mode={context.mode} value={value} onChange={(e) => setValue(e.target.value)} placeholder={"Rename list"}/>
+            <TextInput 
+                id="saveModalInput" 
+                $mode={context.mode} 
+                value={value} 
+                onChange={(e) => setValue(e.target.value)} 
+                placeholder={"Rename list"}
+            />
         </Modal>
     )
 };

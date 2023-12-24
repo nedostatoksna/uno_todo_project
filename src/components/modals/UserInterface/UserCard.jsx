@@ -15,10 +15,20 @@ const UserCard = () => {
 
     return (
         <FlexColumnWrapper $smallPaddingTop $center>
-            <Picture $large $mode={context.mode}>{context.userInitials}</Picture>
+            <Picture 
+                $large 
+                $mode={context.mode}>{context.userInitials}
+            </Picture>
             <FlexColumnWrapper $center $marginBottomLarge>
-                <StyledHeader $zeroMargin $large $mode={context.mode}>{context.userName}</StyledHeader>
-                <StyledSubHeader $dark $mode={context.mode}>{context.userEmail}</StyledSubHeader>
+                <StyledHeader 
+                    $zeroMargin 
+                    $large 
+                    $mode={context.mode}>{context.userName}
+                </StyledHeader>
+                <StyledSubHeader 
+                    $dark 
+                    $mode={context.mode}
+                >{context.userEmail}</StyledSubHeader>
             </FlexColumnWrapper>
             <Button 
                 $coralColor 
@@ -27,7 +37,9 @@ const UserCard = () => {
                 $MarginBottom
                 $mode={context.mode} 
                 onClick={() => {dispatch(changeIsSigningOut())}}
-            >Sign Out</Button>
+            >
+                Sign Out
+            </Button>
         </FlexColumnWrapper>
     )
 };

@@ -9,7 +9,12 @@ const About = () => {
     return (
         <StyledContainer>
             <StyledText $mode={context.mode}>About</StyledText>
-            <StyledDarkText $mode={context.mode}>Version<StyledNumber $mode={context.mode}>1.0</StyledNumber></StyledDarkText>
+            <StyledDarkText $mode={context.mode}>
+                Version
+                <StyledNumber $mode={context.mode}>
+                    1.0
+                </StyledNumber>
+            </StyledDarkText>
         </StyledContainer>
     )
 };

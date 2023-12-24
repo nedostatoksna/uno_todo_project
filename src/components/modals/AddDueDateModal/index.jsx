@@ -6,7 +6,8 @@ import { toggleChooseDeadlinePanel } from "../../../store/actionCreators/todoPan
 import ListButton from "../../../ui/ListButton";
 import { dateOptions } from "../../../data/dateOptions";
 import FlexColumnWrapper from "../../../ui/FlexColumnWrapper";
-import { closeDeadlineModalAndOpenCalendar, setDeadlineAndCloseDeadlineModal } from "../../../store/actionCreators/thunks";
+import { closeDeadlineModalAndOpenCalendar, 
+         setDeadlineAndCloseDeadlineModal } from "../../../store/actionCreators/thunks";
 
 const AddDueDate = ({ todoId, listId }) => {
 

@@ -17,13 +17,21 @@ const Tabs = () => {
                 onClick={() => {dispatch(toggleVisibleCompleted())}}
                 $active={!completedTabActive}
                 $mode={context.mode}
-            >To Do</StyledTab>
+            >
+                To Do
+            </StyledTab>
             <StyledTab 
                 onClick={() => {dispatch(toggleVisibleCompleted())}}
                 $active={completedTabActive}
                 $mode={context.mode}
-            >Completed</StyledTab>
-            <Divider $white $noMargin $mode={context.mode} />
+            >
+                Completed
+            </StyledTab>
+            <Divider 
+                $white 
+                $noMargin 
+                $mode={context.mode} 
+            />
         </StyledTabsWrapper>
     )
 };

@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppContext } from "../../context/context";
 import styled, { css } from "styled-components";
 import Checkbox from "../../ui/StyledCheckbox";
-import { changeCompleted, changeImportant, changeTitle } from "../../store/actionCreators/dataListActionCreators.js";
+import { changeCompleted, 
+         changeImportant, 
+         changeTitle } from "../../store/actionCreators/dataListActionCreators.js";
 import { toggleEditingTitle } from "../../store/actionCreators/todoPanelActionCreators";
 import FlexRowWrapper from "../../ui/FlexRowWrapper.jsx";
 
@@ -27,23 +29,39 @@ const TodoEditHeader = ({ todo }) => {
     }, [cashedPreEdit]);
 
     return (
-        <FlexRowWrapper $center $marginBottomSmall $spaceBetween>
+        <FlexRowWrapper 
+            $center 
+            $marginBottomSmall 
+            $spaceBetween
+        >
             <Checkbox
                 sidebar
                 labelPrimary 
                 checkedPrimary 
                 isChecked={todo.isCompleted}
                 todoId={todo.id}
-                onChangeHandler={() => {dispatch(changeCompleted({ listId: activeListId, todoId: activeTodoId, isCompleted: !todo.isCompleted }))}}
+                onChangeHandler={() => {dispatch(changeCompleted({ listId: activeListId, 
+                                                                   todoId: activeTodoId, 
+                                                                   isCompleted: !todo.isCompleted }))}}
             />
-            <StyledTitleWrapper $mode={context.mode} $isEditing={isEditingTitle ? true : false}>
-                { isEditingTitle ? <StyledLabel htmlFor="titleInput" $mode={context.mode}>Task Name</StyledLabel> : undefined }
+            <StyledTitleWrapper 
+                $mode={context.mode} 
+                $isEditing={isEditingTitle ? true : false}
+            >
+                { isEditingTitle && <StyledLabel 
+                                        htmlFor="titleInput" 
+                                        $mode={context.mode}
+                                    >
+                                        Task Name
+                                    </StyledLabel> }
                 <StyledTodoTitle 
                     ref={titleInputFocus} 
                     $mode={context.mode} 
                     $isEditing={isEditingTitle ? true : false}
                     value={todo.title} 
-                    onChange={(e) => dispatch(changeTitle({ listId: activeListId, todoId: activeTodoId, todoTitle: e.target.value }))} 
+                    onChange={(e) => dispatch(changeTitle({ listId: activeListId, 
+                                                            todoId: activeTodoId, 
+                                                            todoTitle: e.target.value }))} 
                     id="titleInput"
                 />
             </StyledTitleWrapper>
@@ -52,7 +70,9 @@ const TodoEditHeader = ({ todo }) => {
                 starChecked 
                 isChecked={todo.isImportant}
                 todoId={todo.id}
-                onChangeHandler={() => {dispatch(changeImportant({ listId: activeListId, todoId: todo.id, isImportant: !todo.isImportant }))}} 
+                onChangeHandler={() => {dispatch(changeImportant({ listId: activeListId, 
+                                                                   todoId: todo.id, 
+                                                                   isImportant: !todo.isImportant }))}} 
             />
         </FlexRowWrapper>
     )

@@ -32,7 +32,10 @@ const UserInterface = () => {
             <UserCard />
             <Divider $mode={context.mode} $heightSmall />
             <FlexColumnWrapper $smallPaddingTop>
-                <GeneralSettings dynamicContext={dynamicContext} setDynamicContext={setDynamicContext} />
+                <GeneralSettings 
+                    dynamicContext={dynamicContext} 
+                    setDynamicContext={setDynamicContext} 
+                />
                 <Divider $mode={context.mode} $heightSmall />
                 <About />
             </FlexColumnWrapper> 

@@ -10,11 +10,31 @@ const ListEditPanel = ({ list }) => {
     const dispatch = useDispatch();
 
     return (
-        <FlexRowWrapper $center $spaceBetween $paddingTopBottomMedium>
-                <StyledHeader $large $zeroMargin $white>{list.title}</StyledHeader>
-                <FlexRowWrapper $center $spaceBetween $marginLeftLarge>
-                    <IconButton $type={"edit"} $large onClick={() => {dispatch(toggleRenamingList())}}></IconButton>
-                    <IconButton $type={"delete"} $large onClick={() => {dispatch(toggleDeletingList())}}></IconButton>
+        <FlexRowWrapper 
+            $center 
+            $spaceBetween 
+            $paddingTopBottomMedium
+        >
+                <StyledHeader 
+                    $large 
+                    $zeroMargin 
+                    $white
+                >
+                    {list.title}
+                </StyledHeader>
+                <FlexRowWrapper 
+                    $center 
+                    $spaceBetween 
+                    $marginLeftLarge
+                >
+                    <IconButton 
+                        $type={"edit"} 
+                        $large 
+                        onClick={() => {dispatch(toggleRenamingList())}}></IconButton>
+                    <IconButton 
+                        $type={"delete"} 
+                        $large 
+                        onClick={() => {dispatch(toggleDeletingList())}}></IconButton>
                 </FlexRowWrapper>
         </FlexRowWrapper>
     )

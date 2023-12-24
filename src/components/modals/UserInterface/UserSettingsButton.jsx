@@ -1,6 +1,9 @@
 import SettingsButton from "../../../ui/SettingsButton";
 
-const UserSettingsButton = ({option, name, setDynamicContext, dynamicContext }) => {
+const UserSettingsButton = ({ option, 
+                              name, 
+                              setDynamicContext, 
+                              dynamicContext }) => {
 
     const changeHandler = function() {
         switch (name) {

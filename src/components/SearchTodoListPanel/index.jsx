@@ -17,10 +17,20 @@ const SearchTodoListPanel = () => {
 
     return (
         <Background $grey $mode={context.mode} $widthLarge>
-            <StyledHeader $mode={context.mode} $large $darkGrey>Search</StyledHeader>
-            <FlexColumnWrapper $Calcheight $center={!serchedTodos.length || !searchString}>
+            <StyledHeader 
+                $mode={context.mode} 
+                $large 
+                $darkGrey
+            >
+                Search
+            </StyledHeader>
+            <FlexColumnWrapper 
+                $Calcheight 
+                $center={!serchedTodos.length || !searchString}
+            >
                 {
-                    serchedTodos.length && searchString ? <SearchResultsList lists={serchedTodos}/> : <Notice />
+                    serchedTodos.length && searchString ? <SearchResultsList lists={serchedTodos}/> 
+                                                        : <Notice />
                 }
             </FlexColumnWrapper>
         </Background>

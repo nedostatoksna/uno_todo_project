@@ -71,7 +71,11 @@ const Calendar = () => {
                     <MonthYearSelector activeMonth={activeMonth} />
                     <MonthSwitcher activeMonthId={findActiveMonthId()} />
                 </FlexRowWrapper>
-                <CalendarSheet activeMonthId={findActiveMonthId()} year={year} setChosenDay={setChosenDay} />
+                <CalendarSheet 
+                    activeMonthId={findActiveMonthId()} 
+                    year={year} 
+                    setChosenDay={setChosenDay} 
+                />
             </FlexColumnWrapper>
         </Modal>
     )

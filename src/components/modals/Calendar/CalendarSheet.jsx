@@ -8,7 +8,11 @@ const CalendarSheet = ( { activeMonthId, year, setChosenDay } ) => {
     return (
         <FlexColumnWrapper $paddingOnTheSidesMiddle>
             <WeekDays />
-            <CalendarDays activeMonthId={activeMonthId} year={year} setChosenDay={setChosenDay} />
+            <CalendarDays 
+                activeMonthId={activeMonthId} 
+                year={year} 
+                setChosenDay={setChosenDay} 
+            />
         </FlexColumnWrapper>
     )
 };

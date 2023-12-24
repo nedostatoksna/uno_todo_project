@@ -5,7 +5,8 @@ import styled, { css } from "styled-components";
 import { AppContext } from "../../context/context";
 import { fullMonths } from "../../data/calendar";
 import FlexColumnWrapper from "../../ui/FlexColumnWrapper.jsx";
-import { changeCompleted, changeImportant } from "../../store/actionCreators/dataListActionCreators.js";
+import { changeCompleted, 
+         changeImportant } from "../../store/actionCreators/dataListActionCreators.js";
 import FlexRowWrapper from "../../ui/FlexRowWrapper.jsx";
 import { setActiveTodoAndOpenTodoEditPanel } from "../../store/actionCreators/thunks.js";
 
@@ -29,7 +30,11 @@ const Todo = ({ todo }) => {
     }
 
     return (
-        <StyledItemBox $mode={context.mode} $active={todo.id === activeTodoId} onClick={(e) => presetActiveTodoAndOpenEditPanel(e)}>
+        <StyledItemBox 
+            $mode={context.mode} 
+            $active={todo.id === activeTodoId} 
+            onClick={(e) => presetActiveTodoAndOpenEditPanel(e)}
+        >
         <FlexRowWrapper>
             <Checkbox 
                     labelPrimary 
@@ -37,16 +42,35 @@ const Todo = ({ todo }) => {
                     leftPosition
                     isChecked={todo.isCompleted}
                     todoId={todo.id}
-                    onChangeHandler={() => {dispatch(changeCompleted({ listId: todo.parentListId, todoId: todo.id, isCompleted: !todo.isCompleted }))}} 
+                    onChangeHandler={() => {dispatch(changeCompleted({ listId: todo.parentListId, 
+                                                                       todoId: todo.id, 
+                                                                       isCompleted: !todo.isCompleted }))}} 
                 />
-                <FlexColumnWrapper $center $flexStart $paddingTopBottomSmall>
-                    <StyledItemTitle $mode={context.mode}>{todo.title}</StyledItemTitle>
+                <FlexColumnWrapper 
+                    $center 
+                    $flexStart 
+                    $paddingTopBottomSmall
+                >
+                    <StyledItemTitle $mode={context.mode}>
+                        {todo.title}
+                    </StyledItemTitle>
                     <FlexRowWrapper>
-                        <StyledText $grey $mode={context.mode}>{deadLineForDisplay}</StyledText>
+                        <StyledText 
+                            $grey 
+                            $mode={context.mode}
+                        >
+                            {deadLineForDisplay}
+                        </StyledText>
                         {
-                            deadLineForDisplay && todo.note.length ? <StyledText $grey $mode={context.mode}>-</StyledText> : undefined
+                            deadLineForDisplay && todo.note.length 
+                                               && <StyledText 
+                                                        $grey 
+                                                        $mode={context.mode}>-</StyledText> 
                         }
-                        <StyledText $coral $mode={context.mode}>{todo.note}</StyledText>
+                        <StyledText 
+                            $coral 
+                            $mode={context.mode}
+                        >{todo.note}</StyledText>
                     </FlexRowWrapper>
                 </FlexColumnWrapper>
         </FlexRowWrapper>
@@ -56,7 +80,9 @@ const Todo = ({ todo }) => {
                 rightPosition
                 isChecked={todo.isImportant}
                 todoId={todo.id}
-                onChangeHandler={() => {dispatch(changeImportant({ listId: todo.parentListId, todoId: todo.id, isImportant: !todo.isImportant }))}}
+                onChangeHandler={() => {dispatch(changeImportant({ listId: todo.parentListId, 
+                                                                   todoId: todo.id, 
+                                                                   isImportant: !todo.isImportant }))}}
             />
         </StyledItemBox>
     )

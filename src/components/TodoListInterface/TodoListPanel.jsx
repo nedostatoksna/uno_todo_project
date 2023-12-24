@@ -14,7 +14,11 @@ const TodoListPanel = ({ list }) => {
     const isShowingCompleted = useSelector(state => state.todoListUI.isShowingCompleted);
 
     return (
-        <FlexColumnWrapper $height100 $spaceBetween $flexStart>
+        <FlexColumnWrapper 
+            $height100 
+            $spaceBetween 
+            $flexStart
+        >
             <ListWrapper>
                 <ListEditPanel list={list} />
                 <Tabs />

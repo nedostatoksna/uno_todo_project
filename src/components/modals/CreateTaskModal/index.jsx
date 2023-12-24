@@ -24,7 +24,13 @@ const CreateTaskModal = ({ listId }) => {
             onCancelClickHandler={() => {dispatch(toggleCreatingTodo())}} 
             onСonfirmationClick={() => dispatch(addNewTodoAndCloseModal({ listId, todoTitle: value }))}
         >
-            <TextInput id="saveModalInput" $mode={context.mode} value={value} onChange={(e) => setValue(e.target.value)} placeholder={"Add a task"}/>
+            <TextInput 
+                id="saveModalInput" 
+                $mode={context.mode} 
+                value={value} 
+                onChange={(e) => setValue(e.target.value)} 
+                placeholder={"Add a task"}
+            />
         </Modal>
     )
 };

@@ -7,7 +7,8 @@ import styled, { css } from "styled-components";
 import IconButton from "../../ui/IconButton";
 import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
 import FlexRowWrapper from "../../ui/FlexRowWrapper";
-import { cancelSearchAndCloseSearchPanel, openSearchPanel } from "../../store/actionCreators/thunks";
+import { cancelSearchAndCloseSearchPanel, 
+         openSearchPanel } from "../../store/actionCreators/thunks";
 
 const SearchBar = () => {
 
@@ -41,7 +42,12 @@ const SearchBar = () => {
                         $mode={context.mode}
                     ></IconButton>
                         <FlexColumnWrapper $flexStart>
-                            { isSearching ? <StyledLabel htmlFor="searchInput" $mode={context.mode}>Search</StyledLabel> : undefined}
+                            { isSearching && <StyledLabel 
+                                                htmlFor="searchInput" 
+                                                $mode={context.mode}
+                                            >
+                                                Search
+                                            </StyledLabel> }
                                 <StyledSearchInput 
                                     ref={searchInputFocus} 
                                     $mode={context.mode} 
@@ -55,7 +61,7 @@ const SearchBar = () => {
                 </FlexRowWrapper>
                     { 
                         isSearching 
-                            ?  <IconButton
+                            &&  <IconButton
                                     $type={"cross"}
                                     $marginTopBottom
                                     $marginRightLarge
@@ -64,7 +70,7 @@ const SearchBar = () => {
                                     $small
                                     onClick={() => {dispatch(cancelSearchAndCloseSearchPanel())}}
                                     $mode={context.mode}
-                                ></IconButton> : undefined
+                                ></IconButton> 
                     }
             </SearchBarWrapper>
             <Divider $mode={context.mode} />

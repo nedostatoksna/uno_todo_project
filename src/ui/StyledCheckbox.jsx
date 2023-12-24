@@ -33,7 +33,13 @@ const Checkbox = ({ labelPrimary,
     }
 
     return (
-        <StyledContainer $mode={context.mode} $leftPosition={leftPosition} $rightPosition={rightPosition} $checked={checkedPrimary} $starChecked={starChecked}>
+        <StyledContainer 
+            $mode={context.mode} 
+            $leftPosition={leftPosition} 
+            $rightPosition={rightPosition} 
+            $checked={checkedPrimary} 
+            $starChecked={starChecked}
+        >
                 <StyledInput 
                     $mode={context.mode} 
                     type="checkbox" 

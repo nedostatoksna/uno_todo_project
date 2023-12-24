@@ -14,18 +14,32 @@ const StartPage = ({ setIsVisible }) => {
         <Wrapper $mode={context.mode}>
             <StartPageTextWrapper>
                 <StartPageText $mode={context.mode}>
-                    <StyledLogo src={context.mode === "Light" ? logoLightMode : logoDarkMode} />
-                    <StyledHeader $mode={context.mode}>Welcome to Uno To Do!</StyledHeader>
+                    <StyledLogo src={context.mode === "Light" ? logoLightMode 
+                                                              : logoDarkMode} />
+                    <StyledHeader $mode={context.mode}>
+                        Welcome to Uno To Do!
+                    </StyledHeader>
                     <StyledSubHeader $mode={context.mode}>
                         Start using the best to-do app, you can
                         create and manage your To Do lists to
                         improve your organization.
                     </StyledSubHeader>
-                    <Button onClick={() => setIsVisible(false)} $primary $widthMax $textAlign={"center"} $mode={context.mode}>Get started</Button>
+                    <Button 
+                        onClick={() => setIsVisible(false)} 
+                        $primary 
+                        $widthMax 
+                        $textAlign={"center"} 
+                        $mode={context.mode}
+                    >
+                        Get started
+                    </Button>
                 </StartPageText>
             </StartPageTextWrapper>
             <ImageWrapper $mode={context.mode}>
-                <StyledIllustration src={startPageIllustration} alt="uno starting page illustration" />
+                <StyledIllustration 
+                    src={startPageIllustration} 
+                    alt="uno starting page illustration" 
+                />
             </ImageWrapper>
         </Wrapper>
     )

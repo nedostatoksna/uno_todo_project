@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import ListButton from "../../ui/ListButton";
 import { AppContext } from "../../context/context";
 import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
-import { openAllTodosPanel, openImportantTodoListPanel } from "../../store/actionCreators/thunks";
+import { openAllTodosPanel, 
+         openImportantTodoListPanel } from "../../store/actionCreators/thunks";
 
 const ImportantFilter = () => {
 
@@ -20,8 +21,22 @@ const ImportantFilter = () => {
     
     return (
         <FlexColumnWrapper $marginBottomSmall>
-            <ListButton $active={!isSearching && isShowingImportant} $starIcon $mode={context.mode} onClick={() => {!isSearching && dispatch(openImportantTodoListPanel())}}>Important</ListButton>
-            <ListButton $active={!isSearching && isShowingAllTodos} $houseIcon $mode={context.mode} onClick={() => !isSearching && checkAreThereAnyTodosAndDispatch()}>Tasks</ListButton>
+            <ListButton 
+                $active={!isSearching && isShowingImportant} 
+                $starIcon 
+                $mode={context.mode} 
+                onClick={() => {!isSearching && dispatch(openImportantTodoListPanel())}}
+            >
+                Important
+            </ListButton>
+            <ListButton 
+                $active={!isSearching && isShowingAllTodos} 
+                $houseIcon 
+                $mode={context.mode} 
+                onClick={() => !isSearching && checkAreThereAnyTodosAndDispatch()}
+            >
+                Tasks
+            </ListButton>
         </FlexColumnWrapper>
     )
 };

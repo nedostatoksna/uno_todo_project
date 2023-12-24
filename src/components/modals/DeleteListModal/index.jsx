@@ -20,7 +20,9 @@ const DeleteListModal = () => {
             onCancelClickHandler={() => {dispatch(toggleDeletingList())}} 
             onСonfirmationClick={() => {dispatch(deleteListAndCloseModal({ listId: activeListId }))}}
         >
-            <SubText $mode={context.mode}>Task will be permanently deleted</SubText>
+            <SubText $mode={context.mode}>
+                Task will be permanently deleted
+            </SubText>
         </Modal>
     )
 };

@@ -19,7 +19,8 @@ const DeleteTaskModal = () => {
             header={"Are you sure?"} 
             buttonText={"Delete"} 
             onCancelClickHandler={() => {dispatch(toggleDeletingTodo())}} 
-            onСonfirmationClick={() => {dispatch(deleteTodoAndCloseModal({listId: activeListId, todoId: activeTodoId }))}}
+            onСonfirmationClick={() => {dispatch(deleteTodoAndCloseModal({listId: activeListId, 
+                                                                          todoId: activeTodoId }))}}
         >
             <SubText $mode={context.mode}>Task will be permanently deleted</SubText>
         </Modal>

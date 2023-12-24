@@ -28,7 +28,9 @@ const CreateListModal = () => {
                 id="saveModalInput" 
                 $mode={context.mode} 
                 value={value} 
-                onChange={(e) => setValue(e.target.value)} placeholder={"Enter list title"} />
+                onChange={(e) => setValue(e.target.value)} 
+                placeholder={"Enter list title"} 
+            />
         </Modal>
     )
 };

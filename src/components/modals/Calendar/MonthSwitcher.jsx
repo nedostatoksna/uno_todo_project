@@ -37,8 +37,18 @@ const MonthSwitcher = ({ activeMonthId }) => {
 
     return (
         <FlexRowWrapper $center>
-                <IconButton onClick={() => preSwitchToPrev()} $mode={context.mode} $type={"arrowLeft"} $large ></IconButton>
-                <IconButton onClick={() => preSwitchToNext()} $mode={context.mode} $type={"arrowRight"} $large ></IconButton>
+                <IconButton 
+                    onClick={() => preSwitchToPrev()} 
+                    $mode={context.mode} 
+                    $type={"arrowLeft"} 
+                    $large
+                ></IconButton>
+                <IconButton 
+                    onClick={() => preSwitchToNext()} 
+                    $mode={context.mode} 
+                    $type={"arrowRight"} 
+                    $large 
+                ></IconButton>
         </FlexRowWrapper>
     )
 };

@@ -3,13 +3,18 @@ import UserSettingsButton from "./UserSettingsButton";
 import styled, { css } from "styled-components";
 import { AppContext } from "../../../context/context";
 
-const SettingsBar = ({ setting, name, dynamicContext, setDynamicContext }) => {
+const SettingsBar = ({ setting, 
+                       name, 
+                       dynamicContext, 
+                       setDynamicContext }) => {
 
     const context = useContext(AppContext);
 
     return (
         <RadioGroupContainer>
-            <RadioGroupHeader $mode={context.mode}>{setting.header}</RadioGroupHeader>
+            <RadioGroupHeader $mode={context.mode}>
+                {setting.header}
+            </RadioGroupHeader>
             <RadioButtonsWrapper>
                 {
                     setting.options.map(option => (
@@ -23,7 +28,10 @@ const SettingsBar = ({ setting, name, dynamicContext, setDynamicContext }) => {
                     ))
                 }
             </RadioButtonsWrapper>
-            { setting.header === "Language" ? <StyledNotice $mode={context.mode}>Change will be applied at next app restart</StyledNotice> : undefined }
+            { setting.header === "Language" 
+                && <StyledNotice $mode={context.mode}>
+                        Change will be applied at next app restart
+                   </StyledNotice> }
         </RadioGroupContainer>
     )
 };

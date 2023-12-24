@@ -20,7 +20,7 @@ const TodoListInterface = () => {
         >
             {
                 lists.map(list => (
-                    list.id === activeListId ? <TodoListPanel key={list.id} list={list}/> : undefined
+                    list.id === activeListId && <TodoListPanel key={list.id} list={list}/> 
                 ))
             }
         </Background>
