@@ -4,6 +4,24 @@ This is a training application built using React native, Redux, Hooks and styled
 The app allows users to add, edit, and delete tasks, as well as mark them as completed or important.
 You can view a live demo of the project here: [https://nedostatoksna.github.io/uno_todo_project/].
 
+## Learning objectives
+
+Use React Native documentation.
+Use React components.
+Connect React and Redux.
+Use custom styles in a React Native app.
+Use styled-components
+Use of Hooks
+Apply React best practices and language style guides in code.
+
+## Technologies Used
+
+- **React Native**: A JavaScript framework for building native mobile applications.
+- **Redux**: A predictable state container for managing the application's state.
+- **Hooks**: Utilized for functional components to manage state and side effects.
+- **styled-components**: A popular CSS-in-JS library for styling React components.
+
+
 ## Features
 
 **Task Management:** 
@@ -18,13 +36,6 @@ You can view a live demo of the project here: [https://nedostatoksna.github.io/u
 - Tailor the app's appearance to your liking with various color themes.
 **Mode Switching:**
 - Easily toggle between light and dark modes for comfortable day and night usage.
-
-## Technologies Used
-
-- **React Native**: A JavaScript framework for building native mobile applications.
-- **Redux**: A predictable state container for managing the application's state.
-- **Hooks**: Utilized for functional components to manage state and side effects.
-- **styled-components**: A popular CSS-in-JS library for styling React components.
 
 ## Installing
 
