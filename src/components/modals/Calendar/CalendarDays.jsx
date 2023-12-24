@@ -1,15 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import CalendarDay from "./CalendarDay";
+import { 
+    findTotalMonthDays, 
+    findWeekDay } from "../../../helpers/calendarRenderPrep";
 
 const CalendarDays = ({ activeMonthId, year, setChosenDay }) => {
-
-    const findWeekDay = (y, m, d) => {
-        return new Date(y, m, d).getDay();
-     };
-    const findTotalMonthDays = (y, m, d) => {
-        return new Date(y, m, d).getDate();
-     };
 
     let numberOfDaysInActiveMonth = findTotalMonthDays(year, activeMonthId + 1, 0);
     let numberOfDaysInPrevMonth = findTotalMonthDays(year, activeMonthId, 0);
