@@ -29,6 +29,8 @@ import {
          saveSettings, 
          toggleUserPanel } from "./userPanelActionCreators.js";
 
+const today = new Date();
+
 const switchActiveTodoList = (payload) => {
     return (dispatch) => {
         dispatch(switchActiveTodoListId(payload))
@@ -82,7 +84,14 @@ const setActiveTodoAndOpenTodoEditPanel = (payload) => {
 const setDeadlineAndCloseDeadlineModal = (payload) => {
     return (dispatch) => {
         dispatch(chooseDeadline(payload))
-        dispatch(changeSelectedDate(payload))
+        dispatch(changeSelectedDate({
+            activeYear: today.getFullYear(), 
+            activeMonthId: today.getMonth(), 
+            activeDate: payload.todoDeadlineWord === "Tomorrow"  
+                ? today.getDate() + 1 
+                : payload.todoDeadlineWord === "Next Week" ? today.getDate() + 7 
+                : today.getDate()
+            }))
         dispatch(toggleChooseDeadlinePanel())
     }
 }
@@ -96,6 +105,12 @@ const deleteTodoAndCloseTodoEditPanel = (payload) => {
     return (dispatch) => {
         dispatch(toggleTodoEditPanel({ boolean: false }))
         dispatch(deleteTodo(payload))
+    }
+}
+const closeTodoEditPanelAndClearActiveTodoId = () => {
+    return (dispatch) => {
+        dispatch(toggleTodoEditPanel({ boolean: false }))
+        dispatch(changeActiveTodoId({ todoId: "" }))
     }
 }
 const switchMonthAndYear = (payload) => {
@@ -175,5 +190,6 @@ export {
     createNewListAndCloseModal,
     addNewTodoAndCloseModal,
     renameTaskAndCloseModal,
+    closeTodoEditPanelAndClearActiveTodoId,
     createNewListSetActiveListIdAndCloseModal
 };

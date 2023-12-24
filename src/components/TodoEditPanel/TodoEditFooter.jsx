@@ -6,10 +6,9 @@ import IconButton from "../../ui/IconButton";
 import { 
     fullMonths, 
     threeLettersWeekDays } from "../../data/calendar";
-import { 
-    toggleDeletingTodo, 
-    toggleTodoEditPanel } from "../../store/actionCreators/todoPanelActionCreators";
+import { toggleDeletingTodo } from "../../store/actionCreators/todoPanelActionCreators";
 import FlexRowWrapper from "../../ui/FlexRowWrapper";
+import { closeTodoEditPanelAndClearActiveTodoId } from "../../store/actionCreators/thunks";
 
 const TodoEditFooter = ({ todo }) => {
 
@@ -27,24 +26,23 @@ const TodoEditFooter = ({ todo }) => {
 
     return (
         <FlexRowWrapper $center $spaceBetween>
-                    <IconButton
-                        onClick={() => {dispatch(toggleTodoEditPanel({ boolean: false}))}}
-                        $type={"arrowLeft"}
-                        alt="arrow left" 
-                        $large
-                        $mode={context.mode}
-                    ></IconButton>
-                    <StyledText $mode={context.mode}>
-                        Created {prepareDateStringForDisplay(todo.createDate)}
-                    </StyledText>
-                    <IconButton
-                        onClick={() => {dispatch(toggleDeletingTodo())}}
-                        $type={"deleteGrey"}
-                        alt="garbage bin outline" 
-                        $large
-                        $mode={context.mode}
-                    ></IconButton>
-
+            <IconButton
+                onClick={() => {dispatch(closeTodoEditPanelAndClearActiveTodoId())}}
+                $type={"arrowLeft"}
+                alt="arrow left" 
+                $large
+                $mode={context.mode}
+            ></IconButton>
+            <StyledText $mode={context.mode}>
+                Created {prepareDateStringForDisplay(todo.createDate)}
+            </StyledText>
+            <IconButton
+                onClick={() => {dispatch(toggleDeletingTodo())}}
+                $type={"deleteGrey"}
+                alt="garbage bin outline" 
+                $large
+                $mode={context.mode}
+            ></IconButton>
         </FlexRowWrapper>
     )
 };
