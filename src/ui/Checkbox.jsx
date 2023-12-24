@@ -10,17 +10,18 @@ import filledCheckbox from "../resources/images/filledCheckbox.svg";
 import filledCheckboxDark from "../resources/images/filledCheckboxForDark.svg";
 import { AppContext } from "../context/context";
 
-const Checkbox = ({ labelPrimary, 
-                    labelStarGrey, 
-                    labelStar, 
-                    todoId,
-                    sidebar,
-                    checkedPrimary,
-                    leftPosition,
-                    rightPosition,
-                    starChecked, 
-                    onChangeHandler, 
-                    isChecked }) => { 
+const Checkbox = ({ 
+    labelPrimary, 
+    labelStarGrey, 
+    labelStar, 
+    todoId,
+    sidebar,
+    checkedPrimary,
+    leftPosition,
+    rightPosition,
+    starChecked, 
+    onChangeHandler, 
+    isChecked }) => { 
 
     const context = useContext(AppContext);
 

@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import ListButton from "../../ui/ListButton";
 import { AppContext } from "../../context/context";
 import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
-import { openAllTodosPanel, 
-         openImportantTodoListPanel } from "../../store/actionCreators/thunks";
+import { 
+    openAllTodosPanel, 
+    openImportantTodoListPanel } from "../../store/actionCreators/thunks";
 
 const ImportantFilter = () => {
 

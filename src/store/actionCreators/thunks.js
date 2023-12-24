@@ -1,13 +1,16 @@
-import { changeSelectedDate, 
+import { 
+         changeSelectedDate, 
          changeSelectedMonth, 
          changeSelectedYear} from "./calendarActionCreators.js";
-import { addTodoToList, 
+import { 
+         addTodoToList, 
          chooseDeadline, 
          createList, 
          deleteList, 
          deleteTodo, 
          renameList } from "./dataListActionCreators.js";
-import { setSearchQuery, 
+import { 
+         setSearchQuery, 
          switchActiveTodoListId, 
          switchVisibleImportant, 
          toggleCreatingList, 
@@ -16,12 +19,14 @@ import { setSearchQuery,
          toggleIsSearching, 
          toggleRenamingList, 
          toggleShowingAllTodos } from "./todoListActionCreators.js";
-import { changeActiveTodoId, 
+import { 
+         changeActiveTodoId, 
          toggleChooseDeadlinePanel, 
          toggleDeletingTodo, 
          toggleIsShowingCalendar, 
          toggleTodoEditPanel } from "./todoPanelActionCreators.js";
-import { saveSettings, 
+import { 
+         saveSettings, 
          toggleUserPanel } from "./userPanelActionCreators.js";
 
 const switchActiveTodoList = (payload) => {

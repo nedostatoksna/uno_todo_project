@@ -3,11 +3,12 @@ import { useSelector } from "react-redux";
 import { AppContext } from "../../context/context";
 import AllTodosList from "./AllTodosList";
 import Tabs from "../TodoListInterface/Tabs";
-import StyledHeader from "../../ui/StyledHeader";
+import StyledHeader from "../../ui/Header";
 import Background from "../../ui/Background";
 import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
 
 const AllTodosPanel = () => {
+
     const context = useContext(AppContext);
     const isShowingCompleted = useSelector(state => state.todoListUI.isShowingCompleted);
 
@@ -16,11 +17,19 @@ const AllTodosPanel = () => {
     const completedTodos = allTodos.filter(todo => todo.isCompleted);
 
     return (
-        <Background $mode={context.mode} $primary $widthLarge>
-            <StyledHeader $large $mode={context.mode} $white>Tasks</StyledHeader>
+        <Background 
+            $mode={context.mode} 
+            $primary 
+            $widthLarge
+        >
+            <StyledHeader $large $mode={context.mode} $white>
+                Tasks
+            </StyledHeader>
             <Tabs />
             <FlexColumnWrapper $height $spaceBetween>
-                <AllTodosList todos={isShowingCompleted ? completedTodos : allTodos} /> 
+                <AllTodosList 
+                    todos={isShowingCompleted ? completedTodos : allTodos} 
+                /> 
             </FlexColumnWrapper>
         </Background>
     )

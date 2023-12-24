@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { AppContext } from "../../context/context";
 import ImportantTodoList from "./ImportantTodoList";
 import Notice from "./Notice";
-import StyledHeader from "../../ui/StyledHeader";
+import StyledHeader from "../../ui/Header";
 import Background from "../../ui/Background";
 import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
 
@@ -15,11 +15,26 @@ const ImportantTodoListPanel = () => {
     const importantTodos = todos.filter(todo => todo.isImportant);
 
     return (
-        <Background $coral $mode={context.mode} $widthLarge>
-            <StyledHeader $large $mode={context.mode} $white>Important</StyledHeader>
-                <FlexColumnWrapper $Calcheight $center={!importantTodos.length}>
+        <Background 
+            $coral 
+            $mode={context.mode} 
+            $widthLarge
+        >
+            <StyledHeader 
+                $large 
+                $mode={context.mode} 
+                $white
+            >
+                Important
+            </StyledHeader>
+                <FlexColumnWrapper 
+                    $Calcheight 
+                    $center={!importantTodos.length}
+                >
                     {
-                        importantTodos.length ? <ImportantTodoList todos={importantTodos} /> : <Notice />
+                        importantTodos.length 
+                            ? <ImportantTodoList todos={importantTodos} /> 
+                            : <Notice />
                     }
                 </FlexColumnWrapper>           
         </Background>

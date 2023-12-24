@@ -1,10 +1,14 @@
 import React, { useContext } from "react";
-import StyledHeader from "../ui/StyledHeader";
+import StyledHeader from "./Header";
 import FlexColumnWrapper from "../ui/FlexColumnWrapper";
-import StyledSubHeader from "../ui/StyledSubHeader";
+import StyledSubHeader from "./SubHeader";
 import { AppContext } from "../context/context";
 
-const BackgroundWithText = ({ headerText, subHeaderText, white, mediumGrey }) => {
+const BackgroundWithText = ({ 
+    headerText, 
+    subHeaderText, 
+    white, 
+    mediumGrey }) => {
 
     const context = useContext(AppContext);
 

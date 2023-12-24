@@ -6,20 +6,21 @@ import ContentBox from "../ui/ContentBox";
 import IconButton from "./IconButton";
 import { AppContext } from "../context/context";
 
-const Modal = ({ boxWidth, 
-                 header, 
-                 onCancelClickHandler, 
-                 onСonfirmationClick, 
-                 whitePlusForBtn, 
-                 paddingForPlusBtn, 
-                 buttonText, 
-                 okButton, 
-                 children, 
-                 breakModal,
-                 primarySaveBtn,
-                 smallUppercase,
-                 saveModal,
-                 signOut }) => {
+const Modal = ({ 
+    boxWidth,   
+    header, 
+    onCancelClickHandler, 
+    onСonfirmationClick, 
+    whitePlusForBtn, 
+    paddingForPlusBtn, 
+    buttonText, 
+    okButton, 
+    children, 
+    breakModal,
+    primarySaveBtn,
+    smallUppercase,
+    saveModal,
+    signOut }) => {
 
     const context = useContext(AppContext);
 

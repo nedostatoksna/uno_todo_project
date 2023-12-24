@@ -1,8 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { toggleDeletingList, toggleRenamingList } from "../../store/actionCreators/todoListActionCreators";
+import { 
+    toggleDeletingList, 
+    toggleRenamingList } from "../../store/actionCreators/todoListActionCreators";
 import IconButton from "../../ui/IconButton";
-import StyledHeader from "../../ui/StyledHeader";
+import StyledHeader from "../../ui/Header";
 import FlexRowWrapper from "../../ui/FlexRowWrapper";
 
 const ListEditPanel = ({ list }) => {

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { AppContext } from "../../../context/context";
 import Modal from "../../../ui/Modal";
 import { changeIsSigningOut } from "../../../store/actionCreators/userPanelActionCreators";
-import SubText from "../../../ui/StyledSubText";
+import SubText from "../../../ui/SubText";
 
 const SignOutModal = () => {
 

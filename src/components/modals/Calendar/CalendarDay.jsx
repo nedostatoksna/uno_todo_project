@@ -19,9 +19,11 @@ const CalendarDay = ({ day, setChosenDay }) => {
 
     const preChangeSelectedDate = (day) => {
         setChosenDay(day)
-        dispatch(changeSelectedDate({ activeYear: day.year, 
-                                      activeMonthId: day.month, 
-                                      activeDate: day.date }))
+        dispatch(changeSelectedDate({ 
+            activeYear: day.year,             
+            activeMonthId: day.month, 
+            activeDate: day.date 
+        }))
     }
 
     return (
@@ -30,8 +32,10 @@ const CalendarDay = ({ day, setChosenDay }) => {
             $mode={context.mode}
             $active={day.date === selectedDay && day.month === selectedDayMonth && day.year === selectedDayYear}
             $isToday={day.date === todayDate && day.month === todayMonth && day.year === todayYear}
-            onClick={() => day.activeMonth ? preChangeSelectedDate(day) 
-                                           : dispatch(switchMonthAndYear({ activeMonth: fullMonths[day.month].title, activeYear: day.year }))}
+            onClick={() => 
+                day.activeMonth 
+                    ? preChangeSelectedDate(day) 
+                    : dispatch(switchMonthAndYear({ activeMonth: fullMonths[day.month].title, activeYear: day.year }))}
         >
             {day.date}
         </Wrapper>

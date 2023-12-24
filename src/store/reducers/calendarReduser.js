@@ -1,7 +1,8 @@
-import { CHANGE_SELECTED_DATE, 
-         TOGGLE_IS_EDITING_DATE,
-         CHANGE_SELECTED_MONTH,
-         CHANGE_SELECTED_YEAR } from "../actions/calendarActions";
+import { 
+    CHANGE_SELECTED_DATE, 
+    TOGGLE_IS_EDITING_DATE,
+    CHANGE_SELECTED_MONTH,
+    CHANGE_SELECTED_YEAR } from "../actions/calendarActions";
 import calendarInitialState from "../states/calendarIInitialState";
 
 const calendarReducer = (state = calendarInitialState, {type, payload}) => {

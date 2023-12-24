@@ -7,8 +7,9 @@ import styled, { css } from "styled-components";
 import IconButton from "../../ui/IconButton";
 import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
 import FlexRowWrapper from "../../ui/FlexRowWrapper";
-import { cancelSearchAndCloseSearchPanel, 
-         openSearchPanel } from "../../store/actionCreators/thunks";
+import { 
+    cancelSearchAndCloseSearchPanel, 
+    openSearchPanel } from "../../store/actionCreators/thunks";
 
 const SearchBar = () => {
 

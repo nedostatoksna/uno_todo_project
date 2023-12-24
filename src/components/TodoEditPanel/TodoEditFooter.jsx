@@ -3,10 +3,12 @@ import { useDispatch } from "react-redux";
 import { AppContext } from "../../context/context";
 import styled, { css } from "styled-components";
 import IconButton from "../../ui/IconButton";
-import { fullMonths, 
-         threeLettersWeekDays } from "../../data/calendar";
-import { toggleDeletingTodo, 
-         toggleTodoEditPanel } from "../../store/actionCreators/todoPanelActionCreators";
+import { 
+    fullMonths, 
+    threeLettersWeekDays } from "../../data/calendar";
+import { 
+    toggleDeletingTodo, 
+    toggleTodoEditPanel } from "../../store/actionCreators/todoPanelActionCreators";
 import FlexRowWrapper from "../../ui/FlexRowWrapper";
 
 const TodoEditFooter = ({ todo }) => {

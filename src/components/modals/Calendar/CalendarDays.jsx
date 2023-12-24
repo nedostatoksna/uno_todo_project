@@ -77,7 +77,11 @@ const CalendarDays = ({ activeMonthId, year, setChosenDay }) => {
             {
                 visibleDays.map(daysArray =>
                     daysArray.map(day => (
-                        <CalendarDay day={day} key={day.date} setChosenDay={setChosenDay} />
+                        <CalendarDay 
+                            day={day} 
+                            key={day.date} 
+                            setChosenDay={setChosenDay} 
+                        />
                     ))
                 )
             }

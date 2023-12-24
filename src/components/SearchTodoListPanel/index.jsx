@@ -3,7 +3,7 @@ import { AppContext } from "../../context/context";
 import { useSelector } from "react-redux";
 import SearchResultsList from "./SearchResultsList";
 import Notice from "./Notice";
-import StyledHeader from "../../ui/StyledHeader";
+import StyledHeader from "../../ui/Header";
 import Background from "../../ui/Background";
 import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
 
@@ -29,8 +29,9 @@ const SearchTodoListPanel = () => {
                 $center={!serchedTodos.length || !searchString}
             >
                 {
-                    serchedTodos.length && searchString ? <SearchResultsList lists={serchedTodos}/> 
-                                                        : <Notice />
+                    serchedTodos.length && searchString 
+                        ? <SearchResultsList lists={serchedTodos}/> 
+                        : <Notice />
                 }
             </FlexColumnWrapper>
         </Background>

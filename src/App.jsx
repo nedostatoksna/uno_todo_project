@@ -16,7 +16,8 @@ function App() {
     <AppContext.Provider value={context}>
       {
         isVisible
-          ? <StartPage setIsVisible={setIsVisible} /> : <TodoApp />                                            
+          ? <StartPage setIsVisible={setIsVisible} /> 
+          : <TodoApp />                                            
       }
     </AppContext.Provider>
     </>

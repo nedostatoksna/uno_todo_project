@@ -21,11 +21,21 @@ const DateDisplay = () => {
     }
 
     return (
-        <FlexRowWrapper $flexStart $spaceBetween $paddingTopBottomLarge $paddingRightMedium $paddingLeft>
+        <FlexRowWrapper 
+            $flexStart 
+            $spaceBetween 
+            $paddingTopBottomLarge 
+            $paddingRightMedium 
+            $paddingLeft
+        >
                 <StyledDate $mode={context.mode}>
                     {prepareDateStringForDisplay()}
                 </StyledDate>
-                <IconButton $mode={context.mode} $type={"editGrey"} $large ></IconButton>
+                <IconButton 
+                    $mode={context.mode} 
+                    $type={"editGrey"} 
+                    $large 
+                ></IconButton>
         </FlexRowWrapper>
     )
 };

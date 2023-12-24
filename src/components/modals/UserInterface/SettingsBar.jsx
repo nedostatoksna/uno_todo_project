@@ -3,10 +3,11 @@ import UserSettingsButton from "./UserSettingsButton";
 import styled, { css } from "styled-components";
 import { AppContext } from "../../../context/context";
 
-const SettingsBar = ({ setting, 
-                       name, 
-                       dynamicContext, 
-                       setDynamicContext }) => {
+const SettingsBar = ({ 
+    setting, 
+    name, 
+    dynamicContext, 
+    setDynamicContext }) => {
 
     const context = useContext(AppContext);
 

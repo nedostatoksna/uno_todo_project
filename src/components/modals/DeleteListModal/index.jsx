@@ -4,7 +4,7 @@ import { AppContext } from "../../../context/context";
 import { toggleDeletingList } from "../../../store/actionCreators/todoListActionCreators";
 import Modal from "../../../ui/Modal";
 import { deleteListAndCloseModal } from "../../../store/actionCreators/thunks";
-import SubText from "../../../ui/StyledSubText";
+import SubText from "../../../ui/SubText";
 
 const DeleteListModal = () => {
 

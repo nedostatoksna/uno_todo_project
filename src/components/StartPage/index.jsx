@@ -14,8 +14,9 @@ const StartPage = ({ setIsVisible }) => {
         <Wrapper $mode={context.mode}>
             <StartPageTextWrapper>
                 <StartPageText $mode={context.mode}>
-                    <StyledLogo src={context.mode === "Light" ? logoLightMode 
-                                                              : logoDarkMode} />
+                    <StyledLogo src={context.mode === "Light" 
+                        ? logoLightMode 
+                        : logoDarkMode} />
                     <StyledHeader $mode={context.mode}>
                         Welcome to Uno To Do!
                     </StyledHeader>

@@ -46,10 +46,12 @@ const Calendar = () => {
            if (chosenDay) {
                 const dateString = prepareDateStringForDisplay(year, chosenDay.month, chosenDay.date);
                 const dateObj = new Date(year, chosenDay.month, chosenDay.date);
-                dispatch(setDeadlineAndCloseCalendar({ newDate: dateObj, 
-                                                       listId: activeListId, 
-                                                       todoId: activeTodoId, 
-                                                       todoDeadlineWord: dateString }))
+                dispatch(setDeadlineAndCloseCalendar({ 
+                    newDate: dateObj,                           
+                    listId: activeListId, 
+                    todoId: activeTodoId, 
+                    todoDeadlineWord: dateString
+                }))
            } else {
                 dispatch(toggleIsShowingCalendar())
            }
@@ -67,7 +69,12 @@ const Calendar = () => {
         >
             <FlexColumnWrapper>
             <DateDisplay />
-                <FlexRowWrapper $spaceBetween $paddingTopBottomSmall $paddingLeft $paddingRightSmall>
+                <FlexRowWrapper 
+                    $spaceBetween 
+                    $paddingTopBottomSmall 
+                    $paddingLeft 
+                    $paddingRightSmall
+                >
                     <MonthYearSelector activeMonth={activeMonth} />
                     <MonthSwitcher activeMonthId={findActiveMonthId()} />
                 </FlexRowWrapper>

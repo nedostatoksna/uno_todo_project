@@ -46,14 +46,16 @@ const TodoApp = () => {
     return (
         <>
             { 
-                isCreatingList ? <CreateListModal /> 
-                               : isRenaming ? <RenameModal listId={activeListId} activeList={activeList} /> 
-                               : isCreatingTodo && <CreateTaskModal listId={activeListId} /> 
+                isCreatingList 
+                    ? <CreateListModal /> 
+                    : isRenaming ? <RenameModal listId={activeListId} activeList={activeList} /> 
+                    : isCreatingTodo && <CreateTaskModal listId={activeListId} /> 
             }
             {
-                isDeletingList ? <DeleteListModal /> 
-                               : isDeletingTodo ? <DeleteTaskModal /> 
-                               : isSigningOut && <SignOutModal /> 
+                isDeletingList 
+                    ? <DeleteListModal /> 
+                    : isDeletingTodo ? <DeleteTaskModal /> 
+                    : isSigningOut && <SignOutModal /> 
             }
             {
                 isShowinguserPanel && <UserInterface /> 

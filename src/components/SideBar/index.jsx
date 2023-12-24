@@ -8,7 +8,7 @@ import NewListBtn from "./NewListBtn";
 import { AppContext } from "../../context/context";
 import styled, { css } from "styled-components";
 import Divider from "../../ui/Divider";
-import StyledHeader from "../../ui/StyledHeader";
+import StyledHeader from "../../ui/Header";
 import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
 import FlexRowWrapper from "../../ui/FlexRowWrapper";
 import Picture from "../../ui/Picture";

@@ -4,7 +4,7 @@ import { AppContext } from "../../../context/context";
 import { toggleDeletingTodo } from "../../../store/actionCreators/todoPanelActionCreators";
 import Modal from "../../../ui/Modal";
 import { deleteTodoAndCloseModal } from "../../../store/actionCreators/thunks";
-import SubText from "../../../ui/StyledSubText";
+import SubText from "../../../ui/SubText";
 
 const DeleteTaskModal = () => {
 
@@ -19,10 +19,13 @@ const DeleteTaskModal = () => {
             header={"Are you sure?"} 
             buttonText={"Delete"} 
             onCancelClickHandler={() => {dispatch(toggleDeletingTodo())}} 
-            onСonfirmationClick={() => {dispatch(deleteTodoAndCloseModal({listId: activeListId, 
-                                                                          todoId: activeTodoId }))}}
+            onСonfirmationClick={() => {dispatch(deleteTodoAndCloseModal({
+                listId: activeListId, 
+                todoId: activeTodoId }))}}
         >
-            <SubText $mode={context.mode}>Task will be permanently deleted</SubText>
+            <SubText $mode={context.mode}>
+                Task will be permanently deleted
+            </SubText>
         </Modal>
     )
 };

@@ -6,7 +6,10 @@ import moonIcon from "../resources/images/moonIcon.svg";
 import moonIconDark from "../resources/images/moonIconForDark.svg";
 import { AppContext } from "../context/context";
 
-const SettingsButton = ({ option, onChange, checked }) => { 
+const SettingsButton = ({ 
+    option, 
+    onChange, 
+    checked }) => { 
 
     const context = useContext(AppContext);
 

@@ -3,8 +3,8 @@ import { changeIsSigningOut } from "../../../store/actionCreators/userPanelActio
 import { useDispatch } from "react-redux";
 import Button from "../../../ui/Button";
 import { AppContext } from "../../../context/context";
-import StyledHeader from "../../../ui/StyledHeader";
-import StyledSubHeader from "../../../ui/StyledSubHeader";
+import StyledHeader from "../../../ui/Header";
+import StyledSubHeader from "../../../ui/SubHeader";
 import FlexColumnWrapper from "../../../ui/FlexColumnWrapper";
 import Picture from "../../../ui/Picture";
 

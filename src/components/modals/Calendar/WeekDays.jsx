@@ -13,7 +13,12 @@ const WeekDays = () => {
         <FlexRowWrapper as="ul" $spaceBetween>
         {
             oneLettersWeekDays.map(day => (
-                <StyledWeekDay key={weekDayId++} $mode={context.mode}>{day}</StyledWeekDay>
+                <StyledWeekDay 
+                    key={weekDayId++} 
+                    $mode={context.mode}
+                >
+                    {day}
+                </StyledWeekDay>
             ))
         } 
         </FlexRowWrapper>
