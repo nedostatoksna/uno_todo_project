@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { useSelector } from "react-redux";
 import { AppContext } from "../../context/context";
 import ImportantTodoList from "./ImportantTodoList";
-import Notice from "./Notice";
 import StyledHeader from "../../ui/Header";
 import Background from "../../ui/Background";
 import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
+import NoticeCase from "../NoticeCase";
 
 const ImportantTodoListPanel = () => {
     
@@ -34,7 +34,7 @@ const ImportantTodoListPanel = () => {
                     {
                         importantTodos.length 
                             ? <ImportantTodoList todos={importantTodos} /> 
-                            : <Notice />
+                            : <NoticeCase noticeCase={"noImportantTasks"} />
                     }
                 </FlexColumnWrapper>           
         </Background>

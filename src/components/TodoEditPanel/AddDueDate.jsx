@@ -20,7 +20,7 @@ const AddDueDate = ({ todo }) => {
             $marginTopBottomSmall 
             $paddingTopBottomSmall
         >
-         <FlexRowWrapper $flexStart $center>
+            <FlexRowWrapper $flexStart $center>
                 <IconButton
                     $type={deadlineString.length
                         ? "addDateActive" 
@@ -41,20 +41,19 @@ const AddDueDate = ({ todo }) => {
                     disabled
                 />
             </FlexRowWrapper>
-                    { 
-                        deadlineString.length
-                            ?  <IconButton
-                                    $type={"crossGrey"}
-                                    $marginLeftLarge
-                                    alt="grey cross"
-                                    $small
-                                    onClick={() => {dispatch(deleteDeadline({ 
-                                        listId: todo.parentListId, 
-                                        todoId: todo.id }))}}
-                                    $mode={context.mode}
-                                ></IconButton> : undefined
-                    }
-
+                { deadlineString.length
+                    ?  <IconButton
+                            $mode={context.mode}
+                            $type={"crossGrey"}
+                            $marginLeftLarge
+                            alt="grey cross"
+                            $small
+                            onClick={() => {dispatch(deleteDeadline({ 
+                                listId: todo.parentListId, 
+                                todoId: todo.id }))}}
+                        ></IconButton> 
+                    : undefined
+                }
         </FlexRowWrapper>
     )
 };

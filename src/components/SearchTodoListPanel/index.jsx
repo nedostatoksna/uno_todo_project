@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { AppContext } from "../../context/context";
 import { useSelector } from "react-redux";
 import SearchResultsList from "./SearchResultsList";
-import Notice from "./Notice";
 import StyledHeader from "../../ui/Header";
 import Background from "../../ui/Background";
 import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
+import NoticeCase from "../NoticeCase";
 
 const SearchTodoListPanel = () => {
 
@@ -31,7 +31,7 @@ const SearchTodoListPanel = () => {
                 {
                     serchedTodos.length && searchString 
                         ? <SearchResultsList lists={serchedTodos}/> 
-                        : <Notice />
+                        : <NoticeCase noticeCase={"noFoundTasks"} />
                 }
             </FlexColumnWrapper>
         </Background>

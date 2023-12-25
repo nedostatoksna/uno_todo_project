@@ -2,24 +2,14 @@ import React, { useContext } from "react";
 import styled, { css } from "styled-components";
 import IconButton from "../../../ui/IconButton";
 import { AppContext } from "../../../context/context";
-import { fullMonths, threeLettersWeekDays } from "../../../data/calendar";
 import FlexRowWrapper from "../../../ui/FlexRowWrapper";
+import { prepareDateStringForDisplay } from "../../../helpers/calendarRenderPrep";
 
 const DateDisplay = () => {
 
     const context = useContext(AppContext);
-
-    const prepareDateStringForDisplay = () => {
-        let dateForDisplay;
-        const today = new Date();
-        const dayOfTheWeek = threeLettersWeekDays[today.getDay()];
-        const month = fullMonths[today.getMonth()].title.slice(0, 3);
-        const day = today.getDate();
-        dateForDisplay = dayOfTheWeek + ", " + month + " " + day;
-
-        return dateForDisplay;
-    }
-
+    const today = new Date();
+    
     return (
         <FlexRowWrapper 
             $flexStart 
@@ -28,14 +18,14 @@ const DateDisplay = () => {
             $paddingRightMedium 
             $paddingLeft
         >
-                <StyledDate $mode={context.mode}>
-                    {prepareDateStringForDisplay()}
-                </StyledDate>
-                <IconButton 
-                    $mode={context.mode} 
-                    $type={"editGrey"} 
-                    $large 
-                ></IconButton>
+            <StyledDate $mode={context.mode}>
+                {prepareDateStringForDisplay(today)}
+            </StyledDate>
+            <IconButton 
+                $mode={context.mode} 
+                $type={"editGrey"} 
+                $large 
+            ></IconButton>
         </FlexRowWrapper>
     )
 };

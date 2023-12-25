@@ -4,13 +4,15 @@ import Modal from "..";
 import DateDisplay from "./DateDisplay";
 import CalendarSheet from "./CalendarSheet";
 import MonthYearSelector from "./MonthYearSelector";
-import { fullMonths, threeLettersWeekDays }  from "../../../data/calendar";
 import MonthSwitcher from "./MonthSwitcher";
 import { toggleIsShowingCalendar } from "../../../store/actionCreators/todoPanelActionCreators";
 import { useState } from "react";
 import FlexColumnWrapper from "../../../ui/FlexColumnWrapper";
 import FlexRowWrapper from "../../../ui/FlexRowWrapper";
 import { setDeadlineAndCloseCalendar } from "../../../store/actionCreators/thunks";
+import { 
+    findActiveMonthId, 
+    prepareDateStringForDisplay } from "../../../helpers/calendarRenderPrep";
 
 const Calendar = () => {
 
@@ -20,42 +22,24 @@ const Calendar = () => {
 
     const [chosenDay, setChosenDay] = useState(null);
 
-        const findActiveMonthId = () => {
-            let activeMonthId;
-            for (let i = 0; i < fullMonths.length; i++) {
-               if (fullMonths[i].title === activeMonth) {
-                    activeMonthId = fullMonths[i].id
-                }
-            }
-            return activeMonthId
-        }
+    const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
+    const activeListId = useSelector(state => state.todoListUI.activeListId);
+    const dateForDateString = new Date(year, chosenDay.month, chosenDay.date);
 
-        const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
-        const activeListId = useSelector(state => state.todoListUI.activeListId);
-        const prepareDateStringForDisplay = (y, m, d) => {
-            let dateForDisplay;
-            const date = new Date(y, m, d);
-            const dayOfTheWeek = threeLettersWeekDays[date.getDay()];
-            const month = fullMonths[date.getMonth()].title.slice(0, 3);
-            const day = date.getDate();
-            dateForDisplay = dayOfTheWeek + ", " + month + " " + day;
-            return dateForDisplay;
+    const preSave = (chosenDay) => {
+        if (chosenDay) {
+            const dateString = prepareDateStringForDisplay(dateForDateString);
+            const dateObj = new Date(year, chosenDay.month, chosenDay.date);
+            dispatch(setDeadlineAndCloseCalendar({ 
+                newDate: dateObj,                           
+                listId: activeListId, 
+                todoId: activeTodoId, 
+                todoDeadlineWord: dateString
+            }))
+        } else {
+            dispatch(toggleIsShowingCalendar())
         }
-
-        const preSave = (chosenDay) => {
-           if (chosenDay) {
-                const dateString = prepareDateStringForDisplay(year, chosenDay.month, chosenDay.date);
-                const dateObj = new Date(year, chosenDay.month, chosenDay.date);
-                dispatch(setDeadlineAndCloseCalendar({ 
-                    newDate: dateObj,                           
-                    listId: activeListId, 
-                    todoId: activeTodoId, 
-                    todoDeadlineWord: dateString
-                }))
-           } else {
-                dispatch(toggleIsShowingCalendar())
-           }
-        }
+    }
 
     return (
         <Modal 
@@ -76,10 +60,10 @@ const Calendar = () => {
                     $paddingRightSmall
                 >
                     <MonthYearSelector activeMonth={activeMonth} />
-                    <MonthSwitcher activeMonthId={findActiveMonthId()} />
+                    <MonthSwitcher activeMonthId={findActiveMonthId(activeMonth)} />
                 </FlexRowWrapper>
                 <CalendarSheet 
-                    activeMonthId={findActiveMonthId()} 
+                    activeMonthId={findActiveMonthId(activeMonth)} 
                     year={year} 
                     setChosenDay={setChosenDay} 
                 />

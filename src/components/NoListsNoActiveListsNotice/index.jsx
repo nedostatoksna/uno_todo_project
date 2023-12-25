@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Background from "../../ui/Background";
 import { AppContext } from "../../context/context";
 import { useSelector } from "react-redux";
-import BackgroundWithText from "../../ui/BackgroundWithText";
+import NoticeCase from "../NoticeCase";
 
 const NoListsNoActiveListsNotice = () => {
 
@@ -11,13 +11,7 @@ const NoListsNoActiveListsNotice = () => {
 
     return (
         <Background $primary $mode={context.mode} $widthLarge>
-            <BackgroundWithText
-                white
-                headerText={lists.length ? "There is no active task list" 
-                                         : "There are no task lists yet"}
-                subHeaderText={lists.length ? "Click on one of the lists to see it here" 
-                                            : "Try creating one by clicking the 'New List' button"}
-            />
+            <NoticeCase noticeCase={lists.length ? "noActiveList" : "noList"} />
         </Background>
     )
 };

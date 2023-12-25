@@ -51,7 +51,6 @@ const CalendarDays = ({ activeMonthId, year, setChosenDay }) => {
             return dateObj
         })
      }
-
         const prevArr = weekdayOfFirstDay === 0 
             ? fillPrevMonthDays().slice(numberOfDaysInPrevMonth - 7, numberOfDaysInPrevMonth)
             : fillPrevMonthDays().slice(numberOfDaysInPrevMonth - weekdayOfFirstDay, numberOfDaysInPrevMonth)

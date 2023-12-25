@@ -3,26 +3,15 @@ import { useDispatch } from "react-redux";
 import { AppContext } from "../../context/context";
 import styled, { css } from "styled-components";
 import IconButton from "../../ui/IconButton";
-import { 
-    fullMonths, 
-    threeLettersWeekDays } from "../../data/calendar";
 import { toggleDeletingTodo } from "../../store/actionCreators/todoPanelActionCreators";
 import FlexRowWrapper from "../../ui/FlexRowWrapper";
 import { closeTodoEditPanelAndClearActiveTodoId } from "../../store/actionCreators/thunks";
+import { prepareDateStringForDisplay } from "../../helpers/calendarRenderPrep";
 
 const TodoEditFooter = ({ todo }) => {
 
     const context = useContext(AppContext);
     const dispatch = useDispatch();
-
-    const prepareDateStringForDisplay = (date) => {
-        let dateForDisplay;
-        const dayOfTheWeek = threeLettersWeekDays[date.getDay()];
-        const month = fullMonths[date.getMonth()].title.slice(0, 3);
-        const day = date.getDate();
-        dateForDisplay = dayOfTheWeek + ", " + month + " " + day;
-        return dateForDisplay;
-    }
 
     return (
         <FlexRowWrapper $center $spaceBetween>
