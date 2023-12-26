@@ -1,8 +1,6 @@
 {
   "files": {
-    "main.css": "/uno_todo_project/static/css/main.be3be0f5.css",
-    "main.js": "/uno_todo_project/static/js/main.c925556b.js",
-    "static/js/787.28cb0dcd.chunk.js": "/uno_todo_project/static/js/787.28cb0dcd.chunk.js",
+    "main.js": "/uno_todo_project/static/js/main.6553a668.js",
     "static/media/Roboto-Regular.ttf": "/uno_todo_project/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
     "static/media/startPageIlustration.svg": "/uno_todo_project/static/media/startPageIlustration.f4307be741b15ef4faaa34e38a8fd65f.svg",
     "static/media/logoUnoMD.svg": "/uno_todo_project/static/media/logoUnoMD.2bb210314250ed6dd6158466fe84a42c.svg",
@@ -55,12 +53,9 @@
     "static/media/whitePlusIcon.svg": "/uno_todo_project/static/media/whitePlusIcon.18e926223aa1cb0d147392d4f359ec22.svg",
     "static/media/arrowDropDown.svg": "/uno_todo_project/static/media/arrowDropDown.f5cec8f7f88f0081c5780abc5cbbf2a8.svg",
     "static/media/arrowDropDownForDark.svg": "/uno_todo_project/static/media/arrowDropDownForDark.64333867b637c89e752fc60e1ae25812.svg",
-    "main.be3be0f5.css.map": "/uno_todo_project/static/css/main.be3be0f5.css.map",
-    "main.c925556b.js.map": "/uno_todo_project/static/js/main.c925556b.js.map",
-    "787.28cb0dcd.chunk.js.map": "/uno_todo_project/static/js/787.28cb0dcd.chunk.js.map"
+    "main.6553a668.js.map": "/uno_todo_project/static/js/main.6553a668.js.map"
   },
   "entrypoints": [
-    "static/css/main.be3be0f5.css",
-    "static/js/main.c925556b.js"
+    "static/js/main.6553a668.js"
   ]
 }
