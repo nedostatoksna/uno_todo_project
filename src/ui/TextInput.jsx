@@ -4,9 +4,7 @@ import styled, { css } from "styled-components";
 const TextInput = ( props ) => {
 
     return (
-        <>
-            <StyledTextInput {...props} />
-        </>
+        <StyledTextInput {...props} />
     )
 };
 export default TextInput;
