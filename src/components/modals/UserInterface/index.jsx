@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import UserCard from "./UserCard";
 import { AppContext } from "../../../context/context";
 import Divider from "../../../ui/Divider";
-import Modal from "..";
+import Modal from "../../Modal";
 import { toggleUserPanel } from "../../../store/actionCreators/userPanelActionCreators";
 import About from "./About";
 import GeneralSettings from "./GeneralSettings";

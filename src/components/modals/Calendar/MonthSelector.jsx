@@ -8,7 +8,7 @@ import arrowDropDown from "../../../resources/images/arrowDropDown.svg";
 import arrowDropDownForDark from "../../../resources/images/arrowDropDownForDark.svg";
 import FlexRowWrapper from "../../../ui/FlexRowWrapper";
 
-const MonthYearSelector = ({ activeMonth }) => {
+const MonthSelector = ({ activeMonth }) => {
 
     const context = useContext(AppContext);
     const year = useSelector(state => state.calendarUI.activeYear);
@@ -38,7 +38,7 @@ const MonthYearSelector = ({ activeMonth }) => {
     )
 };
 
-export default MonthYearSelector;
+export default MonthSelector;
 
 const StyledSelector = styled.select`
     font-weight: 600;

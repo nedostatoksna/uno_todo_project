@@ -1,9 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Modal from "..";
+import Modal from "../../Modal";
 import DateDisplay from "./DateDisplay";
 import CalendarSheet from "./CalendarSheet";
-import MonthYearSelector from "./MonthYearSelector";
+import MonthSelector from "./MonthSelector";
 import MonthSwitcher from "./MonthSwitcher";
 import { toggleIsShowingCalendar } from "../../../store/actionCreators/todoPanelActionCreators";
 import { useState } from "react";
@@ -59,7 +59,7 @@ const Calendar = () => {
                     $paddingLeft 
                     $paddingRightSmall
                 >
-                    <MonthYearSelector activeMonth={activeMonth} />
+                    <MonthSelector activeMonth={activeMonth} />
                     <MonthSwitcher activeMonthId={findActiveMonthId(activeMonth)} />
                 </FlexRowWrapper>
                 <CalendarSheet 

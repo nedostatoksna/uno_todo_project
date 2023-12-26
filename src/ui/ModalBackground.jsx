@@ -1,13 +1,13 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const TransparentBackground = ( props ) => {
+const ModalBackground = ( props ) => {
 
     return (
         <StyledBackground {...props}>{props.children}</StyledBackground>
     )
 };
-export default TransparentBackground;
+export default ModalBackground;
 
 const StyledBackground = styled.div` 
     height: 100vh;

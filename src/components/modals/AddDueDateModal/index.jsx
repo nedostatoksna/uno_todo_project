@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
 import { AppContext } from "../../../context/context";
-import Modal from "..";
+import Modal from "../../Modal";
 import { toggleChooseDeadlinePanel } from "../../../store/actionCreators/todoPanelActionCreators";
 import ListButton from "../../../ui/ListButton";
 import { dateOptions } from "../../../data/dateOptions";

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppContext } from "../../../context/context";
 import { toggleDeletingList } from "../../../store/actionCreators/todoListActionCreators";
-import Modal from "..";
+import Modal from "../../Modal";
 import { deleteListAndCloseModal } from "../../../store/actionCreators/thunks";
 import SubText from "../../../ui/SubText";
 
