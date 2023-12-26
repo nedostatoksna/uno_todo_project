@@ -24,10 +24,10 @@ const Calendar = () => {
 
     const activeTodoId = useSelector(state => state.todoPanelUI.activeTodoId);
     const activeListId = useSelector(state => state.todoListUI.activeListId);
-    const dateForDateString = new Date(year, chosenDay.month, chosenDay.date);
 
     const preSave = (chosenDay) => {
         if (chosenDay) {
+            const dateForDateString = new Date(year, chosenDay.month, chosenDay.date);
             const dateString = prepareDateStringForDisplay(dateForDateString);
             const dateObj = new Date(year, chosenDay.month, chosenDay.date);
             dispatch(setDeadlineAndCloseCalendar({ 

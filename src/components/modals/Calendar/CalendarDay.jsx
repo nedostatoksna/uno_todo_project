@@ -19,7 +19,7 @@ const CalendarDay = ({ day, setChosenDay }) => {
 
     const preChangeSelectedDate = (day) => {
         setChosenDay(day)
-        dispatch(changeSelectedDate({ 
+        dispatch(changeSelectedDate({
             activeYear: day.year,             
             activeMonthId: day.month, 
             activeDate: day.date 
