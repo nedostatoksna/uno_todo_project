@@ -86,6 +86,7 @@ const StartPageText = styled.div`
 `;
 const StyledIllustration = styled.img` 
     max-width: 100%;
+    max-height: 100%;
 `;
 const StyledLogo = styled.img` 
     margin-bottom: 100px;

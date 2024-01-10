@@ -22,13 +22,6 @@ const TodoContent = ({ todo }) => {
                 <StyledText $grey $mode={context.mode}>
                     {deadLineForDisplay}
                 </StyledText>
-                { deadLineForDisplay && todo.note.length 
-                    ? <StyledText $grey $mode={context.mode}>-</StyledText> 
-                    : undefined
-                }
-                <StyledText $coral $mode={context.mode}>
-                    {todo.note}
-                </StyledText>
             </FlexRowWrapper>
         </FlexColumnWrapper>
     )
