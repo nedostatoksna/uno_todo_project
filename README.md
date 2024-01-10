@@ -1,22 +1,22 @@
 # Todo App "Uno To Do" 
 
-This is a training application built using React native, Redux, Hooks and styled with styled-components.
+This is a training application built using React, Redux, Hooks and styled with styled-components.
 The app allows users to add, edit, and delete tasks, as well as mark them as completed or important.
 You can view a live demo of the project here: [https://nedostatoksna.github.io/uno_todo_project/].
 
 ## Learning objectives
 
-Use React Native documentation.
+Use React documentation.
 Use React components.
 Connect React and Redux.
-Use custom styles in a React Native app.
+Use custom styles in a React app.
 Use styled-components
 Use of Hooks
 Apply React best practices and language style guides in code.
 
 ## Technologies Used
 
-- **React Native**: A JavaScript framework for building native mobile applications.
+- **React**: A JavaScript framework for building applications.
 - **Redux**: A predictable state container for managing the application's state.
 - **Hooks**: Utilized for functional components to manage state and side effects.
 - **styled-components**: A popular CSS-in-JS library for styling React components.
