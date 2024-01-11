@@ -1,12 +1,12 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const TextInput = ( props ) => {
+const TextInput = React.forwardRef(( props, ref ) => {
 
     return (
-        <StyledTextInput {...props} />
+        <StyledTextInput {...props} ref={ref} />
     )
-};
+});
 export default TextInput;
 
 const StyledTextInput = styled.input` 

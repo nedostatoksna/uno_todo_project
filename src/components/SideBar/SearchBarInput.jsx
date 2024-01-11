@@ -25,7 +25,7 @@ const SearchBarInput = () => {
     }, [cashedPreSearch]);
 
     return (
-        <FlexColumnWrapper $flexStart>
+          <FlexColumnWrapper $flexStart $paddingTopBottomSmall>
             { isSearching && <StyledLabel 
                                 htmlFor="searchInput" 
                                 $mode={context.mode}
@@ -41,7 +41,7 @@ const SearchBarInput = () => {
                     id="searchInput"
                     onChange={(e) => {dispatch(setSearchQuery({ searchString: e.target.value }))}}
                 />
-        </FlexColumnWrapper>
+        </FlexColumnWrapper>      
     )
 };
 
@@ -49,9 +49,10 @@ export default SearchBarInput;
 
 const StyledSearchInput = styled.input` 
     background: transparent;
-    width: ${props => props.$isSearching === true ? "144px" : "176px"};
+    width: calc(20vw * 3/5 - 40px);
     height: 24px;
     border: none;
+    padding-right: 48px;
     ${props => props.$mode === "Light" && css`
         ${props => props.$isSearching === false && css`
             color: var(--transparent-grey-text-medium-variant);

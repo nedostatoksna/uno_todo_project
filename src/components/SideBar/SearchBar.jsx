@@ -28,20 +28,20 @@ const SearchBar = () => {
                         $mode={context.mode}
                     ></IconButton>
                     <SearchBarInput />
-                </FlexRowWrapper>
                     { 
-                        isSearching 
-                            &&  <IconButton
-                                    $type={"cross"}
-                                    $marginTopBottom
-                                    $marginRightLarge
-                                    $marginLeftSmall
-                                    alt="cross"
-                                    $small
-                                    onClick={() => {dispatch(cancelSearchAndCloseSearchPanel())}}
-                                    $mode={context.mode}
-                                ></IconButton> 
-                    }
+                isSearching 
+                    &&  <IconButton
+                            $type={"cross"}
+                            $marginTopBottom
+                            $marginRightLarge
+                            $marginLeftSmall
+                            alt="cross"
+                            $small
+                            onClick={() => {dispatch(cancelSearchAndCloseSearchPanel())}}
+                            $mode={context.mode}
+                        ></IconButton> 
+            }
+                </FlexRowWrapper>
             </SearchBarWrapper>
             <Divider $mode={context.mode} />
         </> 

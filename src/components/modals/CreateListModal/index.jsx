@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import TextInput from "../../../ui/TextInput";
 import { AppContext } from "../../../context/context"; 
@@ -9,9 +9,17 @@ import { createNewListAndCloseModal } from "../../../store/actionCreators/thunks
 const CreateListModal = () => {
 
     const context = useContext(AppContext);
+    const inputFocus = useRef(null);
 
     const [value, setValue] = useState("");
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        const input = inputFocus.current;
+        input.focus();
+        return () => input.blur();
+    }, []);
+
 
     return (
         <Modal
@@ -25,6 +33,7 @@ const CreateListModal = () => {
             onСonfirmationClick={() => dispatch(createNewListAndCloseModal({ listTitle: value }))}
         >
             <TextInput 
+                ref={inputFocus} 
                 id="saveModalInput" 
                 $mode={context.mode} 
                 value={value} 
