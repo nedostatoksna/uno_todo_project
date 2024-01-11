@@ -16,10 +16,10 @@ const StyledFlexWrapper = styled.div`
     width: ${props => props.$width};
 
     ${props => props.$widthSmall && css `
-        width: 20vw;
+        width: 20%;
     `}
     ${props => props.$widthMax && css `
-        width: 80vw;
+        width: 80%;
     `}
     ${props => props.$spaceBetween && css `
         justify-content: space-between;

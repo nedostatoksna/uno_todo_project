@@ -12,10 +12,10 @@ export default Background;
 const StyledBackground = styled.div` 
     padding: 20px;
     ${props => props.$widthLarge && css`
-        width: 80vw;
+        width: 80%;
     `}
     ${props => props.$widthSmall && css`
-        width: 60vw;
+        width: 60%;
     `}
     ${props => props.$mode === "Light" && css`
         ${props => props.$primary && css `

@@ -49,7 +49,7 @@ const StartPage = ({ setIsVisible }) => {
 export default StartPage;
 
 const Wrapper = styled.div`
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: row;
@@ -62,14 +62,14 @@ const Wrapper = styled.div`
 `;
 const StartPageTextWrapper = styled.div`
     padding: 20px 60px;
-    width: calc(100vw / 100 * 30);
+    width: 30%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 `;
 const ImageWrapper = styled.div`
     padding: 60px;
-    width: calc(100vw / 100 * 70);
+    width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
