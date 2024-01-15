@@ -85,4 +85,8 @@ const StyledButton = styled.button`
     ${props => props.$marginLeftLarge && css`
         margin-left: 16px;
     `}
+    ${props => props.$rightPosition && css`
+        position: absolute;
+        left: calc(100% - 16px);
+    `}
 `;

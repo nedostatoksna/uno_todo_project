@@ -5,7 +5,7 @@ import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
 const TodoList = ({ list }) => {
 
     return (
-        <FlexColumnWrapper as="ul" $smallPaddingTop>
+        <FlexColumnWrapper as="ul" $smallPaddingTop $overflow>
             {
                 list.map(todo => (
                     <Todo key={todo.id} todo={todo} />

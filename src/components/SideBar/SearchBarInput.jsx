@@ -52,7 +52,7 @@ const StyledSearchInput = styled.input`
     width: calc(20vw * 3/5 - 40px);
     height: 24px;
     border: none;
-    padding-right: 48px;
+    padding-right: 16px;
     ${props => props.$mode === "Light" && css`
         ${props => props.$isSearching === false && css`
             color: var(--transparent-grey-text-medium-variant);

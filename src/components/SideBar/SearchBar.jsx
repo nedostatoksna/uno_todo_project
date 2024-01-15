@@ -17,7 +17,7 @@ const SearchBar = () => {
     return (
         <>
             <SearchBarWrapper $mode={context.mode}>
-                <FlexRowWrapper $center>
+                <StyledWrapper>
                     <IconButton 
                         $type={"search"}
                         alt="magnifying glass icon" 
@@ -29,19 +29,19 @@ const SearchBar = () => {
                     ></IconButton>
                     <SearchBarInput />
                     { 
-                isSearching 
-                    &&  <IconButton
-                            $type={"cross"}
-                            $marginTopBottom
-                            $marginRightLarge
-                            $marginLeftSmall
-                            alt="cross"
-                            $small
-                            onClick={() => {dispatch(cancelSearchAndCloseSearchPanel())}}
-                            $mode={context.mode}
-                        ></IconButton> 
-            }
-                </FlexRowWrapper>
+                        isSearching 
+                            &&  <IconButton
+                                    $type={"cross"}
+                                    $marginTopBottom
+                                    $rightPosition
+                                    $marginLeftSmall 
+                                    alt="cross"
+                                    $small
+                                    onClick={() => {dispatch(cancelSearchAndCloseSearchPanel())}}
+                                    $mode={context.mode}
+                                ></IconButton> 
+                    }
+                </StyledWrapper>
             </SearchBarWrapper>
             <Divider $mode={context.mode} />
         </> 
@@ -62,4 +62,10 @@ const SearchBarWrapper = styled.div`
     ${props => props.$mode === "Dark" && css`
         background-color: var(--dark-mode-transparent-grey-text);
     `} 
+`;
+const StyledWrapper = styled.div` 
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
 `;
