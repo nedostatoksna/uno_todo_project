@@ -14,6 +14,7 @@ const StyledFlexWrapper = styled.div`
     flex-direction: column;
     padding: ${props => props.$padding};
     width: ${props => props.$width};
+    position: relative;
 
     ${props => props.$widthSmall && css `
         width: 20%;
@@ -78,6 +79,12 @@ const StyledFlexWrapper = styled.div`
         padding-top: 8px;
     `}
     ${props => props.$heightMin && css `
-        min-height: calc(100vh - 40px);
+        min-height: calc(100% - 40px);
+    `}
+    ${props => props.$heightMinLarge && css `
+        min-height: calc(100% - 60px);
+    `}
+    ${props => props.$heighToContent && css `
+        height: fit-content;
     `}
 `;

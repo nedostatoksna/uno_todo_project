@@ -14,7 +14,7 @@ const TodoEditFooter = ({ todo }) => {
     const dispatch = useDispatch();
 
     return (
-        <FlexRowWrapper $center $spaceBetween>
+        <FlexRowWrapper $center $spaceBetween $fixedPosition $width>
             <IconButton
                 onClick={() => {dispatch(closeTodoEditPanelAndClearActiveTodoId())}}
                 $type={"arrowLeft"}

@@ -20,7 +20,6 @@ const SearchTodoListPanel = () => {
             $grey 
             $mode={context.mode} 
             $widthLarge
-            $heightMin
         >
             <StyledHeader 
                 $mode={context.mode} 

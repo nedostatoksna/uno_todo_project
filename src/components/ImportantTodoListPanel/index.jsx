@@ -19,7 +19,6 @@ const ImportantTodoListPanel = () => {
             $coral 
             $mode={context.mode} 
             $widthLarge
-            $heightMin
         >
             <StyledHeader 
                 $large 

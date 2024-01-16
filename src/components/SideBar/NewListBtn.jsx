@@ -13,11 +13,13 @@ const NewListBtn = () => {
             onClick={() => {dispatch(toggleCreatingList())}} 
             $purplePlus 
             $positionForPlus 
-            $widthMax 
             $positionSmallIndent
             $ClearBackground 
             $purpleColor 
             $mode={context.mode}
+            $fixedPosition
+            $widthWithIndents
+            $MarginBottomLarge
         >
             New List
         </Button>

@@ -21,7 +21,6 @@ const AllTodosPanel = () => {
             $mode={context.mode} 
             $primary 
             $widthLarge
-            $heightMin
         >
             <StyledHeader $large $mode={context.mode} $white>
                 Tasks

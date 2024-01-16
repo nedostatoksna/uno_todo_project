@@ -45,7 +45,7 @@ export default TodoApp;
 
 const Wrapper = styled.div`
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: row;
     ${props => props.$mode === "Light" && css`

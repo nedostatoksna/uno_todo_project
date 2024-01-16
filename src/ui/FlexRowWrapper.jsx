@@ -62,4 +62,12 @@ const StyledFlexWrapper = styled.div`
         margin-top: 12px;
         margin-bottom: 12px;
     `}
+    ${props => props.$fixedPosition && css `
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 20px;
+    `}
+    ${props => props.$width && css `
+        width: calc(100% - 20px);
+    `}
 `;

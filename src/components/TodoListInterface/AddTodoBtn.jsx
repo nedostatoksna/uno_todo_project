@@ -17,6 +17,7 @@ const AddTodoBtn = () => {
             $widthMax 
             $paddingForPlus 
             $mode={context.mode}
+            $fixedPosition
             onClick={() => {dispatch(toggleCreatingTodo())}}
         >
             Add a task

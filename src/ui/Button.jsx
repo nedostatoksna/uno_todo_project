@@ -86,14 +86,27 @@ const StyledButton = styled.button`
     ${props => props.$widthMax && css `
         width: 100%;
     `}
+    ${props => props.$widthWithIndents && css `
+        width: calc(100% - 40px);
+    `}
     ${props => props.$MarginBottom && css `
         margin-bottom: 12px;
     `}
     ${props => props.$MarginSides && css `
         margin: 0 10px;
     `}
+    ${props => props.$MarginBottomLarge && css `
+        margin-bottom: 20px;
+    `}
     ${props => props.$positionSmallIndent && css `
         background-position: center left 12px;
+    `}
+    ${props => props.$fixedPosition && css `
+        position: absolute;
+        bottom: 0;
+    `}
+    ${props => props.$width && css `
+        width: calc(100% - 40px);
     `}
     ${props => props.$purpleHover && css `
         &:hover {

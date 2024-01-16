@@ -18,7 +18,7 @@ const StyledBackground = styled.div`
         width: 60%;
     `}
     ${props => props.$heightMin && css `
-        height: fit-content;
+        height: 100vh;
     `}
     ${props => props.$mode === "Light" && css`
         ${props => props.$primary && css `
