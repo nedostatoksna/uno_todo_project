@@ -77,7 +77,7 @@ const StyledFlexWrapper = styled.div`
         padding-bottom: 8px;
         padding-top: 8px;
     `}
-    ${props => props.$overflow && css`
-        overflow-y: hidden;
+    ${props => props.$heightMin && css `
+        min-height: calc(100vh - 40px);
     `}
 `;

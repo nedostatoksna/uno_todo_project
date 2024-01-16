@@ -5,7 +5,7 @@ import FlexColumnWrapper from "../../ui/FlexColumnWrapper";
 const AllTodosList = ({ todos }) => {
 
     return (
-        <FlexColumnWrapper $smallPaddingTop>
+        <FlexColumnWrapper $smallPaddingTop $heightMin>
             {
                 todos.map(todo => <Todo key={todo.id} todo={todo} />)
             }

@@ -15,9 +15,9 @@ const TodoListPanel = ({ list }) => {
 
     return (
         <FlexColumnWrapper 
-            $heightMax
             $spaceBetween 
             $flexStart
+            $heightMin
         >
             <ListWrapper>
                 <ListEditPanel list={list} />
@@ -33,5 +33,5 @@ export default TodoListPanel;
 
 const ListWrapper = styled.div`
     width: 100%;
-    max-height: 100%;
+    height: 100%;
 `;

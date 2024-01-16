@@ -10,7 +10,11 @@ const NoListsNoActiveListsNotice = () => {
     const lists = useSelector(state => state.dataLists);
 
     return (
-        <Background $primary $mode={context.mode} $widthLarge>
+        <Background 
+            $primary 
+            $mode={context.mode} 
+            $widthLarge
+        >
             <NoticeCase noticeCase={lists.length ? "noActiveList" : "noList"} />
         </Background>
     )

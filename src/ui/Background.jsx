@@ -17,6 +17,9 @@ const StyledBackground = styled.div`
     ${props => props.$widthSmall && css`
         width: 60%;
     `}
+    ${props => props.$heightMin && css `
+        height: fit-content;
+    `}
     ${props => props.$mode === "Light" && css`
         ${props => props.$primary && css `
             background-color: var(--lavender-background);

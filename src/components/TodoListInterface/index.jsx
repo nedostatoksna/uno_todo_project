@@ -14,6 +14,7 @@ const TodoListInterface = () => {
     return (
         <Background 
             $primary 
+            $heightMin
             $mode={context.mode} 
             $widthLarge={isShowingTodoEditPanel === false} 
             $widthSmall={isShowingTodoEditPanel}
