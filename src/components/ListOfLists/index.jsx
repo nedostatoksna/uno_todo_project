@@ -16,7 +16,11 @@ const ListOfLists = () => {
     const isShowingImportant  = useSelector(state => state.todoListUI.isShowingImportant);
 
     return (
-        <FlexColumnWrapper as="ul" $marginBottomSmall $mode={context.mode} $heightMinLarge $paddingBottom>
+        <FlexColumnWrapper 
+            as="ul" 
+            $mode={context.mode} 
+            $paddingBottomLarge
+        >
             {
                 (lists.length > 0)
                     ?

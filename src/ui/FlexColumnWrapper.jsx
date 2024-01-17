@@ -74,6 +74,9 @@ const StyledFlexWrapper = styled.div`
     ${props => props.$paddingBottom && css `
         padding-bottom: 20px;
     `}
+    ${props => props.$paddingBottomLarge && css `
+        padding-bottom: 40px;
+    `}
     ${props => props.$paddingTopBottomSmall && css `
         padding-bottom: 8px;
         padding-top: 8px;
