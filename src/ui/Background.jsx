@@ -11,6 +11,7 @@ export default Background;
 
 const StyledBackground = styled.div` 
     padding: 20px;
+    position: relative;
     ${props => props.$widthLarge && css`
         width: 80%;
     `}

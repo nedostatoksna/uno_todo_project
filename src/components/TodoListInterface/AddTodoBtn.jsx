@@ -14,10 +14,11 @@ const AddTodoBtn = () => {
             $whitePlus 
             $greyTransparent 
             $positionForPlus 
-            $widthMax 
             $paddingForPlus 
             $mode={context.mode}
             $fixedPosition
+            $MarginBottomLarge
+            $width
             onClick={() => {dispatch(toggleCreatingTodo())}}
         >
             Add a task

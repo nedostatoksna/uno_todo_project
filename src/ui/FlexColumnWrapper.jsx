@@ -12,8 +12,6 @@ export default FlexColumnWrapper;
 const StyledFlexWrapper = styled.div` 
     display: flex;
     flex-direction: column;
-    padding: ${props => props.$padding};
-    width: ${props => props.$width};
     position: relative;
 
     ${props => props.$widthSmall && css `
@@ -34,9 +32,6 @@ const StyledFlexWrapper = styled.div`
     `}
     ${props => props.$Calcheight && css `
         height: calc(100% - 104px);
-    `}
-    ${props => props.$heightMax && css `
-        height: 100%;
     `}
     ${props => props.$widthMax && css `
         width: 100%;
@@ -82,10 +77,10 @@ const StyledFlexWrapper = styled.div`
         padding-top: 8px;
     `}
     ${props => props.$heightMin && css `
-        min-height: calc(100% - 40px);
+        height: calc(100% - 40px);
     `}
     ${props => props.$heightMinLarge && css `
-        min-height: calc(100% - 60px);
+        min-height: calc(100vh - 182px);
     `}
     ${props => props.$heighToContent && css `
         height: fit-content;

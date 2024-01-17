@@ -16,7 +16,7 @@ const Note = ({ todoId, listId, note }) => {
         <FlexColumnWrapper $paddingTopSmall $mode={context.mode}>
         {
             note && <NoteHeader 
-                        htmlFor="note" 
+                        htmlFor={todoId}
                         $mode={context.mode}
                     >
                         Note
